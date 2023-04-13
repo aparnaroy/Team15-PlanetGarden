@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Team15-PlanetGarden/static/css/main.39f589df.css",
+    "main.js": "/Team15-PlanetGarden/static/js/main.c1a0e081.js",
+    "static/js/787.4ef7427d.chunk.js": "/Team15-PlanetGarden/static/js/787.4ef7427d.chunk.js",
+    "index.html": "/Team15-PlanetGarden/index.html",
+    "main.39f589df.css.map": "/Team15-PlanetGarden/static/css/main.39f589df.css.map",
+    "main.c1a0e081.js.map": "/Team15-PlanetGarden/static/js/main.c1a0e081.js.map",
+    "787.4ef7427d.chunk.js.map": "/Team15-PlanetGarden/static/js/787.4ef7427d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39f589df.css",
+    "static/js/main.c1a0e081.js"
+  ]
+}
