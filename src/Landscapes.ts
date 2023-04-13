@@ -19,6 +19,15 @@ export interface Tree {
     rating: number;
 }
 
+export interface Flower {
+    name: string;
+    description: string;
+    // include image, not sure how to do this yet
+    quantity: number;
+    maintenanceLevel: number;
+    rating: number;
+}
+
 export interface Greenery {
     name: string;
     description: string;
@@ -26,5 +35,13 @@ export interface Greenery {
     quantity: number;
     maintenanceLevel: number;
     price: number;
+    rating: number;
+}
+
+export interface Structure {
+    name: string;
+    description: string;
+    // include image, not sure how to do this yet
+    quantity: number;
     rating: number;
 }
