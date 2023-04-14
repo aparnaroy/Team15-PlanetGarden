@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { DisplayTrees } from "./components";
 
 function App(): JSX.Element {
     return (
@@ -15,6 +16,7 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
+            <DisplayTrees></DisplayTrees>
         </div>
     );
 }

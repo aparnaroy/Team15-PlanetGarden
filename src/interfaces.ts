@@ -16,6 +16,7 @@ export interface Tree {
     // include image
     quantity: number;
     maintenance: number;
+    price: number;
     rating: number;
 }
 
@@ -25,6 +26,7 @@ export interface Flower {
     // include image, not sure how to do this yet
     quantity: number;
     maintenanceLevel: number;
+    price: number;
     rating: number;
 }
 
@@ -43,5 +45,6 @@ export interface Structure {
     description: string;
     // include image, not sure how to do this yet
     quantity: number;
+    price: number;
     rating: number;
 }
