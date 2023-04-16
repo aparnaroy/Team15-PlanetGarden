@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { LandscapeItems } from "./components/Item";
 import PlanetGarden from "./Planet-Garden.png";
 import { DisplayTrees } from "./components";
 import { Col, Row } from "react-bootstrap";
@@ -117,6 +118,8 @@ function App(): JSX.Element {
                 Aparna Roy
             </h5>
             <DisplayTrees></DisplayTrees>
+            <hr></hr>
+            <LandscapeItems></LandscapeItems>
         </div>
     );
 }
