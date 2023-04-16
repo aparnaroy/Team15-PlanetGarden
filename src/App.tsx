@@ -2,9 +2,8 @@ import React from "react";
 import "./App.css";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { RevealAnswer } from "./components/RevealAnswer";
 import { PlanetGarden } from "./PlanetGarden";
-import ItemList from "./components/Item";
+import { LandscapeItems } from "./components/Item";
 
 function App(): JSX.Element {
     return (
@@ -17,9 +16,9 @@ function App(): JSX.Element {
                 automatically reload.
             </p>
             <hr></hr>
-            <RevealAnswer></RevealAnswer>
             <PlanetGarden></PlanetGarden>
-            <ItemList></ItemList>
+            <hr></hr>
+            <LandscapeItems></LandscapeItems>
         </div>
     );
 }

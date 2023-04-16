@@ -64,7 +64,7 @@ function NewItem({ onSave }: NewItemProps) {
     );
 }
 
-function LandscapeItems() {
+export function LandscapeItems(): JSX.Element {
     const [items, setItems] = useState<Item[]>([
         {
             id: 1,
@@ -117,4 +117,4 @@ function LandscapeItems() {
     );
 }
 
-export default LandscapeItems;
+//export default LandscapeItems;
