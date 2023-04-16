@@ -8,6 +8,11 @@ import Spruce from "./spruce-tree.png";
 import Sequoia from "./Sequoia.png";
 import Cedar from "./cedar-tree.png";
 import Larch from "./larch-tree.png";
+import Pansy from "./Pansy.png";
+import iris from "./iris.png";
+import sunflower from "./Sunflower.png";
+import Chrysanthemem from "./Chrysanthemum.png";
+import Tulip from "./Tulip.png";
 
 function App(): JSX.Element {
     return (
@@ -64,13 +69,31 @@ function App(): JSX.Element {
                         height="270"
                     ></img>
                 </div>
-            </div>
-            <div className="flex-container">
-                <div>Rose </div>
-                <div>Daisy </div>
-                <div>Lilly </div>
-                <div>Orchid </div>
-                <div>Tulip </div>
+                <div>
+                    <img src={Tulip} alt="Tulip" width="270" height="270"></img>
+                </div>
+                <div>
+                    <img src={Pansy} alt="Pansy" width="270" height="270"></img>
+                </div>
+                <div>
+                    <img src={iris} alt="Iris" width="270" height="270"></img>
+                </div>
+                <div>
+                    <img
+                        src={sunflower}
+                        alt="Sunflower"
+                        width="270"
+                        height="270"
+                    ></img>
+                </div>
+                <div>
+                    <img
+                        src={Chrysanthemem}
+                        alt="Pansy"
+                        width="270"
+                        height="270"
+                    ></img>
+                </div>
             </div>
             <Col> COLUMN </Col>
             <h5>

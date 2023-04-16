@@ -42,12 +42,18 @@ body {
 
 .flex-container {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     background-color: rgb(242, 229, 214);
+    height: 400px;
+    overflow-y: auto;
 }
 
 .flex-container > div {
     background-color: #f1f1f1;
     margin: 10px;
+    margin-left: 50px;
     padding: 20px;
     font-size: 30px;
 }
