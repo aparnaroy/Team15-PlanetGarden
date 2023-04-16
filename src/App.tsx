@@ -28,82 +28,94 @@ function App(): JSX.Element {
                 <h1>*DROP DOWN COMPONENT*</h1>
             </div>
             <header className="App-header2">Available Items</header>
-            <div className="flex-container">
-                <div>
-                    <img
-                        src={Oaktree}
-                        alt="Oak tree"
-                        width="270"
-                        height="270"
-                    ></img>
-                </div>
-                <div>
-                    <img
-                        src={Spruce}
-                        alt="Oak tree"
-                        width="270"
-                        height="270"
-                    ></img>
-                </div>
-                <div>
-                    <img
-                        src={Sequoia}
-                        alt="Oak tree"
-                        width="270"
-                        height="270"
-                    ></img>
-                </div>
-                <div>
-                    <img
-                        src={Cedar}
-                        alt="Oak tree"
-                        width="270"
-                        height="270"
-                    ></img>
-                </div>
-                <div>
-                    <img
-                        src={Larch}
-                        alt="Oak tree"
-                        width="270"
-                        height="270"
-                    ></img>
-                </div>
-                <div>
-                    <img src={Tulip} alt="Tulip" width="270" height="270"></img>
-                </div>
-                <div>
-                    <img src={Pansy} alt="Pansy" width="270" height="270"></img>
-                </div>
-                <div>
-                    <img src={iris} alt="Iris" width="270" height="270"></img>
-                </div>
-                <div>
-                    <img
-                        src={sunflower}
-                        alt="Sunflower"
-                        width="270"
-                        height="270"
-                    ></img>
-                </div>
-                <div>
-                    <img
-                        src={Chrysanthemem}
-                        alt="Pansy"
-                        width="270"
-                        height="270"
-                    ></img>
+            <div className="parent-container">
+                <div className="flex-container">
+                    <div>
+                        <img
+                            src={Oaktree}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                    </div>
+                    <div>
+                        <img
+                            src={Spruce}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                    </div>
+                    <div>
+                        <img
+                            src={Sequoia}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                    </div>
+                    <div>
+                        <img
+                            src={Cedar}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                    </div>
+                    <div>
+                        <img
+                            src={Larch}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                    </div>
+                    <div>
+                        <img
+                            src={Pansy}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                    </div>
+                    <div>
+                        <img
+                            src={iris}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                    </div>
+                    <div>
+                        <img
+                            src={sunflower}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                    </div>
+                    <div>
+                        <img
+                            src={Chrysanthemem}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                    </div>
+                    <div>
+                        <img
+                            src={Tulip}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                    </div>
                 </div>
             </div>
-            <Col> COLUMN </Col>
             <h5>
                 Emilie Barniak, Jillian Camp, Emma Frampton, Mikaylla Haskins,
                 Aparna Roy
             </h5>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
-            </p>
             <DisplayTrees></DisplayTrees>
         </div>
     );
