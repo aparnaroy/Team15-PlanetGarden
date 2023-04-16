@@ -4,6 +4,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { RevealAnswer } from "./components/RevealAnswer";
 import { PlanetGarden } from "./PlanetGarden";
+import ItemList from "./components/Item";
 
 function App(): JSX.Element {
     return (
@@ -18,6 +19,7 @@ function App(): JSX.Element {
             <hr></hr>
             <RevealAnswer></RevealAnswer>
             <PlanetGarden></PlanetGarden>
+            <ItemList></ItemList>
         </div>
     );
 }

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 
-type LandscapeItemProps = {
+interface LandscapeItemProps {
     name: string;
     description: string;
     price: number;
     seasons: string[];
     maintenance: number;
     imgUrl: string;
-};
+}
 
 export function LandscapeItem({
     name,
