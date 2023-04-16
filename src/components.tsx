@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+/* eslint-disable no-extra-parens */
+import React from "react";
 import { Tree } from "./interfaces";
-import { Button, Col, Row } from "react-bootstrap";
+//import { Button, Container, Row } from "react-bootstrap";
+import Oaktree from "./oaktree.png";
 
 // make this a display function, display all trees of a list of them
 export function DisplayTrees(): JSX.Element {
@@ -33,8 +35,14 @@ export function DisplayTrees(): JSX.Element {
         <div>
             {allTrees.map((aTree: Tree) => (
                 <>
-                    <Row style={{ textAlign: "center" }}>
-                        <h4>PHOTO GOES HERE</h4>
+                    <div style={{ textAlign: "center" }}>
+                        <img
+                            src={Oaktree}
+                            alt="Oak tree"
+                            width="270"
+                            height="270"
+                        ></img>
+                        <br></br>
                         <h3>{aTree.name}</h3>
                         <span>{aTree.description}</span>
                         <br></br>
@@ -48,8 +56,8 @@ export function DisplayTrees(): JSX.Element {
                         <br></br>
                         <span>Rating: {aTree.rating} out of 5</span>
                         <br></br>
-                    </Row>
-                    <Row style={{ border: "5px solid green" }}></Row>
+                    </div>
+                    <div style={{ color: "5px solid light green" }}></div>
                 </>
             ))}
         </div>
