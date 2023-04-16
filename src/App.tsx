@@ -3,7 +3,7 @@ import "./App.css";
 import { LandscapeItems } from "./components/Item";
 import PlanetGarden from "./Planet-Garden.png";
 import { DisplayTrees } from "./components";
-import { Col, Row } from "react-bootstrap";
+// import { Col, Row } from "react-bootstrap";
 import Oaktree from "./oaktree.png";
 import Spruce from "./spruce-tree.png";
 import Sequoia from "./Sequoia.png";
