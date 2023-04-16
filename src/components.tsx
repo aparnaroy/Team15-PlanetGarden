@@ -12,7 +12,7 @@ export function DisplayTrees(): JSX.Element {
         quantity: 1,
         maintenance: 1,
         price: 20.0,
-        rating: 5
+        rating: 4
     };
     const spruceTree: Tree = {
         name: "Spruce Tree",
