@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 interface Item {
     id: number;
     name: string;
     price: number;
-    image: string;
+    imageUrl: string;
 }
 
 interface ItemProps {
     name: string;
     price: number;
-    image: string;
+    imageUrl: string;
 }
 
-function Item({ name, price, image }: ItemProps): JSX.Element {
+function Item({ name, price, imageUrl }: ItemProps) {
     return (
         <div>
-            <img src={image} alt={image} />
+            <img src={imageUrl} alt={imageUrl} />
             <h2>{name}</h2>
             <p>${price}</p>
         </div>
@@ -28,21 +29,21 @@ interface NewItemProps {
     onSave: (item: Item) => void;
 }
 
-function NewItem({ onSave }: NewItemProps): JSX.Element {
+function NewItem({ onSave }: NewItemProps) {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
-    const [image, setImage] = useState("");
+    const [imageUrl, setImage] = useState("");
 
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    function handleSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        onSave({ id: Date.now(), image, name, price: parseInt(price) });
+        onSave({ id: Date.now(), name, price: parseInt(price), imageUrl });
         setName("");
         setPrice("");
         setImage("");
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSave}>
             <input
                 type="text"
                 value={name}
@@ -55,7 +56,7 @@ function NewItem({ onSave }: NewItemProps): JSX.Element {
             />
             <input
                 type="text"
-                value={image}
+                value={imageUrl}
                 onChange={(event) => setImage(event.target.value)}
             />
             <Button type="submit">Save</Button>
@@ -63,41 +64,57 @@ function NewItem({ onSave }: NewItemProps): JSX.Element {
     );
 }
 
-function Items(): JSX.Element {
+function LandscapeItems() {
     const [items, setItems] = useState<Item[]>([
         {
             id: 1,
             name: "Item 1",
             price: 10,
-            image: "https://example.com/image1.jpg"
+            imageUrl:
+                "https://easydrawingguides.com/wp-content/uploads/2017/02/How-to-draw-a-cartoon-tree-20.png"
         },
         {
             id: 2,
             name: "Item 2",
             price: 20,
-            image: "https://example.com/image2.jpg"
+            imageUrl: "https://example.com/image2.jpg"
         }
     ]);
-    const [showNewItemForm, setShowNewItemForm] = useState(false);
+    const [newItemForm, setShowItemForm] = useState(false);
 
-    function handleAddItem(item: Item) {
+    function addItem(item: Item) {
         setItems([...items, item]);
-        setShowNewItemForm(false);
+        setShowItemForm(false);
     }
 
-    function toggleNewItemForm() {
-        setShowNewItemForm(!showNewItemForm);
+    function showItemForm() {
+        setShowItemForm(!newItemForm);
     }
 
     return (
         <div>
-            <Button onClick={toggleNewItemForm}>Add New Item</Button>
-            {showNewItemForm && <NewItem onSave={handleAddItem} />}
+            <Button onClick={showItemForm}>Add New Item</Button>
+            {newItemForm && <NewItem onSave={addItem} />}
             {items.map((item) => (
-                <Item key={item.id} {...item} />
+                <Card key={item.id}>
+                    <Card.Img
+                        variant="top"
+                        src={item.imageUrl}
+                        height="200px"
+                        style={{ objectFit: "cover" }}
+                    />
+                    <Card.Body className="d-flex flex-column">
+                        <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
+                            <span className="fs-2">{item.name}</span>
+                            <span className="ms-2 text-muted">
+                                ${item.price}
+                            </span>
+                        </Card.Title>
+                    </Card.Body>
+                </Card>
             ))}
         </div>
     );
 }
 
-export default Items;
+export default LandscapeItems;
