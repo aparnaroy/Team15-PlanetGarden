@@ -1,9 +1,19 @@
 import React from "react";
 import "./App.css";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { PlanetGarden } from "./PlanetGarden";
 import { LandscapeItems } from "./components/Item";
+import PlanetGarden from "./Planet-Garden.png";
+import { DisplayTrees } from "./components";
+import { Col, Row } from "react-bootstrap";
+import Oaktree from "./oaktree.png";
+import Spruce from "./spruce-tree.png";
+import Sequoia from "./Sequoia.png";
+import Cedar from "./cedar-tree.png";
+import Larch from "./larch-tree.png";
+import Pansy from "./Pansy.png";
+import iris from "./iris.png";
+import sunflower from "./Sunflower.png";
+import Chrysanthemem from "./Chrysanthemum.png";
+import Tulip from "./Tulip.png";
 
 function App(): JSX.Element {
     return (
@@ -15,8 +25,6 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
-            <hr></hr>
-            <PlanetGarden></PlanetGarden>
             <hr></hr>
             <LandscapeItems></LandscapeItems>
         </div>
