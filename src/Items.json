@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Lily",
+        "description": "a pink lily",
+        "price": 5.0,
+        "seasons": ["Spring", "Summer"],
+        "maintenance": 3,
+        "imgUrl": "public/images/cute_puppy.jpeg"
+    },
+    {
+        "name": "Rose",
+        "description": "a red rose",
+        "price": 7.0,
+        "seasons": ["Spring"],
+        "maintenance": 5,
+        "imgUrl": "/images/cute_puppy.jpeg"
+    }
+]
