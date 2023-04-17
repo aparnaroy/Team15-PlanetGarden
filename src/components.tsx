@@ -1,4 +1,3 @@
-/* eslint-disable no-extra-parens */
 import React from "react";
 import { Tree } from "./interfaces";
 //import { Button, Container, Row } from "react-bootstrap";
@@ -33,7 +32,7 @@ export function DisplayTrees(): JSX.Element {
     const allTrees: Tree[] = [oakTree, spruceTree, mapleTree];
     return (
         <div>
-            {allTrees.map((aTree: Tree) => (
+            {allTrees.map((aTree: Tree) => {
                 <>
                     <div style={{ textAlign: "center" }}>
                         <img
@@ -58,8 +57,8 @@ export function DisplayTrees(): JSX.Element {
                         <br></br>
                     </div>
                     <div style={{ color: "5px solid light green" }}></div>
-                </>
-            ))}
+                </>;
+            })}
         </div>
     );
 }

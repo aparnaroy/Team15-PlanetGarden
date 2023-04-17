@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
-export function dropDownMenu(): JSX.Element {
+export function DropDownMenu(): JSX.Element {
     // This is the State (Model)
     const [role, setRole] = useState<string>("Roles");
 
@@ -14,7 +14,7 @@ export function dropDownMenu(): JSX.Element {
     return (
         <div>
             <Form.Group controlId="The_Roles">
-                <Form.Label>Please select a role.?</Form.Label>
+                <Form.Label>Please select a role.</Form.Label>
                 <Form.Select value={role} onChange={updateRole}>
                     <option value="Super">Super</option>
                     <option value="Admin">Admin</option>

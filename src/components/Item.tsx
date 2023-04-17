@@ -1,7 +1,5 @@
-/* eslint-disable no-extra-parens */
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 interface Item {
     id: number;
@@ -96,26 +94,26 @@ export function LandscapeItems(): JSX.Element {
         <div>
             <Button onClick={showItemForm}>Add New Item</Button>
             {newItemForm && <NewItem onSave={addItem} />}
-            {items.map((item) => (
-                <Card key={item.id}>
-                    <Card.Img
-                        variant="top"
-                        src={item.imageUrl}
-                        height="200px"
-                        style={{ objectFit: "cover" }}
-                    />
-                    <Card.Body className="d-flex flex-column">
-                        <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
-                            <span className="fs-2">{item.name}</span>
-                            <span className="ms-2 text-muted">
-                                ${item.price}
-                            </span>
-                        </Card.Title>
-                    </Card.Body>
-                </Card>
-            ))}
+            {items.map((item) => {
+                return (
+                    <Card key={item.id}>
+                        <Card.Img
+                            variant="top"
+                            src={item.imageUrl}
+                            height="200px"
+                            style={{ objectFit: "cover" }}
+                        />
+                        <Card.Body className="d-flex flex-column">
+                            <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
+                                <span className="fs-2">{item.name}</span>
+                                <span className="ms-2 text-muted">
+                                    ${item.price}
+                                </span>
+                            </Card.Title>
+                        </Card.Body>
+                    </Card>
+                );
+            })}
         </div>
     );
 }
-
-//export default LandscapeItems;

@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { LandscapeItems } from "./components/Item";
+import { DropDownMenu } from "./components/dropDownMenu";
 import PlanetGarden from "./Planet-Garden.png";
 import { DisplayTrees } from "./components";
 // import { Col, Row } from "react-bootstrap";
@@ -27,6 +28,7 @@ function App(): JSX.Element {
             ></img>
             <div>
                 <h1>*DROP DOWN COMPONENT*</h1>
+                <DropDownMenu></DropDownMenu>
             </div>
             <header className="App-header2">Available Items</header>
             <div className="parent-container">
