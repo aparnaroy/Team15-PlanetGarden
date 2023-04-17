@@ -119,6 +119,7 @@ function App(): JSX.Element {
                 Emilie Barniak, Jillian Camp, Emma Frampton, Mikaylla Haskins,
                 Aparna Roy
             </h5>
+            <p>CISC275</p>
             <DisplayTrees></DisplayTrees>
             <hr></hr>
             <LandscapeItems></LandscapeItems>
