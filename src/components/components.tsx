@@ -1,7 +1,7 @@
 import React from "react";
-import { Tree } from "./interfaces";
+import { Tree } from "../interfaces";
 //import { Button, Container, Row } from "react-bootstrap";
-import Oaktree from "./oaktree.png";
+import Oaktree from "../assets/oaktree.png";
 
 // make this a display function, display all trees of a list of them
 export function DisplayTrees(): JSX.Element {
