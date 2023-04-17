@@ -2,6 +2,9 @@
     text-align: center;
 }
 
+body {
+    background-color: beige;
+}
 .App-logo {
     height: 40vmin;
     pointer-events: none;
@@ -15,25 +18,55 @@
 
 .App-header {
     width: 100%;
-    background-color: #282c34;
-    min-height: 40vh;
+    background-color: #56a3a6;
+    min-height: 20vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-end;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    font-size: calc(75px + 2vmin);
+    color: rgb(121, 93, 50);
 }
 
-.App-link {
-    color: #61dafb;
+.App-header2 {
+    width: 100%;
+    background-color: #56a3a6;
+    min-height: 5vh;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: start;
+    justify-content: start;
+    font-size: calc(30px + 2vmin);
+    color: rgb(255, 255, 255);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.parent-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 700px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 700px;
+    width: 60%;
+    overflow-y: auto;
+    background-color: rgb(237, 220, 198);
+}
+
+.flex-container > div {
+    background-color: #f1f1f1;
+    margin: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    padding: 20px;
+    font-size: 30px;
 }
