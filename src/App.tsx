@@ -1,18 +1,22 @@
 import React from "react";
 import "./App.css";
-import PlanetGarden from "./Planet-Garden.png";
-import { DisplayTrees } from "./components";
-import { Col, Row } from "react-bootstrap";
-import Oaktree from "./oaktree.png";
-import Spruce from "./spruce-tree.png";
-import Sequoia from "./Sequoia.png";
-import Cedar from "./cedar-tree.png";
-import Larch from "./larch-tree.png";
-import Pansy from "./Pansy.png";
-import iris from "./iris.png";
-import sunflower from "./Sunflower.png";
-import Chrysanthemem from "./Chrysanthemum.png";
-import Tulip from "./Tulip.png";
+// import { Col, Row } from "react-bootstrap";
+// Components
+import { LandscapeItems } from "./components/Item";
+import { DropDownMenu } from "./components/dropDownMenu";
+import { DisplayTrees } from "./components/components";
+// Images
+import PlanetGarden from "./assets/Planet-Garden.png";
+import Oaktree from "./assets/oaktree.png";
+import Spruce from "./assets/spruce-tree.png";
+import Sequoia from "./assets/Sequoia.png";
+import Cedar from "./assets/cedar-tree.png";
+import Larch from "./assets/larch-tree.png";
+import Pansy from "./assets/Pansy.png";
+import iris from "./assets/iris.png";
+import sunflower from "./assets/Sunflower.png";
+import Chrysanthemem from "./assets/Chrysanthemum.png";
+import Tulip from "./assets/Tulip.png";
 
 function App(): JSX.Element {
     return (
@@ -26,6 +30,7 @@ function App(): JSX.Element {
             ></img>
             <div>
                 <h1>*DROP DOWN COMPONENT*</h1>
+                <DropDownMenu></DropDownMenu>
             </div>
             <header className="App-header2">Available Items</header>
             <div className="parent-container">
@@ -116,7 +121,11 @@ function App(): JSX.Element {
                 Emilie Barniak, Jillian Camp, Emma Frampton, Mikaylla Haskins,
                 Aparna Roy
             </h5>
+            <p>CISC275</p>
             <DisplayTrees></DisplayTrees>
+            <hr></hr>
+            <LandscapeItems></LandscapeItems>
+            <hr></hr>
         </div>
     );
 }
