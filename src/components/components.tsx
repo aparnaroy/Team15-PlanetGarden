@@ -1,5 +1,5 @@
 import React from "react";
-import { Tree, Flower } from "../interfaces";
+import { Tree, Flower, Greenery, Structure } from "../interfaces";
 import {
     oakTree,
     spruceTree,
@@ -10,18 +10,24 @@ import {
     irisFlower,
     tulipFlower,
     chrysanthememFlower,
-    pansyFlower
+    pansyFlower,
+    grassGreenery,
+    pondStructure,
+    benchStructure
 } from "../assets/instances";
 
 // displayAll is sorted alphabetically by default
 export function DisplayAll(): JSX.Element {
-    const allItems: (Flower | Tree)[] = [
+    const allItems: (Flower | Tree | Greenery | Structure)[] = [
+        benchStructure,
         cedarTree,
         chrysanthememFlower,
+        grassGreenery,
         irisFlower,
         larchTree,
         oakTree,
         pansyFlower,
+        pondStructure,
         sequoiaTree,
         spruceTree,
         sunflowerFlower,

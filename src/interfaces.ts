@@ -33,7 +33,7 @@ export interface Flower {
 export interface Greenery {
     name: string;
     description: string;
-    // include image, not sure how to do this yet
+    image: string;
     quantity: number;
     maintenanceLevel: number;
     price: number;
@@ -43,8 +43,9 @@ export interface Greenery {
 export interface Structure {
     name: string;
     description: string;
-    // include image, not sure how to do this yet
+    image: string;
     quantity: number;
+    maintenanceLevel: number;
     price: number;
     rating: number;
 }

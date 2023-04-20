@@ -1,5 +1,5 @@
 // tree imports
-import { Tree, Flower } from "../interfaces";
+import { Tree, Flower, Structure, Greenery } from "../interfaces";
 import Oaktree from "./oaktree.png";
 import Spruce from "./spruce-tree.png";
 import Larch from "./larch-tree.png";
@@ -11,6 +11,36 @@ import sunflower from "./Sunflower.png";
 import Chrysanthemem from "./Chrysanthemum.png";
 import Tulip from "./Tulip.png";
 
+// STRUCTURES
+export const pondStructure: Structure = {
+    name: "Pond",
+    description: "A small body of water to bring some life to your landscape!",
+    image: Oaktree,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 70.0,
+    rating: 0
+};
+export const benchStructure: Structure = {
+    name: "Bench",
+    description:
+        "A nice place to sit and relax while observing your beautiful landscape.",
+    image: Oaktree,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 30.0,
+    rating: 0
+};
+// GREENERY
+export const grassGreenery: Greenery = {
+    name: "Grass",
+    description: "Something perfect to fill up any empty spots in your yard!",
+    image: Oaktree,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 15.0,
+    rating: 0
+};
 // FLOWERS
 export const tulipFlower: Flower = {
     name: "Tulip",
