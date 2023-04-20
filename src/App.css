@@ -54,7 +54,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     height: 700px;
     width: 60%;
     overflow-y: auto;

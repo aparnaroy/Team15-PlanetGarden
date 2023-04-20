@@ -14,92 +14,101 @@ import Tulip from "./Tulip.png";
 // FLOWERS
 export const tulipFlower: Flower = {
     name: "Tulip",
-    description: "tba",
+    description:
+        "These spring-blooming flowers come in all types of different colors!",
     image: Tulip,
     quantity: 1,
-    maintenanceLevel: 4,
-    price: 25.0,
-    rating: 3
+    maintenanceLevel: 1,
+    price: 10.0,
+    rating: 0
 };
 export const chrysanthememFlower: Flower = {
-    name: "Chrysanthemem",
-    description: "tba",
+    name: "Chrysanthemum",
+    description:
+        "These fall garden flowers are very easy to grow and have a ton of petals!",
     image: Chrysanthemem,
     quantity: 1,
-    maintenanceLevel: 4,
-    price: 25.0,
-    rating: 3
+    maintenanceLevel: 1,
+    price: 20.0,
+    rating: 0
 };
 export const sunflowerFlower: Flower = {
     name: "Sunflower",
-    description: "tba",
+    description:
+        "These tall plants grow towards the sun, are used to produce sunflower oil, and contain yummy seeds!",
     image: sunflower,
     quantity: 1,
-    maintenanceLevel: 4,
+    maintenanceLevel: 2,
     price: 25.0,
-    rating: 3
+    rating: 0
 };
 export const irisFlower: Flower = {
     name: "Iris",
-    description: "tba",
+    description:
+        "This beautiful flower is beautiful and easy to grow! There exist around 300 varieties of irises.",
     image: iris,
     quantity: 1,
-    maintenanceLevel: 4,
+    maintenanceLevel: 1,
     price: 25.0,
-    rating: 3
+    rating: 0
 };
 export const pansyFlower: Flower = {
     name: "Pansy",
-    description: "tba",
+    description:
+        "These flowers are multicolored and fast-growing. They love cool weather!",
     image: Pansy,
     quantity: 1,
-    maintenanceLevel: 4,
-    price: 25.0,
-    rating: 3
+    maintenanceLevel: 1,
+    price: 10.0,
+    rating: 0
 };
 // TREES
 export const sequoiaTree: Tree = {
     name: "Sequoia Tree",
-    description: "tba",
+    description: "These trees can get as tall as 80m! Perfect for vast areas.",
     image: Sequoia,
     quantity: 1,
-    maintenance: 4,
-    price: 25.0,
-    rating: 3
+    maintenance: 5,
+    price: 50.0,
+    rating: 0
 };
 export const oakTree: Tree = {
     name: "Oak Tree",
-    description: "Tall and brown, perfect for parks!",
+    description:
+        "One of the most common species in the Northern Hemisphere. Produce lots of acorns!",
     image: Oaktree,
     quantity: 1,
     maintenance: 1,
-    price: 20.0,
-    rating: 4
+    price: 40.0,
+    rating: 0
 };
 export const spruceTree: Tree = {
     name: "Spruce Tree",
-    description: "A darker bark, beautiful for landscapes!",
+    description:
+        "Spruce trees are evergreens with short leaves referred to as needles. They stay alive during the winter and very cold seasons!",
     image: Spruce,
     quantity: 1,
     maintenance: 1,
-    price: 30.0,
-    rating: 5
+    price: 60.0,
+    rating: 0
 };
 export const larchTree: Tree = {
     name: "Larch Tree",
-    description: "Is very larchy!",
+    description:
+        "These trees grow from 20-45m tall and are a type of pine tree!",
     image: Larch,
     quantity: 1,
     maintenance: 3,
-    price: 50,
-    rating: 3
+    price: 50.0,
+    rating: 0
 };
 export const cedarTree: Tree = {
     name: "Cedar Tree",
-    description: "",
+    description:
+        "Can be grown in many different climates. They are large and their leaves extend past the trunk widely.",
     image: Cedar,
     quantity: 1,
     maintenance: 3,
-    price: 60,
-    rating: 4
+    price: 60.0,
+    rating: 0
 };

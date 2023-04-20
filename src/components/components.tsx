@@ -37,18 +37,18 @@ export function DisplayTrees(): JSX.Element {
                                 ></img>
                                 <br></br>
                                 <h3>{aTree.name}</h3>
-                                <span>{aTree.description}</span>
+                                <span>•{aTree.description}</span>
                                 <br></br>
-                                <span>Quantity: {aTree.quantity}</span>
+                                <span>•Quantity: {aTree.quantity}</span>
                                 <br></br>
                                 <span>
-                                    Maintenance level: {aTree.maintenance} out
+                                    •Maintenance level: {aTree.maintenance} out
                                     of 5
                                 </span>
                                 <br></br>
-                                <span>Price: ${aTree.price}</span>
+                                <span>•Price: ${aTree.price}</span>
                                 <br></br>
-                                <span>Rating: {aTree.rating} out of 5</span>
+                                <span>•Rating: {aTree.rating} out of 5</span>
                             </div>
                         </div>
                     );
@@ -81,18 +81,18 @@ export function DisplayFlowers(): JSX.Element {
                                 ></img>
                                 <br></br>
                                 <h3>{aFlower.name}</h3>
-                                <span>{aFlower.description}</span>
+                                <span>•{aFlower.description}</span>
                                 <br></br>
-                                <span>Quantity: {aFlower.quantity}</span>
+                                <span>•Quantity: {aFlower.quantity}</span>
                                 <br></br>
                                 <span>
-                                    Maintenance level:{" "}
+                                    •Maintenance level:{" "}
                                     {aFlower.maintenanceLevel} out of 5
                                 </span>
                                 <br></br>
-                                <span>Price: ${aFlower.price}</span>
+                                <span>•Price: ${aFlower.price}</span>
                                 <br></br>
-                                <span>Rating: {aFlower.rating} out of 5</span>
+                                <span>•Rating: {aFlower.rating} out of 5</span>
                             </div>
                         </div>
                     );
