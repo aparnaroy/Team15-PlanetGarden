@@ -13,6 +13,7 @@ export interface Landscape {
 export interface Tree {
     name: string;
     description: string;
+    image: string;
     // include image
     quantity: number;
     maintenance: number;
