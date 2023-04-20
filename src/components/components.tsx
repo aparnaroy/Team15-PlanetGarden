@@ -13,7 +13,55 @@ import {
     pansyFlower
 } from "../assets/instances";
 
-// make this a display function, display all trees of a list of them
+// displayAll is sorted alphabetically by default
+export function DisplayAll(): JSX.Element {
+    const allItems: (Flower | Tree)[] = [
+        cedarTree,
+        chrysanthememFlower,
+        irisFlower,
+        larchTree,
+        oakTree,
+        pansyFlower,
+        sequoiaTree,
+        spruceTree,
+        sunflowerFlower,
+        tulipFlower
+    ];
+    return (
+        <div className="parent-container">
+            <div className="flex-container">
+                {allItems.map((anItem: Flower | Tree) => {
+                    return (
+                        <div key={anItem.name}>
+                            <div style={{ textAlign: "center" }}>
+                                <img
+                                    src={anItem.image}
+                                    alt="Oak tree"
+                                    width="270"
+                                    height="270"
+                                ></img>
+                                <br></br>
+                                <h3>{anItem.name}</h3>
+                                <span>•{anItem.description}</span>
+                                <br></br>
+                                <span>•Quantity: {anItem.quantity}</span>
+                                <br></br>
+                                <span>
+                                    •Maintenance level:{" "}
+                                    {anItem.maintenanceLevel} out of 5
+                                </span>
+                                <br></br>
+                                <span>•Price: ${anItem.price}</span>
+                                <br></br>
+                                <span>•Rating: {anItem.rating} out of 5</span>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
 export function DisplayTrees(): JSX.Element {
     const allTrees: Tree[] = [
         oakTree,
@@ -42,8 +90,8 @@ export function DisplayTrees(): JSX.Element {
                                 <span>•Quantity: {aTree.quantity}</span>
                                 <br></br>
                                 <span>
-                                    •Maintenance level: {aTree.maintenance} out
-                                    of 5
+                                    •Maintenance level: {aTree.maintenanceLevel}{" "}
+                                    out of 5
                                 </span>
                                 <br></br>
                                 <span>•Price: ${aTree.price}</span>

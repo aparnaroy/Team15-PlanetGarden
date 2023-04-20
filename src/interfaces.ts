@@ -15,7 +15,7 @@ export interface Tree {
     description: string;
     image: string;
     quantity: number;
-    maintenance: number;
+    maintenanceLevel: number;
     price: number;
     rating: number;
 }

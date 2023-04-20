@@ -68,7 +68,7 @@ export const sequoiaTree: Tree = {
     description: "These trees can get as tall as 80m! Perfect for vast areas.",
     image: Sequoia,
     quantity: 1,
-    maintenance: 5,
+    maintenanceLevel: 5,
     price: 50.0,
     rating: 0
 };
@@ -78,7 +78,7 @@ export const oakTree: Tree = {
         "One of the most common species in the Northern Hemisphere. Produce lots of acorns!",
     image: Oaktree,
     quantity: 1,
-    maintenance: 1,
+    maintenanceLevel: 1,
     price: 40.0,
     rating: 0
 };
@@ -88,7 +88,7 @@ export const spruceTree: Tree = {
         "Spruce trees are evergreens with short leaves referred to as needles. They stay alive during the winter and very cold seasons!",
     image: Spruce,
     quantity: 1,
-    maintenance: 1,
+    maintenanceLevel: 1,
     price: 60.0,
     rating: 0
 };
@@ -98,7 +98,7 @@ export const larchTree: Tree = {
         "These trees grow from 20-45m tall and are a type of pine tree!",
     image: Larch,
     quantity: 1,
-    maintenance: 3,
+    maintenanceLevel: 3,
     price: 50.0,
     rating: 0
 };
@@ -108,7 +108,7 @@ export const cedarTree: Tree = {
         "Can be grown in many different climates. They are large and their leaves extend past the trunk widely.",
     image: Cedar,
     quantity: 1,
-    maintenance: 3,
+    maintenanceLevel: 3,
     price: 60.0,
     rating: 0
 };

@@ -4,7 +4,11 @@ import "./App.css";
 // Components
 import { LandscapeItems } from "./components/Item";
 import { DropDownMenu } from "./components/dropDownMenu";
-import { DisplayTrees, DisplayFlowers } from "./components/components";
+import {
+    DisplayTrees,
+    DisplayFlowers,
+    DisplayAll
+} from "./components/components";
 
 // Images
 import PlanetGarden from "./assets/Planet-Garden.png";
@@ -126,6 +130,7 @@ function App(): JSX.Element {
             <p>CISC275</p>
             <DisplayTrees></DisplayTrees>
             <DisplayFlowers></DisplayFlowers>
+            <DisplayAll></DisplayAll>
             <hr></hr>
             <LandscapeItems></LandscapeItems>
             <hr></hr>
