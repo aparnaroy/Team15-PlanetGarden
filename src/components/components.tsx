@@ -1,66 +1,157 @@
 import React from "react";
-import { Tree } from "../interfaces";
-//import { Button, Container, Row } from "react-bootstrap";
-import Oaktree from "../assets/oaktree.png";
+import { Tree, Flower, Greenery, Structure } from "../interfaces";
+import {
+    oakTree,
+    spruceTree,
+    larchTree,
+    cedarTree,
+    sequoiaTree,
+    sunflowerFlower,
+    irisFlower,
+    tulipFlower,
+    chrysanthememFlower,
+    pansyFlower,
+    grassGreenery,
+    pondStructure,
+    benchStructure
+} from "../assets/instances";
 
-// make this a display function, display all trees of a list of them
-export function DisplayTrees(): JSX.Element {
-    const oakTree: Tree = {
-        name: "Oak Tree",
-        description: "Tall and brown, perfect for parks!",
-        quantity: 1,
-        maintenance: 1,
-        price: 20.0,
-        rating: 4
-    };
-    const spruceTree: Tree = {
-        name: "Spruce Tree",
-        description: "A darker bark, beautiful for landscapes!",
-        quantity: 1,
-        maintenance: 1,
-        price: 30.0,
-        rating: 5
-    };
-    const mapleTree: Tree = {
-        name: "Maple Tree",
-        description: "Produces maple syrum (myth)",
-        quantity: 1,
-        maintenance: 3,
-        price: 50,
-        rating: 3
-    };
-    const allTrees: Tree[] = [oakTree, spruceTree, mapleTree];
+// displayAll is sorted alphabetically by default
+export function DisplayAll(): JSX.Element {
+    const allItems: (Flower | Tree | Greenery | Structure)[] = [
+        benchStructure,
+        cedarTree,
+        chrysanthememFlower,
+        grassGreenery,
+        irisFlower,
+        larchTree,
+        oakTree,
+        pansyFlower,
+        pondStructure,
+        sequoiaTree,
+        spruceTree,
+        sunflowerFlower,
+        tulipFlower
+    ];
     return (
-        <div>
-            {allTrees.map((aTree: Tree) => {
-                return (
-                    <div key={aTree.name}>
-                        <div style={{ textAlign: "center" }}>
-                            <img
-                                src={Oaktree}
-                                alt="Oak tree"
-                                width="270"
-                                height="270"
-                            ></img>
-                            <br></br>
-                            <h3>{aTree.name}</h3>
-                            <span>{aTree.description}</span>
-                            <br></br>
-                            <span>Quantity: {aTree.quantity}</span>
-                            <br></br>
-                            <span>
-                                Maintenance level: {aTree.maintenance} out of 5
-                            </span>
-                            <br></br>
-                            <span>Price: ${aTree.price}</span>
-                            <br></br>
-                            <span>Rating: {aTree.rating} out of 5</span>
-                            <br></br>
+        <div className="parent-container">
+            <div className="flex-container">
+                {allItems.map((anItem: Flower | Tree) => {
+                    return (
+                        <div key={anItem.name}>
+                            <div style={{ textAlign: "center" }}>
+                                <img
+                                    src={anItem.image}
+                                    alt="Oak tree"
+                                    width="270"
+                                    height="270"
+                                ></img>
+                                <br></br>
+                                <h3>{anItem.name}</h3>
+                                <span>•{anItem.description}</span>
+                                <br></br>
+                                <span>•Quantity: {anItem.quantity}</span>
+                                <br></br>
+                                <span>
+                                    •Maintenance level:{" "}
+                                    {anItem.maintenanceLevel} out of 5
+                                </span>
+                                <br></br>
+                                <span>•Price: ${anItem.price}</span>
+                                <br></br>
+                                <span>•Rating: {anItem.rating} out of 5</span>
+                            </div>
                         </div>
-                        <div style={{ color: "5px solid light green" }}></div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
+export function DisplayTrees(): JSX.Element {
+    const allTrees: Tree[] = [
+        oakTree,
+        spruceTree,
+        larchTree,
+        cedarTree,
+        sequoiaTree
+    ];
+    return (
+        <div className="parent-container">
+            <div className="flex-container">
+                {allTrees.map((aTree: Tree) => {
+                    return (
+                        <div key={aTree.name}>
+                            <div style={{ textAlign: "center" }}>
+                                <img
+                                    src={aTree.image}
+                                    alt="Oak tree"
+                                    width="270"
+                                    height="270"
+                                ></img>
+                                <br></br>
+                                <h3>{aTree.name}</h3>
+                                <span>•{aTree.description}</span>
+                                <br></br>
+                                <span>•Quantity: {aTree.quantity}</span>
+                                <br></br>
+                                <span>
+                                    •Maintenance level: {aTree.maintenanceLevel}{" "}
+                                    out of 5
+                                </span>
+                                <br></br>
+                                <span>•Price: ${aTree.price}</span>
+                                <br></br>
+                                <span>•Rating: {aTree.rating} out of 5</span>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
+
+export function DisplayFlowers(): JSX.Element {
+    const allFlowers: Flower[] = [
+        sunflowerFlower,
+        tulipFlower,
+        chrysanthememFlower,
+        pansyFlower,
+        irisFlower
+    ];
+    return (
+        <div className="parent-container">
+            <div className="flex-container">
+                {allFlowers.map((aFlower: Flower) => {
+                    return (
+                        <div key={aFlower.name}>
+                            <div style={{ textAlign: "center" }}>
+                                <img
+                                    src={aFlower.image}
+                                    alt="Oak tree"
+                                    width="270"
+                                    height="270"
+                                ></img>
+                                <br></br>
+                                <h3>{aFlower.name}</h3>
+                                <span>•{aFlower.description}</span>
+                                <br></br>
+                                <span>•Quantity: {aFlower.quantity}</span>
+                                <br></br>
+                                <span>
+                                    •Maintenance level:{" "}
+                                    {aFlower.maintenanceLevel} out of 5
+                                </span>
+                                <br></br>
+                                <span>•Price: ${aFlower.price}</span>
+                                <br></br>
+                                <span>•Rating: {aFlower.rating} out of 5</span>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 }
