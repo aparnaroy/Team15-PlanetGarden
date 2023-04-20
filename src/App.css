@@ -34,8 +34,8 @@ body {
     min-height: 5vh;
     display: flex;
     flex-direction: row-reverse;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: flex-end;
+    justify-content: center;
     font-size: calc(30px + 2vmin);
     color: rgb(255, 255, 255);
 }
@@ -54,7 +54,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     height: 700px;
     width: 60%;
     overflow-y: auto;
