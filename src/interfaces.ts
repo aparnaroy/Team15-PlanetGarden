@@ -14,7 +14,6 @@ export interface Tree {
     name: string;
     description: string;
     image: string;
-    // include image
     quantity: number;
     maintenance: number;
     price: number;
@@ -24,7 +23,7 @@ export interface Tree {
 export interface Flower {
     name: string;
     description: string;
-    // include image, not sure how to do this yet
+    image: string;
     quantity: number;
     maintenanceLevel: number;
     price: number;

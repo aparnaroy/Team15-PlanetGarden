@@ -4,7 +4,8 @@ import "./App.css";
 // Components
 import { LandscapeItems } from "./components/Item";
 import { DropDownMenu } from "./components/dropDownMenu";
-import { DisplayTrees } from "./components/components";
+import { DisplayTrees, DisplayFlowers } from "./components/components";
+
 // Images
 import PlanetGarden from "./assets/Planet-Garden.png";
 import Oaktree from "./assets/oaktree.png";
@@ -117,12 +118,14 @@ function App(): JSX.Element {
                     </div>
                 </div>
             </div>
+            <div className="user-container">hello</div>
             <h5>
                 Emilie Barniak, Jillian Camp, Emma Frampton, Mikaylla Haskins,
                 Aparna Roy
             </h5>
             <p>CISC275</p>
             <DisplayTrees></DisplayTrees>
+            <DisplayFlowers></DisplayFlowers>
             <hr></hr>
             <LandscapeItems></LandscapeItems>
             <hr></hr>

@@ -1,41 +1,27 @@
 import React from "react";
-import { Tree } from "../interfaces";
-//import { Button, Container, Row } from "react-bootstrap";
-import Oaktree from "../assets/oaktree.png";
-import Spruce from "../assets/spruce-tree.png";
-import Larch from "../assets/larch-tree.png";
-//import "./App.css";
+import { Tree, Flower } from "../interfaces";
+import {
+    oakTree,
+    spruceTree,
+    larchTree,
+    cedarTree,
+    sequoiaTree,
+    sunflowerFlower,
+    irisFlower,
+    tulipFlower,
+    chrysanthememFlower,
+    pansyFlower
+} from "../assets/instances";
 
 // make this a display function, display all trees of a list of them
 export function DisplayTrees(): JSX.Element {
-    const oakTree: Tree = {
-        name: "Oak Tree",
-        description: "Tall and brown, perfect for parks!",
-        image: Oaktree,
-        quantity: 1,
-        maintenance: 1,
-        price: 20.0,
-        rating: 4
-    };
-    const spruceTree: Tree = {
-        name: "Spruce Tree",
-        description: "A darker bark, beautiful for landscapes!",
-        image: Spruce,
-        quantity: 1,
-        maintenance: 1,
-        price: 30.0,
-        rating: 5
-    };
-    const mapleTree: Tree = {
-        name: "Larch Tree",
-        description: "Is very larchy!",
-        image: Larch,
-        quantity: 1,
-        maintenance: 3,
-        price: 50,
-        rating: 3
-    };
-    const allTrees: Tree[] = [oakTree, spruceTree, mapleTree];
+    const allTrees: Tree[] = [
+        oakTree,
+        spruceTree,
+        larchTree,
+        cedarTree,
+        sequoiaTree
+    ];
     return (
         <div className="parent-container">
             <div className="flex-container">
@@ -72,6 +58,46 @@ export function DisplayTrees(): JSX.Element {
     );
 }
 
-export function DisplayUserList(): JSX.Element {
-    return <div>hello</div>;
+export function DisplayFlowers(): JSX.Element {
+    const allFlowers: Flower[] = [
+        sunflowerFlower,
+        tulipFlower,
+        chrysanthememFlower,
+        pansyFlower,
+        irisFlower
+    ];
+    return (
+        <div className="parent-container">
+            <div className="flex-container">
+                {allFlowers.map((aFlower: Flower) => {
+                    return (
+                        <div key={aFlower.name}>
+                            <div style={{ textAlign: "center" }}>
+                                <img
+                                    src={aFlower.image}
+                                    alt="Oak tree"
+                                    width="270"
+                                    height="270"
+                                ></img>
+                                <br></br>
+                                <h3>{aFlower.name}</h3>
+                                <span>{aFlower.description}</span>
+                                <br></br>
+                                <span>Quantity: {aFlower.quantity}</span>
+                                <br></br>
+                                <span>
+                                    Maintenance level:{" "}
+                                    {aFlower.maintenanceLevel} out of 5
+                                </span>
+                                <br></br>
+                                <span>Price: ${aFlower.price}</span>
+                                <br></br>
+                                <span>Rating: {aFlower.rating} out of 5</span>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
 }
