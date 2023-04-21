@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Tree, Flower, Greenery, Structure } from "../interfaces";
+import { Card, Row, Col } from "react-bootstrap";
 import {
     oakTree,
     spruceTree,
@@ -134,6 +135,66 @@ export function Display(
                 })}
             </div>
         </div>
+    );
+}
+
+export function DisplayAll(): JSX.Element {
+    const allItems: (Flower | Tree | Greenery | Structure)[] = [
+        benchStructure,
+        cedarTree,
+        chrysanthememFlower,
+        grassGreenery,
+        irisFlower,
+        larchTree,
+        oakTree,
+        pansyFlower,
+        pondStructure,
+        sequoiaTree,
+        spruceTree,
+        sunflowerFlower,
+        tulipFlower
+    ];
+    return (
+        <Row s={2} md={3} lg={4}>
+            {allItems.map((anItem: Flower | Tree) => {
+                return (
+                    <Col key={anItem.name}>
+                        <Card key={anItem.name}>
+                            <Card.Img
+                                variant="top"
+                                src={anItem.image}
+                                style={{ objectFit: "cover" }}
+                            />
+                            <Card.Body className="flex-column">
+                                <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
+                                    <span className="fs-2">{anItem.name}</span>
+                                    <span className="ms-2 text-muted">
+                                        ${anItem.price}
+                                    </span>
+                                </Card.Title>
+                                <span className="card-subtitle ms-2 text-muted">
+                                    {anItem.description}
+                                </span>
+                                <br></br>
+                                <br></br>
+                                <span className="fs-8">
+                                    •Quantity: {anItem.quantity}
+                                </span>
+                                <br></br>
+                                <span className="fs-8">
+                                    •Maintenance Level:{" "}
+                                    {anItem.maintenanceLevel} out of 5
+                                </span>
+                                <br></br>
+                                <span className="fs-8">
+                                    •Rating: {anItem.rating} out of 5
+                                </span>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                );
+            })}
+        </Row>
     );
 }
 export function DisplayTrees(
