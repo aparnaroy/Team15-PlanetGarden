@@ -56,7 +56,7 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     height: 700px;
-    width: 100%;
+    width: 60%;
     overflow-y: auto;
     background-color: rgb(237, 220, 198);
 }

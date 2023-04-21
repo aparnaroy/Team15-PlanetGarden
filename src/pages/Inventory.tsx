@@ -1,15 +1,13 @@
 import React from "react";
-import { LandscapeItems } from "../components/Item";
 import { DropDownMenu } from "../components/dropDownMenu";
-import { DisplayAll, SortButton } from "../components/components";
-
-// Images
+import { DisplayAll } from "../components/components";
 import PlanetGarden from "../assets/Planet-Garden.png";
 
 export function Inventory() {
     return (
         <div className="App">
             <header className="App-header">Planet Garden🪴</header>
+            <h1>Inventory</h1>
             <img
                 src={PlanetGarden}
                 alt="The garden"
@@ -27,10 +25,6 @@ export function Inventory() {
             </h5>
             <p>CISC275</p>
             <DisplayAll></DisplayAll>
-            <hr></hr>
-            <SortButton></SortButton>
-            <hr></hr>
-            <LandscapeItems></LandscapeItems>
             <hr></hr>
         </div>
     );

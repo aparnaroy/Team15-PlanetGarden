@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Tree, Flower, Greenery, Structure } from "../interfaces";
-import { Button, Card, Row, Col } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import {
     oakTree,
     spruceTree,

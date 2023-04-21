@@ -10,6 +10,7 @@ import { Container } from "react-bootstrap";
 import { Inventory } from "./pages/Inventory";
 import { Shop } from "./pages/Shop";
 import { About } from "./pages/About";
+import { Home } from "./pages/Home";
 
 function App(): JSX.Element {
     return (
@@ -17,6 +18,7 @@ function App(): JSX.Element {
             <Navbar />
             <Container>
                 <Routes>
+                    <Route path="/" element={<Home />} />
                     <Route path="/inventory" element={<Inventory />} />
                     <Route path="/shop" element={<Shop />} />
                     <Route path="/about" element={<About />} />
