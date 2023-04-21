@@ -16,8 +16,8 @@ function App(): JSX.Element {
             <img
                 src={PlanetGarden}
                 alt="The garden"
-                width="1320"
-                height="580"
+                width="1200"
+                height="600"
             ></img>
             <div>
                 <h1>*DROP DOWN COMPONENT*</h1>
