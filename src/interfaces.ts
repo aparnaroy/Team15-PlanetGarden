@@ -18,6 +18,7 @@ export interface Tree {
     maintenanceLevel: number;
     price: number;
     rating: number;
+    type: string;
 }
 
 export interface Flower {
@@ -28,6 +29,7 @@ export interface Flower {
     maintenanceLevel: number;
     price: number;
     rating: number;
+    type: string;
 }
 
 export interface Greenery {
@@ -38,6 +40,7 @@ export interface Greenery {
     maintenanceLevel: number;
     price: number;
     rating: number;
+    type: string;
 }
 
 export interface Structure {
@@ -48,4 +51,5 @@ export interface Structure {
     maintenanceLevel: number;
     price: number;
     rating: number;
+    type: string;
 }

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
 import { Tree, Flower, Greenery, Structure } from "../interfaces";
 import {
     oakTree,
@@ -16,9 +17,24 @@ import {
     benchStructure
 } from "../assets/instances";
 
-// displayAll is sorted alphabetically by default
-export function DisplayAll(): JSX.Element {
-    const allItems: (Flower | Tree | Greenery | Structure)[] = [
+export const items: (Flower | Tree | Greenery | Structure)[] = [
+    benchStructure,
+    cedarTree,
+    chrysanthememFlower,
+    grassGreenery,
+    irisFlower,
+    larchTree,
+    oakTree,
+    pansyFlower,
+    pondStructure,
+    sequoiaTree,
+    spruceTree,
+    sunflowerFlower,
+    tulipFlower
+];
+
+export function SortButton(): JSX.Element {
+    const items: (Flower | Tree | Greenery | Structure)[] = [
         benchStructure,
         cedarTree,
         chrysanthememFlower,
@@ -33,16 +49,68 @@ export function DisplayAll(): JSX.Element {
         sunflowerFlower,
         tulipFlower
     ];
+    const [option, setOption] = useState<string>("");
+    function updateSorting(event: React.ChangeEvent<HTMLSelectElement>) {
+        setOption(event.target.value);
+    }
+    let displayedItems: (Flower | Tree | Greenery | Structure)[] = [];
+    let printed = Display(items);
+    if (option === "Trees") {
+        displayedItems = items.filter(
+            (item: Flower | Tree | Greenery | Structure): boolean =>
+                item.type === "Tree"
+        );
+        printed = Display(displayedItems);
+    } else if (option === "Flowers") {
+        displayedItems = items.filter(
+            (item: Flower | Tree | Greenery | Structure): boolean =>
+                item.type === "Flower"
+        );
+        printed = Display(displayedItems);
+    } else if (option === "Greenery") {
+        displayedItems = items.filter(
+            (item: Flower | Tree | Greenery | Structure): boolean =>
+                item.type === "Greenery"
+        );
+        printed = Display(displayedItems);
+    } else if (option === "Structures") {
+        displayedItems = items.filter(
+            (item: Flower | Tree | Greenery | Structure): boolean =>
+                item.type === "Structure"
+        );
+        printed = Display(displayedItems);
+    }
+    return (
+        <div>
+            <Form.Label>Sort By: </Form.Label>
+            <Form.Select value={option} onChange={updateSorting}>
+                <option>Alphabetically</option>
+                <option>Price: low to high</option>
+                <option>Trees</option>
+                <option>Flowers</option>
+                <option>Greenery</option>
+                <option>Structures</option>
+            </Form.Select>
+            {option}
+            {printed}
+        </div>
+    );
+}
+
+// displayAll is sorted alphabetically by default
+export function Display(
+    itemList: (Flower | Tree | Greenery | Structure)[]
+): JSX.Element {
     return (
         <div className="parent-container">
             <div className="flex-container">
-                {allItems.map((anItem: Flower | Tree) => {
+                {itemList.map((anItem: Flower | Tree) => {
                     return (
                         <div key={anItem.name}>
                             <div style={{ textAlign: "center" }}>
                                 <img
                                     src={anItem.image}
-                                    alt="Oak tree"
+                                    alt="img"
                                     width="270"
                                     height="270"
                                 ></img>
@@ -68,7 +136,9 @@ export function DisplayAll(): JSX.Element {
         </div>
     );
 }
-export function DisplayTrees(): JSX.Element {
+export function DisplayTrees(
+    itemList: (Flower | Tree | Greenery | Structure)[]
+): JSX.Element {
     const allTrees: Tree[] = [
         oakTree,
         spruceTree,
@@ -112,7 +182,9 @@ export function DisplayTrees(): JSX.Element {
     );
 }
 
-export function DisplayFlowers(): JSX.Element {
+export function DisplayFlowers(
+    itemList: (Flower | Tree | Greenery | Structure)[]
+): JSX.Element {
     const allFlowers: Flower[] = [
         sunflowerFlower,
         tulipFlower,
