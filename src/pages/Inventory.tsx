@@ -1,7 +1,7 @@
 import React from "react";
 import { LandscapeItems } from "../components/Item";
 import { DropDownMenu } from "../components/dropDownMenu";
-import { DisplayAll } from "../components/components";
+import { DisplayAll, SortButton } from "../components/components";
 
 // Images
 import PlanetGarden from "../assets/Planet-Garden.png";
@@ -27,6 +27,8 @@ export function Inventory() {
             </h5>
             <p>CISC275</p>
             <DisplayAll></DisplayAll>
+            <hr></hr>
+            <SortButton></SortButton>
             <hr></hr>
             <LandscapeItems></LandscapeItems>
             <hr></hr>
