@@ -136,7 +136,7 @@ export function Display(
             </div>
         </div>
     );
-}*/
+}
 
 export function DisplayAll(): JSX.Element {
     const allItems: (Flower | Tree | Greenery | Structure)[] = [
