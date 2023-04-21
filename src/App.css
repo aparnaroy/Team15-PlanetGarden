@@ -56,13 +56,17 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
     height: 700px;
-    width: 60%;
+    width: 100%;
     overflow-y: auto;
     background-color: rgb(237, 220, 198);
 }
 
 .flex-container > div {
     background-color: #f1f1f1;
-
+    margin: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    padding: 20px;
     font-size: 30px;
 }

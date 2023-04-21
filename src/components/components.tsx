@@ -88,7 +88,7 @@ export function DisplayAll(): JSX.Element {
         tulipFlower
     ];
     return (
-        <Row s={2} md={3} lg={5}>
+        <Row s={2} md={3} lg={4}>
             {allItems.map((anItem: Flower | Tree) => {
                 return (
                     <Col key={anItem.name}>
@@ -101,7 +101,7 @@ export function DisplayAll(): JSX.Element {
                             <Card.Body className="flex-column">
                                 <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
                                     <span className="fs-2">{anItem.name}</span>
-                                    <span className="m-2 text-muted">
+                                    <span className="ms-2 text-muted">
                                         ${anItem.price}
                                     </span>
                                 </Card.Title>
