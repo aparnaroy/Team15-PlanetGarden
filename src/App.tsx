@@ -4,7 +4,7 @@ import "./App.css";
 // Components
 import { LandscapeItems } from "./components/Item";
 import { DropDownMenu } from "./components/dropDownMenu";
-import { SortButton, items } from "./components/components";
+import { SortButton } from "./components/components";
 
 // Images
 import PlanetGarden from "./assets/Planet-Garden.png";
