@@ -4,7 +4,7 @@ import "./App.css";
 // Components
 import { LandscapeItems } from "./components/Item";
 import { DropDownMenu } from "./components/dropDownMenu";
-import { DisplayAll } from "./components/components";
+import { SortButton, items } from "./components/components";
 
 // Images
 import PlanetGarden from "./assets/Planet-Garden.png";
@@ -29,7 +29,7 @@ function App(): JSX.Element {
                 Aparna Roy
             </h5>
             <p>CISC275</p>
-            <DisplayAll></DisplayAll>
+            <SortButton></SortButton>
             <hr></hr>
             <LandscapeItems></LandscapeItems>
             <hr></hr>

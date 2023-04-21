@@ -19,7 +19,8 @@ export const pondStructure: Structure = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 70.0,
-    rating: 0
+    rating: 0,
+    type: "Structure"
 };
 export const benchStructure: Structure = {
     name: "Bench",
@@ -29,7 +30,8 @@ export const benchStructure: Structure = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 30.0,
-    rating: 0
+    rating: 0,
+    type: "Structure"
 };
 // GREENERY
 export const grassGreenery: Greenery = {
@@ -39,7 +41,8 @@ export const grassGreenery: Greenery = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 15.0,
-    rating: 0
+    rating: 0,
+    type: "Greenery"
 };
 // FLOWERS
 export const tulipFlower: Flower = {
@@ -50,7 +53,8 @@ export const tulipFlower: Flower = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 10.0,
-    rating: 0
+    rating: 0,
+    type: "Flower"
 };
 export const chrysanthememFlower: Flower = {
     name: "Chrysanthemum",
@@ -60,7 +64,8 @@ export const chrysanthememFlower: Flower = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 20.0,
-    rating: 0
+    rating: 0,
+    type: "Flower"
 };
 export const sunflowerFlower: Flower = {
     name: "Sunflower",
@@ -70,7 +75,8 @@ export const sunflowerFlower: Flower = {
     quantity: 1,
     maintenanceLevel: 2,
     price: 25.0,
-    rating: 0
+    rating: 0,
+    type: "Flower"
 };
 export const irisFlower: Flower = {
     name: "Iris",
@@ -80,7 +86,8 @@ export const irisFlower: Flower = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 25.0,
-    rating: 0
+    rating: 0,
+    type: "Flower"
 };
 export const pansyFlower: Flower = {
     name: "Pansy",
@@ -90,7 +97,8 @@ export const pansyFlower: Flower = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 10.0,
-    rating: 0
+    rating: 0,
+    type: "Flower"
 };
 // TREES
 export const sequoiaTree: Tree = {
@@ -100,7 +108,8 @@ export const sequoiaTree: Tree = {
     quantity: 1,
     maintenanceLevel: 5,
     price: 50.0,
-    rating: 0
+    rating: 0,
+    type: "Tree"
 };
 export const oakTree: Tree = {
     name: "Oak Tree",
@@ -110,7 +119,8 @@ export const oakTree: Tree = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 40.0,
-    rating: 0
+    rating: 0,
+    type: "Tree"
 };
 export const spruceTree: Tree = {
     name: "Spruce Tree",
@@ -120,7 +130,8 @@ export const spruceTree: Tree = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 60.0,
-    rating: 0
+    rating: 0,
+    type: "Tree"
 };
 export const larchTree: Tree = {
     name: "Larch Tree",
@@ -130,7 +141,8 @@ export const larchTree: Tree = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 50.0,
-    rating: 0
+    rating: 0,
+    type: "Tree"
 };
 export const cedarTree: Tree = {
     name: "Cedar Tree",
@@ -140,5 +152,6 @@ export const cedarTree: Tree = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 60.0,
-    rating: 0
+    rating: 0,
+    type: "Tree"
 };
