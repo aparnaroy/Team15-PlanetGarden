@@ -139,17 +139,10 @@ export function Display(
 export function DisplayTrees(
     itemList: (Flower | Tree | Greenery | Structure)[]
 ): JSX.Element {
-    const allTrees: Tree[] = [
-        oakTree,
-        spruceTree,
-        larchTree,
-        cedarTree,
-        sequoiaTree
-    ];
     return (
         <div className="parent-container">
             <div className="flex-container">
-                {allTrees.map((aTree: Tree) => {
+                {itemList.map((aTree: Tree) => {
                     return (
                         <div key={aTree.name}>
                             <div style={{ textAlign: "center" }}>
@@ -185,17 +178,10 @@ export function DisplayTrees(
 export function DisplayFlowers(
     itemList: (Flower | Tree | Greenery | Structure)[]
 ): JSX.Element {
-    const allFlowers: Flower[] = [
-        sunflowerFlower,
-        tulipFlower,
-        chrysanthememFlower,
-        pansyFlower,
-        irisFlower
-    ];
     return (
         <div className="parent-container">
             <div className="flex-container">
-                {allFlowers.map((aFlower: Flower) => {
+                {itemList.map((aFlower: Flower) => {
                     return (
                         <div key={aFlower.name}>
                             <div style={{ textAlign: "center" }}>
