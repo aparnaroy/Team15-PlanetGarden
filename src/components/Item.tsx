@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import {
     oakTree,
     spruceTree,
@@ -16,6 +16,7 @@ import {
     benchStructure
 } from "../assets/instances";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { DropDownMenu } from "./dropDownMenu";
 
 interface Item {
     name: string;
@@ -25,13 +26,14 @@ interface Item {
     quantity: number;
     maintenanceLevel: number;
     rating: number;
+    type: string;
 }
 
-interface NewItemProps {
+interface AddItemProps {
     onSave: (item: Item) => void;
 }
 
-function NewItem({ onSave }: NewItemProps) {
+function AddItem({ onSave }: AddItemProps) {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [image, setImage] = useState("");
@@ -39,6 +41,7 @@ function NewItem({ onSave }: NewItemProps) {
     const [quantity, setQuantity] = useState("");
     const [maintenanceLevel, setMaintenance] = useState("");
     const [rating, setRating] = useState("");
+    const [type, setType] = useState("");
 
     function handleSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -49,7 +52,8 @@ function NewItem({ onSave }: NewItemProps) {
             description,
             quantity: parseInt(quantity),
             maintenanceLevel: parseInt(maintenanceLevel),
-            rating: parseInt(rating)
+            rating: parseInt(rating),
+            type
         });
         setName("");
         setPrice("");
@@ -58,6 +62,7 @@ function NewItem({ onSave }: NewItemProps) {
         setQuantity("");
         setMaintenance("");
         setRating("");
+        setType("");
     }
 
     return (
@@ -86,6 +91,7 @@ function NewItem({ onSave }: NewItemProps) {
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
             />
+            <br></br>
             <input
                 placeholder="Quantity"
                 type="text"
@@ -104,9 +110,21 @@ function NewItem({ onSave }: NewItemProps) {
                 value={rating}
                 onChange={(event) => setRating(event.target.value)}
             />
+            Type:
+            <select
+                value={type}
+                onChange={(event) => setType(event.target.value)}
+            >
+                <option value="Tree">Tree</option>
+                <option value="Flower">Flower</option>
+                <option value="Structure">Structure</option>
+                <option value="Greenery">Greenery</option>
+            </select>
             <br></br>
             <br></br>
-            <Button type="submit">Save</Button>
+            <Button type="submit" variant="success">
+                Save
+            </Button>
             <br></br>
             <br></br>
         </form>
@@ -131,33 +149,28 @@ export function LandscapeItems(): JSX.Element {
     ]);
     const [newItemForm, setShowItemForm] = useState(false);
 
-    useEffect(() => {
-        localStorage.setItem("items", JSON.stringify(items));
-    }, [items]);
-
-    useEffect(() => {
-        const storedItems = localStorage.getItem("items");
-        if (storedItems) {
-            setItems(JSON.parse(storedItems));
-        }
-    }, []);
-
     function addItem(item: Item) {
         setItems([...items, item]);
         setShowItemForm(false);
+    }
+
+    function deleteItem(item: Item) {
+        const updatedItems = items.filter((i) => i.name !== item.name);
+        setItems(updatedItems);
     }
 
     function showItemForm() {
         setShowItemForm(!newItemForm);
     }
 
+    //DropDownMenu;
     return (
         <div>
-            <Button onClick={showItemForm} className="d-flex">
+            <Button onClick={showItemForm} className="d-flex" variant="success">
                 Add New Item
             </Button>
             <br></br>
-            {newItemForm && <NewItem onSave={addItem} />}
+            {newItemForm && <AddItem onSave={addItem} />}
             <Row s={2} md={3} lg={4}>
                 {items.map((anItem) => {
                     return (
@@ -187,6 +200,118 @@ export function LandscapeItems(): JSX.Element {
                                     </span>
                                     <br></br>
                                     <span className="fs-8">
+                                        •Maintenance Level:{" "}
+                                        {anItem.maintenanceLevel} out of 5
+                                    </span>
+                                    <br></br>
+                                    <span className="fs-8">
+                                        •Rating: {anItem.rating} out of 5
+                                    </span>
+                                    <br></br>
+                                    <Button
+                                        variant="danger"
+                                        onClick={() => deleteItem(anItem)}
+                                        className="mt-auto"
+                                    >
+                                        Delete Item
+                                    </Button>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    );
+                })}
+            </Row>
+        </div>
+    );
+}
+
+export function SortingButton(): JSX.Element {
+    const [items, setItems] = useLocalStorage<Item[]>("all-items", [
+        benchStructure,
+        cedarTree,
+        chrysanthememFlower,
+        grassGreenery,
+        irisFlower,
+        larchTree,
+        oakTree,
+        pansyFlower,
+        pondStructure,
+        sequoiaTree,
+        spruceTree,
+        sunflowerFlower,
+        tulipFlower
+    ]);
+    setItems;
+    const [option, setOption] = useState<string>("");
+    function updateSorting(event: React.ChangeEvent<HTMLSelectElement>) {
+        setOption(event.target.value);
+    }
+    let displayedItems: Item[] = [];
+    let printed = Display(items);
+    if (option === "Trees") {
+        displayedItems = items.filter(
+            (item: Item): boolean => item.type === "Tree"
+        );
+        printed = Display(displayedItems);
+    } else if (option === "Flowers") {
+        displayedItems = items.filter(
+            (item: Item): boolean => item.type === "Flower"
+        );
+        printed = Display(displayedItems);
+    } else if (option === "Greenery") {
+        displayedItems = items.filter(
+            (item: Item): boolean => item.type === "Greenery"
+        );
+        printed = Display(displayedItems);
+    } else if (option === "Structures") {
+        displayedItems = items.filter(
+            (item: Item): boolean => item.type === "Structure"
+        );
+        printed = Display(displayedItems);
+    }
+    return (
+        <div>
+            <Form.Label>Sort By: </Form.Label>
+            <Form.Select value={option} onChange={updateSorting}>
+                <option>Alphabetically</option>
+                <option>Price low to high</option>
+                <option>Trees</option>
+                <option>Flowers</option>
+                <option>Greenery</option>
+                <option>Structures</option>
+            </Form.Select>
+            {option}
+            {printed}
+            <br></br>
+        </div>
+    );
+}
+
+// displayAll is sorted alphabetically by default
+export function Display(itemList: Item[]): JSX.Element {
+    return (
+        <div className="flex-container">
+            <Row s={1} md={2}>
+                {itemList.map((anItem) => {
+                    return (
+                        <Col key={anItem.name}>
+                            <Card key={anItem.name}>
+                                <Card.Img
+                                    variant="top"
+                                    src={anItem.image}
+                                    style={{ objectFit: "cover" }}
+                                />
+                                <Card.Body>
+                                    <Card.Title className="d-flex justify-content-between align-items-baseline">
+                                        <span className="fs-4">
+                                            {anItem.name}
+                                        </span>
+                                        <span className="ms-2 text-muted">
+                                            ${anItem.price}
+                                        </span>
+                                    </Card.Title>
+                                    <br></br>
+                                    <span className="ms-1">
                                         •Maintenance Level:{" "}
                                         {anItem.maintenanceLevel} out of 5
                                     </span>
