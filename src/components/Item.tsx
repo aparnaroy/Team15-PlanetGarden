@@ -1,27 +1,29 @@
 import React, { useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Col, Row } from "react-bootstrap";
+import {
+    oakTree,
+    spruceTree,
+    larchTree,
+    cedarTree,
+    sequoiaTree,
+    sunflowerFlower,
+    irisFlower,
+    tulipFlower,
+    chrysanthememFlower,
+    pansyFlower,
+    grassGreenery,
+    pondStructure,
+    benchStructure
+} from "../assets/instances";
 
 interface Item {
-    id: number;
     name: string;
+    image: string;
     price: number;
-    imageUrl: string;
-}
-
-interface ItemProps {
-    name: string;
-    price: number;
-    imageUrl: string;
-}
-
-function Item({ name, price, imageUrl }: ItemProps) {
-    return (
-        <div>
-            <img src={imageUrl} alt={imageUrl} />
-            <h2>{name}</h2>
-            <p>${price}</p>
-        </div>
-    );
+    description: string;
+    quantity: number;
+    maintenanceLevel: number;
+    rating: number;
 }
 
 interface NewItemProps {
@@ -31,53 +33,100 @@ interface NewItemProps {
 function NewItem({ onSave }: NewItemProps) {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
-    const [imageUrl, setImage] = useState("");
+    const [image, setImage] = useState("");
+    const [description, setDescription] = useState("");
+    const [quantity, setQuantity] = useState("");
+    const [maintenanceLevel, setMaintenance] = useState("");
+    const [rating, setRating] = useState("");
 
     function handleSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        onSave({ id: Date.now(), name, price: parseInt(price), imageUrl });
+        onSave({
+            name,
+            price: parseInt(price),
+            image,
+            description,
+            quantity: parseInt(quantity),
+            maintenanceLevel: parseInt(maintenanceLevel),
+            rating: parseInt(rating)
+        });
         setName("");
         setPrice("");
         setImage("");
+        setDescription("");
+        setQuantity("");
+        setMaintenance("");
+        setRating("");
     }
 
     return (
         <form onSubmit={handleSave}>
             <input
+                placeholder="Name"
                 type="text"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
             />
             <input
+                placeholder="Price"
                 type="text"
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}
             />
             <input
+                placeholder="Image URL"
                 type="text"
-                value={imageUrl}
+                value={image}
                 onChange={(event) => setImage(event.target.value)}
             />
+            <input
+                placeholder="Description"
+                type="text"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+            />
+            <input
+                placeholder="Quantity"
+                type="text"
+                value={quantity}
+                onChange={(event) => setQuantity(event.target.value)}
+            />
+            <input
+                placeholder="Maintenance Level"
+                type="text"
+                value={maintenanceLevel}
+                onChange={(event) => setMaintenance(event.target.value)}
+            />
+            <input
+                placeholder="Rating"
+                type="text"
+                value={rating}
+                onChange={(event) => setRating(event.target.value)}
+            />
+            <br></br>
+            <br></br>
             <Button type="submit">Save</Button>
+            <br></br>
+            <br></br>
         </form>
     );
 }
 
 export function LandscapeItems(): JSX.Element {
     const [items, setItems] = useState<Item[]>([
-        {
-            id: 1,
-            name: "Item 1",
-            price: 10,
-            imageUrl:
-                "https://easydrawingguides.com/wp-content/uploads/2017/02/How-to-draw-a-cartoon-tree-20.png"
-        },
-        {
-            id: 2,
-            name: "Item 2",
-            price: 20,
-            imageUrl: "https://example.com/image2.jpg"
-        }
+        benchStructure,
+        cedarTree,
+        chrysanthememFlower,
+        grassGreenery,
+        irisFlower,
+        larchTree,
+        oakTree,
+        pansyFlower,
+        pondStructure,
+        sequoiaTree,
+        spruceTree,
+        sunflowerFlower,
+        tulipFlower
     ]);
     const [newItemForm, setShowItemForm] = useState(false);
 
@@ -92,28 +141,53 @@ export function LandscapeItems(): JSX.Element {
 
     return (
         <div>
-            <Button onClick={showItemForm}>Add New Item</Button>
+            <Button onClick={showItemForm} className="d-flex">
+                Add New Item
+            </Button>
+            <br></br>
             {newItemForm && <NewItem onSave={addItem} />}
-            {items.map((item) => {
-                return (
-                    <Card key={item.id}>
-                        <Card.Img
-                            variant="top"
-                            src={item.imageUrl}
-                            height="200px"
-                            style={{ objectFit: "cover" }}
-                        />
-                        <Card.Body className="d-flex flex-column">
-                            <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
-                                <span className="fs-2">{item.name}</span>
-                                <span className="ms-2 text-muted">
-                                    ${item.price}
-                                </span>
-                            </Card.Title>
-                        </Card.Body>
-                    </Card>
-                );
-            })}
+            <Row s={2} md={3} lg={4}>
+                {items.map((anItem) => {
+                    return (
+                        <Col key={anItem.name}>
+                            <Card key={anItem.name}>
+                                <Card.Img
+                                    variant="top"
+                                    src={anItem.image}
+                                    style={{ objectFit: "cover" }}
+                                />
+                                <Card.Body className="flex-column">
+                                    <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
+                                        <span className="fs-2">
+                                            {anItem.name}
+                                        </span>
+                                        <span className="ms-2 text-muted">
+                                            ${anItem.price}
+                                        </span>
+                                    </Card.Title>
+                                    <span className="card-subtitle ms-2 text-muted">
+                                        {anItem.description}
+                                    </span>
+                                    <br></br>
+                                    <br></br>
+                                    <span className="fs-8">
+                                        •Quantity: {anItem.quantity}
+                                    </span>
+                                    <br></br>
+                                    <span className="fs-8">
+                                        •Maintenance Level:{" "}
+                                        {anItem.maintenanceLevel} out of 5
+                                    </span>
+                                    <br></br>
+                                    <span className="fs-8">
+                                        •Rating: {anItem.rating} out of 5
+                                    </span>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    );
+                })}
+            </Row>
         </div>
     );
 }

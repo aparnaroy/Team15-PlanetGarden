@@ -1,5 +1,6 @@
 import React from "react";
-import { DisplayAll } from "../components/components";
+//import { DisplayAll } from "../components/components";
+import { LandscapeItems } from "../components/Item";
 
 export function Inventory() {
     return (
@@ -7,7 +8,7 @@ export function Inventory() {
             <header className="App-header">Inventory</header>
             <header className="App-header2">All Available Items</header>
             <br></br>
-            <DisplayAll></DisplayAll>
+            <LandscapeItems></LandscapeItems>
             <hr></hr>
         </div>
     );
