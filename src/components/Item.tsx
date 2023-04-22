@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import {
     oakTree,
@@ -15,6 +15,7 @@ import {
     pondStructure,
     benchStructure
 } from "../assets/instances";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface Item {
     name: string;
@@ -113,7 +114,7 @@ function NewItem({ onSave }: NewItemProps) {
 }
 
 export function LandscapeItems(): JSX.Element {
-    const [items, setItems] = useState<Item[]>([
+    const [items, setItems] = useLocalStorage<Item[]>("all-items", [
         benchStructure,
         cedarTree,
         chrysanthememFlower,
@@ -129,6 +130,17 @@ export function LandscapeItems(): JSX.Element {
         tulipFlower
     ]);
     const [newItemForm, setShowItemForm] = useState(false);
+
+    useEffect(() => {
+        localStorage.setItem("items", JSON.stringify(items));
+    }, [items]);
+
+    useEffect(() => {
+        const storedItems = localStorage.getItem("items");
+        if (storedItems) {
+            setItems(JSON.parse(storedItems));
+        }
+    }, []);
 
     function addItem(item: Item) {
         setItems([...items, item]);
