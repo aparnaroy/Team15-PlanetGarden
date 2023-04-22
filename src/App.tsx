@@ -4,8 +4,6 @@ import "./App.css";
 // Components
 import { Navbar } from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
-
-// Images
 import { Container } from "react-bootstrap";
 import { Inventory } from "./pages/Inventory";
 import { Shop } from "./pages/Shop";
