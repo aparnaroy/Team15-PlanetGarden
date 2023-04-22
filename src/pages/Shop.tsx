@@ -6,8 +6,7 @@ import PlanetGarden from "../assets/Planet-Garden.png";
 export function Shop() {
     return (
         <div className="App">
-            <header className="App-header">Planet Garden🪴</header>
-            <h1>Shop</h1>
+            <header className="App-header">Shop</header>
             <img
                 src={PlanetGarden}
                 alt="The garden"
@@ -19,11 +18,6 @@ export function Shop() {
                 <DropDownMenu></DropDownMenu>
             </div>
             <header className="App-header2">Available Items</header>
-            <h5>
-                Emilie Barniak, Jillian Camp, Emma Frampton, Mikaylla Haskins,
-                Aparna Roy
-            </h5>
-            <p>CISC275</p>
             <SortButton></SortButton>
             <hr></hr>
         </div>

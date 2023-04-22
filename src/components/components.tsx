@@ -86,7 +86,7 @@ export function SortButton(): JSX.Element {
             <Form.Label>Sort By: </Form.Label>
             <Form.Select value={option} onChange={updateSorting}>
                 <option>Alphabetically</option>
-                <option>Price: low to high</option>
+                <option>Price low to high</option>
                 <option>Trees</option>
                 <option>Flowers</option>
                 <option>Greenery</option>
@@ -103,37 +103,41 @@ export function Display(
     itemList: (Flower | Tree | Greenery | Structure)[]
 ): JSX.Element {
     return (
-        <div className="parent-container">
-            <div className="flex-container">
+        <div className="flex-container">
+            <Row xs={1} s={2} md={3}>
                 {itemList.map((anItem: Flower | Tree) => {
                     return (
-                        <div key={anItem.name}>
-                            <div style={{ textAlign: "center" }}>
-                                <img
+                        <Col key={anItem.name}>
+                            <Card key={anItem.name}>
+                                <Card.Img
+                                    variant="top"
                                     src={anItem.image}
-                                    alt="img"
-                                    width="270"
-                                    height="270"
-                                ></img>
-                                <br></br>
-                                <h3>{anItem.name}</h3>
-                                <span>•{anItem.description}</span>
-                                <br></br>
-                                <span>•Quantity: {anItem.quantity}</span>
-                                <br></br>
-                                <span>
-                                    •Maintenance level:{" "}
-                                    {anItem.maintenanceLevel} out of 5
-                                </span>
-                                <br></br>
-                                <span>•Price: ${anItem.price}</span>
-                                <br></br>
-                                <span>•Rating: {anItem.rating} out of 5</span>
-                            </div>
-                        </div>
+                                    style={{ objectFit: "cover" }}
+                                />
+                                <Card.Body>
+                                    <Card.Title className="d-flex justify-content-between align-items-baseline">
+                                        <span className="fs-4">
+                                            {anItem.name}
+                                        </span>
+                                        <span className="ms-2 text-muted">
+                                            ${anItem.price}
+                                        </span>
+                                    </Card.Title>
+                                    <br></br>
+                                    <span className="ms-1">
+                                        •Maintenance Level:{" "}
+                                        {anItem.maintenanceLevel} out of 5
+                                    </span>
+                                    <br></br>
+                                    <span className="fs-8">
+                                        •Rating: {anItem.rating} out of 5
+                                    </span>
+                                </Card.Body>
+                            </Card>
+                        </Col>
                     );
                 })}
-            </div>
+            </Row>
         </div>
     );
 }

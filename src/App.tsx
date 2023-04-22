@@ -18,7 +18,7 @@ function App(): JSX.Element {
             <Navbar />
             <Container>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/homepage" element={<Home />} />
                     <Route path="/inventory" element={<Inventory />} />
                     <Route path="/shop" element={<Shop />} />
                     <Route path="/about" element={<About />} />
