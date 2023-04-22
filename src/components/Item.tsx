@@ -16,7 +16,6 @@ import {
     benchStructure
 } from "../assets/instances";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { DropDownMenu } from "./dropDownMenu";
 
 interface Item {
     name: string;
@@ -163,7 +162,6 @@ export function LandscapeItems(): JSX.Element {
         setShowItemForm(!newItemForm);
     }
 
-    //DropDownMenu;
     return (
         <div>
             <Button onClick={showItemForm} className="d-flex" variant="success">
