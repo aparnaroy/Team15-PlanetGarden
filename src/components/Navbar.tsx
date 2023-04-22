@@ -14,7 +14,7 @@ export function Navbar() {
                         height="70px"
                     />
                     <Nav.Link
-                        to="/"
+                        to="/homepage"
                         as={NavLink}
                         style={{
                             display: "flex",

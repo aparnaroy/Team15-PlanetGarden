@@ -11,6 +11,8 @@ export function Home() {
             <br></br>
             <h4>
                 Here at Planet Garden, we help you build your dream landscape!
+            </h4>
+            <h4>
                 Whether it be for your backyard, estate property, or even a
                 wedding venue, we have it all!
             </h4>
