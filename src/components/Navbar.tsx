@@ -1,22 +1,56 @@
 import React from "react";
 import { Button, Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+//import { DropDownMenu } from "../components/dropDownMenu";
 
 export function Navbar() {
     return (
         <NavbarBs sticky="top" className="bg-light shadow-sm mb-3">
             <Container>
                 <Nav className="me-auto">
-                    <Nav.Link to="/" as={NavLink}>
+                    <img
+                        src="https://www.pngitem.com/pimgs/m/134-1345744_tree-and-landscaping-services-logos-hd-png-download.png"
+                        alt="Landscape Icon"
+                        height="70px"
+                    />
+                    <Nav.Link
+                        to="/homepage"
+                        as={NavLink}
+                        style={{
+                            display: "flex",
+                            alignItems: "center"
+                        }}
+                    >
                         Home
                     </Nav.Link>
-                    <Nav.Link to="/inventory" as={NavLink}>
+                    <Nav.Link
+                        to="/inventory"
+                        as={NavLink}
+                        style={{
+                            display: "flex",
+                            alignItems: "center"
+                        }}
+                    >
                         Inventory
                     </Nav.Link>
-                    <Nav.Link to="/shop" as={NavLink}>
+                    <Nav.Link
+                        to="/shop"
+                        as={NavLink}
+                        style={{
+                            display: "flex",
+                            alignItems: "center"
+                        }}
+                    >
                         Shop
                     </Nav.Link>
-                    <Nav.Link to="/about" as={NavLink}>
+                    <Nav.Link
+                        to="/about"
+                        as={NavLink}
+                        style={{
+                            display: "flex",
+                            alignItems: "center"
+                        }}
+                    >
                         About
                     </Nav.Link>
                 </Nav>
@@ -27,7 +61,6 @@ export function Navbar() {
                         position: "relative"
                     }}
                     variant="outline-primary"
-                    className="rounded-circle"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +82,7 @@ export function Navbar() {
                             position: "absolute",
                             bottom: 0,
                             right: 0,
-                            transform: "translate(25%, 25%"
+                            transform: "translate(25%, 25%)"
                         }}
                     >
                         3

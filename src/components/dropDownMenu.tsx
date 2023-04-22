@@ -14,8 +14,12 @@ export function DropDownMenu(): JSX.Element {
     return (
         <div>
             <Form.Group controlId="The_Roles">
-                <Form.Label>Please select a role.</Form.Label>
-                <Form.Select value={role} onChange={updateRole}>
+                <Form.Label>Role Select</Form.Label>
+                <Form.Select
+                    placeholder={"Role Select"}
+                    value={role}
+                    onChange={updateRole}
+                >
                     <option value="Super">Super</option>
                     <option value="Admin">Admin</option>
                     <option value="User">User</option>
