@@ -94,6 +94,7 @@ export function SortButton(): JSX.Element {
             </Form.Select>
             {option}
             {printed}
+            <br></br>
         </div>
     );
 }
@@ -104,7 +105,7 @@ export function Display(
 ): JSX.Element {
     return (
         <div className="flex-container">
-            <Row xs={1} s={2} md={3}>
+            <Row s={1} md={2}>
                 {itemList.map((anItem: Flower | Tree) => {
                     return (
                         <Col key={anItem.name}>

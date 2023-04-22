@@ -3,8 +3,8 @@ import { Container } from "react-bootstrap";
 
 export function About() {
     return (
-        <Container>
-            <h1>About</h1>
+        <Container className="App">
+            <h1>About Us</h1>
             <br></br>
             <h2>Who We Are</h2>
             <h5>
