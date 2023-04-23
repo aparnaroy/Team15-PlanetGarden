@@ -1,5 +1,7 @@
 .App {
     text-align: center;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
 }
 
 body {
@@ -19,13 +21,13 @@ body {
 .App-header {
     width: 100%;
     background-color: #56a3a6;
-    min-height: 20vh;
+    min-height: 20px;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;
-    font-size: calc(75px + 2vmin);
-    color: rgb(121, 93, 50);
+    font-size: calc(65px + 2vmin);
+    color: rgb(109, 66, 6);
 }
 
 .App-header2 {
@@ -34,8 +36,8 @@ body {
     min-height: 5vh;
     display: flex;
     flex-direction: row-reverse;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: flex-end;
+    justify-content: center;
     font-size: calc(30px + 2vmin);
     color: rgb(255, 255, 255);
 }
@@ -54,19 +56,19 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     height: 700px;
-    width: 60%;
+    width: 55%;
     overflow-y: auto;
     background-color: rgb(237, 220, 198);
 }
 
 .flex-container > div {
     background-color: #f1f1f1;
-    margin: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-top: 20px;
-    padding: 20px;
-    font-size: 30px;
+    padding: 5px;
+    font-size: 16px;
 }
