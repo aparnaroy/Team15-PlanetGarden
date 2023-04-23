@@ -15,7 +15,7 @@ import {
     pondStructure,
     benchStructure
 } from "../assets/instances";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useSessionStorage } from "../hooks/useSessionStorage";
 
 interface Item {
     name: string;
@@ -112,8 +112,10 @@ function AddItem({ onSave }: AddItemProps) {
             Type:
             <select
                 value={type}
+                defaultValue={"default"}
                 onChange={(event) => setType(event.target.value)}
             >
+                <option value={"default"}>Choose a Type</option>
                 <option value="Tree">Tree</option>
                 <option value="Flower">Flower</option>
                 <option value="Structure">Structure</option>
@@ -131,7 +133,7 @@ function AddItem({ onSave }: AddItemProps) {
 }
 
 export function LandscapeItems(): JSX.Element {
-    const [items, setItems] = useLocalStorage<Item[]>("all-items", [
+    const [items, setItems] = useSessionStorage<Item[]>("all-items", [
         benchStructure,
         cedarTree,
         chrysanthememFlower,
@@ -164,9 +166,16 @@ export function LandscapeItems(): JSX.Element {
 
     return (
         <div>
-            <Button onClick={showItemForm} className="d-flex" variant="success">
-                Add New Item
-            </Button>
+            {(sessionStorage.getItem("Role") === "User" ||
+                sessionStorage.getItem("Role") === null) && (
+                <Button
+                    onClick={showItemForm}
+                    className="d-flex"
+                    variant="success"
+                >
+                    Add New Item
+                </Button>
+            )}
             <br></br>
             {newItemForm && <AddItem onSave={addItem} />}
             <Row s={2} md={3} lg={4}>
@@ -206,13 +215,18 @@ export function LandscapeItems(): JSX.Element {
                                         •Rating: {anItem.rating} out of 5
                                     </span>
                                     <br></br>
-                                    <Button
-                                        variant="danger"
-                                        onClick={() => deleteItem(anItem)}
-                                        className="mt-auto"
-                                    >
-                                        Delete Item
-                                    </Button>
+                                    {(sessionStorage.getItem("Role") ===
+                                        "User" ||
+                                        sessionStorage.getItem("Role") ===
+                                            null) && (
+                                        <Button
+                                            variant="danger"
+                                            onClick={() => deleteItem(anItem)}
+                                            className="mt-auto"
+                                        >
+                                            Delete Item
+                                        </Button>
+                                    )}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -224,7 +238,7 @@ export function LandscapeItems(): JSX.Element {
 }
 
 export function SortingButton(): JSX.Element {
-    const [items, setItems] = useLocalStorage<Item[]>("all-items", [
+    const [items, setItems] = useSessionStorage<Item[]>("all-items", [
         benchStructure,
         cedarTree,
         chrysanthememFlower,
@@ -240,7 +254,7 @@ export function SortingButton(): JSX.Element {
         tulipFlower
     ]);
     setItems;
-    const [option, setOption] = useState<string>("");
+    const [option, setOption] = useState<string>("___");
     function updateSorting(event: React.ChangeEvent<HTMLSelectElement>) {
         setOption(event.target.value);
     }
