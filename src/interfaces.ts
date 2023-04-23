@@ -13,38 +13,43 @@ export interface Landscape {
 export interface Tree {
     name: string;
     description: string;
-    // include image
+    image: string;
     quantity: number;
-    maintenance: number;
+    maintenanceLevel: number;
     price: number;
     rating: number;
+    type: string;
 }
 
 export interface Flower {
     name: string;
     description: string;
-    // include image, not sure how to do this yet
+    image: string;
     quantity: number;
     maintenanceLevel: number;
     price: number;
     rating: number;
+    type: string;
 }
 
 export interface Greenery {
     name: string;
     description: string;
-    // include image, not sure how to do this yet
+    image: string;
     quantity: number;
     maintenanceLevel: number;
     price: number;
     rating: number;
+    type: string;
 }
 
 export interface Structure {
     name: string;
     description: string;
-    // include image, not sure how to do this yet
+    image: string;
     quantity: number;
+    maintenanceLevel: number;
     price: number;
     rating: number;
+    type: string;
 }
