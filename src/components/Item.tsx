@@ -1,19 +1,42 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
-import {
+/*import {
+    cedarTree,
+    larchTree,
     oakTree,
     spruceTree,
-    larchTree,
-    cedarTree,
     sequoiaTree,
-    sunflowerFlower,
+    chrysanthemumFlower,
     irisFlower,
+    sunflowerFlower,
     tulipFlower,
-    chrysanthememFlower,
     pansyFlower,
+    benchStructure,
+    gazeboStructure,
+    lilyPondStructure,
+    simplePondStructure,
+    stonePondStructure,
+    bushGreenery,
+    grassGreenery
+} from "../assets/instances";*/
+import {
+    benchStructure,
+    bushGreenery,
+    cedarTree,
+    chrysanthemumFlower,
+    gazeboStructure,
     grassGreenery,
-    pondStructure,
-    benchStructure
+    irisFlower,
+    larchTree,
+    lilyPondStructure,
+    oakTree,
+    pansyFlower,
+    sequoiaTree,
+    simplePondStructure,
+    spruceTree,
+    stonePondStructure,
+    sunflowerFlower,
+    tulipFlower
 } from "../assets/instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 
@@ -135,16 +158,20 @@ function AddItem({ onSave }: AddItemProps) {
 export function LandscapeItems(): JSX.Element {
     const [items, setItems] = useSessionStorage<Item[]>("all-items", [
         benchStructure,
+        bushGreenery,
         cedarTree,
-        chrysanthememFlower,
+        chrysanthemumFlower,
+        gazeboStructure,
         grassGreenery,
         irisFlower,
         larchTree,
+        lilyPondStructure,
         oakTree,
         pansyFlower,
-        pondStructure,
         sequoiaTree,
+        simplePondStructure,
         spruceTree,
+        stonePondStructure,
         sunflowerFlower,
         tulipFlower
     ]);
@@ -240,16 +267,20 @@ export function LandscapeItems(): JSX.Element {
 export function SortingButton(): JSX.Element {
     const [items, setItems] = useSessionStorage<Item[]>("all-items", [
         benchStructure,
+        bushGreenery,
         cedarTree,
-        chrysanthememFlower,
+        chrysanthemumFlower,
+        gazeboStructure,
         grassGreenery,
         irisFlower,
         larchTree,
+        lilyPondStructure,
         oakTree,
         pansyFlower,
-        pondStructure,
         sequoiaTree,
+        simplePondStructure,
         spruceTree,
+        stonePondStructure,
         sunflowerFlower,
         tulipFlower
     ]);
