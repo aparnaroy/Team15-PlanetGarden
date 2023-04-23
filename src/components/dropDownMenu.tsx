@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 
 export function DropDownMenu(): JSX.Element {
     // This is the State (Model)
-    const [role, setRole] = useState<string>(" ");
+    const [role, setRole] = useState<string>("User");
 
     // This is the Control
     function updateRole(event: React.ChangeEvent<HTMLSelectElement>) {

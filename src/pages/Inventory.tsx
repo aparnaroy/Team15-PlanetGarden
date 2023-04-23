@@ -1,5 +1,4 @@
 import React from "react";
-//import { DisplayAll } from "../components/components";
 import { LandscapeItems } from "../components/Item";
 
 export function Inventory() {
