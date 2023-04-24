@@ -6,7 +6,7 @@ export function useSessionStorage<T>(key: string, initialValue: T | (() => T)) {
         if (jsonValue != null) return JSON.parse(jsonValue);
 
         if (typeof initialValue === "function") {
-            return (initialValue as () => T)();
+            return initialValue as () => T;
         } else {
             return initialValue;
         }

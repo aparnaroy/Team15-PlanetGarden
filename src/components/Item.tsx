@@ -193,15 +193,18 @@ export function LandscapeItems(): JSX.Element {
 
     return (
         <div>
-            {(sessionStorage.getItem("Role") === "User" ||
+            {(sessionStorage.getItem("Role") === "Admin" ||
+                // eslint-disable-next-line no-extra-parens
                 sessionStorage.getItem("Role") === null) && (
-                <Button
-                    onClick={showItemForm}
-                    className="d-flex"
-                    variant="success"
-                >
-                    Add New Item
-                </Button>
+                <div>
+                    <Button
+                        onClick={showItemForm}
+                        className="d-flex"
+                        variant="success"
+                    >
+                        Add New Item
+                    </Button>
+                </div>
             )}
             <br></br>
             {newItemForm && <AddItem onSave={addItem} />}
@@ -214,6 +217,7 @@ export function LandscapeItems(): JSX.Element {
                                     variant="top"
                                     src={anItem.image}
                                     style={{ objectFit: "cover" }}
+                                    height="300px"
                                 />
                                 <Card.Body className="flex-column">
                                     <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
@@ -243,16 +247,22 @@ export function LandscapeItems(): JSX.Element {
                                     </span>
                                     <br></br>
                                     {(sessionStorage.getItem("Role") ===
-                                        "User" ||
+                                        "Admin" ||
                                         sessionStorage.getItem("Role") ===
+                                            // eslint-disable-next-line no-extra-parens
                                             null) && (
-                                        <Button
-                                            variant="danger"
-                                            onClick={() => deleteItem(anItem)}
-                                            className="mt-auto"
-                                        >
-                                            Delete Item
-                                        </Button>
+                                        <div>
+                                            <br></br>
+                                            <Button
+                                                variant="danger"
+                                                onClick={() =>
+                                                    deleteItem(anItem)
+                                                }
+                                                className="w-100 mt-auto"
+                                            >
+                                                Delete Item
+                                            </Button>
+                                        </div>
                                     )}
                                 </Card.Body>
                             </Card>
@@ -343,6 +353,7 @@ export function Display(itemList: Item[]): JSX.Element {
                                     variant="top"
                                     src={anItem.image}
                                     style={{ objectFit: "cover" }}
+                                    height="300px"
                                 />
                                 <Card.Body>
                                     <Card.Title className="d-flex justify-content-between align-items-baseline">
