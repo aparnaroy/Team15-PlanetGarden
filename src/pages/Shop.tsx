@@ -1,6 +1,7 @@
 import React from "react";
-import { SortButton } from "../components/components";
+//import { SortButton } from "../components/components";
 import PlanetGarden from "../assets/Planet-Garden.png";
+import { SortingButton } from "../components/Item";
 
 export function Shop() {
     return (
@@ -17,7 +18,7 @@ export function Shop() {
             <br></br>
             <br></br>
             <header className="App-header2">Available Items</header>
-            <SortButton></SortButton>
+            <SortingButton></SortingButton>
             <hr></hr>
         </div>
     );

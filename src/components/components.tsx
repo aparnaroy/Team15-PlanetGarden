@@ -3,33 +3,41 @@ import Form from "react-bootstrap/Form";
 import { Tree, Flower, Greenery, Structure } from "../interfaces";
 import { Card, Row, Col } from "react-bootstrap";
 import {
-    oakTree,
-    spruceTree,
-    larchTree,
+    benchStructure,
+    bushGreenery,
     cedarTree,
-    sequoiaTree,
-    sunflowerFlower,
-    irisFlower,
-    tulipFlower,
-    chrysanthememFlower,
-    pansyFlower,
+    chrysanthemumFlower,
+    gazeboStructure,
     grassGreenery,
-    pondStructure,
-    benchStructure
+    irisFlower,
+    larchTree,
+    lilyPondStructure,
+    oakTree,
+    pansyFlower,
+    sequoiaTree,
+    simplePondStructure,
+    spruceTree,
+    stonePondStructure,
+    sunflowerFlower,
+    tulipFlower
 } from "../assets/instances";
 
 export const items: (Flower | Tree | Greenery | Structure)[] = [
     benchStructure,
+    bushGreenery,
     cedarTree,
-    chrysanthememFlower,
+    chrysanthemumFlower,
+    gazeboStructure,
     grassGreenery,
     irisFlower,
     larchTree,
+    lilyPondStructure,
     oakTree,
     pansyFlower,
-    pondStructure,
     sequoiaTree,
+    simplePondStructure,
     spruceTree,
+    stonePondStructure,
     sunflowerFlower,
     tulipFlower
 ];
@@ -37,16 +45,20 @@ export const items: (Flower | Tree | Greenery | Structure)[] = [
 export function SortButton(): JSX.Element {
     const items: (Flower | Tree | Greenery | Structure)[] = [
         benchStructure,
+        bushGreenery,
         cedarTree,
-        chrysanthememFlower,
+        chrysanthemumFlower,
+        gazeboStructure,
         grassGreenery,
         irisFlower,
         larchTree,
+        lilyPondStructure,
         oakTree,
         pansyFlower,
-        pondStructure,
         sequoiaTree,
+        simplePondStructure,
         spruceTree,
+        stonePondStructure,
         sunflowerFlower,
         tulipFlower
     ];
@@ -146,16 +158,20 @@ export function Display(
 export function DisplayAll(): JSX.Element {
     const allItems: (Flower | Tree | Greenery | Structure)[] = [
         benchStructure,
+        bushGreenery,
         cedarTree,
-        chrysanthememFlower,
+        chrysanthemumFlower,
+        gazeboStructure,
         grassGreenery,
         irisFlower,
         larchTree,
+        lilyPondStructure,
         oakTree,
         pansyFlower,
-        pondStructure,
         sequoiaTree,
+        simplePondStructure,
         spruceTree,
+        stonePondStructure,
         sunflowerFlower,
         tulipFlower
     ];
