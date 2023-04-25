@@ -348,6 +348,18 @@ export function SortingButton(): JSX.Element {
         );
         printed = Display(displayedItems);
     }
+    function searchBar(): JSX.Element {
+        return (
+            <div>
+                <Form.Label>Start typing:</Form.Label>
+                <Form.Control
+                    type="string"
+                    value={input}
+                    onChange={searchLists}
+                ></Form.Control>
+            </div>
+        );
+    }
     // FOR SEARCH BY TEXT INPUT
     return (
         <div>
@@ -363,16 +375,7 @@ export function SortingButton(): JSX.Element {
                 <option>By keyword</option>
             </Form.Select>
             <br></br>
-            {option === "By keyword" ? (
-                <div>
-                    <Form.Label>Start typing:</Form.Label>
-                    <Form.Control
-                        type="string"
-                        value={input}
-                        onChange={searchLists}
-                    ></Form.Control>
-                </div>
-            ) : null}
+            {option === "By keyword" ? searchBar() : null}
             <br></br>
             {printed}
         </div>
