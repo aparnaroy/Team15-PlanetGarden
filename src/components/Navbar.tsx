@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { DropDownMenu } from "../components/dropDownMenu";
-
+import { UserDropDownMenu } from "../components/UserDropDown";
 export function Navbar() {
     return (
         <NavbarBs sticky="top" className="bg-light shadow-sm mb-3">
@@ -55,6 +55,7 @@ export function Navbar() {
                     </Nav.Link>
                 </Nav>
                 <DropDownMenu></DropDownMenu>
+                <UserDropDownMenu></UserDropDownMenu>
             </Container>
         </NavbarBs>
     );
