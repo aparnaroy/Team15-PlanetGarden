@@ -373,6 +373,12 @@ export function Display(itemList: Item[]): JSX.Element {
                                     <span className="fs-8">
                                         •Rating: {anItem.rating} out of 5
                                     </span>
+                                    <Form.Check
+                                        type="radio"
+                                        name="rating"
+                                        id="rating-check"
+                                        label="Star"
+                                    />
                                 </Card.Body>
                             </Card>
                         </Col>
