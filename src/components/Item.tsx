@@ -364,13 +364,14 @@ export function SortingButton(): JSX.Element {
             </Form.Select>
             <br></br>
             {option === "By keyword" ? (
-                <>
+                <div>
+                    <Form.Label>Start typing:</Form.Label>
                     <Form.Control
                         type="string"
                         value={input}
                         onChange={searchLists}
                     ></Form.Control>
-                </>
+                </div>
             ) : null}
             <br></br>
             {printed}
