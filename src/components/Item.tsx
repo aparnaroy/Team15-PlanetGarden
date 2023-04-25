@@ -344,6 +344,7 @@ export function SortingButton(): JSX.Element {
 // displayAll is sorted alphabetically by default
 export function Display(itemList: Item[]): JSX.Element {
     const [rating, setRating] = useState(0);
+
     return (
         <div className="flex-container">
             <Row s={1} md={2}>
@@ -373,33 +374,27 @@ export function Display(itemList: Item[]): JSX.Element {
                                     </span>
                                     <br></br>
                                     <span className="fs-8">
-                                        •Rating:
-                                        <div className="star-rating">
-                                            {[...Array(5)].map(
-                                                (star, index) => {
-                                                    index += 1;
-                                                    return (
-                                                        <button
-                                                            type="button"
-                                                            key={index}
-                                                            className={
-                                                                index <= rating
-                                                                    ? "on"
-                                                                    : "off"
-                                                            }
-                                                            onClick={() =>
-                                                                setRating(index)
-                                                            }
-                                                        >
-                                                            <span className="star">
-                                                                &#9733;
-                                                            </span>
-                                                        </button>
-                                                    );
-                                                }
-                                            )}
-                                        </div>
-                                        out of 5
+                                        •Rating:{" "}
+                                        {[...Array(5)].map((star, index) => {
+                                            index += 1;
+                                            return (
+                                                <span
+                                                    key={index}
+                                                    style={{
+                                                        color:
+                                                            index <= rating
+                                                                ? "orange"
+                                                                : "gray",
+                                                        cursor: "pointer"
+                                                    }}
+                                                    onClick={() =>
+                                                        setRating(index)
+                                                    }
+                                                >
+                                                    &#9733;
+                                                </span>
+                                            );
+                                        })}{" "}
                                     </span>
                                 </Card.Body>
                             </Card>
