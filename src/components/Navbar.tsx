@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { DropDownMenu } from "../components/dropDownMenu";
+import { RoleSelect } from "./RoleSelect";
 
 export function Navbar() {
     return (
@@ -54,7 +54,7 @@ export function Navbar() {
                         About
                     </Nav.Link>
                 </Nav>
-                <DropDownMenu></DropDownMenu>
+                <RoleSelect></RoleSelect>
             </Container>
         </NavbarBs>
     );
