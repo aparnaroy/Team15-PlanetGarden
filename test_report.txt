@@ -960,7 +960,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (369 ms)
+  ✕ renders the course name somewhere (350 ms)
 
   ● renders the course name somewhere
 
@@ -1014,17 +1014,17 @@ FAIL src/App.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |   16.29 |        0 |    5.88 |   16.54 |                   
+All files              |   14.28 |        0 |    5.26 |   14.56 |                   
  src                   |     100 |      100 |     100 |     100 |                   
   App.tsx              |     100 |      100 |     100 |     100 |                   
   interfaces.ts        |       0 |        0 |       0 |       0 |                   
  src/assets            |     100 |      100 |     100 |     100 |                   
   instances.tsx        |     100 |      100 |     100 |     100 |                   
- src/components        |    3.88 |        0 |    4.65 |    3.92 |                   
-  Item.tsx             |       0 |        0 |       0 |       0 | 59-349            
+ src/components        |    3.27 |        0 |    4.08 |    3.33 |                   
+  Item.tsx             |       0 |        0 |       0 |       0 | 59-391            
   Navbar.tsx           |     100 |      100 |     100 |     100 |                   
   RoleSelect.tsx       |   42.85 |      100 |   33.33 |   42.85 | 43-45,61          
-  components.tsx       |       0 |        0 |       0 |       0 | 25-267            
+  components.tsx       |       0 |        0 |       0 |       0 | 25-261            
  src/hooks             |       0 |        0 |       0 |       0 |                   
   useSessionStorage.ts |       0 |        0 |       0 |       0 | 4-19              
  src/pages             |       0 |      100 |       0 |       0 |                   
@@ -1036,5 +1036,5 @@ All files              |   16.29 |        0 |    5.88 |   16.54 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.125 s
+Time:        3.274 s
 Ran all test suites.
