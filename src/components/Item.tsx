@@ -343,12 +343,11 @@ export function SortingButton(): JSX.Element {
 
 // displayAll is sorted alphabetically by default
 export function Display(itemList: Item[]): JSX.Element {
-    const [rating, setRating] = useState(0);
-
     return (
         <div className="flex-container">
             <Row s={1} md={2}>
                 {itemList.map((anItem) => {
+                    const [rating, setRating] = useState(0);
                     return (
                         <Col key={anItem.name}>
                             <Card key={anItem.name}>
