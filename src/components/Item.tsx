@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
+
 /*import {
     cedarTree,
     larchTree,
@@ -342,6 +343,7 @@ export function SortingButton(): JSX.Element {
 
 // displayAll is sorted alphabetically by default
 export function Display(itemList: Item[]): JSX.Element {
+    const [rating, setRating] = useState(0);
     return (
         <div className="flex-container">
             <Row s={1} md={2}>
@@ -371,14 +373,34 @@ export function Display(itemList: Item[]): JSX.Element {
                                     </span>
                                     <br></br>
                                     <span className="fs-8">
-                                        •Rating: {anItem.rating} out of 5
+                                        •Rating:
+                                        <div className="star-rating">
+                                            {[...Array(5)].map(
+                                                (star, index) => {
+                                                    index += 1;
+                                                    return (
+                                                        <button
+                                                            type="button"
+                                                            key={index}
+                                                            className={
+                                                                index <= rating
+                                                                    ? "on"
+                                                                    : "off"
+                                                            }
+                                                            onClick={() =>
+                                                                setRating(index)
+                                                            }
+                                                        >
+                                                            <span className="star">
+                                                                &#9733;
+                                                            </span>
+                                                        </button>
+                                                    );
+                                                }
+                                            )}
+                                        </div>
+                                        out of 5
                                     </span>
-                                    <Form.Check
-                                        type="radio"
-                                        name="rating"
-                                        id="rating-check"
-                                        label="Star"
-                                    />
                                 </Card.Body>
                             </Card>
                         </Col>
