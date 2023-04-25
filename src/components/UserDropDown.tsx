@@ -2,41 +2,46 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
 export function UserDropDownMenu(): JSX.Element {
-    const [selectedRole, setSelectedRole] = useState<string>("");
+    const [selectedUser, setSelectedUser] = useState<string>("");
+    const [newUsers, setNewUsers] = useState<string[]>([]);
+    const [newUser, setNewUser] = useState<string>("");
 
-    const [newRole, setNewRole] = useState<string>("");
-
-    function updateRole(event: React.ChangeEvent<HTMLSelectElement>) {
-        setSelectedRole(event.target.value);
+    function updateUser(event: React.ChangeEvent<HTMLSelectElement>) {
+        setSelectedUser(event.target.value);
     }
 
     function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
-        if (event.key === "Enter" && newRole.trim() !== "") {
-            setSelectedRole(newRole);
-            setNewRole("");
+        if (
+            event.key === "Enter" &&
+            newUsers.length < 10 &&
+            newUser.trim() !== ""
+        ) {
+            setNewUsers([...newUsers, newUser]);
+            setSelectedUser(newUser);
+            setNewUser("");
         }
     }
 
-    const roles = ["", "Sam", "Sarah", "John", newRole];
+    const users = ["", "Sam", "Sarah", "John", ...newUsers];
 
     return (
         <div>
-            <Form.Group controlId="The_Roles">
+            <Form.Group controlId="The_Users">
                 <div style={{ display: "flex", alignItems: "center" }}>
-                    Role:
-                    <Form.Select value={selectedRole} onChange={updateRole}>
-                        {roles.map((role, index) => (
-                            <option key={index} value={role}>
-                                {role}
+                    User:
+                    <Form.Select value={selectedUser} onChange={updateUser}>
+                        {users.map((user, index) => (
+                            <option key={index} value={user}>
+                                {user}
                             </option>
                         ))}
                     </Form.Select>
-                    {selectedRole === newRole && (
+                    {selectedUser === "" && (
                         <input
                             type="text"
-                            placeholder="Enter new role"
-                            value={newRole}
-                            onChange={(event) => setNewRole(event.target.value)}
+                            placeholder="Enter new user"
+                            value={newUser}
+                            onChange={(event) => setNewUser(event.target.value)}
                             onKeyPress={handleKeyPress}
                         />
                     )}
