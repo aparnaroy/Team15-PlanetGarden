@@ -1,4 +1,3 @@
-/* eslint-disable no-extra-parens */
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
@@ -31,13 +30,16 @@ export function UserDropDownMenu(): JSX.Element {
                 <div style={{ display: "flex", alignItems: "center" }}>
                     User:
                     <Form.Select value={selectedUser} onChange={updateUser}>
-                        {users.map((user, index) => (
-                            <option key={index} value={user}>
-                                {user}
-                            </option>
-                        ))}
+                        {users.map((user, index) => {
+                            return (
+                                <option key={index} value={user}>
+                                    {user}
+                                </option>
+                            );
+                        })}
                     </Form.Select>
-                    {selectedUser === "" && (
+                    {selectedUser === ""}
+                    {
                         <input
                             type="text"
                             placeholder="Enter new user"
@@ -45,7 +47,7 @@ export function UserDropDownMenu(): JSX.Element {
                             onChange={(event) => setNewUser(event.target.value)}
                             onKeyPress={handleKeyPress}
                         />
-                    )}
+                    }
                 </div>
             </Form.Group>
         </div>
