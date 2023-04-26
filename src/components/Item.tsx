@@ -192,11 +192,12 @@ export function LandscapeItems(): JSX.Element {
         setShowItemForm(!newItemForm);
     }
 
-    return (
-        <div>
-            {(sessionStorage.getItem("Role") === "Admin" ||
-                // eslint-disable-next-line no-extra-parens
-                sessionStorage.getItem("Role") === null) && (
+    function showAddButton() {
+        if (
+            sessionStorage.getItem("Role") === "Super" ||
+            sessionStorage.getItem("Role") === null
+        ) {
+            return (
                 <div>
                     <Button
                         onClick={showItemForm}
@@ -206,7 +207,33 @@ export function LandscapeItems(): JSX.Element {
                         Add New Item
                     </Button>
                 </div>
-            )}
+            );
+        }
+    }
+
+    function showDeleteButton(anItem: Item) {
+        if (
+            sessionStorage.getItem("Role") === "Super" ||
+            sessionStorage.getItem("Role") === null
+        ) {
+            return (
+                <div>
+                    <br></br>
+                    <Button
+                        variant="danger"
+                        onClick={() => deleteItem(anItem)}
+                        className="w-100 mt-auto"
+                    >
+                        Delete Item
+                    </Button>
+                </div>
+            );
+        }
+    }
+
+    return (
+        <div>
+            {showAddButton()}
             <br></br>
             {newItemForm && <AddItem onSave={addItem} />}
             <Row s={2} md={3} lg={4}>
@@ -247,24 +274,7 @@ export function LandscapeItems(): JSX.Element {
                                         •Rating: {anItem.rating} out of 5
                                     </span>
                                     <br></br>
-                                    {(sessionStorage.getItem("Role") ===
-                                        "Admin" ||
-                                        sessionStorage.getItem("Role") ===
-                                            // eslint-disable-next-line no-extra-parens
-                                            null) && (
-                                        <div>
-                                            <br></br>
-                                            <Button
-                                                variant="danger"
-                                                onClick={() =>
-                                                    deleteItem(anItem)
-                                                }
-                                                className="w-100 mt-auto"
-                                            >
-                                                Delete Item
-                                            </Button>
-                                        </div>
-                                    )}
+                                    {showDeleteButton(anItem)}
                                 </Card.Body>
                             </Card>
                         </Col>
