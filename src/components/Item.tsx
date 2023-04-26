@@ -40,8 +40,9 @@ import {
     tulipFlower
 } from "../assets/instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
+import { ItemView } from "./ItemView";
 
-interface Item {
+export interface Item {
     name: string;
     image: string;
     price: number;
@@ -192,11 +193,12 @@ export function LandscapeItems(): JSX.Element {
         setShowItemForm(!newItemForm);
     }
 
-    return (
-        <div>
-            {(sessionStorage.getItem("Role") === "Admin" ||
-                // eslint-disable-next-line no-extra-parens
-                sessionStorage.getItem("Role") === null) && (
+    function showAddButton() {
+        if (
+            sessionStorage.getItem("Role") === "Super" ||
+            sessionStorage.getItem("Role") === null
+        ) {
+            return (
                 <div>
                     <Button
                         onClick={showItemForm}
@@ -206,7 +208,33 @@ export function LandscapeItems(): JSX.Element {
                         Add New Item
                     </Button>
                 </div>
-            )}
+            );
+        }
+    }
+
+    function showDeleteButton(anItem: Item) {
+        if (
+            sessionStorage.getItem("Role") === "Super" ||
+            sessionStorage.getItem("Role") === null
+        ) {
+            return (
+                <div>
+                    <br></br>
+                    <Button
+                        variant="danger"
+                        onClick={() => deleteItem(anItem)}
+                        className="w-100 mt-auto"
+                    >
+                        Delete Item
+                    </Button>
+                </div>
+            );
+        }
+    }
+
+    return (
+        <div>
+            {showAddButton()}
             <br></br>
             {newItemForm && <AddItem onSave={addItem} />}
             <Row s={2} md={3} lg={4}>
@@ -247,24 +275,7 @@ export function LandscapeItems(): JSX.Element {
                                         •Rating: {anItem.rating} out of 5
                                     </span>
                                     <br></br>
-                                    {(sessionStorage.getItem("Role") ===
-                                        "Admin" ||
-                                        sessionStorage.getItem("Role") ===
-                                            // eslint-disable-next-line no-extra-parens
-                                            null) && (
-                                        <div>
-                                            <br></br>
-                                            <Button
-                                                variant="danger"
-                                                onClick={() =>
-                                                    deleteItem(anItem)
-                                                }
-                                                className="w-100 mt-auto"
-                                            >
-                                                Delete Item
-                                            </Button>
-                                        </div>
-                                    )}
+                                    {showDeleteButton(anItem)}
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -385,61 +396,23 @@ export function SortingButton(): JSX.Element {
 
 // displayAll is sorted alphabetically by default
 export function Display(itemList: Item[]): JSX.Element {
+    // const [rating, setRating] = useState(0);
+
+    // function changeRating(newRating: number) {
+    //     setRating(newRating);
+    // }
     return (
         <div className="flex-container">
             <Row s={1} md={2}>
                 {itemList.map((anItem) => {
-                    const [rating, setRating] = useState(0);
                     return (
-                        <Col key={anItem.name}>
-                            <Card key={anItem.name}>
-                                <Card.Img
-                                    variant="top"
-                                    src={anItem.image}
-                                    style={{ objectFit: "cover" }}
-                                    height="300px"
-                                />
-                                <Card.Body>
-                                    <Card.Title className="d-flex justify-content-between align-items-baseline">
-                                        <span className="fs-4">
-                                            {anItem.name}
-                                        </span>
-                                        <span className="ms-2 text-muted">
-                                            ${anItem.price}
-                                        </span>
-                                    </Card.Title>
-                                    <br></br>
-                                    <span className="ms-1">
-                                        •Maintenance Level:{" "}
-                                        {anItem.maintenanceLevel} out of 5
-                                    </span>
-                                    <br></br>
-                                    <span className="fs-8">
-                                        •Rating:{" "}
-                                        {[...Array(5)].map((star, index) => {
-                                            index += 1;
-                                            return (
-                                                <span
-                                                    key={index}
-                                                    style={{
-                                                        color:
-                                                            index <= rating
-                                                                ? "orange"
-                                                                : "gray",
-                                                        cursor: "pointer"
-                                                    }}
-                                                    onClick={() =>
-                                                        setRating(index)
-                                                    }
-                                                >
-                                                    &#9733;
-                                                </span>
-                                            );
-                                        })}{" "}
-                                    </span>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                        <div key={anItem.name}>
+                            <ItemView
+                                anItem={anItem}
+                                // rating={rating}
+                                // setRating={changeRating}
+                            ></ItemView>
+                        </div>
                     );
                 })}
             </Row>
