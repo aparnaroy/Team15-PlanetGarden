@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
+
 /*import {
     cedarTree,
     larchTree,
@@ -305,7 +306,7 @@ export function SortingButton(): JSX.Element {
         tulipFlower
     ]);
     setItems;
-    const [option, setOption] = useState<string>("___");
+    const [option, setOption] = useState<string>("");
     function updateSorting(event: React.ChangeEvent<HTMLSelectElement>) {
         setOption(event.target.value);
     }
@@ -331,21 +332,63 @@ export function SortingButton(): JSX.Element {
             (item: Item): boolean => item.type === "Structure"
         );
         printed = Display(displayedItems);
+    } else if (option === "Price low to high") {
+        displayedItems = items.sort(
+            (item: Item, item2: Item) => item.price - item2.price
+        );
+        printed = Display(displayedItems);
+    } else if (option === "Price high to low") {
+        displayedItems = items.sort(
+            (item: Item, item2: Item) => item2.price - item.price
+        );
+        printed = Display(displayedItems);
+    } else if (option === "Alphabetically") {
+        displayedItems = items.sort((item: Item, item2: Item) =>
+            item2.name < item.name ? 1 : -1
+        );
+        printed = Display(displayedItems);
     }
+    const [input, setInput] = useState<string>("");
+    //let keywordPrint = Display([spruceTree]);
+    function searchLists(event: React.ChangeEvent<HTMLInputElement>) {
+        setInput(event.target.value);
+    }
+    if (option === "By keyword") {
+        displayedItems = items.filter((item: Item) =>
+            item.name.toLowerCase().includes(input.toLowerCase())
+        );
+        printed = Display(displayedItems);
+    }
+    function searchBar(): JSX.Element {
+        return (
+            <div>
+                <Form.Label>Start typing:</Form.Label>
+                <Form.Control
+                    type="string"
+                    value={input}
+                    onChange={searchLists}
+                ></Form.Control>
+            </div>
+        );
+    }
+    // FOR SEARCH BY TEXT INPUT
     return (
         <div>
             <Form.Label>Sort By: </Form.Label>
             <Form.Select value={option} onChange={updateSorting}>
                 <option>Alphabetically</option>
                 <option>Price low to high</option>
+                <option>Price high to low</option>
                 <option>Trees</option>
                 <option>Flowers</option>
                 <option>Greenery</option>
                 <option>Structures</option>
+                <option>By keyword</option>
             </Form.Select>
-            {option}
-            {printed}
             <br></br>
+            {option === "By keyword" ? searchBar() : null}
+            <br></br>
+            {printed}
         </div>
     );
 }
@@ -356,6 +399,7 @@ export function Display(itemList: Item[]): JSX.Element {
         <div className="flex-container">
             <Row s={1} md={2}>
                 {itemList.map((anItem) => {
+                    const [rating, setRating] = useState(0);
                     return (
                         <Col key={anItem.name}>
                             <Card key={anItem.name}>
@@ -381,7 +425,27 @@ export function Display(itemList: Item[]): JSX.Element {
                                     </span>
                                     <br></br>
                                     <span className="fs-8">
-                                        •Rating: {anItem.rating} out of 5
+                                        •Rating:{" "}
+                                        {[...Array(5)].map((star, index) => {
+                                            index += 1;
+                                            return (
+                                                <span
+                                                    key={index}
+                                                    style={{
+                                                        color:
+                                                            index <= rating
+                                                                ? "orange"
+                                                                : "gray",
+                                                        cursor: "pointer"
+                                                    }}
+                                                    onClick={() =>
+                                                        setRating(index)
+                                                    }
+                                                >
+                                                    &#9733;
+                                                </span>
+                                            );
+                                        })}{" "}
                                     </span>
                                 </Card.Body>
                             </Card>

@@ -69,27 +69,21 @@ export function SortButton(): JSX.Element {
     let displayedItems: (Flower | Tree | Greenery | Structure)[] = [];
     let printed = Display(items);
     if (option === "Trees") {
-        displayedItems = items.filter(
-            (item: Flower | Tree | Greenery | Structure): boolean =>
-                item.type === "Tree"
-        );
+        displayedItems = items.filter((item): boolean => item.type === "Tree");
         printed = Display(displayedItems);
     } else if (option === "Flowers") {
         displayedItems = items.filter(
-            (item: Flower | Tree | Greenery | Structure): boolean =>
-                item.type === "Flower"
+            (item): boolean => item.type === "Flower"
         );
         printed = Display(displayedItems);
     } else if (option === "Greenery") {
         displayedItems = items.filter(
-            (item: Flower | Tree | Greenery | Structure): boolean =>
-                item.type === "Greenery"
+            (item): boolean => item.type === "Greenery"
         );
         printed = Display(displayedItems);
     } else if (option === "Structures") {
         displayedItems = items.filter(
-            (item: Flower | Tree | Greenery | Structure): boolean =>
-                item.type === "Structure"
+            (item): boolean => item.type === "Structure"
         );
         printed = Display(displayedItems);
     }
