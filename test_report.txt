@@ -960,7 +960,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (470 ms)
+  ✕ renders the course name somewhere (363 ms)
 
   ● renders the course name somewhere
 
@@ -1014,16 +1014,16 @@ FAIL src/App.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |   19.72 |        0 |    9.09 |      20 |                   
+All files              |      20 |     2.43 |   10.52 |   20.27 |                   
  src                   |     100 |      100 |     100 |     100 |                   
   App.tsx              |     100 |      100 |     100 |     100 |                   
   interfaces.ts        |       0 |        0 |       0 |       0 |                   
  src/assets            |     100 |      100 |     100 |     100 |                   
   instances.tsx        |     100 |      100 |     100 |     100 |                   
- src/components        |    9.56 |        0 |    8.51 |    9.64 |                   
-  Item.tsx             |       0 |        0 |       0 |       0 | 61-408            
-  ItemView.tsx         |       0 |        0 |       0 |       0 | 14-50             
-  Navbar.tsx           |     100 |      100 |     100 |     100 |                   
+ src/components        |   10.25 |      2.7 |   10.41 |   10.34 |                   
+  Item.tsx             |       0 |        0 |       0 |       0 | 41-381            
+  ItemView.tsx         |       0 |        0 |       0 |       0 | 14-51             
+  Navbar.tsx           |   66.66 |       50 |     100 |   66.66 | 10                
   RoleSelect.tsx       |      40 |        0 |      25 |      40 | 90-99,115         
   UserDropDown.tsx     |      50 |        0 |      40 |      50 | 10-21,47          
  src/hooks             |       0 |        0 |       0 |       0 |                   
@@ -1033,9 +1033,10 @@ All files              |   19.72 |        0 |    9.09 |      20 |
   Home.tsx             |       0 |      100 |       0 |       0 | 5                 
   Inventory.tsx        |       0 |      100 |       0 |       0 | 5                 
   Shop.tsx             |       0 |      100 |       0 |       0 | 7                 
+  Users.tsx            |       0 |      100 |       0 |       0 | 4                 
 -----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.729 s
+Time:        2.957 s
 Ran all test suites.
