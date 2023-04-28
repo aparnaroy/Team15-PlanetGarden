@@ -1,25 +1,5 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
-
-/*import {
-    cedarTree,
-    larchTree,
-    oakTree,
-    spruceTree,
-    sequoiaTree,
-    chrysanthemumFlower,
-    irisFlower,
-    sunflowerFlower,
-    tulipFlower,
-    pansyFlower,
-    benchStructure,
-    gazeboStructure,
-    lilyPondStructure,
-    simplePondStructure,
-    stonePondStructure,
-    bushGreenery,
-    grassGreenery
-} from "../assets/instances";*/
 import {
     benchStructure,
     bushGreenery,
@@ -194,10 +174,7 @@ export function LandscapeItems(): JSX.Element {
     }
 
     function showAddButton() {
-        if (
-            sessionStorage.getItem("Role") === "Super" ||
-            sessionStorage.getItem("Role") === null
-        ) {
+        if (sessionStorage.getItem("Role") === "Super") {
             return (
                 <div>
                     <Button
@@ -213,10 +190,7 @@ export function LandscapeItems(): JSX.Element {
     }
 
     function showDeleteButton(anItem: Item) {
-        if (
-            sessionStorage.getItem("Role") === "Super" ||
-            sessionStorage.getItem("Role") === null
-        ) {
+        if (sessionStorage.getItem("Role") === "Super") {
             return (
                 <div>
                     <br></br>
@@ -235,12 +209,12 @@ export function LandscapeItems(): JSX.Element {
     return (
         <div>
             {showAddButton()}
-            <br></br>
             {newItemForm && <AddItem onSave={addItem} />}
             <Row s={2} md={3} lg={4}>
                 {items.map((anItem) => {
                     return (
                         <Col key={anItem.name}>
+                            <br></br>
                             <Card key={anItem.name}>
                                 <Card.Img
                                     variant="top"
@@ -274,7 +248,6 @@ export function LandscapeItems(): JSX.Element {
                                     <span className="fs-8">
                                         •Rating: {anItem.rating} out of 5
                                     </span>
-                                    <br></br>
                                     {showDeleteButton(anItem)}
                                 </Card.Body>
                             </Card>
