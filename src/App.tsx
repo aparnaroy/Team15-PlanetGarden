@@ -9,6 +9,7 @@ import { Inventory } from "./pages/Inventory";
 import { Shop } from "./pages/Shop";
 import { About } from "./pages/About";
 import { Home } from "./pages/Home";
+import { Users } from "./pages/Users";
 
 function App(): JSX.Element {
     return (
@@ -21,6 +22,7 @@ function App(): JSX.Element {
                     <Route path="/inventory" element={<Inventory />} />
                     <Route path="/shop" element={<Shop />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/users" element={<Users />} />
                 </Routes>
             </Container>
         </>

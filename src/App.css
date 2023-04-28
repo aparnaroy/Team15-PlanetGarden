@@ -61,6 +61,7 @@ body {
     width: 55%;
     overflow-y: auto;
     background-color: rgb(237, 220, 198);
+    padding: 20px;
 }
 
 .flex-container > div {
