@@ -960,7 +960,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (363 ms)
+  ✕ renders the course name somewhere (384 ms)
 
   ● renders the course name somewhere
 
@@ -1014,20 +1014,25 @@ FAIL src/App.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |      20 |     2.43 |   10.52 |   20.27 |                   
+All files              |   16.12 |     1.81 |    8.33 |    16.3 |                   
  src                   |     100 |      100 |     100 |     100 |                   
   App.tsx              |     100 |      100 |     100 |     100 |                   
   interfaces.ts        |       0 |        0 |       0 |       0 |                   
  src/assets            |     100 |      100 |     100 |     100 |                   
   instances.tsx        |     100 |      100 |     100 |     100 |                   
- src/components        |   10.25 |      2.7 |   10.41 |   10.34 |                   
-  Item.tsx             |       0 |        0 |       0 |       0 | 41-381            
-  ItemView.tsx         |       0 |        0 |       0 |       0 | 14-51             
+ src/components        |    7.84 |     1.96 |    7.93 |    7.89 |                   
+  AddItem.tsx          |       0 |      100 |       0 |       0 | 10-90             
+  DisplayItem.tsx      |       0 |        0 |       0 |       0 | 28-105            
+  EditItem.tsx         |       0 |      100 |       0 |       0 | 11-95             
+  ItemView.tsx         |       0 |        0 |       0 |       0 | 17-140            
   Navbar.tsx           |   66.66 |       50 |     100 |   66.66 | 10                
   RoleSelect.tsx       |      40 |        0 |      25 |      40 | 90-99,115         
+  SortItems.tsx        |       0 |        0 |       0 |       0 | 27-113            
   UserDropDown.tsx     |      50 |        0 |      40 |      50 | 10-21,47          
  src/hooks             |       0 |        0 |       0 |       0 |                   
   useSessionStorage.ts |       0 |        0 |       0 |       0 | 4-19              
+ src/interfaces        |       0 |        0 |       0 |       0 |                   
+  Item.ts              |       0 |        0 |       0 |       0 |                   
  src/pages             |       0 |      100 |       0 |       0 |                   
   About.tsx            |       0 |      100 |       0 |       0 | 5                 
   Home.tsx             |       0 |      100 |       0 |       0 | 5                 
@@ -1038,5 +1043,5 @@ All files              |      20 |     2.43 |   10.52 |   20.27 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.957 s
+Time:        4.113 s
 Ran all test suites.
