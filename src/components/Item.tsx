@@ -416,6 +416,7 @@ export function Display(itemList: Item[]): JSX.Element {
                                         •Rating: {anItem.rating} out of 5
                                     </span>
                                 </Card.Body>
+                                <br></br>
                             </Card>
                         </Col>
                     );
