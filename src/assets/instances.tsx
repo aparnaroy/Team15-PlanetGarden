@@ -1,4 +1,4 @@
-import { Tree, Flower, Structure, Greenery } from "../interfaces/interfaces";
+import { Tree, Flower, Structure, Greenery } from "../interfaces";
 import Bench from "./Bench.png";
 import Bush from "./Bush.png";
 import CedarTree from "./cedar-tree.png";
