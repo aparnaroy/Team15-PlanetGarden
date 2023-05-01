@@ -19,6 +19,7 @@ export function ItemView({
 
     return (
         <Col key={anItem.name}>
+            <br></br>
             <Card key={anItem.name}>
                 <Card.Img
                     variant="top"
