@@ -105,8 +105,6 @@ export function EditItem({ item, onSave }: EditItemProps) {
             <Button type="submit" variant="success">
                 Save
             </Button>
-            <br></br>
-            <br></br>
         </form>
     );
 }

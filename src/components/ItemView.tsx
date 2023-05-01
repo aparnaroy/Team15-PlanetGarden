@@ -15,10 +15,14 @@ export function ItemView({
     setItems
 }: ItemViewProps): JSX.Element {
     const [rating, setRating] = useState(0);
-    const [editingItem, updateItem] = useState<Item>();
+    const [newItemForm, setShowItemForm] = useState(false);
 
     function changeRating(newRating: number) {
         setRating(newRating);
+    }
+
+    function showItemForm() {
+        setShowItemForm(!newItemForm);
     }
 
     function deleteItem(item: Item) {
@@ -34,9 +38,10 @@ export function ItemView({
                 (item: Item): Item => (item.name === name ? editedItem : item)
             )
         );
+        setShowItemForm(false);
     }
 
-    function showEditButton(anItem: Item) {
+    function showEditButton() {
         if (
             sessionStorage.getItem("Role") === "Super" &&
             window.location.href.endsWith("inventory")
@@ -46,7 +51,7 @@ export function ItemView({
                     <br></br>
                     <Button
                         variant="info"
-                        onClick={() => editItem(anItem.name, anItem)}
+                        onClick={showItemForm}
                         className="w-100 mt-auto"
                         style={{
                             flex: 1,
@@ -60,6 +65,15 @@ export function ItemView({
                 </div>
             );
         }
+    }
+
+    function editingMode() {
+        return (
+            <div>
+                <br></br>
+                {newItemForm && <EditItem item={anItem} onSave={editItem} />}
+            </div>
+        );
     }
 
     function showDeleteButton(anItem: Item) {
@@ -132,10 +146,10 @@ export function ItemView({
                     </span>
                     <br></br>
                     <ButtonToolbar>
-                        {showEditButton(anItem)} &nbsp; &nbsp;
+                        {showEditButton()} &nbsp; &nbsp;
                         {showDeleteButton(anItem)}
+                        {editingMode()}
                     </ButtonToolbar>
-                    <EditItem item={anItem} onSave={editItem} />
                 </Card.Body>
             </Card>
         </Col>
