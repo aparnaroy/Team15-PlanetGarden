@@ -15,6 +15,7 @@ export function AddItem({ onSave }: AddItemProps) {
     const [maintenanceLevel, setMaintenance] = useState("");
     const [rating, setRating] = useState("");
     const [type, setType] = useState("");
+    const [boughtWith, setBoughtWith] = useState<string[]>([]);
 
     function handleSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -26,7 +27,8 @@ export function AddItem({ onSave }: AddItemProps) {
             quantity: parseInt(quantity),
             maintenanceLevel: parseInt(maintenanceLevel),
             rating: parseInt(rating),
-            type
+            type,
+            boughtWith
         });
         setName("");
         setPrice("");
@@ -36,6 +38,7 @@ export function AddItem({ onSave }: AddItemProps) {
         setMaintenance("");
         setRating("");
         setType("");
+        setBoughtWith([]);
     }
 
     return (
@@ -95,6 +98,14 @@ export function AddItem({ onSave }: AddItemProps) {
                 <option value="Structure">Structure</option>
                 <option value="Greenery">Greenery</option>
             </select>
+            <input
+                placeholder="Frequently bought with"
+                type="text"
+                value={boughtWith}
+                onChange={(event) =>
+                    setBoughtWith(event.target.value.split(","))
+                }
+            />
             <br></br>
             <br></br>
             <Button type="submit" variant="success">

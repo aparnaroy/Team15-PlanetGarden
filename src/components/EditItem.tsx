@@ -18,6 +18,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
     );
     const [rating, setRating] = useState<number>(item.rating);
     const [type, setType] = useState<string>(item.type);
+    const [boughtWith, setBoughtWith] = useState<string[]>(item.boughtWith);
 
     function handleSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -29,7 +30,8 @@ export function EditItem({ item, onSave }: EditItemProps) {
             quantity: quantity,
             maintenanceLevel: maintenanceLevel,
             rating: rating,
-            type: type
+            type: type,
+            boughtWith: boughtWith
         });
         setName(name);
         setPrice(price);
@@ -39,6 +41,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
         setMaintenance(maintenanceLevel);
         setRating(rating);
         setType(type);
+        setBoughtWith(boughtWith);
     }
 
     return (
@@ -100,6 +103,15 @@ export function EditItem({ item, onSave }: EditItemProps) {
                 <option value="Structure">Structure</option>
                 <option value="Greenery">Greenery</option>
             </select>
+            <input
+                placeholder="Frequently bought with"
+                type="text"
+                value={boughtWith}
+                onChange={(event) =>
+                    setBoughtWith(event.target.value.split(","))
+                }
+            />
+            <br></br>
             <br></br>
             <br></br>
             <Button type="submit" variant="success">
