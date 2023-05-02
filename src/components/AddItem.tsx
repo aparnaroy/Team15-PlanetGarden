@@ -41,11 +41,6 @@ export function AddItem({ onSave }: AddItemProps) {
         setBoughtWith([]);
     }
 
-    function stringToArray(event: React.ChangeEvent<HTMLInputElement>) {
-        event.target.value.split(",");
-        setBoughtWith(event.target.value.split(","));
-    }
-
     return (
         <form onSubmit={handleSave}>
             <input
@@ -107,7 +102,9 @@ export function AddItem({ onSave }: AddItemProps) {
                 placeholder="Frequently bought with"
                 type="text"
                 value={boughtWith}
-                onChange={stringToArray}
+                onChange={(event) =>
+                    setBoughtWith(event.target.value.split(","))
+                }
             />
             <br></br>
             <br></br>

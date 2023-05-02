@@ -41,6 +41,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
         setMaintenance(maintenanceLevel);
         setRating(rating);
         setType(type);
+        setBoughtWith(boughtWith);
     }
 
     return (
@@ -102,6 +103,15 @@ export function EditItem({ item, onSave }: EditItemProps) {
                 <option value="Structure">Structure</option>
                 <option value="Greenery">Greenery</option>
             </select>
+            <input
+                placeholder="Frequently bought with"
+                type="text"
+                value={boughtWith}
+                onChange={(event) =>
+                    setBoughtWith(event.target.value.split(","))
+                }
+            />
+            <br></br>
             <br></br>
             <br></br>
             <Button type="submit" variant="success">
