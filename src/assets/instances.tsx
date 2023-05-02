@@ -27,7 +27,7 @@ export const cedarTree: Item = {
     price: 60.0,
     rating: 0,
     type: "Tree",
-    boughtWith: []
+    boughtWith: ["Stakes", "Soil"]
 };
 export const larchTree: Item = {
     name: "Larch Tree",
@@ -39,7 +39,7 @@ export const larchTree: Item = {
     price: 50.0,
     rating: 0,
     type: "Tree",
-    boughtWith: []
+    boughtWith: ["Stakes", "Soil"]
 };
 export const oakTree: Item = {
     name: "Oak Tree",
@@ -51,7 +51,7 @@ export const oakTree: Item = {
     price: 40.0,
     rating: 0,
     type: "Tree",
-    boughtWith: []
+    boughtWith: ["Stakes", "Soil"]
 };
 export const sequoiaTree: Item = {
     name: "Sequoia Tree",
@@ -62,7 +62,7 @@ export const sequoiaTree: Item = {
     price: 50.0,
     rating: 0,
     type: "Tree",
-    boughtWith: []
+    boughtWith: ["Stakes", "Soil"]
 };
 export const spruceTree: Item = {
     name: "Spruce Tree",
@@ -74,7 +74,7 @@ export const spruceTree: Item = {
     price: 60.0,
     rating: 0,
     type: "Tree",
-    boughtWith: []
+    boughtWith: ["Stakes", "Soil"]
 };
 
 // FLOWERS
@@ -88,7 +88,7 @@ export const chrysanthemumFlower: Item = {
     price: 20.0,
     rating: 0,
     type: "Flower",
-    boughtWith: []
+    boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"]
 };
 export const irisFlower: Item = {
     name: "Iris",
@@ -100,7 +100,7 @@ export const irisFlower: Item = {
     price: 25.0,
     rating: 0,
     type: "Flower",
-    boughtWith: []
+    boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"]
 };
 export const sunflowerFlower: Item = {
     name: "Sunflower",
@@ -112,7 +112,7 @@ export const sunflowerFlower: Item = {
     price: 25.0,
     rating: 0,
     type: "Flower",
-    boughtWith: []
+    boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"]
 };
 export const tulipFlower: Item = {
     name: "Tulip",
@@ -124,7 +124,7 @@ export const tulipFlower: Item = {
     price: 10.0,
     rating: 0,
     type: "Flower",
-    boughtWith: []
+    boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"]
 };
 export const pansyFlower: Item = {
     name: "Pansy",
@@ -136,7 +136,7 @@ export const pansyFlower: Item = {
     price: 10.0,
     rating: 0,
     type: "Flower",
-    boughtWith: []
+    boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"]
 };
 
 // STRUCTURES
@@ -150,7 +150,7 @@ export const benchStructure: Item = {
     price: 30.0,
     rating: 0,
     type: "Structure",
-    boughtWith: []
+    boughtWith: ["Paint", "Table"]
 };
 export const gazeboStructure: Item = {
     name: "Gazebo",
@@ -162,7 +162,7 @@ export const gazeboStructure: Item = {
     price: 80.0,
     rating: 0,
     type: "Structure",
-    boughtWith: []
+    boughtWith: ["Bench", "Lights", "Gravel"]
 };
 export const lilyPondStructure: Item = {
     name: "Lily Pond",
@@ -174,7 +174,7 @@ export const lilyPondStructure: Item = {
     price: 110.0,
     rating: 0,
     type: "Structure",
-    boughtWith: []
+    boughtWith: ["Flowers", "Fish", "Tall grass"]
 };
 export const simplePondStructure: Item = {
     name: "Pond",
@@ -185,7 +185,7 @@ export const simplePondStructure: Item = {
     price: 150.0,
     rating: 0,
     type: "Structure",
-    boughtWith: []
+    boughtWith: ["Flowers", "Fish", "Tall grass"]
 };
 export const stonePondStructure: Item = {
     name: "Stone Pond",
@@ -197,7 +197,7 @@ export const stonePondStructure: Item = {
     price: 99.0,
     rating: 0,
     type: "Structure",
-    boughtWith: []
+    boughtWith: ["Flowers", "Fish", "Moss"]
 };
 
 // GREENERY
@@ -211,7 +211,7 @@ export const bushGreenery: Item = {
     price: 15.0,
     rating: 0,
     type: "Greenery",
-    boughtWith: []
+    boughtWith: ["Flowers", "Grass"]
 };
 export const grassGreenery: Item = {
     name: "Grass",
@@ -222,5 +222,5 @@ export const grassGreenery: Item = {
     price: 15.0,
     rating: 0,
     type: "Greenery",
-    boughtWith: []
+    boughtWith: ["Moss", "Clovers"]
 };
