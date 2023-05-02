@@ -1,4 +1,4 @@
-import { Tree, Flower, Structure, Greenery } from "../interfaces";
+import { Item } from "../interfaces/Item";
 import Bench from "./Bench.png";
 import Bush from "./Bush.png";
 import CedarTree from "./cedar-tree.png";
@@ -17,7 +17,7 @@ import Sunflower from "./Sunflower.png";
 import Tulip from "./Tulip.png";
 
 // TREES
-export const cedarTree: Tree = {
+export const cedarTree: Item = {
     name: "Cedar Tree",
     description:
         "Can be grown in many different climates. They are large and their leaves extend past the trunk widely.",
@@ -26,9 +26,10 @@ export const cedarTree: Tree = {
     maintenanceLevel: 3,
     price: 60.0,
     rating: 0,
-    type: "Tree"
+    type: "Tree",
+    boughtWith: []
 };
-export const larchTree: Tree = {
+export const larchTree: Item = {
     name: "Larch Tree",
     description:
         "These trees grow from 20-45m tall and are a type of pine tree!",
@@ -37,9 +38,10 @@ export const larchTree: Tree = {
     maintenanceLevel: 3,
     price: 50.0,
     rating: 0,
-    type: "Tree"
+    type: "Tree",
+    boughtWith: []
 };
-export const oakTree: Tree = {
+export const oakTree: Item = {
     name: "Oak Tree",
     description:
         "One of the most common species in the Northern Hemisphere. Produce lots of acorns!",
@@ -48,9 +50,10 @@ export const oakTree: Tree = {
     maintenanceLevel: 1,
     price: 40.0,
     rating: 0,
-    type: "Tree"
+    type: "Tree",
+    boughtWith: []
 };
-export const sequoiaTree: Tree = {
+export const sequoiaTree: Item = {
     name: "Sequoia Tree",
     description: "These trees can get as tall as 80m! Perfect for vast areas.",
     image: SequoiaTree,
@@ -58,9 +61,10 @@ export const sequoiaTree: Tree = {
     maintenanceLevel: 5,
     price: 50.0,
     rating: 0,
-    type: "Tree"
+    type: "Tree",
+    boughtWith: []
 };
-export const spruceTree: Tree = {
+export const spruceTree: Item = {
     name: "Spruce Tree",
     description:
         "Spruce trees are evergreens with short leaves referred to as needles. They stay alive during the winter and very cold seasons!",
@@ -69,11 +73,12 @@ export const spruceTree: Tree = {
     maintenanceLevel: 1,
     price: 60.0,
     rating: 0,
-    type: "Tree"
+    type: "Tree",
+    boughtWith: []
 };
 
 // FLOWERS
-export const chrysanthemumFlower: Flower = {
+export const chrysanthemumFlower: Item = {
     name: "Chrysanthemum",
     description:
         "These fall garden flowers are very easy to grow and have a ton of petals!",
@@ -82,9 +87,10 @@ export const chrysanthemumFlower: Flower = {
     maintenanceLevel: 1,
     price: 20.0,
     rating: 0,
-    type: "Flower"
+    type: "Flower",
+    boughtWith: []
 };
-export const irisFlower: Flower = {
+export const irisFlower: Item = {
     name: "Iris",
     description:
         "This beautiful flower is beautiful and easy to grow! There exist around 300 varieties of irises.",
@@ -93,9 +99,10 @@ export const irisFlower: Flower = {
     maintenanceLevel: 1,
     price: 25.0,
     rating: 0,
-    type: "Flower"
+    type: "Flower",
+    boughtWith: []
 };
-export const sunflowerFlower: Flower = {
+export const sunflowerFlower: Item = {
     name: "Sunflower",
     description:
         "These tall plants grow towards the sun, are used to produce sunflower oil, and contain yummy seeds!",
@@ -104,9 +111,10 @@ export const sunflowerFlower: Flower = {
     maintenanceLevel: 2,
     price: 25.0,
     rating: 0,
-    type: "Flower"
+    type: "Flower",
+    boughtWith: []
 };
-export const tulipFlower: Flower = {
+export const tulipFlower: Item = {
     name: "Tulip",
     description:
         "These spring-blooming flowers come in all types of different colors!",
@@ -115,9 +123,10 @@ export const tulipFlower: Flower = {
     maintenanceLevel: 1,
     price: 10.0,
     rating: 0,
-    type: "Flower"
+    type: "Flower",
+    boughtWith: []
 };
-export const pansyFlower: Flower = {
+export const pansyFlower: Item = {
     name: "Pansy",
     description:
         "These flowers are multicolored and fast-growing. They love cool weather!",
@@ -126,11 +135,12 @@ export const pansyFlower: Flower = {
     maintenanceLevel: 1,
     price: 10.0,
     rating: 0,
-    type: "Flower"
+    type: "Flower",
+    boughtWith: []
 };
 
 // STRUCTURES
-export const benchStructure: Structure = {
+export const benchStructure: Item = {
     name: "Bench",
     description:
         "A nice place to sit and relax while observing your beautiful landscape.",
@@ -139,9 +149,10 @@ export const benchStructure: Structure = {
     maintenanceLevel: 1,
     price: 30.0,
     rating: 0,
-    type: "Structure"
+    type: "Structure",
+    boughtWith: []
 };
-export const gazeboStructure: Structure = {
+export const gazeboStructure: Item = {
     name: "Gazebo",
     description:
         "A beautiful ornamental addition to your landscape that provides shade, shelter from rain, and a place to rest!",
@@ -150,9 +161,10 @@ export const gazeboStructure: Structure = {
     maintenanceLevel: 1,
     price: 80.0,
     rating: 0,
-    type: "Structure"
+    type: "Structure",
+    boughtWith: []
 };
-export const lilyPondStructure: Structure = {
+export const lilyPondStructure: Item = {
     name: "Lily Pond",
     description:
         "A pond full of beautiful lilies to brighten up your landscape.",
@@ -161,9 +173,10 @@ export const lilyPondStructure: Structure = {
     maintenanceLevel: 3,
     price: 110.0,
     rating: 0,
-    type: "Structure"
+    type: "Structure",
+    boughtWith: []
 };
-export const simplePondStructure: Structure = {
+export const simplePondStructure: Item = {
     name: "Pond",
     description: "A small body of water to bring some life to your landscape!",
     image: SimplePond,
@@ -171,9 +184,10 @@ export const simplePondStructure: Structure = {
     maintenanceLevel: 4,
     price: 150.0,
     rating: 0,
-    type: "Structure"
+    type: "Structure",
+    boughtWith: []
 };
-export const stonePondStructure: Structure = {
+export const stonePondStructure: Item = {
     name: "Stone Pond",
     description:
         "A small body of water bordered with stones as an artists touch.",
@@ -182,11 +196,12 @@ export const stonePondStructure: Structure = {
     maintenanceLevel: 2,
     price: 99.0,
     rating: 0,
-    type: "Structure"
+    type: "Structure",
+    boughtWith: []
 };
 
 // GREENERY
-export const bushGreenery: Greenery = {
+export const bushGreenery: Item = {
     name: "Bush",
     description:
         "What's rustling in the bushes? Oh nothing, it's just the breeze saying hello.",
@@ -195,9 +210,10 @@ export const bushGreenery: Greenery = {
     maintenanceLevel: 1,
     price: 15.0,
     rating: 0,
-    type: "Greenery"
+    type: "Greenery",
+    boughtWith: []
 };
-export const grassGreenery: Greenery = {
+export const grassGreenery: Item = {
     name: "Grass",
     description: "Something perfect to fill up any empty spots in your yard!",
     image: "grass-image",
@@ -205,5 +221,6 @@ export const grassGreenery: Greenery = {
     maintenanceLevel: 1,
     price: 15.0,
     rating: 0,
-    type: "Greenery"
+    type: "Greenery",
+    boughtWith: []
 };
