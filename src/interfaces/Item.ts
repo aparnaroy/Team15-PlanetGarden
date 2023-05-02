@@ -7,4 +7,5 @@ export interface Item {
     maintenanceLevel: number;
     rating: number;
     type: string;
+    boughtWith: string[];
 }
