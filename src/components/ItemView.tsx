@@ -145,6 +145,12 @@ export function ItemView({
                         })}{" "}
                     </span>
                     <br></br>
+                    <br></br>
+                    <span>
+                        Frequently Bought With:<br></br>
+                        {anItem.boughtWith.join(", ")}
+                    </span>
+                    <br></br>
                     <ButtonToolbar>
                         {showEditButton()} &nbsp; &nbsp;
                         {showDeleteButton(anItem)}

@@ -18,6 +18,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
     );
     const [rating, setRating] = useState<number>(item.rating);
     const [type, setType] = useState<string>(item.type);
+    const [boughtWith, setBoughtWith] = useState<string[]>(item.boughtWith);
 
     function handleSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -29,7 +30,8 @@ export function EditItem({ item, onSave }: EditItemProps) {
             quantity: quantity,
             maintenanceLevel: maintenanceLevel,
             rating: rating,
-            type: type
+            type: type,
+            boughtWith: boughtWith
         });
         setName(name);
         setPrice(price);
