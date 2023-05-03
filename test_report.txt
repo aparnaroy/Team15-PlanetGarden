@@ -960,7 +960,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (419 ms)
+  ✕ renders the course name somewhere (287 ms)
 
   ● renders the course name somewhere
 
@@ -1014,16 +1014,16 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   14.83 |     7.35 |    7.59 |   14.97 |                   
+All files               |   14.69 |     7.35 |    7.59 |   14.83 |                   
  src                    |     100 |      100 |     100 |     100 |                   
   App.tsx               |     100 |      100 |     100 |     100 |                   
   interfaces.ts         |       0 |        0 |       0 |       0 |                   
  src/assets             |     100 |      100 |     100 |     100 |                   
   instances.tsx         |     100 |      100 |     100 |     100 |                   
- src/components         |    7.38 |     7.81 |    7.14 |    7.42 |                   
-  AddItem.tsx           |       0 |      100 |       0 |       0 | 10-106            
+ src/components         |     7.3 |     7.81 |    7.14 |    7.34 |                   
+  AddItem.tsx           |       0 |      100 |       0 |       0 | 10-107            
   DisplayItem.tsx       |       0 |        0 |       0 |       0 | 28-105            
-  EditItem.tsx          |       0 |      100 |       0 |       0 | 11-111            
+  EditItem.tsx          |       0 |      100 |       0 |       0 | 11-114            
   ItemView.tsx          |       0 |        0 |       0 |       0 | 17-140            
   Navbar.tsx            |   66.66 |       50 |     100 |   66.66 | 10                
   RoleSelect.tsx        |      40 |        0 |      25 |      40 | 90-99,115         
@@ -1043,5 +1043,5 @@ All files               |   14.83 |     7.35 |    7.59 |   14.97 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        4.483 s
+Time:        3.27 s
 Ran all test suites.
