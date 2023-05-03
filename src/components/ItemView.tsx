@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import { Button, ButtonToolbar, Card, Col } from "react-bootstrap";
 import { Item } from "../interfaces/Item";
 import { EditItem } from "./EditItem";
 import { useDrag } from "react-dnd";
 
 interface AccordionProps {
-    children: any;
+    children: ReactElement[];
 }
 
 function ExpandableSection({ children }: AccordionProps) {
@@ -58,6 +58,8 @@ export function ItemView({
             isDragging: !!monitor.isDragging()
         })
     });
+
+    isDragging;
 
     function changeRating(newRating: number) {
         setRating(newRating);
