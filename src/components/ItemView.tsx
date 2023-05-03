@@ -103,9 +103,9 @@ export function ItemView({
     }
 
     return (
-        <Col key={anItem.name}>
+        <Col key={anItem.id}>
             <br></br>
-            <Card key={anItem.name}>
+            <Card key={anItem.id}>
                 <Card.Img
                     variant="top"
                     src={anItem.image}
@@ -150,7 +150,6 @@ export function ItemView({
                         Frequently Bought With:<br></br>
                         {anItem.boughtWith.join(", ")}
                     </span>
-                    <br></br>
                     <ButtonToolbar>
                         {showEditButton()} &nbsp; &nbsp;
                         {showDeleteButton(anItem)}

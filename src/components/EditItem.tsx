@@ -8,6 +8,7 @@ interface EditItemProps {
 }
 
 export function EditItem({ item, onSave }: EditItemProps) {
+    const [id, setId] = useState<number>(item.id);
     const [name, setName] = useState<string>(item.name);
     const [price, setPrice] = useState<number>(item.price);
     const [image, setImage] = useState<string>(item.image);
@@ -23,6 +24,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
     function handleSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         onSave(item.name, {
+            id: id,
             name: name,
             price: price,
             image: image,
@@ -33,6 +35,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
             type: type,
             boughtWith: boughtWith
         });
+        setId(id);
         setName(name);
         setPrice(price);
         setImage(image);
