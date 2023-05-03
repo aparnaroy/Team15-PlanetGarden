@@ -2,6 +2,41 @@ import React, { useState } from "react";
 import { Button, ButtonToolbar, Card, Col } from "react-bootstrap";
 import { Item } from "../interfaces/Item";
 import { EditItem } from "./EditItem";
+import { useDrag } from "react-dnd";
+
+interface AccordionProps {
+    children: any;
+}
+
+function ExpandableSection({ children }: AccordionProps) {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const toggleExpand = () => {
+        setIsExpanded(!isExpanded);
+    };
+
+    return (
+        <div>
+            <div onClick={toggleExpand}>
+                Show More{" "}
+                <span
+                    style={{
+                        display: "inline-block",
+                        transform: isExpanded
+                            ? "rotate(180deg)"
+                            : "rotate(0deg)",
+                        transition: "transform 0.3s ease",
+                        fontSize: "16px",
+                        marginRight: "4px"
+                    }}
+                >
+                    ▼
+                </span>
+            </div>
+            {isExpanded && <div>{children}</div>}
+        </div>
+    );
+}
 
 interface ItemViewProps {
     anItem: Item;
@@ -16,6 +51,13 @@ export function ItemView({
 }: ItemViewProps): JSX.Element {
     const [rating, setRating] = useState(0);
     const [newItemForm, setShowItemForm] = useState(false);
+    const [{ isDragging }, drag] = useDrag({
+        type: "item",
+        item: { id: anItem.id },
+        collect: (monitor) => ({
+            isDragging: !!monitor.isDragging()
+        })
+    });
 
     function changeRating(newRating: number) {
         setRating(newRating);
@@ -105,7 +147,7 @@ export function ItemView({
     return (
         <Col key={anItem.id}>
             <br></br>
-            <Card key={anItem.id}>
+            <Card key={anItem.id} ref={drag}>
                 <Card.Img
                     variant="top"
                     src={anItem.image}
@@ -121,12 +163,8 @@ export function ItemView({
                     </span>
                     <br></br>
                     <br></br>
-                    <span className="ms-1">
-                        •Maintenance Level: {anItem.maintenanceLevel} out of 5
-                    </span>
-                    <br></br>
                     <span className="fs-8">
-                        •Rating:{" "}
+                        Rating:{" "}
                         {[...Array(5)].map((star, index) => {
                             index += 1;
                             return (
@@ -146,10 +184,19 @@ export function ItemView({
                     </span>
                     <br></br>
                     <br></br>
-                    <span>
-                        Frequently Bought With:<br></br>
-                        {anItem.boughtWith.join(", ")}
-                    </span>
+                    <Card.Footer>
+                        <ExpandableSection>
+                            <span className="ms-1">
+                                •Maintenance Level: {anItem.maintenanceLevel}{" "}
+                                out of 5
+                            </span>
+                            <br></br>
+                            <span>
+                                •Frequently Bought With:<br></br>
+                                {anItem.boughtWith.join(", ")}
+                            </span>
+                        </ExpandableSection>
+                    </Card.Footer>
                     <ButtonToolbar>
                         {showEditButton()} &nbsp; &nbsp;
                         {showDeleteButton(anItem)}
