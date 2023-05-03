@@ -18,6 +18,7 @@ import Tulip from "./Tulip.png";
 
 // TREES
 export const cedarTree: Item = {
+    id: 1,
     name: "Cedar Tree",
     description:
         "Can be grown in many different climates. They are large and their leaves extend past the trunk widely.",
@@ -30,6 +31,7 @@ export const cedarTree: Item = {
     boughtWith: ["Stakes", "Soil"]
 };
 export const larchTree: Item = {
+    id: 2,
     name: "Larch Tree",
     description:
         "These trees grow from 20-45m tall and are a type of pine tree!",
@@ -42,6 +44,7 @@ export const larchTree: Item = {
     boughtWith: ["Stakes", "Soil"]
 };
 export const oakTree: Item = {
+    id: 3,
     name: "Oak Tree",
     description:
         "One of the most common species in the Northern Hemisphere. Produce lots of acorns!",
@@ -54,6 +57,7 @@ export const oakTree: Item = {
     boughtWith: ["Stakes", "Soil"]
 };
 export const sequoiaTree: Item = {
+    id: 4,
     name: "Sequoia Tree",
     description: "These trees can get as tall as 80m! Perfect for vast areas.",
     image: SequoiaTree,
@@ -65,6 +69,7 @@ export const sequoiaTree: Item = {
     boughtWith: ["Stakes", "Soil"]
 };
 export const spruceTree: Item = {
+    id: 5,
     name: "Spruce Tree",
     description:
         "Spruce trees are evergreens with short leaves referred to as needles. They stay alive during the winter and very cold seasons!",
@@ -79,6 +84,7 @@ export const spruceTree: Item = {
 
 // FLOWERS
 export const chrysanthemumFlower: Item = {
+    id: 6,
     name: "Chrysanthemum",
     description:
         "These fall garden flowers are very easy to grow and have a ton of petals!",
@@ -91,6 +97,7 @@ export const chrysanthemumFlower: Item = {
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"]
 };
 export const irisFlower: Item = {
+    id: 7,
     name: "Iris",
     description:
         "This beautiful flower is beautiful and easy to grow! There exist around 300 varieties of irises.",
@@ -103,6 +110,7 @@ export const irisFlower: Item = {
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"]
 };
 export const sunflowerFlower: Item = {
+    id: 8,
     name: "Sunflower",
     description:
         "These tall plants grow towards the sun, are used to produce sunflower oil, and contain yummy seeds!",
@@ -115,6 +123,7 @@ export const sunflowerFlower: Item = {
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"]
 };
 export const tulipFlower: Item = {
+    id: 9,
     name: "Tulip",
     description:
         "These spring-blooming flowers come in all types of different colors!",
@@ -127,6 +136,7 @@ export const tulipFlower: Item = {
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"]
 };
 export const pansyFlower: Item = {
+    id: 10,
     name: "Pansy",
     description:
         "These flowers are multicolored and fast-growing. They love cool weather!",
@@ -141,6 +151,7 @@ export const pansyFlower: Item = {
 
 // STRUCTURES
 export const benchStructure: Item = {
+    id: 11,
     name: "Bench",
     description:
         "A nice place to sit and relax while observing your beautiful landscape.",
@@ -153,6 +164,7 @@ export const benchStructure: Item = {
     boughtWith: ["Paint", "Table"]
 };
 export const gazeboStructure: Item = {
+    id: 12,
     name: "Gazebo",
     description:
         "A beautiful ornamental addition to your landscape that provides shade, shelter from rain, and a place to rest!",
@@ -165,6 +177,7 @@ export const gazeboStructure: Item = {
     boughtWith: ["Bench", "Lights", "Gravel"]
 };
 export const lilyPondStructure: Item = {
+    id: 13,
     name: "Lily Pond",
     description:
         "A pond full of beautiful lilies to brighten up your landscape.",
@@ -177,6 +190,7 @@ export const lilyPondStructure: Item = {
     boughtWith: ["Flowers", "Fish", "Tall grass"]
 };
 export const simplePondStructure: Item = {
+    id: 14,
     name: "Pond",
     description: "A small body of water to bring some life to your landscape!",
     image: SimplePond,
@@ -188,6 +202,7 @@ export const simplePondStructure: Item = {
     boughtWith: ["Flowers", "Fish", "Tall grass"]
 };
 export const stonePondStructure: Item = {
+    id: 15,
     name: "Stone Pond",
     description:
         "A small body of water bordered with stones as an artists touch.",
@@ -202,6 +217,7 @@ export const stonePondStructure: Item = {
 
 // GREENERY
 export const bushGreenery: Item = {
+    id: 16,
     name: "Bush",
     description:
         "What's rustling in the bushes? Oh nothing, it's just the breeze saying hello.",
@@ -214,6 +230,7 @@ export const bushGreenery: Item = {
     boughtWith: ["Flowers", "Grass"]
 };
 export const grassGreenery: Item = {
+    id: 17,
     name: "Grass",
     description: "Something perfect to fill up any empty spots in your yard!",
     image: "grass-image",

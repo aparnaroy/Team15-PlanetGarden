@@ -20,6 +20,7 @@ export function AddItem({ onSave }: AddItemProps) {
     function handleSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         onSave({
+            id: Date.now(),
             name,
             price: parseInt(price),
             image,
