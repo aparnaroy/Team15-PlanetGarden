@@ -1,42 +1,9 @@
-import React, { ReactElement, useState } from "react";
+import React, { useState } from "react";
 import { Button, ButtonToolbar, Card, Col } from "react-bootstrap";
 import { Item } from "../interfaces/Item";
 import { EditItem } from "./EditItem";
 import { useDrag } from "react-dnd";
-
-interface AccordionProps {
-    children: ReactElement[];
-}
-
-function ExpandableSection({ children }: AccordionProps) {
-    const [isExpanded, setIsExpanded] = useState(false);
-
-    const toggleExpand = () => {
-        setIsExpanded(!isExpanded);
-    };
-
-    return (
-        <div>
-            <div onClick={toggleExpand}>
-                Show More{" "}
-                <span
-                    style={{
-                        display: "inline-block",
-                        transform: isExpanded
-                            ? "rotate(180deg)"
-                            : "rotate(0deg)",
-                        transition: "transform 0.3s ease",
-                        fontSize: "16px",
-                        marginRight: "4px"
-                    }}
-                >
-                    ▼
-                </span>
-            </div>
-            {isExpanded && <div>{children}</div>}
-        </div>
-    );
-}
+import { ExpandableSection } from "./Expandable";
 
 interface ItemViewProps {
     anItem: Item;
@@ -146,6 +113,21 @@ export function ItemView({
         }
     }
 
+    function showEditAndDelete(anItem: Item) {
+        if (
+            sessionStorage.getItem("Role") === "Super" &&
+            window.location.href.endsWith("inventory")
+        ) {
+            return (
+                <ButtonToolbar>
+                    {showEditButton()} &nbsp; &nbsp;
+                    {showDeleteButton(anItem)}
+                    {editingMode()}
+                </ButtonToolbar>
+            );
+        }
+    }
+
     return (
         <Col key={anItem.id}>
             <br></br>
@@ -199,11 +181,7 @@ export function ItemView({
                             </span>
                         </ExpandableSection>
                     </Card.Footer>
-                    <ButtonToolbar>
-                        {showEditButton()} &nbsp; &nbsp;
-                        {showDeleteButton(anItem)}
-                        {editingMode()}
-                    </ButtonToolbar>
+                    {showEditAndDelete(anItem)}
                 </Card.Body>
             </Card>
         </Col>
