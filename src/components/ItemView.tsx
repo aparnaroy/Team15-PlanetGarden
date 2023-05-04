@@ -60,17 +60,7 @@ export function ItemView({
             return (
                 <div>
                     <br></br>
-                    <Button
-                        variant="info"
-                        onClick={showItemForm}
-                        className="w-100 mt-auto"
-                        style={{
-                            flex: 1,
-                            flexDirection: "row",
-                            marginLeft: 10,
-                            justifyContent: "space-evenly"
-                        }}
-                    >
+                    <Button variant="info" onClick={showItemForm}>
                         Edit Item
                     </Button>
                 </div>
@@ -95,17 +85,7 @@ export function ItemView({
             return (
                 <div>
                     <br></br>
-                    <Button
-                        variant="danger"
-                        onClick={() => deleteItem(anItem)}
-                        className="w-100 mt-auto"
-                        style={{
-                            flex: 1,
-                            flexDirection: "row",
-                            marginLeft: 20,
-                            justifyContent: "space-evenly"
-                        }}
-                    >
+                    <Button variant="danger" onClick={() => deleteItem(anItem)}>
                         Delete Item
                     </Button>
                 </div>
@@ -119,8 +99,8 @@ export function ItemView({
             window.location.href.endsWith("inventory")
         ) {
             return (
-                <ButtonToolbar>
-                    {showEditButton()} &nbsp; &nbsp;
+                <ButtonToolbar className="edit-delete-buttons">
+                    &nbsp;&nbsp;&nbsp;&nbsp;{showEditButton()} &nbsp; &nbsp;
                     {showDeleteButton(anItem)}
                     {editingMode()}
                 </ButtonToolbar>
