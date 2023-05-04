@@ -93,7 +93,7 @@ body {
 
 .add-item input {
     width: 80%;
-    padding: 10px 30px;
+    padding: 10px 20px;
     border: none;
     margin-bottom: 20px;
     background-color: #faf9f6;
@@ -102,7 +102,16 @@ body {
 
 .add-item select {
     width: 80%;
-    padding: 10px 30px;
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: #faf9f6;
+    border-radius: 20px;
+}
+
+.add-item textarea {
+    width: 80%;
+    padding: 10px 20px;
     border: none;
     margin-bottom: 20px;
     background-color: #faf9f6;
@@ -140,6 +149,15 @@ body {
     padding: 8px 20px;
     border: none;
     margin-bottom: 5px;
+    background-color: #faf9f6;
+    border-radius: 10px;
+}
+
+.edit-item textarea {
+    width: 100%;
+    padding: 5px 20px;
+    border: none;
+    margin-bottom: 4px;
     background-color: #faf9f6;
     border-radius: 10px;
 }
