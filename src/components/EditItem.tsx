@@ -72,10 +72,10 @@ export function EditItem({ item, onSave }: EditItemProps) {
                     onChange={(event) => setImage(event.target.value)}
                 />
                 <span className="edit-item-label">Description:</span>
-                <input
+                <textarea
                     placeholder="Description"
-                    type="text"
                     value={description}
+                    rows={3}
                     onChange={(event) => setDescription(event.target.value)}
                 />
                 <span className="edit-item-label">Quantity:</span>

@@ -77,10 +77,10 @@ export function AddItem({ onSave }: AddItemProps) {
                 <Col>
                     <span className="add-item-label">Description:</span>
                     <br></br>
-                    <input
+                    <textarea
                         placeholder="Description"
-                        type="text"
                         value={description}
+                        rows={1}
                         onChange={(event) => setDescription(event.target.value)}
                     />
                     <br></br>
