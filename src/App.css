@@ -44,6 +44,7 @@ body {
 
 .parent-container {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 700px;
@@ -53,6 +54,28 @@ body {
 }
 
 .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 700px;
+    width: 55%;
+    overflow-y: auto;
+    background-color: rgb(237, 220, 198);
+    padding: 20px;
+}
+
+.flex-container > div {
+    background-color: #f1f1f1;
+    margin: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.flex-container-cart {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

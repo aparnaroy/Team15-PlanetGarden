@@ -1,7 +1,7 @@
-import React, { useState } from "react";
 import { useDrop } from "react-dnd";
 //import { Item } from "../interfaces/Item";
-//import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useState } from "react";
+//import { ItemView } from "./ItemView";
 //import { ItemViewProps } from "./ItemView";
 
 export function Cart(): JSX.Element {

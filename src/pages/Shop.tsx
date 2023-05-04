@@ -20,7 +20,6 @@ export function Shop() {
             <br></br>
             <header className="App-header2">Available Items</header>
             <SortButton></SortButton>
-            <Cart></Cart>
             <hr></hr>
         </div>
     );

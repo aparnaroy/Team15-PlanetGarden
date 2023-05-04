@@ -23,6 +23,7 @@ import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
 import { Button, Col, Row } from "react-bootstrap";
 import { AddItem } from "./AddItem";
+import { useDrop } from "react-dnd";
 
 export function InventoryDisplay(): JSX.Element {
     const [items, setItems] = useSessionStorage<Item[]>("all-items", [
@@ -98,21 +99,41 @@ export function ShopDisplay(
     items: Item[],
     setItems: (newItems: Item[]) => void
 ): JSX.Element {
+    const [{ isOver, canDrop }, drop] = useDrop(() => ({
+        accept: "item",
+        //drop: (item: Item) => addToCart(item.id),
+        collect: (monitor) => ({
+            isOver: monitor.isOver(),
+            canDrop: monitor.canDrop()
+        })
+    }));
     return (
-        <div className="flex-container">
-            <Row s={1} md={2}>
-                {itemList.map((anItem) => {
-                    return (
-                        <div key={anItem.id}>
-                            <ItemView
-                                anItem={anItem}
-                                items={items}
-                                setItems={setItems}
-                            ></ItemView>
-                        </div>
-                    );
-                })}
-            </Row>
-        </div>
+        <>
+            <div className="parent-container">
+                <div className="flex-container">
+                    <Row s={1} md={2}>
+                        {itemList.map((anItem) => {
+                            return (
+                                <div key={anItem.id}>
+                                    <ItemView
+                                        anItem={anItem}
+                                        items={items}
+                                        setItems={setItems}
+                                    ></ItemView>
+                                </div>
+                            );
+                        })}
+                    </Row>
+                </div>
+                <div
+                    className="flex-container-cart"
+                    ref={drop}
+                    role={"Cart"}
+                    style={{ backgroundColor: isOver ? "blue" : "white" }}
+                >
+                    {canDrop ? "Release to drop" : "Drag a box here"}
+                </div>
+            </div>
+        </>
     );
 }
