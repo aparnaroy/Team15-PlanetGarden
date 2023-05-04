@@ -125,13 +125,8 @@ export function ShopDisplay(
                         })}
                     </Row>
                 </div>
-                <div
-                    className="flex-container-cart"
-                    ref={drop}
-                    role={"Cart"}
-                    style={{ backgroundColor: isOver ? "blue" : "white" }}
-                >
-                    {canDrop ? "Release to drop" : "Drag a box here"}
+                <div className="flex-container-cart" ref={drop} role={"Cart"}>
+                    <div>{canDrop ? "Release to drop" : "Drag a box here"}</div>
                 </div>
             </div>
         </>

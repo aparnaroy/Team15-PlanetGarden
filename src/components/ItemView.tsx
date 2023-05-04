@@ -38,7 +38,7 @@ function ExpandableSection({ children }: AccordionProps) {
     );
 }
 
-interface ItemViewProps {
+export interface ItemViewProps {
     anItem: Item;
     items: Item[];
     setItems: (newItems: Item[]) => void;
