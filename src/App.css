@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: beige;
+    background-color: #f5f5dc;
 }
 .App-logo {
     height: 40vmin;
@@ -30,12 +30,36 @@ body {
     color: rgb(109, 66, 6);
 }
 
-.App-header2 {
+.Wrap-Headers {
+    display: flex;
+    min-height: 5vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
     width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.App-header2 {
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    min-height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: calc(30px + 2vmin);
+    color: #56a3a6;
+}
+
+.App-header3 {
+    width: 50%;
     background-color: #56a3a6;
     min-height: 5vh;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: flex-end;
     justify-content: center;
     font-size: calc(30px + 2vmin);

@@ -18,7 +18,6 @@ export function Shop() {
             </div>
             <br></br>
             <br></br>
-            <header className="App-header2">Available Items</header>
             <SortButton></SortButton>
             <hr></hr>
         </div>

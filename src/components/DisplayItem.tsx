@@ -109,6 +109,10 @@ export function ShopDisplay(
     }));
     return (
         <>
+            <div style={{ display: "flex" }}>
+                <header className="App-header2">Shop🪴</header>
+                <header className="App-header3">Your Cart🛒</header>
+            </div>
             <div className="parent-container">
                 <div className="flex-container">
                     <Row s={1} md={2}>
@@ -125,8 +129,13 @@ export function ShopDisplay(
                         })}
                     </Row>
                 </div>
-                <div className="flex-container-cart" ref={drop} role={"Cart"}>
-                    <div>{canDrop ? "Release to drop" : "Drag a box here"}</div>
+                <div
+                    className="flex-container-cart"
+                    ref={drop}
+                    role={"Cart"}
+                    style={{ backgroundColor: isOver ? "white" : "#f1f1f1" }}
+                >
+                    {canDrop ? "Release to drop" : "Drag a box here"}
                 </div>
             </div>
         </>
