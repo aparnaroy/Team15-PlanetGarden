@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, ButtonToolbar, Card, Col } from "react-bootstrap";
 import { Item } from "../interfaces/Item";
 import { EditItem } from "./EditItem";
+import { useDrag } from "react-dnd";
+import { ExpandableSection } from "./Expandable";
 
 interface ItemViewProps {
     anItem: Item;
@@ -16,6 +18,15 @@ export function ItemView({
 }: ItemViewProps): JSX.Element {
     const [rating, setRating] = useState(0);
     const [newItemForm, setShowItemForm] = useState(false);
+    const [{ isDragging }, drag] = useDrag({
+        type: "item",
+        item: { id: anItem.id },
+        collect: (monitor) => ({
+            isDragging: !!monitor.isDragging()
+        })
+    });
+
+    isDragging;
 
     function changeRating(newRating: number) {
         setRating(newRating);
@@ -49,17 +60,7 @@ export function ItemView({
             return (
                 <div>
                     <br></br>
-                    <Button
-                        variant="info"
-                        onClick={showItemForm}
-                        className="w-100 mt-auto"
-                        style={{
-                            flex: 1,
-                            flexDirection: "row",
-                            marginLeft: 10,
-                            justifyContent: "space-evenly"
-                        }}
-                    >
+                    <Button variant="info" onClick={showItemForm}>
                         Edit Item
                     </Button>
                 </div>
@@ -84,17 +85,7 @@ export function ItemView({
             return (
                 <div>
                     <br></br>
-                    <Button
-                        variant="danger"
-                        onClick={() => deleteItem(anItem)}
-                        className="w-100 mt-auto"
-                        style={{
-                            flex: 1,
-                            flexDirection: "row",
-                            marginLeft: 20,
-                            justifyContent: "space-evenly"
-                        }}
-                    >
+                    <Button variant="danger" onClick={() => deleteItem(anItem)}>
                         Delete Item
                     </Button>
                 </div>
@@ -102,10 +93,25 @@ export function ItemView({
         }
     }
 
+    function showEditAndDelete(anItem: Item) {
+        if (
+            sessionStorage.getItem("Role") === "Super" &&
+            window.location.href.endsWith("inventory")
+        ) {
+            return (
+                <ButtonToolbar className="edit-delete-buttons">
+                    &nbsp;&nbsp;&nbsp;&nbsp;{showEditButton()} &nbsp; &nbsp;
+                    {showDeleteButton(anItem)}
+                    {editingMode()}
+                </ButtonToolbar>
+            );
+        }
+    }
+
     return (
-        <Col key={anItem.name}>
+        <Col key={anItem.id}>
             <br></br>
-            <Card key={anItem.name}>
+            <Card key={anItem.id} ref={drag}>
                 <Card.Img
                     variant="top"
                     src={anItem.image}
@@ -121,12 +127,8 @@ export function ItemView({
                     </span>
                     <br></br>
                     <br></br>
-                    <span className="ms-1">
-                        •Maintenance Level: {anItem.maintenanceLevel} out of 5
-                    </span>
-                    <br></br>
                     <span className="fs-8">
-                        •Rating:{" "}
+                        Rating:{" "}
                         {[...Array(5)].map((star, index) => {
                             index += 1;
                             return (
@@ -146,16 +148,20 @@ export function ItemView({
                     </span>
                     <br></br>
                     <br></br>
-                    <span>
-                        Frequently Bought With:<br></br>
-                        {anItem.boughtWith.join(", ")}
-                    </span>
-                    <br></br>
-                    <ButtonToolbar>
-                        {showEditButton()} &nbsp; &nbsp;
-                        {showDeleteButton(anItem)}
-                        {editingMode()}
-                    </ButtonToolbar>
+                    <Card.Footer>
+                        <ExpandableSection>
+                            <span className="ms-1">
+                                •Maintenance Level: {anItem.maintenanceLevel}{" "}
+                                out of 5
+                            </span>
+                            <br></br>
+                            <span>
+                                •Frequently Bought With:<br></br>
+                                {anItem.boughtWith.join(", ")}
+                            </span>
+                        </ExpandableSection>
+                    </Card.Footer>
+                    {showEditAndDelete(anItem)}
                 </Card.Body>
             </Card>
         </Col>

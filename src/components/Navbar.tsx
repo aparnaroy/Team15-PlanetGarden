@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { UserDropDownMenu } from "../components/UserDropDown";
+import { UserDropDownMenuSuper } from "./UserDropDownSuper";
 import { RoleSelect } from "./RoleSelect";
 
 export function Navbar() {
@@ -72,7 +72,7 @@ export function Navbar() {
                     </Nav.Link>
                     {showEditUsers()}
                 </Nav>
-                <UserDropDownMenu></UserDropDownMenu>
+                <UserDropDownMenuSuper></UserDropDownMenuSuper>
                 <RoleSelect></RoleSelect>
             </Container>
         </NavbarBs>

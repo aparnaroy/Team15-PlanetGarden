@@ -73,3 +73,99 @@ body {
     padding: 5px;
     font-size: 16px;
 }
+
+.add-item {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 30px;
+    background-color: #c5bfc6;
+    border-radius: 30px;
+    border-color: #766478;
+    border-style: groove;
+}
+
+.add-item-label {
+    float: left;
+    position: relative;
+    left: 15%;
+}
+
+.add-item input {
+    width: 80%;
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: #faf9f6;
+    border-radius: 20px;
+}
+
+.add-item select {
+    width: 80%;
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: #faf9f6;
+    border-radius: 20px;
+}
+
+.add-item textarea {
+    width: 80%;
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: #faf9f6;
+    border-radius: 20px;
+}
+
+.edit-item {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    background-color: #c5bfc6;
+    border-radius: 10px;
+    border-color: #766478;
+    border-style: groove;
+}
+
+.edit-item-label {
+    float: left;
+    position: relative;
+    left: 3%;
+}
+
+.edit-item input {
+    width: 100%;
+    padding: 5px 20px;
+    border: none;
+    margin-bottom: 4px;
+    background-color: #faf9f6;
+    border-radius: 10px;
+}
+
+.edit-item select {
+    width: 100%;
+    padding: 8px 20px;
+    border: none;
+    margin-bottom: 5px;
+    background-color: #faf9f6;
+    border-radius: 10px;
+}
+
+.edit-item textarea {
+    width: 100%;
+    padding: 5px 20px;
+    border: none;
+    margin-bottom: 4px;
+    background-color: #faf9f6;
+    border-radius: 10px;
+}
+
+.edit-delete-buttons {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    border-radius: 10px;
+}

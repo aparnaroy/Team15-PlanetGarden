@@ -78,7 +78,7 @@ export function InventoryDisplay(): JSX.Element {
             <Row s={2} md={3} lg={4}>
                 {items.map((anItem) => {
                     return (
-                        <Col key={anItem.name}>
+                        <Col key={anItem.id}>
                             <ItemView
                                 anItem={anItem}
                                 items={items}
@@ -103,7 +103,7 @@ export function ShopDisplay(
             <Row s={1} md={2}>
                 {itemList.map((anItem) => {
                     return (
-                        <div key={anItem.name}>
+                        <div key={anItem.id}>
                             <ItemView
                                 anItem={anItem}
                                 items={items}
