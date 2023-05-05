@@ -222,7 +222,7 @@ export const stonePondStructure: Item = {
 };
 
 export const birdBathStructure: Item = {
-    id: 15,
+    id: 16,
     name: "Bird Bath",
     description:
         "A refreshing avian water park for a splashing good time. Attract the most majestic creatures into your yard!",
@@ -236,7 +236,7 @@ export const birdBathStructure: Item = {
 };
 
 export const archStructure: Item = {
-    id: 15,
+    id: 17,
     name: "Garden Arch",
     description:
         "Awww, who's getting married? Drape your flowers over this picturesque pathway and leave an impression on all of those who enter!",
@@ -250,7 +250,7 @@ export const archStructure: Item = {
 };
 
 export const fountainStructure: Item = {
-    id: 15,
+    id: 18,
     name: "Fountain",
     description:
         "Elevate your garden with this romantic centerpiece! Toss in a coin to make a wish!",
@@ -265,7 +265,7 @@ export const fountainStructure: Item = {
 
 // GREENERY
 export const bushGreenery: Item = {
-    id: 16,
+    id: 19,
     name: "Bush",
     description:
         "What's rustling in the bushes? Oh nothing, it's just the breeze saying hello.",
@@ -278,7 +278,7 @@ export const bushGreenery: Item = {
     boughtWith: ["Flowers", "Grass"]
 };
 export const grassGreenery: Item = {
-    id: 17,
+    id: 20,
     name: "Grass",
     description: "Something perfect to fill up any empty spots in your yard!",
     image: Grass,
@@ -291,7 +291,7 @@ export const grassGreenery: Item = {
 };
 
 export const ivyGreenery: Item = {
-    id: 18,
+    id: 21,
     name: "Ivy",
     description:
         "Ivy's lush and vibrant presence offers a timeless and romantic addition to any garden or setting. Makes you think of Italy or something.",
@@ -305,7 +305,7 @@ export const ivyGreenery: Item = {
 };
 
 export const caladiumGreenery: Item = {
-    id: 18,
+    id: 22,
     name: "Caladium",
     description:
         "Bring the tropical paradise to your space with the exotic and vibrant caladium, featuring stunning heart-shaped leaves in various colors and patterns.",
@@ -319,7 +319,7 @@ export const caladiumGreenery: Item = {
 };
 
 export const fernGreenery: Item = {
-    id: 18,
+    id: 23,
     name: "Fern",
     description:
         "Transform your outdoor garden into a lush and vibrant oasis with the verdant and versatile fern, a resilient and easy-to-grow plant that will add a beautiful and refreshing touch to your landscape all year round.",
