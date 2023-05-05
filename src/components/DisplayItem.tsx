@@ -13,8 +13,10 @@ import {
     pansyFlower,
     sequoiaTree,
     simplePondStructure,
+    fountainStructure,
     spruceTree,
     stonePondStructure,
+    birdBathStructure,
     sunflowerFlower,
     tulipFlower,
     ivyGreenery
@@ -43,6 +45,8 @@ export function InventoryDisplay(): JSX.Element {
         simplePondStructure,
         spruceTree,
         stonePondStructure,
+        birdBathStructure,
+        fountainStructure,
         sunflowerFlower,
         tulipFlower,
         ivyGreenery

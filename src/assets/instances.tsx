@@ -17,6 +17,8 @@ import Sunflower from "./Sunflower.png";
 import Tulip from "./Tulip.png";
 import Grass from "./grass.png";
 import Ivy from "./ivy.png";
+import BirdBath from "./bird-bath.png";
+import Fountain from "./fountain.png";
 
 // TREES
 export const cedarTree: Item = {
@@ -215,6 +217,34 @@ export const stonePondStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Flowers", "Fish", "Moss"]
+};
+
+export const birdBathStructure: Item = {
+    id: 15,
+    name: "Bird Bath",
+    description:
+        "A refreshing avian water park for a splashing good time. Attract the most majestic creatures into your yard!",
+    image: BirdBath,
+    quantity: 1,
+    maintenanceLevel: 2,
+    price: 99.0,
+    rating: 0,
+    type: "Structure",
+    boughtWith: ["Bird seeds", "Bread crumbs"]
+};
+
+export const fountainStructure: Item = {
+    id: 15,
+    name: "Fountain",
+    description:
+        "Elevate your garden with this romantic centerpiece! Toss in a coin to make a wish!",
+    image: Fountain,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 1000.0,
+    rating: 0,
+    type: "Structure",
+    boughtWith: ["Flowers", "Tiles"]
 };
 
 // GREENERY
