@@ -11,10 +11,12 @@ export function ExpandableSection({ children }: ExpandableProps) {
         setIsExpanded(!isExpanded);
     };
 
+    const buttonText = isExpanded ? "Show Less" : "Show More";
+
     return (
         <div>
             <div onClick={toggleExpand}>
-                Show More{" "}
+                {buttonText}{" "}
                 <span
                     style={{
                         display: "inline-block",
