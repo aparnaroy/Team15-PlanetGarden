@@ -14,12 +14,15 @@ import {
     sequoiaTree,
     simplePondStructure,
     fountainStructure,
+    archStructure,
     spruceTree,
     stonePondStructure,
     birdBathStructure,
     sunflowerFlower,
     tulipFlower,
-    ivyGreenery
+    ivyGreenery,
+    fernGreenery,
+    caladiumGreenery
 } from "../assets/instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { ItemView } from "./ItemView";
@@ -43,13 +46,16 @@ export function InventoryDisplay(): JSX.Element {
         pansyFlower,
         sequoiaTree,
         simplePondStructure,
+        archStructure,
         spruceTree,
         stonePondStructure,
         birdBathStructure,
         fountainStructure,
         sunflowerFlower,
         tulipFlower,
-        ivyGreenery
+        ivyGreenery,
+        fernGreenery,
+        caladiumGreenery
     ]);
     const [newItemForm, setShowItemForm] = useState(false);
 

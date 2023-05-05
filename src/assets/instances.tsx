@@ -19,7 +19,9 @@ import Grass from "./grass.png";
 import Ivy from "./ivy.png";
 import BirdBath from "./bird-bath.png";
 import Fountain from "./fountain.png";
-
+import Fern from "./fern.png";
+import Arch from "./Arch.png";
+import Caladium from "./Caladium.png";
 // TREES
 export const cedarTree: Item = {
     id: 1,
@@ -233,6 +235,20 @@ export const birdBathStructure: Item = {
     boughtWith: ["Bird seeds", "Bread crumbs"]
 };
 
+export const archStructure: Item = {
+    id: 15,
+    name: "Garden Arch",
+    description:
+        "Awww, who's getting married? Drape your flowers over this picturesque pathway and leave an impression on all of those who enter!",
+    image: Arch,
+    quantity: 1,
+    maintenanceLevel: 2,
+    price: 300.0,
+    rating: 0,
+    type: "Structure",
+    boughtWith: ["Flowers", "Ivy"]
+};
+
 export const fountainStructure: Item = {
     id: 15,
     name: "Fountain",
@@ -286,4 +302,32 @@ export const ivyGreenery: Item = {
     rating: 0,
     type: "Greenery",
     boughtWith: ["Garden arch", "Brick wall"]
+};
+
+export const caladiumGreenery: Item = {
+    id: 18,
+    name: "Caladium",
+    description:
+        "Bring the tropical paradise to your space with the exotic and vibrant caladium, featuring stunning heart-shaped leaves in various colors and patterns.",
+    image: Caladium,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 15.0,
+    rating: 0,
+    type: "Greenery",
+    boughtWith: ["Fern", "Ivy"]
+};
+
+export const fernGreenery: Item = {
+    id: 18,
+    name: "Fern",
+    description:
+        "Transform your outdoor garden into a lush and vibrant oasis with the verdant and versatile fern, a resilient and easy-to-grow plant that will add a beautiful and refreshing touch to your landscape all year round.",
+    image: Fern,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 15.0,
+    rating: 0,
+    type: "Greenery",
+    boughtWith: ["Elephant ear", "Grass"]
 };
