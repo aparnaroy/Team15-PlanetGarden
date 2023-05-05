@@ -39,7 +39,7 @@ FAIL src/App.test.tsx
         | ^
       6 | import { ExpandableSection } from "./Expandable";
       7 |
-      8 | interface ItemViewProps {
+      8 | export interface ItemViewProps {
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
       at Object.<anonymous> (src/components/ItemView.tsx:5:1)
@@ -63,7 +63,7 @@ All files               |       0 |        0 |       0 |       0 |
   instances.tsx         |       0 |      100 |     100 |       0 | 20-232            
  src/components         |       0 |        0 |       0 |       0 |                   
   AddItem.tsx           |       0 |      100 |       0 |       0 | 10-141            
-  DisplayItem.tsx       |       0 |        0 |       0 |       0 | 28-105            
+  DisplayItem.tsx       |       0 |        0 |       0 |       0 | 29-132            
   EditItem.tsx          |       0 |      100 |       0 |       0 | 11-126            
   Expandable.tsx        |       0 |        0 |       0 |       0 | 8-14              
   ItemView.tsx          |       0 |        0 |       0 |       0 | 19-142            
@@ -80,11 +80,11 @@ All files               |       0 |        0 |       0 |       0 |
   About.tsx             |       0 |      100 |       0 |       0 | 5                 
   Home.tsx              |       0 |      100 |       0 |       0 | 5                 
   Inventory.tsx         |       0 |      100 |       0 |       0 | 5                 
-  Shop.tsx              |       0 |      100 |       0 |       0 | 7                 
+  Shop.tsx              |       0 |      100 |       0 |       0 | 8                 
   Users.tsx             |       0 |      100 |       0 |       0 | 5                 
 ------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.906 s
+Time:        3.664 s
 Ran all test suites.
