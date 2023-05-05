@@ -16,7 +16,8 @@ import {
     spruceTree,
     stonePondStructure,
     sunflowerFlower,
-    tulipFlower
+    tulipFlower,
+    ivyGreenery
 } from "../assets/instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { ItemView } from "./ItemView";
@@ -43,7 +44,8 @@ export function InventoryDisplay(): JSX.Element {
         spruceTree,
         stonePondStructure,
         sunflowerFlower,
-        tulipFlower
+        tulipFlower,
+        ivyGreenery
     ]);
     const [newItemForm, setShowItemForm] = useState(false);
 

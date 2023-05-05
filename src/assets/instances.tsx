@@ -15,6 +15,8 @@ import SpruceTree from "./spruce-tree.png";
 import StonePond from "./Stone-pond.png";
 import Sunflower from "./Sunflower.png";
 import Tulip from "./Tulip.png";
+import Grass from "./grass.png";
+import Ivy from "./ivy.png";
 
 // TREES
 export const cedarTree: Item = {
@@ -233,11 +235,25 @@ export const grassGreenery: Item = {
     id: 17,
     name: "Grass",
     description: "Something perfect to fill up any empty spots in your yard!",
-    image: "grass-image",
+    image: Grass,
     quantity: 1,
     maintenanceLevel: 1,
     price: 15.0,
     rating: 0,
     type: "Greenery",
     boughtWith: ["Moss", "Clovers"]
+};
+
+export const ivyGreenery: Item = {
+    id: 18,
+    name: "Ivy",
+    description:
+        "Ivy's lush and vibrant presence offers a timeless and romantic addition to any garden or setting. Makes you think of Italy or something.",
+    image: Ivy,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 15.0,
+    rating: 0,
+    type: "Greenery",
+    boughtWith: ["Garden arch", "Brick wall"]
 };
