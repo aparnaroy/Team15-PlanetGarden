@@ -65,8 +65,8 @@ All files               |       0 |        0 |       0 |       0 |
   AddItem.tsx           |       0 |      100 |       0 |       0 | 10-141            
   DisplayItem.tsx       |       0 |        0 |       0 |       0 | 29-132            
   EditItem.tsx          |       0 |      100 |       0 |       0 | 11-126            
-  Expandable.tsx        |       0 |        0 |       0 |       0 | 8-14              
-  ItemView.tsx          |       0 |        0 |       0 |       0 | 19-142            
+  Expandable.tsx        |       0 |        0 |       0 |       0 | 8-16              
+  ItemView.tsx          |       0 |        0 |       0 |       0 | 19-147            
   Navbar.tsx            |       0 |        0 |       0 |       0 | 9-24              
   RoleSelect.tsx        |       0 |        0 |       0 |       0 | 85-115            
   SortItems.tsx         |       0 |        0 |       0 |       0 | 27-113            
@@ -86,5 +86,5 @@ All files               |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.664 s
+Time:        4.62 s
 Ran all test suites.
