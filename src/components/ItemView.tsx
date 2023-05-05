@@ -126,8 +126,12 @@ export function ItemView({
                     <Card.Footer>
                         <ExpandableSection>
                             <br></br>
+                            <span className="card-subtitle ms-2 text-muted">
+                                {anItem.description}
+                            </span>
+                            <br></br>
                             <span className="fs-8">
-                                Rating:{" "}
+                                Rating: <br></br>
                                 {[...Array(5)].map((star, index) => {
                                     index += 1;
                                     return (
@@ -145,21 +149,22 @@ export function ItemView({
                                             &#9733;
                                         </span>
                                     );
-                                })}{" "}
-                            </span>
-                            <br></br>
-                            <span className="card-subtitle ms-2 text-muted">
-                                {anItem.description}
+                                })}
                             </span>
                             <br></br>
                             <span className="ms-1">
-                                Maintenance Level: {anItem.maintenanceLevel} out
-                                of 5
+                                Maintenance Level:
+                                <br></br>
+                                <span className="ms-2 text-muted">
+                                    {anItem.maintenanceLevel} out of 5
+                                </span>
                             </span>
                             <br></br>
                             <span>
                                 Frequently Bought With:<br></br>
-                                {anItem.boughtWith.join(", ")}
+                                <span className="ms-2 text-muted">
+                                    {anItem.boughtWith.join(", ")}
+                                </span>
                             </span>
                         </ExpandableSection>
                     </Card.Footer>
