@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import { Item } from "../interfaces/Item";
 
 interface AddItemProps {
@@ -44,70 +44,105 @@ export function AddItem({ onSave }: AddItemProps) {
 
     return (
         <form onSubmit={handleSave}>
-            <input
-                placeholder="Name"
-                type="text"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-            />
-            <input
-                placeholder="Price"
-                type="text"
-                value={price}
-                onChange={(event) => setPrice(event.target.value)}
-            />
-            <input
-                placeholder="Image URL"
-                type="text"
-                value={image}
-                onChange={(event) => setImage(event.target.value)}
-            />
-            <input
-                placeholder="Description"
-                type="text"
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-            />
             <br></br>
-            <input
-                placeholder="Quantity"
-                type="text"
-                value={quantity}
-                onChange={(event) => setQuantity(event.target.value)}
-            />
-            <input
-                placeholder="Maintenance Level"
-                type="text"
-                value={maintenanceLevel}
-                onChange={(event) => setMaintenance(event.target.value)}
-            />
-            <input
-                placeholder="Rating"
-                type="text"
-                value={rating}
-                onChange={(event) => setRating(event.target.value)}
-            />
-            Type:
-            <select
-                value={type}
-                defaultValue={"default"}
-                onChange={(event) => setType(event.target.value)}
-            >
-                <option value={"default"}>Choose a Type</option>
-                <option value="Tree">Tree</option>
-                <option value="Flower">Flower</option>
-                <option value="Structure">Structure</option>
-                <option value="Greenery">Greenery</option>
-            </select>
-            <input
-                placeholder="Frequently bought with"
-                type="text"
-                value={boughtWith}
-                onChange={(event) =>
-                    setBoughtWith(event.target.value.split(","))
-                }
-            />
-            <br></br>
+            <Row className="add-item">
+                <Col>
+                    <span className="add-item-label">Name:</span>
+                    <br></br>
+                    <input
+                        placeholder="Name"
+                        type="text"
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
+                    />
+                    <br></br>
+                    <span className="add-item-label">Price:</span>
+                    <br></br>
+                    <input
+                        placeholder="Price"
+                        type="text"
+                        value={price}
+                        onChange={(event) => setPrice(event.target.value)}
+                    />
+                    <br></br>
+                    <span className="add-item-label">Image URL:</span>
+                    <br></br>
+                    <input
+                        placeholder="Image URL"
+                        type="text"
+                        value={image}
+                        onChange={(event) => setImage(event.target.value)}
+                    />
+                </Col>
+                <Col>
+                    <span className="add-item-label">Description:</span>
+                    <br></br>
+                    <textarea
+                        placeholder="Description"
+                        value={description}
+                        rows={1}
+                        onChange={(event) => setDescription(event.target.value)}
+                    />
+                    <br></br>
+                    <span className="add-item-label">Quantity:</span>
+                    <br></br>
+                    <input
+                        placeholder="Quantity"
+                        type="text"
+                        value={quantity}
+                        onChange={(event) => setQuantity(event.target.value)}
+                    />
+                    <br></br>
+                    <span className="add-item-label">
+                        Maintenance Level (1-5):
+                    </span>
+                    <br></br>
+                    <input
+                        placeholder="Maintenance Level"
+                        type="text"
+                        value={maintenanceLevel}
+                        onChange={(event) => setMaintenance(event.target.value)}
+                    />
+                </Col>
+                <Col>
+                    <span className="add-item-label">Rating (1-5):</span>
+                    <br></br>
+                    <input
+                        placeholder="Rating"
+                        type="text"
+                        value={rating}
+                        onChange={(event) => setRating(event.target.value)}
+                    />
+                    <br></br>
+                    <span className="add-item-label">Type:</span>
+                    <br></br>
+                    <select
+                        value={type}
+                        defaultValue={"default"}
+                        onChange={(event) => setType(event.target.value)}
+                    >
+                        <option value={"default"}>Choose a Type</option>
+                        <option value="Tree">Tree</option>
+                        <option value="Flower">Flower</option>
+                        <option value="Structure">Structure</option>
+                        <option value="Greenery">Greenery</option>
+                    </select>
+                    <br></br>
+                    <span className="add-item-label">
+                        Frequently Bought With:
+                    </span>
+
+                    <br></br>
+                    <input
+                        placeholder="Frequently Bought With"
+                        type="text"
+                        value={boughtWith}
+                        onChange={(event) =>
+                            setBoughtWith(event.target.value.split(","))
+                        }
+                    />
+                </Col>
+            </Row>
             <br></br>
             <Button type="submit" variant="success">
                 Save

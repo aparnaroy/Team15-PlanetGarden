@@ -49,77 +49,90 @@ export function EditItem({ item, onSave }: EditItemProps) {
 
     return (
         <form onSubmit={handleSave}>
-            <input
-                placeholder="Name"
-                type="text"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-            />
-            <input
-                placeholder="Price"
-                type="text"
-                value={price}
-                onChange={(event) => setPrice(parseInt(event.target.value))}
-            />
-            <input
-                placeholder="Image URL"
-                type="text"
-                value={image}
-                onChange={(event) => setImage(event.target.value)}
-            />
-            <input
-                placeholder="Description"
-                type="text"
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-            />
-            <br></br>
-            <input
-                placeholder="Quantity"
-                type="text"
-                value={quantity}
-                onChange={(event) => setQuantity(parseInt(event.target.value))}
-            />
-            <input
-                placeholder="Maintenance Level"
-                type="text"
-                value={maintenanceLevel}
-                onChange={(event) =>
-                    setMaintenance(parseInt(event.target.value))
-                }
-            />
-            <input
-                placeholder="Rating"
-                type="text"
-                value={rating}
-                onChange={(event) => setRating(parseInt(event.target.value))}
-            />
-            Type:
-            <select
-                value={type}
-                defaultValue={"default"}
-                onChange={(event) => setType(event.target.value)}
-            >
-                <option value={"default"}>Choose a Type</option>
-                <option value="Tree">Tree</option>
-                <option value="Flower">Flower</option>
-                <option value="Structure">Structure</option>
-                <option value="Greenery">Greenery</option>
-            </select>
-            <input
-                placeholder="Frequently bought with"
-                type="text"
-                value={boughtWith}
-                onChange={(event) =>
-                    setBoughtWith(event.target.value.split(","))
-                }
-            />
-            <br></br>
-            <br></br>
-            <br></br>
-            <Button type="submit" variant="success">
-                Save
-            </Button>
+            <div className="edit-item">
+                <span className="edit-item-label">Name:</span>
+                <input
+                    placeholder="Name"
+                    type="text"
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                />
+                <span className="edit-item-label">Price:</span>
+                <input
+                    placeholder="Price"
+                    type="text"
+                    value={price}
+                    onChange={(event) => setPrice(parseInt(event.target.value))}
+                />
+                <span className="edit-item-label">Image URL:</span>
+                <input
+                    placeholder="Image URL"
+                    type="text"
+                    value={image}
+                    onChange={(event) => setImage(event.target.value)}
+                />
+                <span className="edit-item-label">Description:</span>
+                <textarea
+                    placeholder="Description"
+                    value={description}
+                    rows={3}
+                    onChange={(event) => setDescription(event.target.value)}
+                />
+                <span className="edit-item-label">Quantity:</span>
+                <input
+                    placeholder="Quantity"
+                    type="text"
+                    value={quantity}
+                    onChange={(event) =>
+                        setQuantity(parseInt(event.target.value))
+                    }
+                />
+                <span className="edit-item-label">Maintenance Level:</span>
+                <input
+                    placeholder="Maintenance Level"
+                    type="text"
+                    value={maintenanceLevel}
+                    onChange={(event) =>
+                        setMaintenance(parseInt(event.target.value))
+                    }
+                />
+                <span className="edit-item-label">Rating:</span>
+                <input
+                    placeholder="Rating"
+                    type="text"
+                    value={rating}
+                    onChange={(event) =>
+                        setRating(parseInt(event.target.value))
+                    }
+                />
+                <span className="edit-item-label">Type:</span>
+                <select
+                    value={type}
+                    defaultValue={"default"}
+                    onChange={(event) => setType(event.target.value)}
+                >
+                    <option value={"default"}>Choose a Type</option>
+                    <option value="Tree">Tree</option>
+                    <option value="Flower">Flower</option>
+                    <option value="Structure">Structure</option>
+                    <option value="Greenery">Greenery</option>
+                </select>
+                <span className="edit-item-label">Frequently Bought With:</span>
+                <input
+                    placeholder="Frequently Bought With"
+                    type="text"
+                    value={boughtWith}
+                    onChange={(event) =>
+                        setBoughtWith(event.target.value.split(","))
+                    }
+                />
+
+                <br></br>
+                <br></br>
+                <Button type="submit" variant="success">
+                    Save
+                </Button>
+            </div>
         </form>
     );
 }
