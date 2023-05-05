@@ -93,20 +93,32 @@ export function InventoryDisplay(): JSX.Element {
     );
 }
 
+export function Cart() {
+    const [{ isOver }, drop] = useDrop({
+        accept: "item",
+        drop: (item: Item) => item, //addToCart(item.id),
+        collect: (monitor) => ({
+            isOver: !!monitor.isOver()
+        })
+    });
+    return (
+        <div
+            className="flex-container-cart"
+            ref={drop}
+            role={"Cart"}
+            style={{ backgroundColor: isOver ? "white" : "#f1f1f1" }}
+        >
+            {isOver ? "Release to drop" : "Drag a box here"}
+        </div>
+    );
+}
+
 // displayAll is sorted alphabetically by default
 export function ShopDisplay(
     itemList: Item[],
     items: Item[],
     setItems: (newItems: Item[]) => void
 ): JSX.Element {
-    const [{ isOver, canDrop }, drop] = useDrop(() => ({
-        accept: "item",
-        //drop: (item: Item) => addToCart(item.id),
-        collect: (monitor) => ({
-            isOver: monitor.isOver(),
-            canDrop: monitor.canDrop()
-        })
-    }));
     return (
         <>
             <div style={{ display: "flex" }}>
@@ -129,14 +141,7 @@ export function ShopDisplay(
                         })}
                     </Row>
                 </div>
-                <div
-                    className="flex-container-cart"
-                    ref={drop}
-                    role={"Cart"}
-                    style={{ backgroundColor: isOver ? "white" : "#f1f1f1" }}
-                >
-                    {canDrop ? "Release to drop" : "Drag a box here"}
-                </div>
+                <Cart></Cart>
             </div>
         </>
     );
