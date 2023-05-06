@@ -21,15 +21,15 @@ export function AddItem({ onSave }: AddItemProps) {
         event.preventDefault();
         onSave({
             id: Date.now(),
-            name,
+            name: name,
             price: parseInt(price),
-            image,
-            description,
+            image: image,
+            description: description,
             quantity: parseInt(quantity),
             maintenanceLevel: parseInt(maintenanceLevel),
             rating: parseInt(rating),
-            type,
-            boughtWith
+            type: type,
+            boughtWith: boughtWith
         });
         setName("");
         setPrice("");
