@@ -1,25 +1,21 @@
 /* eslint-disable no-extra-parens */
 import React, { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
+import { useSessionStorage } from "react-use";
+
+type User = string;
 
 export function UserDropDownMenuSuper(): JSX.Element {
+    const [users, setUsers] = useSessionStorage<User[]>("users", []);
     const [selectedUser, setSelectedUser] = useState<string>("");
-    const [newUsers, setNewUsers] = useState<string[]>([]);
     const [newUser, setNewUser] = useState<string>("");
     const [showAddUser, setShowAddUser] = useState<boolean>(false);
 
     useEffect(() => {
-        const savedUsers = sessionStorage.getItem("users");
-        if (savedUsers) {
-            setNewUsers(JSON.parse(savedUsers));
-        } else {
-            setNewUsers([]);
+        if (users.length > 0) {
+            setSelectedUser(users[0]);
         }
-    }, []);
-
-    useEffect(() => {
-        sessionStorage.setItem("users", JSON.stringify(newUsers));
-    }, [newUsers]);
+    }, [users]);
 
     function updateUser(event: React.ChangeEvent<HTMLSelectElement>) {
         setSelectedUser(event.target.value);
@@ -28,10 +24,10 @@ export function UserDropDownMenuSuper(): JSX.Element {
     function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
         if (
             event.key === "Enter" &&
-            newUsers.length < 10 &&
+            users.length < 10 &&
             newUser.trim() !== ""
         ) {
-            setNewUsers([...newUsers, newUser]);
+            setUsers([...users, newUser]);
             setSelectedUser(newUser);
             setNewUser("");
         }
@@ -39,7 +35,7 @@ export function UserDropDownMenuSuper(): JSX.Element {
 
     function handleAddUser() {
         if (newUser.trim() !== "") {
-            setNewUsers([...newUsers, newUser]);
+            setUsers([...users, newUser]);
             setSelectedUser(newUser);
             setNewUser("");
         } else {
@@ -47,19 +43,19 @@ export function UserDropDownMenuSuper(): JSX.Element {
         }
     }
 
-    function handleDeleteUser(userToDelete: string) {
-        const userIndex = newUsers.indexOf(userToDelete);
+    function handleDeleteUser(userToDelete: User) {
+        const userIndex = users.indexOf(userToDelete);
         if (userIndex !== -1) {
-            const updatedUsers = [...newUsers];
+            const updatedUsers = [...users];
             updatedUsers.splice(userIndex, 1);
-            setNewUsers(updatedUsers);
+            setUsers(updatedUsers);
             if (selectedUser === userToDelete) {
                 setSelectedUser("");
             }
         }
     }
 
-    const users = ["", "Sam", "John", "Sarah", ...newUsers];
+    const userList = ["", ...users];
 
     return (
         <div>
@@ -67,7 +63,7 @@ export function UserDropDownMenuSuper(): JSX.Element {
                 <div style={{ display: "flex", alignItems: "center" }}>
                     User:
                     <Form.Select value={selectedUser} onChange={updateUser}>
-                        {users.map((user, index) => {
+                        {userList.map((user, index) => {
                             return (
                                 <option key={index} value={user}>
                                     {user}
@@ -96,7 +92,7 @@ export function UserDropDownMenuSuper(): JSX.Element {
                     )}
                 </div>
             </Form.Group>
-            {newUsers.map((user, index) => {
+            {users.map((user, index) => {
                 if (sessionStorage.getItem("Role") === "Super") {
                     return (
                         <div
@@ -105,25 +101,12 @@ export function UserDropDownMenuSuper(): JSX.Element {
                         >
                             <div>{user}</div>
                             <button onClick={() => handleDeleteUser(user)}>
-                                Delete User
+                                Delete
                             </button>
-                            {user === selectedUser && (
-                                <span
-                                    style={{
-                                        marginLeft: "10px",
-                                        fontWeight: "bold"
-                                    }}
-                                >
-                                    (selected)
-                                </span>
-                            )}
                         </div>
                     );
                 }
-                return null;
             })}
         </div>
     );
 }
-
-export default UserDropDownMenuSuper;
