@@ -1,5 +1,5 @@
 /* eslint-disable no-extra-parens */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 
 export function UserDropDownMenuSuper(): JSX.Element {
@@ -7,6 +7,19 @@ export function UserDropDownMenuSuper(): JSX.Element {
     const [newUsers, setNewUsers] = useState<string[]>([]);
     const [newUser, setNewUser] = useState<string>("");
     const [showAddUser, setShowAddUser] = useState<boolean>(false);
+
+    useEffect(() => {
+        const savedUsers = sessionStorage.getItem("users");
+        if (savedUsers) {
+            setNewUsers(JSON.parse(savedUsers));
+        } else {
+            setNewUsers([]);
+        }
+    }, []);
+
+    useEffect(() => {
+        sessionStorage.setItem("users", JSON.stringify(newUsers));
+    }, [newUsers]);
 
     function updateUser(event: React.ChangeEvent<HTMLSelectElement>) {
         setSelectedUser(event.target.value);
@@ -46,7 +59,7 @@ export function UserDropDownMenuSuper(): JSX.Element {
         }
     }
 
-    const users = ["", ...newUsers];
+    const users = ["", "Sam", "John", "Sarah", ...newUsers];
 
     return (
         <div>
@@ -92,12 +105,25 @@ export function UserDropDownMenuSuper(): JSX.Element {
                         >
                             <div>{user}</div>
                             <button onClick={() => handleDeleteUser(user)}>
-                                Delete
+                                Delete User
                             </button>
+                            {user === selectedUser && (
+                                <span
+                                    style={{
+                                        marginLeft: "10px",
+                                        fontWeight: "bold"
+                                    }}
+                                >
+                                    (selected)
+                                </span>
+                            )}
                         </div>
                     );
                 }
+                return null;
             })}
         </div>
     );
 }
+
+export default UserDropDownMenuSuper;
