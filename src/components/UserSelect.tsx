@@ -106,21 +106,29 @@ export function UserSelect(): JSX.Element {
             return (
                 <div>
                     <Form.Group controlId="The_Users">
-                        <FormSelect
-                            value={selectedUserId ?? ""}
-                            onChange={(e) =>
-                                setSelectedUserId(parseInt(e.target.value))
-                            }
+                        <div
+                            style={{
+                                display: "flex",
+                                alignItems: "center"
+                            }}
                         >
-                            <option value="">Select User</option>
-                            {allUsers.map((user) => {
-                                return (
-                                    <option key={user.id} value={user.id}>
-                                        {user.name}
-                                    </option>
-                                );
-                            })}
-                        </FormSelect>
+                            User:{<>&nbsp;</>}
+                            <FormSelect
+                                value={selectedUserId ?? ""}
+                                onChange={(e) =>
+                                    setSelectedUserId(parseInt(e.target.value))
+                                }
+                            >
+                                <option value="">Select User</option>
+                                {allUsers.map((user) => {
+                                    return (
+                                        <option key={user.id} value={user.id}>
+                                            {user.name}
+                                        </option>
+                                    );
+                                })}
+                            </FormSelect>
+                        </div>
                     </Form.Group>
                 </div>
             );
