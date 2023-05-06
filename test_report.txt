@@ -70,7 +70,7 @@ All files               |       0 |        0 |       0 |       0 |
   Navbar.tsx            |       0 |        0 |       0 |       0 | 9-24              
   RoleSelect.tsx        |       0 |        0 |       0 |       0 | 85-115            
   SortItems.tsx         |       0 |        0 |       0 |       0 | 33-125            
-  UserDropDownSuper.tsx |       0 |        0 |       0 |       0 | 6-123             
+  UserDropDownSuper.tsx |       0 |        0 |       0 |       0 | 9-103             
   UserList.tsx          |       0 |        0 |       0 |       0 | 8-16              
  src/hooks              |       0 |        0 |       0 |       0 |                   
   useSessionStorage.ts  |       0 |        0 |       0 |       0 | 4-19              
@@ -86,5 +86,5 @@ All files               |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.366 s
+Time:        3.495 s
 Ran all test suites.
