@@ -118,7 +118,7 @@ export function Cart() {
             className="flex-container-cart"
             ref={drop}
             role={"Cart"}
-            style={{ backgroundColor: isOver ? "white" : "#f1f1f1" }}
+            //style={{ backgroundColor: isOver ? "white" : "#f1f1f1" }}
         >
             {isOver ? "Release to drop" : "Drag a box here"}
         </div>
@@ -138,7 +138,7 @@ export function ShopDisplay(
                 <header className="App-header3">Your Cart🛒</header>
             </div>
             <div className="parent-container">
-                <div className="flex-container">
+                <div className="flex-container-shop">
                     <Row s={1} md={2}>
                         {itemList.map((anItem) => {
                             return (
