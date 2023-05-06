@@ -52,7 +52,7 @@ export function UserDropDownMenuSuper(): JSX.Element {
         <div>
             <Form.Group controlId="The_Users">
                 <div style={{ display: "flex", alignItems: "center" }}>
-                    User:
+                    User:{<>&nbsp;</>}
                     <Form.Select value={selectedUser} onChange={updateUser}>
                         {users.map((user, index) => {
                             return (

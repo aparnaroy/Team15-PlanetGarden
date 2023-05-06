@@ -21,6 +21,13 @@ export function Navbar() {
             );
         }
     }
+
+    function showUserDropDown() {
+        if (sessionStorage.getItem("Role") === "User") {
+            return <UserDropDownMenuSuper></UserDropDownMenuSuper>;
+        }
+    }
+
     return (
         <NavbarBs sticky="top" className="bg-light shadow-sm mb-3">
             <Container>
@@ -60,6 +67,7 @@ export function Navbar() {
                     >
                         Shop
                     </Nav.Link>
+                    {showEditUsers()}
                     <Nav.Link
                         to="/about"
                         as={NavLink}
@@ -70,9 +78,9 @@ export function Navbar() {
                     >
                         About
                     </Nav.Link>
-                    {showEditUsers()}
                 </Nav>
-                <UserDropDownMenuSuper></UserDropDownMenuSuper>
+                {showUserDropDown()}
+                &nbsp;&nbsp;
                 <RoleSelect></RoleSelect>
             </Container>
         </NavbarBs>
