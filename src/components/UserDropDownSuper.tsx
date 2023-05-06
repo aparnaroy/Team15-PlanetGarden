@@ -1,7 +1,7 @@
 /* eslint-disable no-extra-parens */
 import React, { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
-import { useSessionStorage } from "react-use";
+import { useSessionStorage } from "../hooks/useSessionStorage";
 
 type User = string;
 
@@ -61,7 +61,7 @@ export function UserDropDownMenuSuper(): JSX.Element {
         <div>
             <Form.Group controlId="The_Users">
                 <div style={{ display: "flex", alignItems: "center" }}>
-                    User:
+                    User:{<>&nbsp;</>}
                     <Form.Select value={selectedUser} onChange={updateUser}>
                         {userList.map((user, index) => {
                             return (

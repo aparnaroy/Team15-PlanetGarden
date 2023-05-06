@@ -109,7 +109,7 @@ export function RoleSelect(): JSX.Element {
                         alignItems: "center"
                     }}
                 >
-                    Role:
+                    {<>&nbsp;&nbsp;&nbsp;</>}Role:{<>&nbsp;</>}
                     <Form.Select
                         value={role}
                         onChange={(event) => updateRole(event.target.value)}
