@@ -30,6 +30,7 @@ import { Item } from "../interfaces/Item";
 import { Button, Col, Row } from "react-bootstrap";
 import { AddItem } from "./AddItem";
 import { useDrop } from "react-dnd";
+import { DisplayAdminList } from "./AdminList";
 
 export function InventoryDisplay(): JSX.Element {
     const [items, setItems] = useSessionStorage<Item[]>("all-items", [
@@ -154,6 +155,12 @@ export function ShopDisplay(
                     </Row>
                 </div>
                 <Cart></Cart>
+            </div>
+            <div>
+                <DisplayAdminList
+                    items={items}
+                    setItems={setItems}
+                ></DisplayAdminList>
             </div>
         </>
     );
