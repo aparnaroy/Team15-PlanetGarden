@@ -5,7 +5,7 @@ import { EditItem } from "./EditItem";
 import { useDrag } from "react-dnd";
 import { ExpandableSection } from "./Expandable";
 
-interface ItemViewProps {
+export interface ItemViewProps {
     anItem: Item;
     items: Item[];
     setItems: (newItems: Item[]) => void;
@@ -122,42 +122,49 @@ export function ItemView({
                         <span className="fs-4">{anItem.name}</span>
                         <span className="ms-2 text-muted">${anItem.price}</span>
                     </Card.Title>
-                    <span className="card-subtitle ms-2 text-muted">
-                        {anItem.description}
-                    </span>
-                    <br></br>
-                    <br></br>
-                    <span className="fs-8">
-                        Rating:{" "}
-                        {[...Array(5)].map((star, index) => {
-                            index += 1;
-                            return (
-                                <span
-                                    key={index}
-                                    style={{
-                                        color:
-                                            index <= rating ? "orange" : "gray",
-                                        cursor: "pointer"
-                                    }}
-                                    onClick={() => changeRating(index)}
-                                >
-                                    &#9733;
-                                </span>
-                            );
-                        })}{" "}
-                    </span>
-                    <br></br>
                     <br></br>
                     <Card.Footer>
                         <ExpandableSection>
+                            <br></br>
+                            <span className="card-subtitle ms-2 text-muted">
+                                {anItem.description}
+                            </span>
+                            <br></br>
+                            <span className="fs-8">
+                                Rating: <br></br>
+                                {[...Array(5)].map((star, index) => {
+                                    index += 1;
+                                    return (
+                                        <span
+                                            key={index}
+                                            style={{
+                                                color:
+                                                    index <= rating
+                                                        ? "orange"
+                                                        : "gray",
+                                                cursor: "pointer"
+                                            }}
+                                            onClick={() => changeRating(index)}
+                                        >
+                                            &#9733;
+                                        </span>
+                                    );
+                                })}
+                            </span>
+                            <br></br>
                             <span className="ms-1">
-                                •Maintenance Level: {anItem.maintenanceLevel}{" "}
-                                out of 5
+                                Maintenance Level:
+                                <br></br>
+                                <span className="ms-2 text-muted">
+                                    {anItem.maintenanceLevel} out of 5
+                                </span>
                             </span>
                             <br></br>
                             <span>
-                                •Frequently Bought With:<br></br>
-                                {anItem.boughtWith.join(", ")}
+                                Frequently Bought With:<br></br>
+                                <span className="ms-2 text-muted">
+                                    {anItem.boughtWith.join(", ")}
+                                </span>
                             </span>
                         </ExpandableSection>
                     </Card.Footer>

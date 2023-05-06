@@ -15,7 +15,13 @@ import SpruceTree from "./spruce-tree.png";
 import StonePond from "./Stone-pond.png";
 import Sunflower from "./Sunflower.png";
 import Tulip from "./Tulip.png";
-
+import Grass from "./grass.png";
+import Ivy from "./ivy.png";
+import BirdBath from "./bird-bath.png";
+import Fountain from "./fountain.png";
+import Fern from "./fern.png";
+import Arch from "./Arch.png";
+import Caladium from "./Caladium.png";
 // TREES
 export const cedarTree: Item = {
     id: 1,
@@ -215,9 +221,51 @@ export const stonePondStructure: Item = {
     boughtWith: ["Flowers", "Fish", "Moss"]
 };
 
+export const birdBathStructure: Item = {
+    id: 16,
+    name: "Bird Bath",
+    description:
+        "A refreshing avian water park for a splashing good time. Attract the most majestic creatures into your yard!",
+    image: BirdBath,
+    quantity: 1,
+    maintenanceLevel: 2,
+    price: 99.0,
+    rating: 0,
+    type: "Structure",
+    boughtWith: ["Bird seeds", "Bread crumbs"]
+};
+
+export const archStructure: Item = {
+    id: 17,
+    name: "Garden Arch",
+    description:
+        "Awww, who's getting married? Drape your flowers over this picturesque pathway and leave an impression on all of those who enter!",
+    image: Arch,
+    quantity: 1,
+    maintenanceLevel: 2,
+    price: 300.0,
+    rating: 0,
+    type: "Structure",
+    boughtWith: ["Flowers", "Ivy"]
+};
+
+export const fountainStructure: Item = {
+    id: 18,
+    name: "Fountain",
+    description:
+        "Elevate your garden with this romantic centerpiece! Toss in a coin to make a wish!",
+    image: Fountain,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 1000.0,
+    rating: 0,
+    type: "Structure",
+    boughtWith: ["Flowers", "Tiles"]
+};
+
 // GREENERY
 export const bushGreenery: Item = {
-    id: 16,
+    id: 19,
     name: "Bush",
     description:
         "What's rustling in the bushes? Oh nothing, it's just the breeze saying hello.",
@@ -230,14 +278,56 @@ export const bushGreenery: Item = {
     boughtWith: ["Flowers", "Grass"]
 };
 export const grassGreenery: Item = {
-    id: 17,
+    id: 20,
     name: "Grass",
     description: "Something perfect to fill up any empty spots in your yard!",
-    image: "grass-image",
+    image: Grass,
     quantity: 1,
     maintenanceLevel: 1,
     price: 15.0,
     rating: 0,
     type: "Greenery",
     boughtWith: ["Moss", "Clovers"]
+};
+
+export const ivyGreenery: Item = {
+    id: 21,
+    name: "Ivy",
+    description:
+        "Ivy's lush and vibrant presence offers a timeless and romantic addition to any garden or setting. Makes you think of Italy or something.",
+    image: Ivy,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 15.0,
+    rating: 0,
+    type: "Greenery",
+    boughtWith: ["Garden arch", "Brick wall"]
+};
+
+export const caladiumGreenery: Item = {
+    id: 22,
+    name: "Caladium",
+    description:
+        "Bring the tropical paradise to your space with the exotic and vibrant caladium, featuring stunning heart-shaped leaves in various colors and patterns.",
+    image: Caladium,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 15.0,
+    rating: 0,
+    type: "Greenery",
+    boughtWith: ["Fern", "Ivy"]
+};
+
+export const fernGreenery: Item = {
+    id: 23,
+    name: "Fern",
+    description:
+        "Transform your outdoor garden into a lush and vibrant oasis with the verdant and versatile fern, a resilient and easy-to-grow plant that will add a beautiful and refreshing touch to your landscape all year round.",
+    image: Fern,
+    quantity: 1,
+    maintenanceLevel: 1,
+    price: 15.0,
+    rating: 0,
+    type: "Greenery",
+    boughtWith: ["Elephant ear", "Grass"]
 };

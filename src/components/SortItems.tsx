@@ -13,10 +13,16 @@ import {
     pansyFlower,
     sequoiaTree,
     simplePondStructure,
+    fountainStructure,
+    archStructure,
     spruceTree,
     stonePondStructure,
+    birdBathStructure,
     sunflowerFlower,
-    tulipFlower
+    tulipFlower,
+    ivyGreenery,
+    fernGreenery,
+    caladiumGreenery
 } from "../assets/instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { Item } from "../interfaces/Item";
@@ -38,10 +44,16 @@ export function SortButton(): JSX.Element {
         pansyFlower,
         sequoiaTree,
         simplePondStructure,
+        fountainStructure,
+        archStructure,
         spruceTree,
         stonePondStructure,
+        birdBathStructure,
         sunflowerFlower,
-        tulipFlower
+        tulipFlower,
+        ivyGreenery,
+        fernGreenery,
+        caladiumGreenery
     ]);
     setItems;
     const [option, setOption] = useState<string>("");
