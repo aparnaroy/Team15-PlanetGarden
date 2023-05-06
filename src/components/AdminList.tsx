@@ -24,7 +24,7 @@ export function DisplayAdminList({
     function displayedList(id: number) {
         const addedItem = items.find((anItem) => anItem.id === id);
         if (addedItem !== undefined) {
-            setAdminItems([...adminItems, addedItem]);
+            setAdminItems((adminItems) => [...adminItems, addedItem]);
         }
     }
     if (
