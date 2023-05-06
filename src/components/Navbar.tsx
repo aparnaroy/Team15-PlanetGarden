@@ -1,8 +1,9 @@
 import React from "react";
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { UserDropDownMenuSuper } from "./UserDropDownSuper";
+//import { UserDropDownMenuSuper } from "./UserDropDownSuper";
 import { RoleSelect } from "./RoleSelect";
+import { UserSelect } from "./UserSelect";
 
 export function Navbar() {
     function showEditUsers() {
@@ -21,6 +22,13 @@ export function Navbar() {
             );
         }
     }
+
+    function showUserDropDown() {
+        if (sessionStorage.getItem("Role") === "User") {
+            return <UserSelect></UserSelect>;
+        }
+    }
+
     return (
         <NavbarBs sticky="top" className="bg-light shadow-sm mb-3">
             <Container>
@@ -60,6 +68,7 @@ export function Navbar() {
                     >
                         Shop
                     </Nav.Link>
+                    {showEditUsers()}
                     <Nav.Link
                         to="/about"
                         as={NavLink}
@@ -70,9 +79,9 @@ export function Navbar() {
                     >
                         About
                     </Nav.Link>
-                    {showEditUsers()}
                 </Nav>
-                <UserDropDownMenuSuper></UserDropDownMenuSuper>
+                {showUserDropDown()}
+                &nbsp;&nbsp;
                 <RoleSelect></RoleSelect>
             </Container>
         </NavbarBs>
