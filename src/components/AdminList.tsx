@@ -27,6 +27,7 @@ export function DisplayAdminList({
             setAdminItems((adminItems) => [...adminItems, addedItem]);
         }
     }
+
     if (
         sessionStorage.getItem("Role") === "Super" ||
         sessionStorage.getItem("Role") === "Admin"
@@ -40,15 +41,17 @@ export function DisplayAdminList({
                 >
                     <header>Admin List</header>
                     {isOver ? "Release to drop" : "Drag a box here"}
-                    {adminItems.map((anItem) => (
-                        <div key={anItem.id}>
-                            <ItemView
-                                anItem={anItem}
-                                items={items}
-                                setItems={setItems}
-                            ></ItemView>
-                        </div>
-                    ))}
+                    {adminItems.map((anItem) => {
+                        return (
+                            <div key={anItem.id}>
+                                <ItemView
+                                    anItem={anItem}
+                                    items={items}
+                                    setItems={setItems}
+                                ></ItemView>
+                            </div>
+                        );
+                    })}
                 </div>
 
                 <br></br>
