@@ -151,26 +151,9 @@ export function InventoryDisplay(): JSX.Element {
 export function ShopDisplay(
     itemList: Item[],
     items: Item[],
-    setItems: (newItems: Item[]) => void
+    setItems: (newItems: Item[]) => void,
+    userNow: User
 ): JSX.Element {
-    const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
-        { id: 1, name: "Sam", cart: [] },
-        { id: 2, name: "John", cart: [] },
-        { id: 3, name: "Sarah", cart: [] },
-        { id: 4, name: "Bob", cart: [] }
-    ]);
-    setAllUsers;
-
-    function selectedUser() {
-        const curr = sessionStorage.getItem("CurrentUserID") ?? "0";
-        const currentUser = allUsers.find(
-            (user) => user.id === parseInt(curr)
-        ) ?? { id: 1, name: "Sam", cart: [] };
-        return currentUser;
-    }
-
-    const userNow = selectedUser();
-
     return (
         <>
             <div style={{ display: "flex" }}>
