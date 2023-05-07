@@ -35,6 +35,51 @@ export function DisplayUserList({
         })
     }));
 
+    function handleRemoveItem(id: number) {
+        setUserItems((userItems) => {
+            const index = userItems.findIndex((item) => item.id === id);
+            if (index > -1) {
+                const newCart = [...userItems];
+                newCart.splice(index, 1);
+                sessionStorage.setItem(
+                    `CART_${selectedUser.id}`,
+                    JSON.stringify(newCart)
+                );
+                const newUser = {
+                    ...selectedUser,
+                    cart: newCart
+                };
+                sessionStorage.setItem(
+                    "CurrentUserID",
+                    JSON.stringify(newUser)
+                );
+                const userIndex: number = allUsers.findIndex(
+                    (user) => newUser.id === user.id
+                );
+                if (userIndex > -1) {
+                    allUsers.splice(userIndex, 1, newUser);
+                    sessionStorage.setItem("USERS", JSON.stringify(allUsers));
+                }
+                return newCart;
+            }
+            return userItems;
+        });
+    }
+
+    function handleRemoveAllItems() {
+        setUserItems([]);
+        sessionStorage.setItem(`CART_${selectedUser.id}`, JSON.stringify([]));
+        const newUser = { ...selectedUser, cart: [] };
+        sessionStorage.setItem("CurrentUserID", JSON.stringify(newUser));
+        const userIndex: number = allUsers.findIndex(
+            (user) => newUser.id === user.id
+        );
+        if (userIndex > -1) {
+            allUsers.splice(userIndex, 1, newUser);
+            sessionStorage.setItem("USERS", JSON.stringify(allUsers));
+        }
+    }
+
     const addToCart = (id: number) => {
         const addedItem = items.find((i) => id === i.id);
         if (addedItem) {
@@ -107,10 +152,20 @@ export function DisplayUserList({
                                         items={items}
                                         setItems={setItems}
                                     ></ItemView>
+                                    <button
+                                        onClick={() =>
+                                            handleRemoveItem(anItem.id)
+                                        }
+                                    >
+                                        Remove Item
+                                    </button>
                                 </div>
                             );
                         })}
                     </Row>
+                    <button onClick={handleRemoveAllItems}>
+                        Remove All Items
+                    </button>
                 </div>
             </>
         );
