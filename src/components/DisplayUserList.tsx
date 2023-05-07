@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
 import { useDrop } from "react-dnd";
-import { Row } from "react-bootstrap";
+import { Row, Button } from "react-bootstrap";
 
 export interface UserViewProps {
     items: Item[];
@@ -14,6 +14,20 @@ export function DisplayUserList({
     setItems
 }: UserViewProps): JSX.Element {
     const [userItems, setUserItems] = useState<Item[]>([]);
+
+    useEffect(() => {
+        // Load userItems from localStorage on mount
+        const savedItems = localStorage.getItem("userItems");
+        if (savedItems) {
+            setUserItems(JSON.parse(savedItems));
+        }
+    }, []);
+
+    useEffect(() => {
+        // Save userItems to localStorage when it changes
+        localStorage.setItem("userItems", JSON.stringify(userItems));
+    }, [userItems]);
+
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "item",
         drop: (anItem: Item) => displayedList(anItem.id),
@@ -29,12 +43,8 @@ export function DisplayUserList({
         }
     }
 
-    function handleRemoveAllItems() {
+    function handleClearCart() {
         setUserItems([]);
-    }
-
-    function handleRemoveItem(id: number) {
-        setUserItems((userItems) => userItems.filter((item) => item.id !== id));
     }
 
     if (sessionStorage.getItem("Role") === "User") {
@@ -61,21 +71,12 @@ export function DisplayUserList({
                                         items={items}
                                         setItems={setItems}
                                     ></ItemView>
-                                    <button
-                                        onClick={() =>
-                                            handleRemoveItem(anItem.id)
-                                        }
-                                    >
-                                        Remove Item
-                                    </button>
                                 </div>
                             );
                         })}
                     </Row>
-                    <button onClick={handleRemoveAllItems}>
-                        Remove All Items
-                    </button>
                 </div>
+                <Button onClick={handleClearCart}>Clear Cart</Button>
             </>
         );
     }
