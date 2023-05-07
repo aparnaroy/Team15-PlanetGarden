@@ -140,7 +140,7 @@ export function ShopDisplay(
                 <header className="App-header3">Your Cart🛒</header>
             </div>
             <div className="parent-container">
-                <div className="flex-container">
+                <div className="flex-container-shop">
                     <Row s={1} md={2}>
                         {itemList.map((anItem) => {
                             return (
@@ -155,12 +155,12 @@ export function ShopDisplay(
                         })}
                     </Row>
                 </div>
-            </div>
-            <div>
-                <DisplayUserList
-                    items={items}
-                    setItems={setItems}
-                ></DisplayUserList>
+                <div>
+                    <DisplayUserList
+                        items={items}
+                        setItems={setItems}
+                    ></DisplayUserList>
+                </div>
             </div>
             <div>
                 <DisplayAdminList

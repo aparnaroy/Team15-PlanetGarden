@@ -3,6 +3,7 @@ import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
 import { useDrop } from "react-dnd";
 import { Row } from "react-bootstrap";
+import { calculateNewValue } from "@testing-library/user-event/dist/utils";
 //import { ItemViewProps } from "./ItemView";
 
 export interface UserViewProps {
@@ -33,29 +34,31 @@ export function DisplayUserList({
         return (
             <>
                 <div
-                    className="flex-container-cart"
                     ref={drop}
-                    style={{ backgroundColor: "#f1f1f1" }}
+                    role="Cart"
+                    style={{
+                        backgroundColor: isOver ? "white" : "#6aa1a3",
+                        width: 648,
+                        height: 700,
+                        paddingTop: 20,
+                        padding: 30,
+                        overflow: "auto"
+                    }}
                 >
-                    {isOver ? "Release to drop" : "Drag a box here"}
-                    <div className="flex-container-cart">
-                        <Row s={1} md={2}>
-                            {userItems.map((anItem) => {
-                                return (
-                                    <div key={anItem.id}>
-                                        <ItemView
-                                            anItem={anItem}
-                                            items={items}
-                                            setItems={setItems}
-                                        ></ItemView>
-                                    </div>
-                                );
-                            })}
-                        </Row>
-                    </div>
+                    <Row s={1} md={2}>
+                        {userItems.map((anItem) => {
+                            return (
+                                <div key={anItem.id}>
+                                    <ItemView
+                                        anItem={anItem}
+                                        items={items}
+                                        setItems={setItems}
+                                    ></ItemView>
+                                </div>
+                            );
+                        })}
+                    </Row>
                 </div>
-
-                <br></br>
             </>
         );
     }

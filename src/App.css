@@ -89,25 +89,45 @@ body {
     margin-right: 0;
 }
 
-.flex-container {
+.flex-container-shop {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
     height: 700px;
-    width: 55%;
+    width: 50%;
     overflow-y: auto;
-    background-color: rgb(237, 220, 198);
-    padding: 20px;
+    padding: 10px;
+    background-color: #faf9f6;
 }
 
-.flex-container > div {
-    background-color: #f1f1f1;
+.flex-container-shop > div {
+    padding: 0px;
     margin: 20px;
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 20px;
-    padding: 5px;
+    font-size: 16px;
+}
+
+.flex-container-cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 700px;
+    width: 50%;
+    overflow-y: auto;
+    background-color: #6aa1a3;
+    padding: 10px;
+}
+
+.flex-container-cart > div {
+    padding: 0px;
+    margin: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
     font-size: 16px;
 }
 
@@ -121,28 +141,6 @@ body {
     overflow-y: auto;
     background-color: #f1f1f1;
     padding: 20px;
-}
-
-.flex-container-cart {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 700px;
-    width: 55%;
-    overflow-y: auto;
-    background-color: #f1f1f1;
-    padding: 20px;
-}
-
-.flex-container-cart > div {
-    background-color: rgb(237, 220, 198);
-    margin: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    padding: 5px;
-    font-size: 16px;
 }
 .add-item {
     width: 80%;
