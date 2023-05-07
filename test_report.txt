@@ -64,16 +64,16 @@ All files               |       0 |        0 |       0 |       0 |
  src/components         |       0 |        0 |       0 |       0 |                   
   AddItem.tsx           |       0 |      100 |       0 |       0 | 10-141            
   AdminList.tsx         |       0 |        0 |       0 |       0 | 17-68             
-  DisplayItem.tsx       |       0 |        0 |       0 |       0 | 36-145            
+  DisplayItem.tsx       |       0 |        0 |       0 |       0 | 37-164            
   EditItem.tsx          |       0 |      100 |       0 |       0 | 11-126            
   Expandable.tsx        |       0 |        0 |       0 |       0 | 8-16              
-  ItemView.tsx          |       0 |        0 |       0 |       0 | 19-141            
+  ItemView.tsx          |       0 |        0 |       0 |       0 | 19-137            
   Navbar.tsx            |       0 |        0 |       0 |       0 | 10-32             
   RoleSelect.tsx        |       0 |        0 |       0 |       0 | 6-36              
   SortItems.tsx         |       0 |        0 |       0 |       0 | 33-124            
   UserDropDownSuper.tsx |       0 |        0 |       0 |       0 | 9-103             
-  UserList.tsx          |       0 |        0 |       0 |       0 | 16-63             
-  UserSelect.tsx        |       0 |        0 |       0 |       0 | 7-138             
+  UserList.tsx          |       0 |        0 |       0 |       0 | 16-118            
+  UserSelect.tsx        |       0 |        0 |       0 |       0 | 7-168             
  src/hooks              |       0 |        0 |       0 |       0 |                   
   useSessionStorage.ts  |       0 |        0 |       0 |       0 | 4-19              
  src/interfaces         |       0 |        0 |       0 |       0 |                   
@@ -89,5 +89,5 @@ All files               |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.696 s
+Time:        4.821 s
 Ran all test suites.
