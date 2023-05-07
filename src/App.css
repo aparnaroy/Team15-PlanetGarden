@@ -90,7 +90,6 @@ body {
 }
 
 .flex-container-shop {
-.flex-container-shop {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
