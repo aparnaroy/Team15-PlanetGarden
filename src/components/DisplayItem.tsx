@@ -29,7 +29,6 @@ import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
 import { Button, Col, Row } from "react-bootstrap";
 import { AddItem } from "./AddItem";
-import { useDrop } from "react-dnd";
 import { DisplayAdminList } from "./AdminList";
 import { DisplayUserList } from "./UserList";
 

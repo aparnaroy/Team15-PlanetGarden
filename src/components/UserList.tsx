@@ -3,8 +3,6 @@ import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
 import { useDrop } from "react-dnd";
 import { Row } from "react-bootstrap";
-import { calculateNewValue } from "@testing-library/user-event/dist/utils";
-//import { ItemViewProps } from "./ItemView";
 
 export interface UserViewProps {
     items: Item[];
