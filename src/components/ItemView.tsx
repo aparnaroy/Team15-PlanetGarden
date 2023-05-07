@@ -66,8 +66,8 @@ export function ItemView({
                 </div>
             );
         } else if (
-            (sessionStorage.getItem("role") === "Super" ||
-                sessionStorage.getItem("role") === "Admin") &&
+            (sessionStorage.getItem("Role") === "Super" ||
+                sessionStorage.getItem("Role") === "Admin") &&
             window.location.href.endsWith("shop")
         ) {
             return (
@@ -119,14 +119,17 @@ export function ItemView({
                 </ButtonToolbar>
             );
         } else if (
-            (sessionStorage.getItem("role") === "Super" ||
-                sessionStorage.getItem("role") === "Admin") &&
+            (sessionStorage.getItem("Role") === "Super" ||
+                sessionStorage.getItem("Role") === "Admin") &&
             window.location.href.endsWith("shop")
         ) {
-            <ButtonToolbar className="edit-delete-buttons">
-                &nbsp;&nbsp;&nbsp;&nbsp;{showEditButton()} &nbsp; &nbsp;
-                {editingMode()}
-            </ButtonToolbar>;
+            return (
+                <ButtonToolbar className="edit-delete-buttons">
+                    &nbsp;&nbsp;&nbsp;&nbsp;{showEditButton()} &nbsp; &nbsp;
+                    {showDeleteButton(anItem)}
+                    {editingMode()}
+                </ButtonToolbar>
+            );
         }
     }
 

@@ -39,8 +39,20 @@ export function DisplayAdminList({
                 <div>
                     <header className="App-header4">Edit Item</header>
                 </div>
-                <div className="flex-container-admin" ref={drop}>
+                <div
+                    className="flex-container-admin"
+                    ref={drop}
+                    style={{
+                        backgroundColor: isOver ? "white" : "#9eb0b1",
+                        width: 648,
+                        height: 700,
+                        paddingTop: 20,
+                        padding: 30,
+                        overflow: "auto"
+                    }}
+                >
                     <div className="flex-container-admin2">
+                        {isOver}
                         {adminItems.map((anItem) => {
                             return (
                                 <>
