@@ -1,7 +1,7 @@
 import React from "react";
 //import { SortButton } from "../components/components";
 import PlanetGarden from "../assets/Planet-Garden.png";
-import { SortButton } from "../components/SortItems";
+import { SortDropDown } from "../components/SortItems";
 //import { Cart } from "../components/UserList";
 
 export function Shop() {
@@ -18,7 +18,7 @@ export function Shop() {
             </div>
             <br></br>
             <br></br>
-            <SortButton></SortButton>
+            <SortDropDown></SortDropDown>
             <hr></hr>
         </div>
     );

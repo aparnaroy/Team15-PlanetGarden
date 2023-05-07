@@ -27,6 +27,14 @@ export function DisplayUserList({
         CurrentCart(selectedUser.id)
     );
 
+    const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
+        { id: 1, name: "Sam", cart: [] },
+        { id: 2, name: "John", cart: [] },
+        { id: 3, name: "Sarah", cart: [] },
+        { id: 4, name: "Bob", cart: [] }
+    ]);
+    setAllUsers;
+
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "item",
         drop: (anItem: Item) => addToCart(anItem.id),
@@ -35,8 +43,13 @@ export function DisplayUserList({
         })
     }));
 
-    const addToCart = (id: number) => {
-        const addedItem = items.find((i) => id === i.id);
+    useEffect(() => {
+        const storageCheckout: Item[] = CurrentCart(selectedUser.id);
+        setUserItems(storageCheckout);
+    }, [selectedUser]);
+
+    function addToCart(itemID: number) {
+        const addedItem = items.find((i) => itemID === i.id);
         if (addedItem) {
             setUserItems((userItems) => {
                 const newCart: Item[] = [
@@ -60,28 +73,13 @@ export function DisplayUserList({
                 const userIndex: number = allUsers.findIndex(
                     (user) => newUser.id === user.id
                 );
-                if (userIndex > -1) {
-                    allUsers.splice(userIndex, 1, newUser);
-                    //console.log(allUsers);
-                    sessionStorage.setItem("USERS", JSON.stringify(allUsers));
-                }
+                allUsers.splice(userIndex, 1, newUser);
+                console.log(allUsers);
+                sessionStorage.setItem("USERS", JSON.stringify(allUsers));
                 return newCart;
             });
         }
-    };
-
-    useEffect(() => {
-        const storageCheckout: Item[] = CurrentCart(selectedUser.id);
-        setUserItems(storageCheckout);
-    }, [selectedUser]);
-
-    const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
-        { id: 1, name: "Sam", cart: [] },
-        { id: 2, name: "John", cart: [] },
-        { id: 3, name: "Sarah", cart: [] },
-        { id: 4, name: "Bob", cart: [] }
-    ]);
-    setAllUsers;
+    }
 
     if (sessionStorage.getItem("Role") === "User") {
         return (
@@ -116,4 +114,62 @@ export function DisplayUserList({
         );
     }
     return <div></div>;
+}
+
+export function RemoveFromCart(
+    itemID: number,
+    { items, setItems, selectedUser }: UserViewProps
+) {
+    const [userItems, setUserItems] = useState<Item[]>(
+        CurrentCart(selectedUser.id)
+    );
+
+    const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
+        { id: 1, name: "Sam", cart: [] },
+        { id: 2, name: "John", cart: [] },
+        { id: 3, name: "Sarah", cart: [] },
+        { id: 4, name: "Bob", cart: [] }
+    ]);
+    setAllUsers;
+    setItems;
+    userItems;
+
+    const removedItem = items.find((i) => itemID === i.id);
+    if (removedItem) {
+        setUserItems((userItems) => {
+            const newCart: Item[] = [
+                ...userItems.filter((anItem: Item) => ({
+                    ...anItem
+                }))
+            ];
+            sessionStorage.setItem(
+                `CART_${selectedUser.id}`,
+                JSON.stringify(newCart)
+            );
+            const newUser = {
+                ...selectedUser,
+                cart: newCart
+            };
+            sessionStorage.setItem("CurrentUserID", JSON.stringify(newUser));
+            const userIndex: number = allUsers.findIndex(
+                (user) => newUser.id === user.id
+            );
+            allUsers.splice(userIndex, 1, newUser);
+            console.log(allUsers);
+            sessionStorage.setItem("USERS", JSON.stringify(allUsers));
+            return newCart;
+        });
+    }
+}
+
+export function deleteFromAllUserCarts(itemID: number, allUsers: User[]) {
+    const updatedUsers = allUsers.map((user) => ({
+        ...user,
+        cart: user.cart.filter((i) => i.id !== itemID)
+    }));
+    updatedUsers.map((user) => {
+        sessionStorage.setItem(`CART_${user.id}`, JSON.stringify(user.cart));
+    });
+
+    sessionStorage.setItem("USERS", JSON.stringify(updatedUsers));
 }
