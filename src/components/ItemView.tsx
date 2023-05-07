@@ -124,33 +124,33 @@ export function ItemView({
                     </Card.Title>
                     <br></br>
                     <Card.Footer>
+                        <span className="fs-8">
+                            Rating: <br></br>
+                            {[...Array(5)].map((star, index) => {
+                                index += 1;
+                                return (
+                                    <span
+                                        key={index}
+                                        style={{
+                                            color:
+                                                index <= rating
+                                                    ? "orange"
+                                                    : "gray",
+                                            cursor: "pointer"
+                                        }}
+                                        onClick={() => changeRating(index)}
+                                    >
+                                        &#9733;
+                                    </span>
+                                );
+                            })}
+                        </span>
                         <ExpandableSection>
                             <br></br>
                             <span className="card-subtitle ms-2 text-muted">
                                 {anItem.description}
                             </span>
                             <br></br>
-                            <span className="fs-8">
-                                Rating: <br></br>
-                                {[...Array(5)].map((star, index) => {
-                                    index += 1;
-                                    return (
-                                        <span
-                                            key={index}
-                                            style={{
-                                                color:
-                                                    index <= rating
-                                                        ? "orange"
-                                                        : "gray",
-                                                cursor: "pointer"
-                                            }}
-                                            onClick={() => changeRating(index)}
-                                        >
-                                            &#9733;
-                                        </span>
-                                    );
-                                })}
-                            </span>
                             <br></br>
                             <span className="ms-1">
                                 Maintenance Level:
