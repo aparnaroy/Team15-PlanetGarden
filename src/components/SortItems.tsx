@@ -119,7 +119,6 @@ export function SortButton(): JSX.Element {
         printed = ShopDisplay(displayedItems, items, setItems);
     }
     const [input, setInput] = useState<string>("");
-    //let keywordPrint = Display([spruceTree]);
     function searchLists(event: React.ChangeEvent<HTMLInputElement>) {
         setInput(event.target.value);
     }
