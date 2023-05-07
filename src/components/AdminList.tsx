@@ -3,7 +3,8 @@ import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
 import { useDrop } from "react-dnd";
 import { Row } from "react-bootstrap";
-//import { ItemViewProps } from "./ItemView";
+import "../App.css";
+import { alignPropType } from "react-bootstrap/esm/types";
 
 export interface AdminViewProps {
     items: Item[];
@@ -25,7 +26,7 @@ export function DisplayAdminList({
     function displayedList(id: number) {
         const addedItem = items.find((anItem) => anItem.id === id);
         if (addedItem !== undefined) {
-            setAdminItems((adminItems) => [...adminItems, addedItem]);
+            setAdminItems([addedItem]);
         }
     }
 
@@ -36,18 +37,13 @@ export function DisplayAdminList({
         return (
             <>
                 <div>
-                    <header className="App-header-4">Edit Items</header>
+                    <header className="App-header4">Edit Item</header>
                 </div>
-                <div
-                    className="flex-container-admin"
-                    ref={drop}
-                    style={{ backgroundColor: "#f1f1f1" }}
-                >
-                    {isOver ? "Release to drop" : "Drag a box here"}
-                    <div className="flex-container">
-                        <Row s={1} md={2}>
-                            {adminItems.map((anItem) => {
-                                return (
+                <div className="flex-container-admin" ref={drop}>
+                    <div className="flex-container-admin2">
+                        {adminItems.map((anItem) => {
+                            return (
+                                <>
                                     <div key={anItem.id}>
                                         <ItemView
                                             anItem={anItem}
@@ -55,12 +51,11 @@ export function DisplayAdminList({
                                             setItems={setItems}
                                         ></ItemView>
                                     </div>
-                                );
-                            })}
-                        </Row>
+                                </>
+                            );
+                        })}
                     </div>
                 </div>
-
                 <br></br>
             </>
         );

@@ -156,6 +156,8 @@ export function ShopDisplay(
                 </div>
                 <Cart></Cart>
             </div>
+            <br></br>
+            <br></br>
             <div>
                 <DisplayAdminList
                     items={items}
