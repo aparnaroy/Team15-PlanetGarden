@@ -38,8 +38,9 @@ import { useSessionStorage } from "../hooks/useSessionStorage";
 import { Item } from "../interfaces/Item";
 import { Form } from "react-bootstrap";
 import { ShopDisplay } from "./DisplayItem";
+import { User } from "../interfaces/User";
 
-export function SortButton(): JSX.Element {
+export function SortDropDown(): JSX.Element {
     const [items, setItems] = useSessionStorage<Item[]>("all-items", [
         benchStructure,
         bushGreenery,
@@ -76,50 +77,69 @@ export function SortButton(): JSX.Element {
         cherryBlossomTree
     ]);
     setItems;
+
     const [option, setOption] = useState<string>("");
     function updateSorting(event: React.ChangeEvent<HTMLSelectElement>) {
         setOption(event.target.value);
     }
+
+    const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
+        { id: 1, name: "Sam", cart: [] },
+        { id: 2, name: "John", cart: [] },
+        { id: 3, name: "Sarah", cart: [] },
+        { id: 4, name: "Bob", cart: [] }
+    ]);
+    setAllUsers;
+
+    function selectedUser() {
+        const curr = sessionStorage.getItem("CurrentUserID") ?? "0";
+        const currentUser = allUsers.find(
+            (user) => user.id === parseInt(curr)
+        ) ?? { id: 1, name: "Sam", cart: [] };
+        return currentUser;
+    }
+
+    const userNow = selectedUser();
+
     let displayedItems: Item[] = [];
-    let printed = ShopDisplay(items, items, setItems);
+    let printed = ShopDisplay(items, items, setItems, userNow);
     if (option === "Trees") {
         displayedItems = items.filter(
             (item: Item): boolean => item.type === "Tree"
         );
-        printed = ShopDisplay(displayedItems, items, setItems);
+        printed = ShopDisplay(displayedItems, items, setItems, userNow);
     } else if (option === "Flowers") {
         displayedItems = items.filter(
             (item: Item): boolean => item.type === "Flower"
         );
-        printed = ShopDisplay(displayedItems, items, setItems);
+        printed = ShopDisplay(displayedItems, items, setItems, userNow);
     } else if (option === "Greenery") {
         displayedItems = items.filter(
             (item: Item): boolean => item.type === "Greenery"
         );
-        printed = ShopDisplay(displayedItems, items, setItems);
+        printed = ShopDisplay(displayedItems, items, setItems, userNow);
     } else if (option === "Structures") {
         displayedItems = items.filter(
             (item: Item): boolean => item.type === "Structure"
         );
-        printed = ShopDisplay(displayedItems, items, setItems);
+        printed = ShopDisplay(displayedItems, items, setItems, userNow);
     } else if (option === "Price low to high") {
         displayedItems = items.sort(
             (item: Item, item2: Item) => item.price - item2.price
         );
-        printed = ShopDisplay(displayedItems, items, setItems);
+        printed = ShopDisplay(displayedItems, items, setItems, userNow);
     } else if (option === "Price high to low") {
         displayedItems = items.sort(
             (item: Item, item2: Item) => item2.price - item.price
         );
-        printed = ShopDisplay(displayedItems, items, setItems);
+        printed = ShopDisplay(displayedItems, items, setItems, userNow);
     } else if (option === "Alphabetically") {
         displayedItems = items.sort((item: Item, item2: Item) =>
             item2.name < item.name ? 1 : -1
         );
-        printed = ShopDisplay(displayedItems, items, setItems);
+        printed = ShopDisplay(displayedItems, items, setItems, userNow);
     }
     const [input, setInput] = useState<string>("");
-    //let keywordPrint = Display([spruceTree]);
     function searchLists(event: React.ChangeEvent<HTMLInputElement>) {
         setInput(event.target.value);
     }
@@ -127,7 +147,7 @@ export function SortButton(): JSX.Element {
         displayedItems = items.filter((item: Item) =>
             item.name.toLowerCase().includes(input.toLowerCase())
         );
-        printed = ShopDisplay(displayedItems, items, setItems);
+        printed = ShopDisplay(displayedItems, items, setItems, userNow);
     }
     function searchBar(): JSX.Element {
         return (
