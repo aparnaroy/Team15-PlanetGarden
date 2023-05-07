@@ -38,8 +38,8 @@ FAIL src/App.test.tsx
     > 5 | import { useDrag } from "react-dnd";
         | ^
       6 | import { ExpandableSection } from "./Expandable";
-      7 |
-      8 | export interface ItemViewProps {
+      7 | import { useSessionStorage } from "../hooks/useSessionStorage";
+      8 | import { User } from "../interfaces/User";
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
       at Object.<anonymous> (src/components/ItemView.tsx:5:1)
@@ -64,15 +64,15 @@ All files               |       0 |        0 |       0 |       0 |
  src/components         |       0 |        0 |       0 |       0 |                   
   AddItem.tsx           |       0 |      100 |       0 |       0 | 10-141            
   AdminList.tsx         |       0 |        0 |       0 |       0 | 17-68             
-  DisplayItem.tsx       |       0 |        0 |       0 |       0 | 47-184            
+  DisplayItem.tsx       |       0 |        0 |       0 |       0 | 47-167            
   EditItem.tsx          |       0 |      100 |       0 |       0 | 11-126            
   Expandable.tsx        |       0 |        0 |       0 |       0 | 8-16              
-  ItemView.tsx          |       0 |        0 |       0 |       0 | 19-137            
+  ItemView.tsx          |       0 |        0 |       0 |       0 | 22-147            
   Navbar.tsx            |       0 |        0 |       0 |       0 | 10-32             
   RoleSelect.tsx        |       0 |        0 |       0 |       0 | 6-36              
-  SortItems.tsx         |       0 |        0 |       0 |       0 | 43-144            
+  SortItems.tsx         |       0 |        0 |       0 |       0 | 44-164            
   UserDropDownSuper.tsx |       0 |        0 |       0 |       0 | 9-103             
-  UserList.tsx          |       0 |        0 |       0 |       0 | 16-118            
+  UserList.tsx          |       0 |        0 |       0 |       0 | 16-174            
   UserSelect.tsx        |       0 |        0 |       0 |       0 | 7-168             
  src/hooks              |       0 |        0 |       0 |       0 |                   
   useSessionStorage.ts  |       0 |        0 |       0 |       0 | 4-19              
@@ -89,5 +89,5 @@ All files               |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.428 s
+Time:        5.257 s
 Ran all test suites.
