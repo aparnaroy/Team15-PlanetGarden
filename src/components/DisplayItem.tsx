@@ -22,7 +22,17 @@ import {
     tulipFlower,
     ivyGreenery,
     fernGreenery,
-    caladiumGreenery
+    caladiumGreenery,
+    trellisStructure,
+    lilyFlower,
+    budhaStructure,
+    blueHydrangeaFlower,
+    stonePathStructure,
+    forgetMeNotFlower,
+    gardenGnomeStructure,
+    bridgeStructure,
+    hoopTrellisStructure,
+    cherryBlossomTree
 } from "../assets/instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { ItemView } from "./ItemView";
@@ -55,7 +65,17 @@ export function InventoryDisplay(): JSX.Element {
         tulipFlower,
         ivyGreenery,
         fernGreenery,
-        caladiumGreenery
+        caladiumGreenery,
+        trellisStructure,
+        lilyFlower,
+        budhaStructure,
+        blueHydrangeaFlower,
+        stonePathStructure,
+        forgetMeNotFlower,
+        gardenGnomeStructure,
+        bridgeStructure,
+        hoopTrellisStructure,
+        cherryBlossomTree
     ]);
     const [newItemForm, setShowItemForm] = useState(false);
 

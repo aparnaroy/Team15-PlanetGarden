@@ -22,7 +22,17 @@ import {
     tulipFlower,
     ivyGreenery,
     fernGreenery,
-    caladiumGreenery
+    caladiumGreenery,
+    trellisStructure,
+    lilyFlower,
+    budhaStructure,
+    blueHydrangeaFlower,
+    stonePathStructure,
+    forgetMeNotFlower,
+    gardenGnomeStructure,
+    bridgeStructure,
+    hoopTrellisStructure,
+    cherryBlossomTree
 } from "../assets/instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { Item } from "../interfaces/Item";
@@ -53,7 +63,17 @@ export function SortButton(): JSX.Element {
         tulipFlower,
         ivyGreenery,
         fernGreenery,
-        caladiumGreenery
+        caladiumGreenery,
+        trellisStructure,
+        lilyFlower,
+        budhaStructure,
+        blueHydrangeaFlower,
+        stonePathStructure,
+        forgetMeNotFlower,
+        gardenGnomeStructure,
+        bridgeStructure,
+        hoopTrellisStructure,
+        cherryBlossomTree
     ]);
     setItems;
     const [option, setOption] = useState<string>("");
