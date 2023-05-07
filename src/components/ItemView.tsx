@@ -16,7 +16,7 @@ export function ItemView({
     items,
     setItems
 }: ItemViewProps): JSX.Element {
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(4);
     const [newItemForm, setShowItemForm] = useState(false);
     const [{ isDragging }, drag] = useDrag({
         type: "item",
@@ -122,29 +122,26 @@ export function ItemView({
                         <span className="fs-4">{anItem.name}</span>
                         <span className="ms-2 text-muted">${anItem.price}</span>
                     </Card.Title>
-                    <br></br>
+                    <span className="fs-8">
+                        Rating: {<>&nbsp;</>}
+                        {[...Array(5)].map((star, index) => {
+                            index += 1;
+                            return (
+                                <span
+                                    key={index}
+                                    style={{
+                                        color:
+                                            index <= rating ? "orange" : "gray",
+                                        cursor: "pointer"
+                                    }}
+                                    onClick={() => changeRating(index)}
+                                >
+                                    &#9733;
+                                </span>
+                            );
+                        })}
+                    </span>
                     <Card.Footer>
-                        <span className="fs-8">
-                            Rating: <br></br>
-                            {[...Array(5)].map((star, index) => {
-                                index += 1;
-                                return (
-                                    <span
-                                        key={index}
-                                        style={{
-                                            color:
-                                                index <= rating
-                                                    ? "orange"
-                                                    : "gray",
-                                            cursor: "pointer"
-                                        }}
-                                        onClick={() => changeRating(index)}
-                                    >
-                                        &#9733;
-                                    </span>
-                                );
-                            })}
-                        </span>
                         <ExpandableSection>
                             <br></br>
                             <span className="card-subtitle ms-2 text-muted">

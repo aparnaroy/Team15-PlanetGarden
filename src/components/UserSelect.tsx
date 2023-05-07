@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, FormSelect } from "react-bootstrap";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
@@ -10,10 +10,28 @@ export function UserSelect(): JSX.Element {
         { id: 3, name: "Sarah", cart: [] },
         { id: 4, name: "Bob", cart: [] }
     ]);
-    const [selectedUserId, setSelectedUserId] = useSessionStorage<
-        number | null
-    >("selected", null);
+
+    const [selectedUserId, setSelectedUserId] = useSessionStorage<number>(
+        "selected",
+        0
+    );
+
     const [newUserName, setNewUserName] = useState<string>("");
+
+    const userSelectedID = sessionStorage.getItem("CurrentUserID");
+
+    useEffect(() => {
+        if (userSelectedID) {
+            setSelectedUserId(selectedUserId);
+        }
+    }, [selectedUserId]);
+
+    // This is the Control
+    function updateUserSelected(e: number) {
+        setSelectedUserId(e);
+        sessionStorage.setItem("CurrentUserID", JSON.stringify(e));
+        location.reload();
+    }
 
     const handleAddUser = () => {
         const newUser = {
@@ -115,11 +133,12 @@ export function UserSelect(): JSX.Element {
                             User:{<>&nbsp;</>}
                             <FormSelect
                                 value={selectedUserId ?? ""}
-                                onChange={(e) =>
-                                    setSelectedUserId(parseInt(e.target.value))
+                                onChange={(event) =>
+                                    updateUserSelected(
+                                        parseInt(event.target.value)
+                                    )
                                 }
                             >
-                                <option value="">Select User</option>
                                 {allUsers.map((user) => {
                                     return (
                                         <option key={user.id} value={user.id}>
@@ -135,8 +154,20 @@ export function UserSelect(): JSX.Element {
         }
     }
 
+    function redirect() {
+        if (
+            sessionStorage.getItem("Role") === "User" &&
+            window.location.href.endsWith("users")
+        ) {
+            location.hash = "/";
+            location.reload();
+        }
+        return <></>;
+    }
+
     return (
         <div>
+            {redirect()}
             {superDisplay()}
             {userDisplay()}
         </div>

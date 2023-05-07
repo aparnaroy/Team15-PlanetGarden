@@ -39,9 +39,9 @@ import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
 import { Button, Col, Row } from "react-bootstrap";
 import { AddItem } from "./AddItem";
-import { useDrop } from "react-dnd";
 import { DisplayAdminList } from "./AdminList";
 import { DisplayUserList } from "./UserList";
+import { User } from "../interfaces/User";
 
 export function InventoryDisplay(): JSX.Element {
     const [items, setItems] = useSessionStorage<Item[]>("all-items", [
@@ -153,6 +153,24 @@ export function ShopDisplay(
     items: Item[],
     setItems: (newItems: Item[]) => void
 ): JSX.Element {
+    const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
+        { id: 1, name: "Sam", cart: [] },
+        { id: 2, name: "John", cart: [] },
+        { id: 3, name: "Sarah", cart: [] },
+        { id: 4, name: "Bob", cart: [] }
+    ]);
+    setAllUsers;
+
+    function selectedUser() {
+        const curr = sessionStorage.getItem("CurrentUserID") ?? "0";
+        const currentUser = allUsers.find(
+            (user) => user.id === parseInt(curr)
+        ) ?? { id: 1, name: "Sam", cart: [] };
+        return currentUser;
+    }
+
+    const userNow = selectedUser();
+
     return (
         <>
             <div style={{ display: "flex" }}>
@@ -179,6 +197,7 @@ export function ShopDisplay(
                     <DisplayUserList
                         items={items}
                         setItems={setItems}
+                        selectedUser={userNow}
                     ></DisplayUserList>
                 </div>
             </div>
