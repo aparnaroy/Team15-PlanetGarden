@@ -22,7 +22,17 @@ import {
     tulipFlower,
     ivyGreenery,
     fernGreenery,
-    caladiumGreenery
+    caladiumGreenery,
+    trellisStructure,
+    lilyFlower,
+    budhaStructure,
+    blueHydrangeaFlower,
+    stonePathStructure,
+    forgetMeNotFlower,
+    gardenGnomeStructure,
+    bridgeStructure,
+    hoopTrellisStructure,
+    cherryBlossomTree
 } from "../assets/instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { ItemView } from "./ItemView";
@@ -57,7 +67,17 @@ export function InventoryDisplay(): JSX.Element {
         tulipFlower,
         ivyGreenery,
         fernGreenery,
-        caladiumGreenery
+        caladiumGreenery,
+        trellisStructure,
+        lilyFlower,
+        budhaStructure,
+        blueHydrangeaFlower,
+        stonePathStructure,
+        forgetMeNotFlower,
+        gardenGnomeStructure,
+        bridgeStructure,
+        hoopTrellisStructure,
+        cherryBlossomTree
     ]);
     const [newItemForm, setShowItemForm] = useState(false);
 
@@ -131,26 +151,9 @@ export function InventoryDisplay(): JSX.Element {
 export function ShopDisplay(
     itemList: Item[],
     items: Item[],
-    setItems: (newItems: Item[]) => void
+    setItems: (newItems: Item[]) => void,
+    userNow: User
 ): JSX.Element {
-    const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
-        { id: 1, name: "Sam", cart: [] },
-        { id: 2, name: "John", cart: [] },
-        { id: 3, name: "Sarah", cart: [] },
-        { id: 4, name: "Bob", cart: [] }
-    ]);
-    setAllUsers;
-
-    function selectedUser() {
-        const curr = sessionStorage.getItem("CurrentUserID") ?? "0";
-        const currentUser = allUsers.find(
-            (user) => user.id === parseInt(curr)
-        ) ?? { id: 1, name: "Sam", cart: [] };
-        return currentUser;
-    }
-
-    const userNow = selectedUser();
-
     return (
         <>
             <div style={{ display: "flex" }}>

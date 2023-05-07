@@ -4,6 +4,9 @@ import { Item } from "../interfaces/Item";
 import { EditItem } from "./EditItem";
 import { useDrag } from "react-dnd";
 import { ExpandableSection } from "./Expandable";
+import { useSessionStorage } from "../hooks/useSessionStorage";
+import { User } from "../interfaces/User";
+import { deleteFromAllUserCarts } from "./UserList";
 
 export interface ItemViewProps {
     anItem: Item;
@@ -25,8 +28,14 @@ export function ItemView({
             isDragging: !!monitor.isDragging()
         })
     });
-
     isDragging;
+    const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
+        { id: 1, name: "Sam", cart: [] },
+        { id: 2, name: "John", cart: [] },
+        { id: 3, name: "Sarah", cart: [] },
+        { id: 4, name: "Bob", cart: [] }
+    ]);
+    setAllUsers;
 
     function changeRating(newRating: number) {
         setRating(newRating);
@@ -40,6 +49,7 @@ export function ItemView({
         if (items && setItems) {
             const updatedItems = items.filter((i) => i.name !== item.name);
             setItems(updatedItems);
+            deleteFromAllUserCarts(item.id, allUsers);
         }
     }
 
