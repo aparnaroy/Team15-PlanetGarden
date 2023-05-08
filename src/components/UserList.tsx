@@ -143,8 +143,17 @@ export function DisplayUserList({
                     }}
                 >
                     <div>
-                        <Button onClick={handleRemoveAllItems}>
-                            Remove All Items
+                        <Button
+                            className="remove-button"
+                            onClick={handleRemoveAllItems}
+                        >
+                            Empty Cart{" "}
+                            <FontAwesomeIcon
+                                className="fas fa-trash-alt"
+                                icon={faTrashAlt}
+                                size="sm"
+                                style={{ color: "#6d4206" }}
+                            />
                         </Button>
                     </div>
                     <Row s={1} md={2}>
@@ -158,15 +167,19 @@ export function DisplayUserList({
                                             setItems={setItems}
                                         ></ItemView>
                                         <br></br>
-                                        <FontAwesomeIcon
-                                            className="fas fa-trash-alt"
-                                            icon={faTrashAlt}
-                                            size="2xl"
-                                            style={{ color: "#ffffff" }}
+                                        <Button
+                                            className="trash-can"
                                             onClick={() =>
                                                 handleRemoveItem(anItem.id)
                                             }
-                                        />
+                                        >
+                                            <FontAwesomeIcon
+                                                className="fas fa-trash-alt"
+                                                icon={faTrashAlt}
+                                                size="sm"
+                                                style={{ color: "#6d4206" }}
+                                            />
+                                        </Button>
                                     </div>
                                 </>
                             );
