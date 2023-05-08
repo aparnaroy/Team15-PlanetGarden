@@ -154,17 +154,23 @@ export function displayCartOrAdmin(
     setItems: (newItems: Item[]) => void,
     userNow: User
 ): JSX.Element {
-    if (sessionStorage.getItem("Role") === "User") {
+    if (
+        sessionStorage.getItem("Role") === "Admin" ||
+        sessionStorage.getItem("Role") === "Super"
+    ) {
         return (
-            <DisplayUserList
+            <DisplayAdminList
                 items={items}
                 setItems={setItems}
-                selectedUser={userNow}
-            ></DisplayUserList>
+            ></DisplayAdminList>
         );
     }
     return (
-        <DisplayAdminList items={items} setItems={setItems}></DisplayAdminList>
+        <DisplayUserList
+            items={items}
+            setItems={setItems}
+            selectedUser={userNow}
+        ></DisplayUserList>
     );
 }
 
