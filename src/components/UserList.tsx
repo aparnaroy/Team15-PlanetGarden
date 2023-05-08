@@ -160,6 +160,7 @@ export function DisplayUserList({
                             );
                         })}
                     </Row>
+                    <br></br>
                     <button onClick={handleRemoveAllItems}>
                         Remove All Items
                     </button>
