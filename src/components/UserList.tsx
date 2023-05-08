@@ -127,6 +127,15 @@ export function DisplayUserList({
         }
     }
 
+    const [total, setTotal] = useState(0);
+    useEffect(() => {
+        let sum = 0;
+        userItems.forEach((item) => {
+            sum += item.price;
+        });
+        setTotal(sum);
+    }, [userItems]);
+
     if (sessionStorage.getItem("Role") === "User") {
         return (
             <>
@@ -134,7 +143,7 @@ export function DisplayUserList({
                     ref={drop}
                     role="Cart"
                     style={{
-                        backgroundColor: isOver ? "white" : "#6aa1a3",
+                        backgroundColor: isOver ? "#85cacd" : "#6aa1a3",
                         width: 648,
                         height: 700,
                         paddingTop: 20,
@@ -142,9 +151,29 @@ export function DisplayUserList({
                         overflow: "auto"
                     }}
                 >
+                    {" "}
+                    <div
+                        style={{
+                            backgroundColor: "#EFE8AB",
+                            color: "#6d4206",
+                            fontSize: 40
+                        }}
+                    >
+                        Total: ${total}
+                    </div>
+                    <br></br>
                     <div>
-                        <Button onClick={handleRemoveAllItems}>
-                            Remove All Items
+                        <Button
+                            className="remove-button"
+                            onClick={handleRemoveAllItems}
+                        >
+                            Empty Cart{" "}
+                            <FontAwesomeIcon
+                                className="fas fa-trash-alt"
+                                icon={faTrashAlt}
+                                size="sm"
+                                style={{ color: "#6d4206" }}
+                            />
                         </Button>
                     </div>
                     <Row s={1} md={2}>
@@ -158,15 +187,19 @@ export function DisplayUserList({
                                             setItems={setItems}
                                         ></ItemView>
                                         <br></br>
-                                        <FontAwesomeIcon
-                                            className="fas fa-trash-alt"
-                                            icon={faTrashAlt}
-                                            size="2xl"
-                                            style={{ color: "#ffffff" }}
+                                        <Button
+                                            className="trash-can"
                                             onClick={() =>
                                                 handleRemoveItem(anItem.id)
                                             }
-                                        />
+                                        >
+                                            <FontAwesomeIcon
+                                                className="fas fa-trash-alt"
+                                                icon={faTrashAlt}
+                                                size="sm"
+                                                style={{ color: "#6d4206" }}
+                                            />
+                                        </Button>
                                     </div>
                                 </>
                             );
@@ -174,6 +207,19 @@ export function DisplayUserList({
                     </Row>
                 </div>
             </>
+        );
+    } else if (sessionStorage.getItem("Role")) {
+        return (
+            <div
+                style={{
+                    backgroundColor: "#6aa1a3",
+                    width: 648,
+                    height: 700,
+                    paddingTop: 20,
+                    padding: 30,
+                    overflow: "auto"
+                }}
+            ></div>
         );
     }
     return <div></div>;

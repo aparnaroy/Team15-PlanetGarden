@@ -163,7 +163,7 @@ export function SortDropDown(): JSX.Element {
     }
     return (
         <div>
-            <Form.Label style={{ textAlign: "left" }}>Sort By: </Form.Label>
+            <Form.Label style={{ textAlign: "center" }}>Sort By: </Form.Label>
             <Form.Select value={option} onChange={updateSorting}>
                 <option>Alphabetically</option>
                 <option>Price low to high</option>
