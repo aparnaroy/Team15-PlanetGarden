@@ -252,3 +252,41 @@ body {
     padding: 5px 10px;
     border-radius: 10px;
 }
+
+.fas.fa-trash-alt:hover:hover {
+    color: rgb(109, 66, 6);
+}
+
+.trash-can {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #faf9f6;
+    outline-color: none;
+}
+
+.trash-can:hover {
+    background-color: #c5bfc6;
+    width: 50px;
+    height: 50px;
+}
+
+.trash-can:focus {
+    outline: none;
+}
+
+.remove-button {
+    background-color: #faf9f6;
+    color: rgb(109, 66, 6);
+    outline-color: none;
+}
+
+.remove-button:focus {
+    background-color: #faf9f6;
+    color: rgb(109, 66, 6);
+}
+
+.remove-button:hover {
+    background-color: #c5bfc6;
+    color: rgb(109, 66, 6);
+}
