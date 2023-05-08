@@ -63,11 +63,11 @@ All files               |       0 |        0 |       0 |       0 |
   instances.tsx         |       0 |      100 |     100 |       0 | 36-471            
  src/components         |       0 |        0 |       0 |       0 |                   
   AddItem.tsx           |       0 |      100 |       0 |       0 | 10-141            
-  AdminList.tsx         |       0 |        0 |       0 |       0 | 17-68             
-  DisplayItem.tsx       |       0 |        0 |       0 |       0 | 47-167            
+  AdminList.tsx         |       0 |        0 |       0 |       0 | 18-83             
+  DisplayItem.tsx       |       0 |        0 |       0 |       0 | 47-204            
   EditItem.tsx          |       0 |      100 |       0 |       0 | 11-126            
   Expandable.tsx        |       0 |        0 |       0 |       0 | 8-16              
-  ItemView.tsx          |       0 |        0 |       0 |       0 | 22-147            
+  ItemView.tsx          |       0 |        0 |       0 |       0 | 22-171            
   Navbar.tsx            |       0 |        0 |       0 |       0 | 10-32             
   RoleSelect.tsx        |       0 |        0 |       0 |       0 | 6-36              
   SortItems.tsx         |       0 |        0 |       0 |       0 | 44-164            
@@ -89,5 +89,5 @@ All files               |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.863 s
+Time:        3.992 s
 Ran all test suites.
