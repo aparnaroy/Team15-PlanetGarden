@@ -188,6 +188,19 @@ export function DisplayUserList({
                 </div>
             </>
         );
+    } else if (sessionStorage.getItem("Role")) {
+        return (
+            <div
+                style={{
+                    backgroundColor: "#6aa1a3",
+                    width: 648,
+                    height: 700,
+                    paddingTop: 20,
+                    padding: 30,
+                    overflow: "auto"
+                }}
+            ></div>
+        );
     }
     return <div></div>;
 }
