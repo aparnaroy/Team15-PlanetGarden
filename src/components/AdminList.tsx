@@ -3,7 +3,8 @@ import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
 import { useDrop } from "react-dnd";
 import { Row } from "react-bootstrap";
-//import { ItemViewProps } from "./ItemView";
+import "../App.css";
+import { useSessionStorage } from "../hooks/useSessionStorage";
 
 export interface AdminViewProps {
     items: Item[];
@@ -15,6 +16,10 @@ export function DisplayAdminList({
     setItems
 }: AdminViewProps): JSX.Element {
     const [adminItems, setAdminItems] = useState<Item[]>([]);
+    const [inAdminList, setInAdminList] = useSessionStorage<boolean>(
+        "inAdmin",
+        false
+    );
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "item",
         drop: (anItem: Item) => displayedList(anItem.id),
@@ -25,43 +30,53 @@ export function DisplayAdminList({
     function displayedList(id: number) {
         const addedItem = items.find((anItem) => anItem.id === id);
         if (addedItem !== undefined) {
-            setAdminItems((adminItems) => [...adminItems, addedItem]);
+            setAdminItems([addedItem]);
+            setInAdminList(!inAdminList);
         }
     }
-
+    function handleRemoveItem() {
+        setAdminItems([]);
+        setInAdminList(!inAdminList);
+    }
     if (
         sessionStorage.getItem("Role") === "Super" ||
         sessionStorage.getItem("Role") === "Admin"
     ) {
         return (
             <>
-                <div>
-                    <header className="App-header-4">Edit Items</header>
-                </div>
                 <div
-                    className="flex-container-admin"
                     ref={drop}
-                    style={{ backgroundColor: "#f1f1f1" }}
+                    style={{
+                        backgroundColor: isOver ? "white" : "#6aa1a3",
+                        width: 648,
+                        height: 700,
+                        paddingTop: 20,
+                        padding: 30,
+                        overflow: "auto"
+                    }}
                 >
-                    {isOver ? "Release to drop" : "Drag a box here"}
-                    <div className="flex-container">
-                        <Row s={1} md={2}>
-                            {adminItems.map((anItem) => {
-                                return (
-                                    <div key={anItem.id}>
+                    <Row>
+                        {isOver}
+                        {adminItems.map((anItem) => {
+                            return (
+                                <>
+                                    <div key={anItem.id} id="child">
                                         <ItemView
                                             anItem={anItem}
                                             items={items}
                                             setItems={setItems}
                                         ></ItemView>
+                                        <button
+                                            onClick={() => handleRemoveItem()}
+                                        >
+                                            Remove Item
+                                        </button>
                                     </div>
-                                );
-                            })}
-                        </Row>
-                    </div>
+                                </>
+                            );
+                        })}
+                    </Row>
                 </div>
-
-                <br></br>
             </>
         );
     }
