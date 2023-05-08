@@ -158,7 +158,6 @@ export function ShopDisplay(
         <>
             <div style={{ display: "flex" }}>
                 <header className="App-header2">Shop🪴</header>
-                <header className="App-header3">Your Cart🛒</header>
             </div>
             <div className="parent-container">
                 <div className="flex-container-shop">
@@ -177,20 +176,19 @@ export function ShopDisplay(
                     </Row>
                 </div>
                 <div>
-                    <DisplayUserList
-                        items={items}
-                        setItems={setItems}
-                        selectedUser={userNow}
-                    ></DisplayUserList>
+                    {sessionStorage.getItem("Role") === "User" ? (
+                        <DisplayUserList
+                            items={items}
+                            setItems={setItems}
+                            selectedUser={userNow}
+                        ></DisplayUserList>
+                    ) : (
+                        <DisplayAdminList
+                            items={items}
+                            setItems={setItems}
+                        ></DisplayAdminList>
+                    )}
                 </div>
-            </div>
-            <br></br>
-            <br></br>
-            <div>
-                <DisplayAdminList
-                    items={items}
-                    setItems={setItems}
-                ></DisplayAdminList>
             </div>
         </>
     );

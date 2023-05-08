@@ -55,7 +55,7 @@ body {
 }
 
 .App-header3 {
-    width: 50%;
+    width: 100%;
     background-color: #56a3a6;
     min-height: 5vh;
     display: flex;
@@ -76,7 +76,6 @@ body {
     justify-content: center;
     font-size: calc(30px + 2vmin);
     color: rgb(255, 255, 255);
-    width: 70%;
     margin: auto;
 }
 

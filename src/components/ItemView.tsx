@@ -7,6 +7,7 @@ import { ExpandableSection } from "./Expandable";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
 import { deleteFromAllUserCarts } from "./UserList";
+import { adminFlex, adminItem } from "./AdminList";
 
 export interface ItemViewProps {
     anItem: Item;
@@ -114,6 +115,13 @@ export function ItemView({
                 </div>
             );
         }
+    }
+
+    function checkAdminBox(flexbox: Element, item: Element): boolean {
+        if (flexbox.contains(item)) {
+            return true;
+        }
+        return false;
     }
 
     function showEditAndDelete(anItem: Item) {

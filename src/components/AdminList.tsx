@@ -11,6 +11,11 @@ export interface AdminViewProps {
     setItems: (newItems: Item[]) => void;
 }
 
+export const adminFlex = document.getElementById("admin-flex");
+export const adminItem = document.querySelector(
+    "#admin-flex .item:nth-child(1)"
+);
+
 export function DisplayAdminList({
     items,
     setItems
@@ -29,7 +34,6 @@ export function DisplayAdminList({
             setAdminItems([addedItem]);
         }
     }
-
     if (
         sessionStorage.getItem("Role") === "Super" ||
         sessionStorage.getItem("Role") === "Admin"
@@ -40,10 +44,9 @@ export function DisplayAdminList({
                     <header className="App-header4">Edit Item</header>
                 </div>
                 <div
-                    className="flex-container-admin"
                     ref={drop}
                     style={{
-                        backgroundColor: isOver ? "white" : "#9eb0b1",
+                        backgroundColor: isOver ? "white" : "#6aa1a3",
                         width: 648,
                         height: 700,
                         paddingTop: 20,
@@ -51,22 +54,22 @@ export function DisplayAdminList({
                         overflow: "auto"
                     }}
                 >
-                    <div className="flex-container-admin2">
+                    <Row>
                         {isOver}
                         {adminItems.map((anItem) => {
                             return (
                                 <>
-                                    <div key={anItem.id}>
+                                    <div key={anItem.id} className="item">
                                         <ItemView
                                             anItem={anItem}
-                                            items={items}
+                                            items={adminItems}
                                             setItems={setItems}
                                         ></ItemView>
                                     </div>
                                 </>
                             );
                         })}
-                    </div>
+                    </Row>
                 </div>
                 <br></br>
             </>
