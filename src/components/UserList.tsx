@@ -127,6 +127,15 @@ export function DisplayUserList({
         }
     }
 
+    const [total, setTotal] = useState(0);
+    useEffect(() => {
+        let sum = 0;
+        userItems.forEach((item) => {
+            sum += item.price;
+        });
+        setTotal(sum);
+    }, [userItems]);
+
     if (sessionStorage.getItem("Role") === "User") {
         return (
             <>
@@ -142,6 +151,17 @@ export function DisplayUserList({
                         overflow: "auto"
                     }}
                 >
+                    {" "}
+                    <div
+                        style={{
+                            backgroundColor: "#EFE8AB",
+                            color: "#6d4206",
+                            fontSize: 40
+                        }}
+                    >
+                        Total: ${total}
+                    </div>
+                    <br></br>
                     <div>
                         <Button
                             className="remove-button"
