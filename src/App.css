@@ -55,7 +55,7 @@ body {
 }
 
 .App-header3 {
-    width: 100%;
+    width: 50%;
     background-color: #56a3a6;
     min-height: 5vh;
     display: flex;
@@ -138,7 +138,7 @@ body {
     justify-content: left;
     align-items: left;
     height: 700px;
-    width: 70%;
+    width: 50%;
     overflow-y: auto;
     background-color: #f1f1f1;
     padding: 20px;

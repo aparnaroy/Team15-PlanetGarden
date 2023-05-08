@@ -128,9 +128,6 @@ export function DisplayUserList({
     if (sessionStorage.getItem("Role") === "User") {
         return (
             <>
-                <div>
-                    <header className="App-header3">Your Cart🛒</header>
-                </div>
                 <div
                     ref={drop}
                     role="Cart"

@@ -7,7 +7,6 @@ import { ExpandableSection } from "./Expandable";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
 import { deleteFromAllUserCarts } from "./UserList";
-import { adminFlex, adminItem } from "./AdminList";
 
 export interface ItemViewProps {
     anItem: Item;
@@ -80,7 +79,7 @@ export function ItemView({
             (sessionStorage.getItem("Role") === "Super" ||
                 sessionStorage.getItem("Role") === "Admin") &&
             window.location.href.endsWith("shop")
-        ) {
+        )
             return (
                 <div>
                     <br></br>
@@ -89,7 +88,6 @@ export function ItemView({
                     </Button>
                 </div>
             );
-        }
     }
 
     function editingMode() {

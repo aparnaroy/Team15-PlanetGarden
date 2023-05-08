@@ -4,23 +4,22 @@ import { Item } from "../interfaces/Item";
 import { useDrop } from "react-dnd";
 import { Row } from "react-bootstrap";
 import "../App.css";
-import { alignPropType } from "react-bootstrap/esm/types";
+import { useSessionStorage } from "../hooks/useSessionStorage";
 
 export interface AdminViewProps {
     items: Item[];
     setItems: (newItems: Item[]) => void;
 }
 
-export const adminFlex = document.getElementById("admin-flex");
-export const adminItem = document.querySelector(
-    "#admin-flex .item:nth-child(1)"
-);
-
 export function DisplayAdminList({
     items,
     setItems
 }: AdminViewProps): JSX.Element {
     const [adminItems, setAdminItems] = useState<Item[]>([]);
+    const [inAdminList, setInAdminList] = useSessionStorage<boolean>(
+        "inAdmin",
+        false
+    );
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "item",
         drop: (anItem: Item) => displayedList(anItem.id),
@@ -32,7 +31,12 @@ export function DisplayAdminList({
         const addedItem = items.find((anItem) => anItem.id === id);
         if (addedItem !== undefined) {
             setAdminItems([addedItem]);
+            setInAdminList(!inAdminList);
         }
+    }
+    function handleRemoveItem() {
+        setAdminItems([]);
+        setInAdminList(!inAdminList);
     }
     if (
         sessionStorage.getItem("Role") === "Super" ||
@@ -40,9 +44,6 @@ export function DisplayAdminList({
     ) {
         return (
             <>
-                <div>
-                    <header className="App-header4">Edit Item</header>
-                </div>
                 <div
                     ref={drop}
                     style={{
@@ -59,19 +60,23 @@ export function DisplayAdminList({
                         {adminItems.map((anItem) => {
                             return (
                                 <>
-                                    <div key={anItem.id} className="item">
+                                    <div key={anItem.id} id="child">
                                         <ItemView
                                             anItem={anItem}
-                                            items={adminItems}
+                                            items={items}
                                             setItems={setItems}
                                         ></ItemView>
+                                        <button
+                                            onClick={() => handleRemoveItem()}
+                                        >
+                                            Remove Item
+                                        </button>
                                     </div>
                                 </>
                             );
                         })}
                     </Row>
                 </div>
-                <br></br>
             </>
         );
     }
