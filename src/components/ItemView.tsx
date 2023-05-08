@@ -115,13 +115,6 @@ export function ItemView({
         }
     }
 
-    function checkAdminBox(flexbox: Element, item: Element): boolean {
-        if (flexbox.contains(item)) {
-            return true;
-        }
-        return false;
-    }
-
     function showEditAndDelete(anItem: Item) {
         if (
             sessionStorage.getItem("Role") === "Super" &&
