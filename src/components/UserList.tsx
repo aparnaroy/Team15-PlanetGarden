@@ -143,7 +143,7 @@ export function DisplayUserList({
                     ref={drop}
                     role="Cart"
                     style={{
-                        backgroundColor: isOver ? "white" : "#6aa1a3",
+                        backgroundColor: isOver ? "#85cacd" : "#6aa1a3",
                         width: 648,
                         height: 700,
                         paddingTop: 20,
