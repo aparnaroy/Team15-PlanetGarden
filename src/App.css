@@ -238,3 +238,7 @@ body {
     padding: 5px 10px;
     border-radius: 10px;
 }
+
+.fas.fa-trash-alt:hover:hover {
+    color: rgb(109, 66, 6);
+}

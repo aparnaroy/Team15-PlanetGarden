@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
 import { useDrop } from "react-dnd";
-import { Row } from "react-bootstrap";
+import { Button, Row } from "react-bootstrap";
 import { User } from "../interfaces/User";
 import { useSessionStorage } from "../hooks/useSessionStorage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 export interface UserViewProps {
     items: Item[];
@@ -140,29 +142,36 @@ export function DisplayUserList({
                         overflow: "auto"
                     }}
                 >
+                    <div>
+                        <Button onClick={handleRemoveAllItems}>
+                            Remove All Items
+                        </Button>
+                    </div>
                     <Row s={1} md={2}>
                         {userItems.map((anItem) => {
                             return (
-                                <div key={anItem.id}>
-                                    <ItemView
-                                        anItem={anItem}
-                                        items={items}
-                                        setItems={setItems}
-                                    ></ItemView>
-                                    <button
-                                        onClick={() =>
-                                            handleRemoveItem(anItem.id)
-                                        }
-                                    >
-                                        Remove Item
-                                    </button>
-                                </div>
+                                <>
+                                    <div key={anItem.id}>
+                                        <ItemView
+                                            anItem={anItem}
+                                            items={items}
+                                            setItems={setItems}
+                                        ></ItemView>
+                                        <br></br>
+                                        <FontAwesomeIcon
+                                            className="fas fa-trash-alt"
+                                            icon={faTrashAlt}
+                                            size="2xl"
+                                            style={{ color: "#ffffff" }}
+                                            onClick={() =>
+                                                handleRemoveItem(anItem.id)
+                                            }
+                                        />
+                                    </div>
+                                </>
                             );
                         })}
                     </Row>
-                    <button onClick={handleRemoveAllItems}>
-                        Remove All Items
-                    </button>
                 </div>
             </>
         );
