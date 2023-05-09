@@ -165,9 +165,21 @@ export function UserSelect(): JSX.Element {
         return <></>;
     }
 
+    function redirect2() {
+        if (
+            sessionStorage.getItem("Role") === "User" &&
+            window.location.href.endsWith("item")
+        ) {
+            location.hash = "/";
+            location.reload();
+        }
+        return <></>;
+    }
+
     return (
         <div>
             {redirect()}
+            {redirect2()}
             {superDisplay()}
             {userDisplay()}
         </div>

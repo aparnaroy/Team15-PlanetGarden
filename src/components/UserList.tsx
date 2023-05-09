@@ -20,6 +20,12 @@ export function CurrentCart(userId: number): Item[] {
     return cartToParse ? JSON.parse(cartToParse) : [];
 }
 
+export function CurrentItemdesc(itemId: number): Item[] {
+    const catalo = sessionStorage.getItem(`CART_${itemId}`);
+    const cartToParse = catalo !== null && catalo !== undefined ? catalo : "";
+    return cartToParse ? JSON.parse(cartToParse) : [];
+}
+
 export function DisplayUserList({
     items,
     setItems,
@@ -28,6 +34,8 @@ export function DisplayUserList({
     const [userItems, setUserItems] = useState<Item[]>(
         CurrentCart(selectedUser.id)
     );
+    const [newName, setNewName] = useState("");
+    const [newPrice, setNewPrice] = useState(0);
 
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
         { id: 1, name: "Sam", cart: [] },
@@ -94,6 +102,75 @@ export function DisplayUserList({
         setUserItems(storageCheckout);
     }, [selectedUser]);
 
+    function handleChangeName(id: number, name: string, price: number) {
+        setUserItems((userItems) => {
+            const itemsToUpdate = userItems.filter((item) => item.id === id);
+            if (itemsToUpdate.length > 0) {
+                const newCart = [...userItems];
+                itemsToUpdate.forEach((itemToUpdate) => {
+                    const indexToUpdate = newCart.findIndex(
+                        (item) => item.id === itemToUpdate.id
+                    );
+                    const updatedItem = { ...itemToUpdate, name, price };
+                    newCart[indexToUpdate] = updatedItem;
+                });
+                sessionStorage.setItem(
+                    `CART_${selectedUser.id}`,
+                    JSON.stringify(newCart)
+                );
+                const newUser = { ...selectedUser, cart: newCart };
+                sessionStorage.setItem(
+                    "CurrentUserID",
+                    JSON.stringify(newUser)
+                );
+                const userIndex = allUsers.findIndex(
+                    (user) => newUser.id === user.id
+                );
+                if (userIndex > -1) {
+                    allUsers.splice(userIndex, 1, newUser);
+                    sessionStorage.setItem("USERS", JSON.stringify(allUsers));
+                }
+                return newCart;
+            }
+            return userItems;
+        });
+    }
+
+    // function handleChangePrice(id: number, price: number) {
+    //     setUserItems((userItems) => {
+    //         const itemsToUpdate = userItems.filter((item) => item.id === id);
+    //         if (itemsToUpdate.length > 0) {
+    //             const newCart = [...userItems];
+    //             itemsToUpdate.forEach((itemToUpdate) => {
+    //                 const indexToUpdate = newCart.findIndex(
+    //                     (item) => item.id === itemToUpdate.id
+    //                 );
+    //                 if (itemToUpdate.price !== price) {
+    //                     const updatedItem = { ...itemToUpdate, price };
+    //                     newCart[indexToUpdate] = updatedItem;
+    //                 }
+    //             });
+    //             sessionStorage.setItem(
+    //                 `CART_${selectedUser.id}`,
+    //                 JSON.stringify(newCart)
+    //             );
+    //             const newUser = { ...selectedUser, cart: newCart };
+    //             sessionStorage.setItem(
+    //                 "CurrentUserID",
+    //                 JSON.stringify(newUser)
+    //             );
+    //             const userIndex = allUsers.findIndex(
+    //                 (user) => newUser.id === user.id
+    //             );
+    //             if (userIndex > -1) {
+    //                 allUsers.splice(userIndex, 1, newUser);
+    //                 sessionStorage.setItem("USERS", JSON.stringify(allUsers));
+    //             }
+    //             return newCart;
+    //         }
+    //         return userItems;
+    //     });
+    // }
     function addToCart(itemID: number) {
         const addedItem = items.find((i) => itemID === i.id);
         if (addedItem) {
@@ -200,6 +277,39 @@ export function DisplayUserList({
                                                 style={{ color: "#6d4206" }}
                                             />
                                         </Button>
+                                        <form
+                                            onSubmit={(e) => {
+                                                e.preventDefault();
+                                                handleChangeName(
+                                                    anItem.id,
+                                                    newName,
+                                                    newPrice
+                                                );
+                                            }}
+                                        >
+                                            <input
+                                                type="text"
+                                                value={newName}
+                                                onChange={(e) =>
+                                                    setNewName(e.target.value)
+                                                }
+                                            />
+                                            <input
+                                                type="number"
+                                                value={newPrice}
+                                                onChange={(e) =>
+                                                    setNewPrice(
+                                                        parseFloat(
+                                                            e.target.value
+                                                        )
+                                                    )
+                                                }
+                                            />
+                                            <input
+                                                type="submit"
+                                                value="Change Name & Price"
+                                            />
+                                        </form>
                                     </div>
                                 </>
                             );
