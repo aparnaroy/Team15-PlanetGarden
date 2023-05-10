@@ -156,8 +156,10 @@ export function UserSelect(): JSX.Element {
 
     function redirect() {
         if (
-            sessionStorage.getItem("Role") === "User" &&
-            window.location.href.endsWith("users")
+            (sessionStorage.getItem("Role") === "User" &&
+                window.location.href.endsWith("users")) ||
+            (sessionStorage.getItem("Role") === "Admin" &&
+                window.location.href.endsWith("users"))
         ) {
             location.hash = "/";
             location.reload();
