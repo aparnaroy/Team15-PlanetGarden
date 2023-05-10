@@ -73,7 +73,7 @@ All files               |       0 |        0 |       0 |       0 |
   SortItems.tsx         |       0 |        0 |       0 |       0 | 44-164            
   UserDropDownSuper.tsx |       0 |        0 |       0 |       0 | 9-103             
   UserList.tsx          |       0 |        0 |       0 |       0 | 18-393            
-  UserSelect.tsx        |       0 |        0 |       0 |       0 | 7-179             
+  UserSelect.tsx        |       0 |        0 |       0 |       0 | 7-181             
  src/hooks              |       0 |        0 |       0 |       0 |                   
   useSessionStorage.ts  |       0 |        0 |       0 |       0 | 4-19              
  src/interfaces         |       0 |        0 |       0 |       0 |                   
@@ -89,5 +89,5 @@ All files               |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        4.103 s
+Time:        5.894 s
 Ran all test suites.
