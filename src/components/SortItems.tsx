@@ -42,39 +42,39 @@ import { User } from "../interfaces/User";
 
 export function SortDropDown(): JSX.Element {
     const [items, setItems] = useSessionStorage<Item[]>("all-items", [
-        benchStructure,
+        irisFlower,
         bushGreenery,
+        lilyPondStructure,
+        tulipFlower,
+        oakTree,
+        budhaStructure,
+        birdBathStructure,
+        forgetMeNotFlower,
+        blueHydrangeaFlower,
         cedarTree,
+        gardenGnomeStructure,
+        cherryBlossomTree,
+        bridgeStructure,
         chrysanthemumFlower,
+        hoopTrellisStructure,
         gazeboStructure,
         grassGreenery,
-        irisFlower,
-        larchTree,
-        lilyPondStructure,
-        oakTree,
-        pansyFlower,
+        trellisStructure,
         sequoiaTree,
+        stonePathStructure,
+        larchTree,
+        pansyFlower,
         simplePondStructure,
         fountainStructure,
         archStructure,
         spruceTree,
+        lilyFlower,
         stonePondStructure,
-        birdBathStructure,
         sunflowerFlower,
-        tulipFlower,
-        ivyGreenery,
         fernGreenery,
         caladiumGreenery,
-        trellisStructure,
-        lilyFlower,
-        budhaStructure,
-        blueHydrangeaFlower,
-        stonePathStructure,
-        forgetMeNotFlower,
-        gardenGnomeStructure,
-        bridgeStructure,
-        hoopTrellisStructure,
-        cherryBlossomTree
+        benchStructure,
+        ivyGreenery
     ]);
     setItems;
 
@@ -165,6 +165,9 @@ export function SortDropDown(): JSX.Element {
         <div>
             <Form.Label style={{ textAlign: "center" }}>Sort By: </Form.Label>
             <Form.Select value={option} onChange={updateSorting}>
+                <option defaultValue="default">
+                    ---Sort or Filter Items---
+                </option>
                 <option>Alphabetically</option>
                 <option>Price low to high</option>
                 <option>Price high to low</option>
