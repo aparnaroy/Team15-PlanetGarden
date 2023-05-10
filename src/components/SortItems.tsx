@@ -56,25 +56,25 @@ export function SortDropDown(): JSX.Element {
         cherryBlossomTree,
         bridgeStructure,
         chrysanthemumFlower,
-        hoopTrellisStructure,
-        gazeboStructure,
         grassGreenery,
+        gazeboStructure,
         trellisStructure,
         sequoiaTree,
+        hoopTrellisStructure,
         stonePathStructure,
         larchTree,
-        pansyFlower,
         simplePondStructure,
+        pansyFlower,
         fountainStructure,
+        stonePondStructure,
         archStructure,
         spruceTree,
         lilyFlower,
-        stonePondStructure,
         sunflowerFlower,
         fernGreenery,
-        caladiumGreenery,
         benchStructure,
-        ivyGreenery
+        ivyGreenery,
+        caladiumGreenery
     ]);
     setItems;
 
