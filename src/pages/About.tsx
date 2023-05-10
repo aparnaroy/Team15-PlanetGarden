@@ -84,7 +84,6 @@ export function About() {
             <br></br>
             <br></br>
             <br></br>
-            <hr></hr>
         </Container>
     );
 }
