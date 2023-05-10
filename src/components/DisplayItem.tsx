@@ -148,6 +148,43 @@ export function InventoryDisplay(): JSX.Element {
 // }
 
 // displayAll is sorted alphabetically by default
+
+export function displayCartOrAdmin(
+    items: Item[],
+    setItems: (newItems: Item[]) => void,
+    userNow: User
+): JSX.Element {
+    if (
+        sessionStorage.getItem("Role") === "Admin" ||
+        sessionStorage.getItem("Role") === "Super"
+    ) {
+        return (
+            <DisplayAdminList
+                items={items}
+                setItems={setItems}
+            ></DisplayAdminList>
+        );
+    }
+    return (
+        <DisplayUserList
+            items={items}
+            setItems={setItems}
+            selectedUser={userNow}
+        ></DisplayUserList>
+    );
+}
+
+export function chooseHeader(): string {
+    if (
+        sessionStorage.getItem("Role") === "Admin" ||
+        sessionStorage.getItem("Role") === "Super"
+    ) {
+        return "Edit";
+    } else {
+        return "Your Cart🛒";
+    }
+}
+
 export function ShopDisplay(
     itemList: Item[],
     items: Item[],
@@ -158,7 +195,7 @@ export function ShopDisplay(
         <>
             <div style={{ display: "flex" }}>
                 <header className="App-header2">Shop🪴</header>
-                <header className="App-header3">Your Cart🛒</header>
+                <header className="App-header3">{chooseHeader()}</header>
             </div>
             <div className="parent-container">
                 <div className="flex-container-shop">
@@ -176,19 +213,7 @@ export function ShopDisplay(
                         })}
                     </Row>
                 </div>
-                <div>
-                    <DisplayUserList
-                        items={items}
-                        setItems={setItems}
-                        selectedUser={userNow}
-                    ></DisplayUserList>
-                </div>
-            </div>
-            <div>
-                <DisplayAdminList
-                    items={items}
-                    setItems={setItems}
-                ></DisplayAdminList>
+                <div>{displayCartOrAdmin(items, setItems, userNow)}</div>
             </div>
         </>
     );
