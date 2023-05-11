@@ -152,19 +152,25 @@ export function SortDropDown(): JSX.Element {
     function searchBar(): JSX.Element {
         return (
             <div>
-                <Form.Label>Start typing:</Form.Label>
                 <Form.Control
+                    className="sort-search"
                     type="string"
+                    placeholder="Start typing..."
                     value={input}
                     onChange={searchLists}
                 ></Form.Control>
+                <br></br>
             </div>
         );
     }
     return (
         <div>
-            <Form.Label style={{ textAlign: "center" }}>Sort By: </Form.Label>
-            <Form.Select value={option} onChange={updateSorting}>
+            <Form.Label className="sort-label">Sort / Filter: </Form.Label>
+            <Form.Select
+                className="sort-dropdown"
+                value={option}
+                onChange={updateSorting}
+            >
                 <option defaultValue="default">
                     ---Sort or Filter Items---
                 </option>
@@ -179,7 +185,6 @@ export function SortDropDown(): JSX.Element {
             </Form.Select>
             <br></br>
             {option === "By keyword" ? searchBar() : null}
-            <br></br>
             {printed}
         </div>
     );

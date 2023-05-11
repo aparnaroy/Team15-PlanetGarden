@@ -276,6 +276,30 @@ body {
     border-radius: 20px;
 }
 
+.sort-label {
+    font-size: 25px;
+}
+
+.sort-dropdown {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    padding: 5px 20px;
+    background-color: #faf9f6;
+    border-radius: 10px;
+}
+
+.sort-search {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    padding: 5px 20px;
+    background-color: #faf9f6;
+    border-radius: 20px;
+}
+
 .fas.fa-trash-alt:hover:hover {
     color: rgb(109, 66, 6);
 }
