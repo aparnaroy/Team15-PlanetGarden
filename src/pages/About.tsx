@@ -1,14 +1,15 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { ExpandableSection } from "../components/Expandable";
+import { ExpandableSectionAbout } from "../components/Expandable";
 
 export function About() {
     return (
         <Container className="App">
-            <h1>About Us</h1>
+            <h1 className="App-header">About Us</h1>
             <br></br>
             <h2>A Letter From Our Team</h2>
-            <ExpandableSection>
+            <ExpandableSectionAbout>
+                <br></br>
                 <p>Dear Valued Customers,</p>
                 <p>
                     We are thrilled to introduce you to Planet Garden, a team of
@@ -59,7 +60,7 @@ export function About() {
                 </p>
                 <p>Sincerely, </p>
                 <p>The Planet Garden Team</p>
-            </ExpandableSection>
+            </ExpandableSectionAbout>
             <br></br>
             <h2>Who We Are</h2>
             <h4>

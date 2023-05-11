@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Form, FormSelect } from "react-bootstrap";
+import { Button, Form, FormSelect } from "react-bootstrap";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 export function UserSelect(): JSX.Element {
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
@@ -80,18 +82,22 @@ export function UserSelect(): JSX.Element {
                                     alignItems: "center"
                                 }}
                             >
-                                <li>
-                                    {user.name}
-                                    {<>&nbsp;&nbsp;&nbsp;&nbsp;</>}
-
-                                    <button
+                                <li className="user-row">
+                                    <Button
+                                        className="trash-can"
                                         onClick={() =>
                                             handleDeleteUser(user.id)
                                         }
                                     >
-                                        Delete
-                                    </button>
-
+                                        <FontAwesomeIcon
+                                            className="fas fa-trash-alt"
+                                            icon={faTrashAlt}
+                                            size="sm"
+                                            style={{ color: "#6d4206" }}
+                                        />
+                                    </Button>
+                                    {<>&nbsp;&nbsp;&nbsp;&nbsp;</>}
+                                    {user.name}
                                     {<>&nbsp;</>}
                                     {labelSelected(user.id)}
                                 </li>
@@ -103,7 +109,7 @@ export function UserSelect(): JSX.Element {
                     <div>
                         <br></br>
                         <input
-                            className="w-100"
+                            className="user-save"
                             type="text"
                             placeholder="Enter New User"
                             value={newUserName}

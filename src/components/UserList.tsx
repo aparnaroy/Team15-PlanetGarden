@@ -324,7 +324,7 @@ export function DisplayUserList({
                                             <FontAwesomeIcon
                                                 className="fas fa-trash-alt"
                                                 icon={faTrashAlt}
-                                                size="sm"
+                                                size="1x"
                                                 style={{ color: "#6d4206" }}
                                             />
                                         </Button>
