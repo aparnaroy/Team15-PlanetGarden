@@ -20,12 +20,10 @@ export function About() {
                     diverse set of skills and expertise to our projects.
                 </p>
                 <p>
-                    At Planet Garden, we understand that your outdoor space is
-                    an extension of your home or business. That&apos;s why we
-                    are committed to creating beautiful and functional
-                    landscapes that exceed your expectations. We work closely
-                    with our clients to understand their unique needs and
-                    preferences, and we use our creativity and knowledge to
+                    At Planet Garden, we are committed to creating beautiful and
+                    functional landscapes that exceed your expectations. We work
+                    closely with our clients to understand their unique needs
+                    and preferences, and we use our creativity and knowledge to
                     design and implement landscaping solutions that meet those
                     needs.
                 </p>
@@ -33,17 +31,16 @@ export function About() {
                     Our services include flowerbed design and installation, tree
                     planting and removal, lawn maintenance, hardscaping, water
                     feature installation, and more. We offer a wide range of
-                    services to residential and commercial properties alike, and
-                    we are confident that we can help you create the outdoor
-                    space of your dreams!
+                    products and services to residential and commercial
+                    properties alike, and we are confident that we can help you
+                    create the outdoor space of your dreams!
                 </p>
                 <p>
-                    At Planet Garden, we take pride in using environmentally
-                    friendly products and techniques whenever possible, to
-                    minimize our impact on the environment. We believe that
-                    landscaping is not just about making your property look
-                    good, it&apos;s about creating a sustainable and healthy
-                    outdoor environment.
+                    We take pride in using environmentally friendly products and
+                    techniques whenever possible, to minimize our impact on the
+                    environment. We believe that landscaping is not just about
+                    making your property look good, it&apos;s about creating a
+                    sustainable and healthy outdoor environment.
                 </p>
                 <p>
                     We are available to serve you 24/7, and we always strive to

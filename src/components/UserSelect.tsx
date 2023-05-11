@@ -123,6 +123,9 @@ export function UserSelect(): JSX.Element {
                         <br></br>
                         <br></br>
                         <button onClick={handleAddUser}>Save</button>
+                        <br></br>
+                        <br></br>
+                        <br></br>
                     </div>
                 </div>
             );

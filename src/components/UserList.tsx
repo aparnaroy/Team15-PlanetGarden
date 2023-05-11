@@ -258,7 +258,7 @@ export function DisplayUserList({
                         }
                     />
                     <Button type="submit" variant="success">
-                        Change Name & Price
+                        Update
                     </Button>
                 </form>
             );

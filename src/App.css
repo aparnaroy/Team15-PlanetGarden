@@ -285,11 +285,13 @@ body {
     width: 40px;
     height: 40px;
     background-color: #faf9f6;
+    border-color: rgb(109, 66, 6);
     outline-color: none;
 }
 
 .trash-can:hover {
     background-color: #c5bfc6;
+    border-color: #ffffff;
     width: 50px;
     height: 50px;
 }
@@ -302,6 +304,7 @@ body {
     background-color: #faf9f6;
     color: rgb(109, 66, 6);
     outline-color: none;
+    border-color: rgb(109, 66, 6);
 }
 
 .remove-button:focus {
@@ -312,4 +315,5 @@ body {
 .remove-button:hover {
     background-color: #c5bfc6;
     color: rgb(109, 66, 6);
+    border-color: #ffffff;
 }
