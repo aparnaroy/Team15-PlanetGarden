@@ -1,3 +1,10 @@
+import React from "react";
+
+export function test() {
+    React;
+    return 0;
+}
+
 /**import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { RoleSelect } from "./RoleSelect";

@@ -1,22 +1,24 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { Expandable } from "./Expandable";
+import { ExpandableSection } from "./Expandable";
 
 describe("ExpandableSection", () => {
     it("renders the button with 'Show More' text", () => {
         const { getByText } = render(
-            <Expandable>
+            <ExpandableSection>
+                <div></div>
                 <p>Child</p>
-            </Expandable>
+            </ExpandableSection>
         );
         expect(getByText("Show More")).toBeInTheDocument();
     });
 
     it("renders the children when 'Show More' button is clicked", () => {
         const { getByText } = render(
-            <Expandable>
+            <ExpandableSection>
+                <div></div>
                 <p>Child</p>
-            </Expandable>
+            </ExpandableSection>
         );
         fireEvent.click(getByText("Show More"));
         expect(getByText("Child")).toBeInTheDocument();
@@ -24,9 +26,10 @@ describe("ExpandableSection", () => {
 
     it("toggles the button text and caret on click", () => {
         const { getByText, getByTestId } = render(
-            <Expandable>
+            <ExpandableSection>
+                <div></div>
                 <p>Child</p>
-            </Expandable>
+            </ExpandableSection>
         );
         const button = getByText("Show More");
         const caret = getByTestId("caret");
