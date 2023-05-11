@@ -60,7 +60,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
                 <span className="edit-item-label">Price:</span>
                 <input
                     placeholder="Price"
-                    type="text"
+                    type="number"
                     value={price}
                     onChange={(event) => setPrice(parseInt(event.target.value))}
                 />
@@ -81,7 +81,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
                 <span className="edit-item-label">Quantity:</span>
                 <input
                     placeholder="Quantity"
-                    type="text"
+                    type="number"
                     value={quantity}
                     onChange={(event) =>
                         setQuantity(parseInt(event.target.value))
@@ -90,7 +90,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
                 <span className="edit-item-label">Maintenance Level:</span>
                 <input
                     placeholder="Maintenance Level"
-                    type="text"
+                    type="number"
                     value={maintenanceLevel}
                     onChange={(event) =>
                         setMaintenance(parseInt(event.target.value))
@@ -99,7 +99,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
                 <span className="edit-item-label">Rating:</span>
                 <input
                     placeholder="Rating"
-                    type="text"
+                    type="number"
                     value={rating}
                     onChange={(event) =>
                         setRating(parseInt(event.target.value))

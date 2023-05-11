@@ -8,7 +8,6 @@ export function Shop() {
         <div className="App">
             <header className="App-header">Shop</header>
             <br></br>
-            <br></br>
             <SortDropDown></SortDropDown>
             <hr></hr>
         </div>

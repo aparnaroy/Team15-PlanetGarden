@@ -213,6 +213,58 @@ export function DisplayUserList({
         setTotal(sum);
     }, [userItems]);
 
+    const [newItemForm, setShowItemForm] = useState(false);
+
+    function showItemForm() {
+        setShowItemForm(!newItemForm);
+    }
+
+    function showEditButton() {
+        return (
+            <div>
+                <Button
+                    onClick={showItemForm}
+                    className="d-flex"
+                    variant="success"
+                >
+                    Edit User Item
+                </Button>
+            </div>
+        );
+    }
+
+    function showEditForm(anItem: Item) {
+        if (newItemForm) {
+            return (
+                <form
+                    className="edit-item"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        handleChangeName(anItem.id, newName, newPrice);
+                    }}
+                >
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        value={newName}
+                        onChange={(e) => setNewName(e.target.value)}
+                    />
+                    <input
+                        type="number"
+                        placeholder="Price"
+                        value={newPrice}
+                        onChange={(e) =>
+                            setNewPrice(parseFloat(e.target.value))
+                        }
+                    />
+                    <Button type="submit" variant="success">
+                        Update
+                    </Button>
+                </form>
+            );
+        }
+    }
+
     if (sessionStorage.getItem("Role") === "User") {
         return (
             <>
@@ -223,12 +275,11 @@ export function DisplayUserList({
                         backgroundColor: isOver ? "#85cacd" : "#6aa1a3",
                         width: 648,
                         height: 700,
-                        paddingTop: 20,
+                        paddingTop: 38,
                         padding: 30,
                         overflow: "auto"
                     }}
                 >
-                    {" "}
                     <div
                         style={{
                             backgroundColor: "#EFE8AB",
@@ -273,43 +324,12 @@ export function DisplayUserList({
                                             <FontAwesomeIcon
                                                 className="fas fa-trash-alt"
                                                 icon={faTrashAlt}
-                                                size="sm"
+                                                size="1x"
                                                 style={{ color: "#6d4206" }}
                                             />
                                         </Button>
-                                        <form
-                                            onSubmit={(e) => {
-                                                e.preventDefault();
-                                                handleChangeName(
-                                                    anItem.id,
-                                                    newName,
-                                                    newPrice
-                                                );
-                                            }}
-                                        >
-                                            <input
-                                                type="text"
-                                                value={newName}
-                                                onChange={(e) =>
-                                                    setNewName(e.target.value)
-                                                }
-                                            />
-                                            <input
-                                                type="number"
-                                                value={newPrice}
-                                                onChange={(e) =>
-                                                    setNewPrice(
-                                                        parseFloat(
-                                                            e.target.value
-                                                        )
-                                                    )
-                                                }
-                                            />
-                                            <input
-                                                type="submit"
-                                                value="Change Name & Price"
-                                            />
-                                        </form>
+                                        {showEditButton()}
+                                        {showEditForm(anItem)}
                                     </div>
                                 </>
                             );
