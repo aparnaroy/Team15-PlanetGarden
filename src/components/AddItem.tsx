@@ -60,7 +60,7 @@ export function AddItem({ onSave }: AddItemProps) {
                     <br></br>
                     <input
                         placeholder="Price"
-                        type="text"
+                        type="number"
                         value={price}
                         onChange={(event) => setPrice(event.target.value)}
                     />
@@ -88,7 +88,7 @@ export function AddItem({ onSave }: AddItemProps) {
                     <br></br>
                     <input
                         placeholder="Quantity"
-                        type="text"
+                        type="number"
                         value={quantity}
                         onChange={(event) => setQuantity(event.target.value)}
                     />
@@ -99,7 +99,7 @@ export function AddItem({ onSave }: AddItemProps) {
                     <br></br>
                     <input
                         placeholder="Maintenance Level"
-                        type="text"
+                        type="number"
                         value={maintenanceLevel}
                         onChange={(event) => setMaintenance(event.target.value)}
                     />
@@ -109,7 +109,7 @@ export function AddItem({ onSave }: AddItemProps) {
                     <br></br>
                     <input
                         placeholder="Rating"
-                        type="text"
+                        type="number"
                         value={rating}
                         onChange={(event) => setRating(event.target.value)}
                     />

@@ -95,6 +95,8 @@ export function UserSelect(): JSX.Element {
                                     {<>&nbsp;</>}
                                     {labelSelected(user.id)}
                                 </li>
+                                <br></br>
+                                <br></br>
                             </div>
                         );
                     })}
@@ -112,6 +114,8 @@ export function UserSelect(): JSX.Element {
                                 }
                             }}
                         />
+                        <br></br>
+                        <br></br>
                         <button onClick={handleAddUser}>Save</button>
                     </div>
                 </div>

@@ -53,10 +53,10 @@ export function InventoryDisplay(): JSX.Element {
         budhaStructure,
         birdBathStructure,
         forgetMeNotFlower,
-        blueHydrangeaFlower,
-        cedarTree,
-        gardenGnomeStructure,
+        pansyFlower,
         cherryBlossomTree,
+        gardenGnomeStructure,
+        cedarTree,
         bridgeStructure,
         chrysanthemumFlower,
         grassGreenery,
@@ -64,16 +64,16 @@ export function InventoryDisplay(): JSX.Element {
         trellisStructure,
         sequoiaTree,
         hoopTrellisStructure,
-        stonePathStructure,
-        larchTree,
         simplePondStructure,
-        pansyFlower,
+        larchTree,
+        sunflowerFlower,
         fountainStructure,
+        stonePathStructure,
         stonePondStructure,
         archStructure,
         spruceTree,
         lilyFlower,
-        sunflowerFlower,
+        blueHydrangeaFlower,
         fernGreenery,
         benchStructure,
         ivyGreenery,
@@ -127,28 +127,6 @@ export function InventoryDisplay(): JSX.Element {
     );
 }
 
-// export function Cart() {
-//     const [{ isOver }, drop] = useDrop({
-//         accept: "item",
-//         drop: (item: Item) => item, //addToCart(item.id),
-//         collect: (monitor) => ({
-//             isOver: !!monitor.isOver()
-//         })
-//     });
-//     return (
-//         <div
-//             className="flex-container-cart"
-//             ref={drop}
-//             role={"Cart"}
-//             style={{ backgroundColor: isOver ? "white" : "#f1f1f1" }}
-//         >
-//             {isOver ? "Release to drop" : "Drag a box here"}
-//         </div>
-//     );
-// }
-
-// displayAll is sorted alphabetically by default
-
 export function displayCartOrAdmin(
     items: Item[],
     setItems: (newItems: Item[]) => void,
@@ -179,9 +157,9 @@ export function chooseHeader(): string {
         sessionStorage.getItem("Role") === "Admin" ||
         sessionStorage.getItem("Role") === "Super"
     ) {
-        return "Edit";
+        return "Edit ✏️";
     } else {
-        return "Your Cart🛒";
+        return "Your Cart 🛒";
     }
 }
 
@@ -194,7 +172,7 @@ export function ShopDisplay(
     return (
         <>
             <div style={{ display: "flex" }}>
-                <header className="App-header2">Shop🪴</header>
+                <header className="App-header2">Shop 🪴</header>
                 <header className="App-header3">{chooseHeader()}</header>
             </div>
             <div className="parent-container">
