@@ -20,12 +20,6 @@ export function CurrentCart(userId: number): Item[] {
     return cartToParse ? JSON.parse(cartToParse) : [];
 }
 
-export function CurrentItemdesc(itemId: number): Item[] {
-    const catalo = sessionStorage.getItem(`CART_${itemId}`);
-    const cartToParse = catalo !== null && catalo !== undefined ? catalo : "";
-    return cartToParse ? JSON.parse(cartToParse) : [];
-}
-
 export function DisplayUserList({
     items,
     setItems,
@@ -394,7 +388,7 @@ export function RemoveFromCart(
                 (user) => newUser.id === user.id
             );
             allUsers.splice(userIndex, 1, newUser);
-            console.log(allUsers);
+            //console.log(allUsers);
             sessionStorage.setItem("USERS", JSON.stringify(allUsers));
             return newCart;
         });
