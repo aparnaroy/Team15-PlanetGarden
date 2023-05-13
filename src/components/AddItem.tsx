@@ -80,7 +80,7 @@ export function AddItem({ onSave }: AddItemProps) {
                     <textarea
                         placeholder="Description"
                         value={description}
-                        rows={1}
+                        rows={4}
                         onChange={(event) => setDescription(event.target.value)}
                     />
                     <br></br>
@@ -93,6 +93,8 @@ export function AddItem({ onSave }: AddItemProps) {
                         onChange={(event) => setQuantity(event.target.value)}
                     />
                     <br></br>
+                </Col>
+                <Col>
                     <span className="add-item-label">
                         Maintenance Level (1-5):
                     </span>
@@ -102,16 +104,6 @@ export function AddItem({ onSave }: AddItemProps) {
                         type="number"
                         value={maintenanceLevel}
                         onChange={(event) => setMaintenance(event.target.value)}
-                    />
-                </Col>
-                <Col>
-                    <span className="add-item-label">Rating (1-5):</span>
-                    <br></br>
-                    <input
-                        placeholder="Rating"
-                        type="number"
-                        value={rating}
-                        onChange={(event) => setRating(event.target.value)}
                     />
                     <br></br>
                     <span className="add-item-label">Type:</span>
