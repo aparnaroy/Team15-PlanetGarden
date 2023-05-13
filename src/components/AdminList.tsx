@@ -28,7 +28,7 @@ export function DisplayAdminList({
         })
     }));
 
-    const adminItemsSet = new Set(adminItems.map((item) => item.id));
+    let adminItemsSet = new Set(adminItems.map((item) => item.id));
 
     function displayedList(id: number) {
         const addedItem = items.find((anItem) => anItem.id === id);
@@ -45,7 +45,7 @@ export function DisplayAdminList({
         );
         setAdminItems(adminListItems);
         setInAdminList(!inAdminList);
-        adminItemsSet.delete(anItem.id);
+        adminItemsSet = new Set(adminListItems.map((item) => item.id));
     }
 
     if (
