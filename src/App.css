@@ -330,6 +330,13 @@ body {
     color: rgb(109, 66, 6);
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
 .trash-can {
     border-radius: 50%;
     width: 40px;
@@ -337,6 +344,7 @@ body {
     background-color: #faf9f6;
     border-color: rgb(109, 66, 6);
     outline-color: none;
+    margin-right: 10px;
 }
 
 .trash-can:hover {
@@ -366,4 +374,23 @@ body {
     background-color: #c5bfc6;
     color: rgb(109, 66, 6);
     border-color: #ffffff;
+}
+.pencil-button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #faf9f6;
+    border-color: rgb(109, 66, 6);
+    outline-color: none;
+}
+
+.pencil-button:hover {
+    background-color: #c5bfc6;
+    border-color: #ffffff;
+    width: 50px;
+    height: 50px;
+}
+
+.pencil-button:focus {
+    outline: none;
 }

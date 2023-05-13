@@ -7,6 +7,7 @@ import { User } from "../interfaces/User";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 export interface UserViewProps {
     items: Item[];
@@ -216,12 +217,12 @@ export function DisplayUserList({
     function showEditButton() {
         return (
             <div>
-                <Button
-                    onClick={showItemForm}
-                    className="d-flex"
-                    variant="success"
-                >
-                    Edit User Item
+                <Button onClick={showItemForm} className="pencil-button">
+                    <FontAwesomeIcon
+                        icon={faPencil}
+                        size="1x"
+                        style={{ color: "#6d4206" }}
+                    />
                 </Button>
             </div>
         );
@@ -309,21 +310,24 @@ export function DisplayUserList({
                                             setItems={setItems}
                                         ></ItemView>
                                         <br></br>
-                                        <Button
-                                            className="trash-can"
-                                            onClick={() =>
-                                                handleRemoveItem(anItem.id)
-                                            }
-                                        >
-                                            <FontAwesomeIcon
-                                                className="fas fa-trash-alt"
-                                                icon={faTrashAlt}
-                                                size="1x"
-                                                style={{ color: "#6d4206" }}
-                                            />
-                                        </Button>
-                                        {showEditButton()}
-                                        {showEditForm(anItem)}
+                                        <div className="button-container">
+                                            <Button
+                                                className="trash-can"
+                                                onClick={() =>
+                                                    handleRemoveItem(anItem.id)
+                                                }
+                                            >
+                                                <FontAwesomeIcon
+                                                    className="fas fa-trash-alt"
+                                                    icon={faTrashAlt}
+                                                    size="1x"
+                                                    style={{ color: "#6d4206" }}
+                                                />
+                                            </Button>
+                                            <br></br>
+                                            {showEditButton()}
+                                            {showEditForm(anItem)}
+                                        </div>
                                     </div>
                                 </>
                             );
