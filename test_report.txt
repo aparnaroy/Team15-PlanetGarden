@@ -2,6 +2,681 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test --coverage
 
+FAIL src/components/AddItem.test.tsx
+  ● Console
+
+    console.error
+      Warning: Select elements must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled select element and remove one of these props. More info: https://reactjs.org/link/controlled-components
+          at select
+          at div
+          at /home/runner/work/Team15-PlanetGarden/Team15-PlanetGarden/node_modules/react-bootstrap/cjs/Col.js:63:8
+          at div
+          at /home/runner/work/Team15-PlanetGarden/Team15-PlanetGarden/node_modules/react-bootstrap/cjs/Row.js:13:3
+          at form
+          at AddItem (/home/runner/work/Team15-PlanetGarden/Team15-PlanetGarden/src/components/AddItem.tsx:9:27)
+
+      11 |
+      12 |     test("renders all input fields", () => {
+    > 13 |         render(<AddItem onSave={onSave} />);
+         |               ^
+      14 |         expect(screen.getByPlaceholderText("Name")).toBeInTheDocument();
+      15 |         expect(screen.getByPlaceholderText("Price")).toBeInTheDocument();
+      16 |         expect(screen.getByPlaceholderText("Image URL")).toBeInTheDocument();
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at initWrapperState$1 (node_modules/react-dom/cjs/react-dom.development.js:2193:7)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9901:7)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10950:3)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:22193:17)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26593:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26568:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/components/AddItem.test.tsx:13:15)
+
+  ● AddItem component › renders all input fields
+
+    TestingLibraryElementError: Unable to find an element with the placeholder text of: Rating
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<form>[39m
+          [36m<br />[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"add-item row"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"col"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mName:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Name"[39m
+                [33mtype[39m=[32m"text"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mPrice:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Price"[39m
+                [33mtype[39m=[32m"number"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mImage URL:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Image URL"[39m
+                [33mtype[39m=[32m"text"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"col"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mDescription:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<textarea[39m
+                [33mplaceholder[39m=[32m"Description"[39m
+                [33mrows[39m=[32m"4"[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mQuantity:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Quantity"[39m
+                [33mtype[39m=[32m"number"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+              [36m<br />[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"col"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mMaintenance Level (1-5):[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Maintenance Level"[39m
+                [33mtype[39m=[32m"number"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mType:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<select>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"default"[39m
+                [36m>[39m
+                  [0mChoose a Type[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Tree"[39m
+                [36m>[39m
+                  [0mTree[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Flower"[39m
+                [36m>[39m
+                  [0mFlower[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Structure"[39m
+                [36m>[39m
+                  [0mStructure[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Greenery"[39m
+                [36m>[39m
+                  [0mGreenery[0m
+                [36m</option>[39m
+              [36m</select>[39m
+              [36m<br />[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mFrequently Bought With:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Frequently Bought With"[39m
+                [33mtype[39m=[32m"text"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<br />[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-success"[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mSave[0m
+          [36m</button>[39m
+          [36m<br />[39m
+          [36m<br />[39m
+        [36m</form>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      20 |             screen.getByPlaceholderText("Maintenance Level")
+      21 |         ).toBeInTheDocument();
+    > 22 |         expect(screen.getByPlaceholderText("Rating")).toBeInTheDocument();
+         |                       ^
+      23 |         expect(screen.getByDisplayValue("Choose a Type")).toBeInTheDocument();
+      24 |         expect(
+      25 |             screen.getByPlaceholderText("Frequently Bought With")
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByPlaceholderText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/components/AddItem.test.tsx:22:23)
+
+  ● AddItem component › calls onSave function with correct values when form is submitted
+
+    TestingLibraryElementError: Unable to find an element with the placeholder text of: Rating
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<form>[39m
+          [36m<br />[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"add-item row"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"col"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mName:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Name"[39m
+                [33mtype[39m=[32m"text"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mPrice:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Price"[39m
+                [33mtype[39m=[32m"number"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mImage URL:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Image URL"[39m
+                [33mtype[39m=[32m"text"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"col"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mDescription:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<textarea[39m
+                [33mplaceholder[39m=[32m"Description"[39m
+                [33mrows[39m=[32m"4"[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mQuantity:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Quantity"[39m
+                [33mtype[39m=[32m"number"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+              [36m<br />[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"col"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mMaintenance Level (1-5):[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Maintenance Level"[39m
+                [33mtype[39m=[32m"number"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mType:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<select>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"default"[39m
+                [36m>[39m
+                  [0mChoose a Type[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Tree"[39m
+                [36m>[39m
+                  [0mTree[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Flower"[39m
+                [36m>[39m
+                  [0mFlower[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Structure"[39m
+                [36m>[39m
+                  [0mStructure[0m
+                [36m</option>[39m
+                [36m<option[39m
+                  [33mvalue[39m=[32m"Greenery"[39m
+                [36m>[39m
+                  [0mGreenery[0m
+                [36m</option>[39m
+              [36m</select>[39m
+              [36m<br />[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"add-item-label"[39m
+              [36m>[39m
+                [0mFrequently Bought With:[0m
+              [36m</span>[39m
+              [36m<br />[39m
+              [36m<input[39m
+                [33mplaceholder[39m=[32m"Frequently Bought With"[39m
+                [33mtype[39m=[32m"text"[39m
+                [33mvalue[39m=[32m""[39m
+              [36m/>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<br />[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-success"[39m
+            [33mtype[39m=[32m"submit"[39m
+          [36m>[39m
+            [0mSave[0m
+          [36m</button>[39m
+          [36m<br />[39m
+          [36m<br />[39m
+        [36m</form>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      50 |         const maintenanceInput =
+      51 |             screen.getByPlaceholderText("Maintenance Level");
+    > 52 |         const ratingInput = screen.getByPlaceholderText("Rating");
+         |                                    ^
+      53 |         const typeInput = screen.getByDisplayValue("Choose a Type");
+      54 |         const boughtWithInput = screen.getByPlaceholderText(
+      55 |             "Frequently Bought With"
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByPlaceholderText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/components/AddItem.test.tsx:52:36)
+
+FAIL src/components/AdminList.test.tsx
+  ● Test suite failed to run
+
+    Your test suite must contain at least one test.
+
+      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
+      at node_modules/@jest/core/build/TestScheduler.js:316:17
+      at node_modules/emittery/index.js:260:13
+          at Array.map (<anonymous>)
+      at Emittery.emit (node_modules/emittery/index.js:258:23)
+
+FAIL src/components/ItemView.test.tsx
+  ● Test suite failed to run
+
+    Your test suite must contain at least one test.
+
+      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
+      at node_modules/@jest/core/build/TestScheduler.js:316:17
+      at node_modules/emittery/index.js:260:13
+          at Array.map (<anonymous>)
+      at Emittery.emit (node_modules/emittery/index.js:258:23)
+
+FAIL src/components/EditItem.test.tsx
+  ● Console
+
+    console.error
+      Warning: Select elements must be either controlled or uncontrolled (specify either the value prop, or the defaultValue prop, but not both). Decide between using a controlled or uncontrolled select element and remove one of these props. More info: https://reactjs.org/link/controlled-components
+          at select
+          at div
+          at form
+          at EditItem (/home/runner/work/Team15-PlanetGarden/Team15-PlanetGarden/src/components/EditItem.tsx:10:28)
+
+      19 |     it("should render properly", () => {
+      20 |         const onSave = jest.fn();
+    > 21 |         const { getByText, getByLabelText } = render(
+         |                                                     ^
+      22 |             <EditItem item={item} onSave={onSave} />
+      23 |         );
+      24 |
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at initWrapperState$1 (node_modules/react-dom/cjs/react-dom.development.js:2193:7)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9901:7)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10950:3)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:22193:17)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26593:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26568:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/components/EditItem.test.tsx:21:53)
+
+  ● EditItem component › should render properly
+
+    TestingLibraryElementError: Unable to find a label with the text of: Name:
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<form>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"edit-item"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"edit-item-label"[39m
+            [36m>[39m
+              [0mName:[0m
+            [36m</span>[39m
+            [36m<input[39m
+              [33mplaceholder[39m=[32m"Name"[39m
+              [33mtype[39m=[32m"text"[39m
+              [33mvalue[39m=[32m"Test Item"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"edit-item-label"[39m
+            [36m>[39m
+              [0mPrice:[0m
+            [36m</span>[39m
+            [36m<input[39m
+              [33mplaceholder[39m=[32m"Price"[39m
+              [33mtype[39m=[32m"number"[39m
+              [33mvalue[39m=[32m"9.99"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"edit-item-label"[39m
+            [36m>[39m
+              [0mImage URL:[0m
+            [36m</span>[39m
+            [36m<input[39m
+              [33mplaceholder[39m=[32m"Image URL"[39m
+              [33mtype[39m=[32m"text"[39m
+              [33mvalue[39m=[32m"https://example.com/image.png"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"edit-item-label"[39m
+            [36m>[39m
+              [0mDescription:[0m
+            [36m</span>[39m
+            [36m<textarea[39m
+              [33mplaceholder[39m=[32m"Description"[39m
+              [33mrows[39m=[32m"3"[39m
+            [36m>[39m
+              [0mThis is a test item[0m
+            [36m</textarea>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"edit-item-label"[39m
+            [36m>[39m
+              [0mQuantity:[0m
+            [36m</span>[39m
+            [36m<input[39m
+              [33mplaceholder[39m=[32m"Quantity"[39m
+              [33mtype[39m=[32m"number"[39m
+              [33mvalue[39m=[32m"10"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"edit-item-label"[39m
+            [36m>[39m
+              [0mMaintenance Level:[0m
+            [36m</span>[39m
+            [36m<input[39m
+              [33mplaceholder[39m=[32m"Maintenance Level"[39m
+              [33mtype[39m=[32m"number"[39m
+              [33mvalue[39m=[32m"2"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"edit-item-label"[39m
+            [36m>[39m
+              [0mType:[0m
+            [36m</span>[39m
+            [36m<select>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"default"[39m
+              [36m>[39m
+                [0mChoose a Type[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"Tree"[39m
+              [36m>[39m
+                [0mTree[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"Flower"[39m
+              [36m>[39m
+                [0mFlower[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"Structure"[39m
+              [36m>[39m
+                [0mStructure[0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"Greenery"[39m
+              [36m>[39m
+                [0mGreenery[0m
+              [36m</option>[39m
+            [36m</select>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"edit-item-label"[39m
+            [36m>[39m
+              [0mFrequently Bought With:[0m
+            [36m</span>[39m
+            [36m<input[39m
+              [33mplaceholder[39m=[32m"Frequently Bought With"[39m
+              [33mvalue[39m=[32m"Watering Can,Soil"[39m
+            [36m/>[39m
+            [36m<br />[39m
+            [36m<br />[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-success"[39m
+              [33mtype[39m=[32m"submit"[39m
+            [36m>[39m
+              [0mSave[0m
+            [36m</button>[39m
+          [36m</div>[39m
+        [36m</form>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      23 |         );
+      24 |
+    > 25 |         expect(getByLabelText("Name:")).toBeInTheDocument();
+         |                ^
+      26 |         expect(getByLabelText("Price:")).toBeInTheDocument();
+      27 |         expect(getByLabelText("Image URL:")).toBeInTheDocument();
+      28 |         expect(getByLabelText("Description:")).toBeInTheDocument();
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at getAllByLabelText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/queries/label-text.js:103:38)
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByLabelText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/components/EditItem.test.tsx:25:16)
+
+FAIL src/components/Expandable.test.tsx
+  ● ExpandableSection › toggles the button text and caret on click
+
+    TestingLibraryElementError: Unable to find an element by: [data-testid="caret"]
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div>[39m
+          [36m<div>[39m
+            [0mShow More[0m
+            [0m [0m
+            [36m<span[39m
+              [33mstyle[39m=[32m"display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"[39m
+            [36m>[39m
+              [0m▼[0m
+            [36m</span>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      33 |         );
+      34 |         const button = getByText("Show More");
+    > 35 |         const caret = getByTestId("caret");
+         |                       ^
+      36 |
+      37 |         expect(button).toBeInTheDocument();
+      38 |         expect(caret).toHaveStyle("transform: rotate(0deg)");
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByTestId (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/components/Expandable.test.tsx:35:23)
+
+FAIL src/components/Navbar.test.tsx
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    /home/runner/work/Team15-PlanetGarden/Team15-PlanetGarden/node_modules/react-dnd/dist/index.js:1
+    ({"Object.<anonymous>":function(module,exports,require,__dirname,__filename,jest){export * from './core/index.js';
+                                                                                      ^^^^^^
+
+    SyntaxError: Unexpected token 'export'
+
+      3 | import { Item } from "../interfaces/Item";
+      4 | import { EditItem } from "./EditItem";
+    > 5 | import { useDrag } from "react-dnd";
+        | ^
+      6 | import { ExpandableSection } from "./Expandable";
+      7 | import { useSessionStorage } from "../hooks/useSessionStorage";
+      8 | import { User } from "../interfaces/User";
+
+      at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
+      at Object.<anonymous> (src/components/ItemView.tsx:5:1)
+      at Object.<anonymous> (src/components/UserList.tsx:2:1)
+      at Object.<anonymous> (src/components/UserSelect.tsx:7:1)
+      at Object.<anonymous> (src/components/Navbar.tsx:6:1)
+      at Object.<anonymous> (src/components/Navbar.test.tsx:3:1)
+
+FAIL src/components/DisplayItem.test.tsx
+  ● Test suite failed to run
+
+    Your test suite must contain at least one test.
+
+      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
+      at node_modules/@jest/core/build/TestScheduler.js:316:17
+      at node_modules/emittery/index.js:260:13
+          at Array.map (<anonymous>)
+      at Emittery.emit (node_modules/emittery/index.js:258:23)
+
+FAIL src/components/RoleSelect.test.tsx
+  ● Test suite failed to run
+
+    Your test suite must contain at least one test.
+
+      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
+      at node_modules/@jest/core/build/TestScheduler.js:316:17
+      at node_modules/emittery/index.js:260:13
+          at Array.map (<anonymous>)
+      at Emittery.emit (node_modules/emittery/index.js:258:23)
+
 FAIL src/App.test.tsx
   ● Test suite failed to run
 
@@ -43,51 +718,80 @@ FAIL src/App.test.tsx
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
       at Object.<anonymous> (src/components/ItemView.tsx:5:1)
-      at Object.<anonymous> (src/components/DisplayItem.tsx:38:1)
-      at Object.<anonymous> (src/pages/Inventory.tsx:2:1)
-      at Object.<anonymous> (src/App.tsx:7:1)
+      at Object.<anonymous> (src/components/UserList.tsx:2:1)
+      at Object.<anonymous> (src/components/UserSelect.tsx:7:1)
+      at Object.<anonymous> (src/components/Navbar.tsx:6:1)
+      at Object.<anonymous> (src/App.tsx:4:1)
       at Object.<anonymous> (src/App.test.tsx:3:1)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-------------------------|---------|----------|---------|---------|-------------------
-File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-------------------------|---------|----------|---------|---------|-------------------
-All files               |       0 |        0 |       0 |       0 |                   
- src                    |       0 |      100 |       0 |       0 |                   
-  App.tsx               |       0 |      100 |       0 |       0 | 16                
-  interfaces.ts         |       0 |        0 |       0 |       0 |                   
- src/assets             |       0 |      100 |     100 |       0 |                   
-  instances.tsx         |       0 |      100 |     100 |       0 | 36-471            
- src/components         |       0 |        0 |       0 |       0 |                   
-  AddItem.tsx           |       0 |      100 |       0 |       0 | 10-141            
-  AdminList.tsx         |       0 |        0 |       0 |       0 | 18-83             
-  DisplayItem.tsx       |       0 |        0 |       0 |       0 | 47-204            
-  EditItem.tsx          |       0 |      100 |       0 |       0 | 11-126            
-  Expandable.tsx        |       0 |        0 |       0 |       0 | 8-16              
-  ItemView.tsx          |       0 |        0 |       0 |       0 | 22-171            
-  Navbar.tsx            |       0 |        0 |       0 |       0 | 10-32             
-  RoleSelect.tsx        |       0 |        0 |       0 |       0 | 6-36              
-  SortItems.tsx         |       0 |        0 |       0 |       0 | 44-164            
-  UserDropDownSuper.tsx |       0 |        0 |       0 |       0 | 9-103             
-  UserList.tsx          |       0 |        0 |       0 |       0 | 18-393            
-  UserSelect.tsx        |       0 |        0 |       0 |       0 | 7-181             
- src/hooks              |       0 |        0 |       0 |       0 |                   
-  useSessionStorage.ts  |       0 |        0 |       0 |       0 | 4-19              
- src/interfaces         |       0 |        0 |       0 |       0 |                   
-  Item.ts               |       0 |        0 |       0 |       0 |                   
-  User.ts               |       0 |        0 |       0 |       0 |                   
- src/pages              |       0 |      100 |       0 |       0 |                   
-  About.tsx             |       0 |      100 |       0 |       0 | 6                 
-  Home.tsx              |       0 |      100 |       0 |       0 | 5                 
-  Inventory.tsx         |       0 |      100 |       0 |       0 | 5                 
-  Shop.tsx              |       0 |      100 |       0 |       0 | 7                 
-  Users.tsx             |       0 |      100 |       0 |       0 | 6                 
-------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       0 total
+FAIL src/components/UserList.test.tsx
+  ● Test suite failed to run
+
+    Your test suite must contain at least one test.
+
+      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
+      at node_modules/@jest/core/build/TestScheduler.js:316:17
+      at node_modules/emittery/index.js:260:13
+          at Array.map (<anonymous>)
+      at Emittery.emit (node_modules/emittery/index.js:258:23)
+
+FAIL src/components/SortItems.test.tsx
+  ● Test suite failed to run
+
+    Your test suite must contain at least one test.
+
+      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
+      at node_modules/@jest/core/build/TestScheduler.js:316:17
+      at node_modules/emittery/index.js:260:13
+          at Array.map (<anonymous>)
+      at Emittery.emit (node_modules/emittery/index.js:258:23)
+
+FAIL src/components/UserSelect.test.tsx
+  ● Test suite failed to run
+
+    Your test suite must contain at least one test.
+
+      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
+      at node_modules/@jest/core/build/TestScheduler.js:316:17
+      at node_modules/emittery/index.js:260:13
+          at Array.map (<anonymous>)
+      at Emittery.emit (node_modules/emittery/index.js:258:23)
+
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |    8.73 |      4.1 |    3.14 |    9.02 |                   
+ src                   |       0 |      100 |       0 |       0 |                   
+  App.tsx              |       0 |      100 |       0 |       0 | 16                
+  interfaces.ts        |       0 |        0 |       0 |       0 |                   
+ src/assets            |       0 |      100 |     100 |       0 |                   
+  instances.tsx        |       0 |      100 |     100 |       0 | 36-471            
+ src/components        |    9.84 |     4.22 |    3.33 |   10.18 |                   
+  AddItem.tsx          |   34.48 |      100 |      10 |   34.48 | 21-42,56-133      
+  AdminList.tsx        |       0 |        0 |       0 |       0 | 18-111            
+  DisplayItem.tsx      |       0 |        0 |       0 |       0 | 47-182            
+  EditItem.tsx         |   74.19 |      100 |      20 |   74.19 | 58-116            
+  Expandable.tsx       |      50 |       50 |      50 |      50 | 40-48             
+  ItemView.tsx         |       0 |        0 |       0 |       0 | 22-147            
+  Navbar.tsx           |       0 |        0 |       0 |       0 | 10-32             
+  RoleSelect.tsx       |       0 |        0 |       0 |       0 | 6-36              
+  SortItems.tsx        |       0 |        0 |       0 |       0 | 44-166            
+  UserList.tsx         |       0 |        0 |       0 |       0 | 18-407            
+  UserSelect.tsx       |       0 |        0 |       0 |       0 | 46-361            
+ src/hooks             |       0 |        0 |       0 |       0 |                   
+  useSessionStorage.ts |       0 |        0 |       0 |       0 | 4-19              
+ src/interfaces        |       0 |        0 |       0 |       0 |                   
+  Item.ts              |       0 |        0 |       0 |       0 |                   
+  User.ts              |       0 |        0 |       0 |       0 |                   
+ src/pages             |       0 |      100 |       0 |       0 |                   
+  About.tsx            |       0 |      100 |       0 |       0 | 6                 
+  Home.tsx             |       0 |      100 |       0 |       0 | 5                 
+  Inventory.tsx        |       0 |      100 |       0 |       0 | 5                 
+  Shop.tsx             |       0 |      100 |       0 |       0 | 7                 
+  Users.tsx            |       0 |      100 |       0 |       0 | 6                 
+-----------------------|---------|----------|---------|---------|-------------------
+Test Suites: 12 failed, 12 total
+Tests:       4 failed, 3 passed, 7 total
 Snapshots:   0 total
-Time:        5.894 s
+Time:        7.065 s
 Ran all test suites.
