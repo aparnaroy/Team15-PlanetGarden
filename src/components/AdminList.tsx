@@ -27,17 +27,27 @@ export function DisplayAdminList({
             isOver: !!monitor.isOver()
         })
     }));
+
+    let adminItemsSet = new Set(adminItems.map((item) => item.id));
+
     function displayedList(id: number) {
         const addedItem = items.find((anItem) => anItem.id === id);
-        if (addedItem !== undefined) {
-            setAdminItems([addedItem]);
+        if (addedItem !== undefined && !adminItemsSet.has(addedItem.id)) {
+            setAdminItems((adminItems) => [...adminItems, addedItem]);
             setInAdminList(!inAdminList);
+            adminItemsSet.add(addedItem.id);
         }
     }
-    function handleRemoveItem() {
-        setAdminItems([]);
+
+    function handleRemoveItem(anItem: Item) {
+        const adminListItems = adminItems.filter(
+            (item) => item.id !== anItem.id
+        );
+        setAdminItems(adminListItems);
         setInAdminList(!inAdminList);
+        adminItemsSet = new Set(adminListItems.map((item) => item.id));
     }
+
     if (
         sessionStorage.getItem("Role") === "Super" ||
         sessionStorage.getItem("Role") === "Admin"
@@ -55,24 +65,22 @@ export function DisplayAdminList({
                         overflow: "auto"
                     }}
                 >
-                    <Row>
+                    <Row s={1} md={2}>
                         {isOver}
                         {adminItems.map((anItem) => {
                             return (
-                                <>
-                                    <div key={anItem.id} id="child">
-                                        <ItemView
-                                            anItem={anItem}
-                                            items={items}
-                                            setItems={setItems}
-                                        ></ItemView>
-                                        <button
-                                            onClick={() => handleRemoveItem()}
-                                        >
-                                            Remove Item
-                                        </button>
-                                    </div>
-                                </>
+                                <div key={anItem.id} id="child">
+                                    <ItemView
+                                        anItem={anItem}
+                                        items={items}
+                                        setItems={setItems}
+                                    ></ItemView>
+                                    <button
+                                        onClick={() => handleRemoveItem(anItem)}
+                                    >
+                                        Remove Item
+                                    </button>
+                                </div>
                             );
                         })}
                     </Row>
@@ -80,5 +88,6 @@ export function DisplayAdminList({
             </>
         );
     }
+
     return <div></div>;
 }
