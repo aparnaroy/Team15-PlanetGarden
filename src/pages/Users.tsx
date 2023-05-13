@@ -8,7 +8,7 @@ export function Users() {
             <header className="App-header">Edit Users</header>
             <br></br>
             <UserSelect></UserSelect>
-            <hr></hr>
+            <br></br>
         </div>
     );
 }
