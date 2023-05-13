@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { ItemView } from "./ItemView";
+import React from "react";
 import { Item } from "../interfaces/Item";
 import { useDrop } from "react-dnd";
 import { Row } from "react-bootstrap";
 import "../App.css";
 import { useSessionStorage } from "../hooks/useSessionStorage";
+import { EditItem } from "./EditItem";
 
 export interface AdminViewProps {
     items: Item[];
@@ -15,7 +15,10 @@ export function DisplayAdminList({
     items,
     setItems
 }: AdminViewProps): JSX.Element {
-    const [adminItems, setAdminItems] = useState<Item[]>([]);
+    const [adminItems, setAdminItems] = useSessionStorage<Item[]>(
+        "adminItems",
+        []
+    );
     const [inAdminList, setInAdminList] = useSessionStorage<boolean>(
         "inAdmin",
         false
@@ -46,48 +49,64 @@ export function DisplayAdminList({
         setAdminItems(adminListItems);
         setInAdminList(!inAdminList);
         adminItemsSet = new Set(adminListItems.map((item) => item.id));
+        location.reload();
     }
 
-    if (
-        sessionStorage.getItem("Role") === "Super" ||
-        sessionStorage.getItem("Role") === "Admin"
-    ) {
-        return (
-            <>
-                <div
-                    ref={drop}
-                    style={{
-                        backgroundColor: isOver ? "white" : "#6aa1a3",
-                        width: 648,
-                        height: 700,
-                        paddingTop: 20,
-                        padding: 30,
-                        overflow: "auto"
-                    }}
-                >
-                    <Row s={1} md={2}>
-                        {isOver}
-                        {adminItems.map((anItem) => {
-                            return (
-                                <div key={anItem.id} id="child">
-                                    <ItemView
-                                        anItem={anItem}
-                                        items={items}
-                                        setItems={setItems}
-                                    ></ItemView>
-                                    <button
-                                        onClick={() => handleRemoveItem(anItem)}
-                                    >
-                                        Remove Item
-                                    </button>
-                                </div>
-                            );
-                        })}
-                    </Row>
-                </div>
-            </>
+    function editItem(name: string, editedItem: Item) {
+        setItems(
+            items.map(
+                (item: Item): Item => (item.name === name ? editedItem : item)
+            )
         );
+        handleRemoveItem(editedItem);
     }
 
-    return <div></div>;
+    function displayAdminList() {
+        if (
+            sessionStorage.getItem("Role") === "Super" ||
+            sessionStorage.getItem("Role") === "Admin"
+        ) {
+            return (
+                <>
+                    <div
+                        ref={drop}
+                        style={{
+                            backgroundColor: isOver ? "white" : "#6aa1a3",
+                            width: 648,
+                            height: 700,
+                            paddingTop: 20,
+                            padding: 30,
+                            overflow: "auto"
+                        }}
+                    >
+                        <Row s={1} md={2}>
+                            {isOver}
+                            {adminItems.map((anItem) => {
+                                return (
+                                    <div key={anItem.id}>
+                                        <EditItem
+                                            item={anItem}
+                                            onSave={editItem}
+                                        ></EditItem>
+
+                                        <button
+                                            onClick={() =>
+                                                handleRemoveItem(anItem)
+                                            }
+                                        >
+                                            Remove Item
+                                        </button>
+                                        <br></br>
+                                        <br></br>
+                                    </div>
+                                );
+                            })}
+                        </Row>
+                    </div>
+                </>
+            );
+        }
+    }
+
+    return <div>{displayAdminList()}</div>;
 }

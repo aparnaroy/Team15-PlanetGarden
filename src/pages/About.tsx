@@ -7,7 +7,7 @@ export function About() {
         <Container className="App">
             <h1 className="App-header">About Us</h1>
             <br></br>
-            <h2>A Letter From Our Team</h2>
+            <h2>A Message From Our Team</h2>
             <ExpandableSectionAbout>
                 <br></br>
                 <p>Dear Valued Customers,</p>

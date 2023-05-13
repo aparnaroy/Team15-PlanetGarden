@@ -96,15 +96,6 @@ export function EditItem({ item, onSave }: EditItemProps) {
                         setMaintenance(parseInt(event.target.value))
                     }
                 />
-                <span className="edit-item-label">Rating:</span>
-                <input
-                    placeholder="Rating"
-                    type="number"
-                    value={rating}
-                    onChange={(event) =>
-                        setRating(parseInt(event.target.value))
-                    }
-                />
                 <span className="edit-item-label">Type:</span>
                 <select
                     value={type}
@@ -120,7 +111,6 @@ export function EditItem({ item, onSave }: EditItemProps) {
                 <span className="edit-item-label">Frequently Bought With:</span>
                 <input
                     placeholder="Frequently Bought With"
-                    type="text"
                     value={boughtWith}
                     onChange={(event) =>
                         setBoughtWith(event.target.value.split(","))
