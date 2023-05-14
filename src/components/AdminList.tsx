@@ -110,3 +110,9 @@ export function DisplayAdminList({
 
     return <div>{displayAdminList()}</div>;
 }
+
+export function deleteFromAdminList(itemID: number, adminItems: Item[]) {
+    const updatedAdminItems = adminItems.filter((i) => i.id !== itemID);
+
+    sessionStorage.setItem("adminItems", JSON.stringify(updatedAdminItems));
+}

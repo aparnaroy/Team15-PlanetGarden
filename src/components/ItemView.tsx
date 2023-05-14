@@ -7,6 +7,7 @@ import { ExpandableSection } from "./Expandable";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
 import { deleteFromAllUserCarts } from "./UserList";
+import { deleteFromAdminList } from "./AdminList";
 
 export interface ItemViewProps {
     anItem: Item;
@@ -29,6 +30,7 @@ export function ItemView({
         })
     });
     isDragging;
+
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
         { id: 1, name: "Sam", cart: [] },
         { id: 2, name: "John", cart: [] },
@@ -36,6 +38,12 @@ export function ItemView({
         { id: 4, name: "Bob", cart: [] }
     ]);
     setAllUsers;
+
+    const [adminItems, setAdminItems] = useSessionStorage<Item[]>(
+        "adminItems",
+        []
+    );
+    setAdminItems;
 
     function changeRating(newRating: number) {
         setRating(newRating);
@@ -50,6 +58,8 @@ export function ItemView({
             const updatedItems = items.filter((i) => i.name !== item.name);
             setItems(updatedItems);
             deleteFromAllUserCarts(item.id, allUsers);
+            deleteFromAdminList(item.id, adminItems);
+            location.reload();
         }
     }
 
