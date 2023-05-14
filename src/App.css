@@ -328,9 +328,7 @@ body {
 }
 
 .sort-search {
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 50%;
     font-size: 18px;
     padding: 5px 20px;
     background-color: #faf9f6;
