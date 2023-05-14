@@ -21,12 +21,6 @@ export function CurrentCart(userId: number): Item[] {
     return cartToParse ? JSON.parse(cartToParse) : [];
 }
 
-export function CurrentItemdesc(itemId: number): Item[] {
-    const catalo = sessionStorage.getItem(`CART_${itemId}`);
-    const cartToParse = catalo !== null && catalo !== undefined ? catalo : "";
-    return cartToParse ? JSON.parse(cartToParse) : [];
-}
-
 export function DisplayUserList({
     items,
     setItems,
@@ -47,16 +41,12 @@ export function DisplayUserList({
         if (sortBy === "price") {
             sortedItems = storageCheckout.sort((a, b) => b.price - a.price);
         } else if (sortBy2 === "boughtWith") {
-            const hasFlowers = storageCheckout.some((item) =>
+            const filteredItems = storageCheckout.filter((item) =>
                 item.boughtWith.includes("Flowers")
             );
-            if (hasFlowers) {
-                sortedItems = storageCheckout.filter((item) =>
-                    item.boughtWith.includes("Flowers")
-                );
-            } else {
-                sortedItems = storageCheckout;
-            }
+            sortedItems = filteredItems.sort((a, b) =>
+                a.name.localeCompare(b.name)
+            );
         } else {
             sortedItems = storageCheckout.sort((a, b) =>
                 a.name.localeCompare(b.name)
