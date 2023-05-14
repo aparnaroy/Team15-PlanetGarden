@@ -130,7 +130,7 @@ export const irisFlower: Item = {
     id: 8,
     name: "Iris",
     description:
-        "This beautiful flower is beautiful and easy to grow! There exist around 300 varieties of irises.",
+        "This flower is beautiful and easy to grow! There exist around 300 varieties of irises.",
     image: Iris,
     quantity: 1,
     maintenanceLevel: 1,

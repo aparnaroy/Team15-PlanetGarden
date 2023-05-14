@@ -1,7 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { Form, FormSelect } from "react-bootstrap";
+import { Button, Col, Form, FormSelect, Row } from "react-bootstrap";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { CurrentCart } from "./UserList";
+import { Item } from "../interfaces/Item";
+import {
+    benchStructure,
+    bushGreenery,
+    cedarTree,
+    chrysanthemumFlower,
+    gazeboStructure,
+    grassGreenery,
+    irisFlower,
+    larchTree,
+    lilyPondStructure,
+    oakTree,
+    pansyFlower,
+    sequoiaTree,
+    simplePondStructure,
+    fountainStructure,
+    archStructure,
+    spruceTree,
+    stonePondStructure,
+    birdBathStructure,
+    sunflowerFlower,
+    tulipFlower,
+    ivyGreenery,
+    fernGreenery,
+    caladiumGreenery,
+    trellisStructure,
+    lilyFlower,
+    budhaStructure,
+    blueHydrangeaFlower,
+    stonePathStructure,
+    forgetMeNotFlower,
+    gardenGnomeStructure,
+    bridgeStructure,
+    hoopTrellisStructure,
+    cherryBlossomTree
+} from "../assets/instances";
 
 export function UserSelect(): JSX.Element {
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
@@ -10,6 +49,8 @@ export function UserSelect(): JSX.Element {
         { id: 3, name: "Sarah", cart: [] },
         { id: 4, name: "Bob", cart: [] }
     ]);
+
+    const [currId, setCurrId] = useSessionStorage<number>("currID", 4);
 
     const [selectedUserId, setSelectedUserId] = useSessionStorage<number>(
         "selected",
@@ -33,14 +74,19 @@ export function UserSelect(): JSX.Element {
         location.reload();
     }
 
+    function updateCurrId() {
+        setCurrId(currId + 1);
+    }
+
     const handleAddUser = () => {
         const newUser = {
-            id: Date.now(),
+            id: currId + 1,
             name: newUserName,
             cart: []
         };
         setAllUsers([...allUsers, newUser]);
         setNewUserName("");
+        updateCurrId();
         location.reload();
     };
 
@@ -63,6 +109,79 @@ export function UserSelect(): JSX.Element {
         }
     }
 
+    const [items, setItems] = useSessionStorage<Item[]>("all-items", [
+        irisFlower,
+        bushGreenery,
+        lilyPondStructure,
+        tulipFlower,
+        oakTree,
+        budhaStructure,
+        birdBathStructure,
+        forgetMeNotFlower,
+        pansyFlower,
+        cherryBlossomTree,
+        gardenGnomeStructure,
+        cedarTree,
+        bridgeStructure,
+        chrysanthemumFlower,
+        grassGreenery,
+        gazeboStructure,
+        trellisStructure,
+        sequoiaTree,
+        sunflowerFlower,
+        simplePondStructure,
+        larchTree,
+        fountainStructure,
+        hoopTrellisStructure,
+        stonePathStructure,
+        stonePondStructure,
+        archStructure,
+        spruceTree,
+        lilyFlower,
+        blueHydrangeaFlower,
+        fernGreenery,
+        benchStructure,
+        ivyGreenery,
+        caladiumGreenery
+    ]);
+    setItems;
+
+    const [chosenItem, setChosenItem] = useState<number>(0);
+
+    function updateChosenItem(event: React.ChangeEvent<HTMLSelectElement>) {
+        setChosenItem(parseInt(event.target.value));
+    }
+
+    function showUsersWithItem(userId: number, itemId: number) {
+        const itemIncluded = CurrentCart(userId).filter(
+            (item: Item): boolean => item.id === itemId
+        );
+        if (itemIncluded.length !== 0) {
+            return "✔";
+        } else {
+            return "𝘅";
+        }
+    }
+
+    function showItemDropDown() {
+        return (
+            <Form.Select
+                className="user-item-dropdown"
+                value={chosenItem}
+                onChange={updateChosenItem}
+            >
+                <option defaultValue="default">---Item---</option>
+                {items.map((anItem) => {
+                    return (
+                        <option value={anItem.id} key={anItem.id}>
+                            {anItem.name}
+                        </option>
+                    );
+                })}
+            </Form.Select>
+        );
+    }
+
     function superDisplay() {
         if (
             sessionStorage.getItem("Role") === "Super" &&
@@ -71,39 +190,93 @@ export function UserSelect(): JSX.Element {
             return (
                 <div>
                     <h1 style={{ display: "flex" }}>All Users</h1>
+
+                    <Row className="user-row-title">
+                        <Col
+                            className="sort-label"
+                            style={{
+                                alignItems: "center",
+                                display: "flex",
+                                fontWeight: "bold"
+                            }}
+                        >
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name
+                        </Col>
+                        <Col
+                            className="sort-label"
+                            style={{
+                                alignItems: "center",
+                                display: "flex",
+                                fontWeight: "bold"
+                            }}
+                        >
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ID #
+                        </Col>
+                        <Col
+                            className="sort-label"
+                            style={{
+                                alignItems: "center",
+                                display: "flex",
+                                fontWeight: "bold"
+                            }}
+                        >
+                            Cart Contains {showItemDropDown()}
+                        </Col>
+                    </Row>
+
                     {allUsers.map((user) => {
                         return (
-                            <div
-                                key={user.id}
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center"
-                                }}
-                            >
-                                <li>
-                                    {user.name}
-                                    {<>&nbsp;&nbsp;&nbsp;&nbsp;</>}
-
-                                    <button
+                            <Row className="user-row" key={user.id}>
+                                <Col
+                                    style={{
+                                        alignItems: "center",
+                                        display: "flex"
+                                    }}
+                                >
+                                    <Button
+                                        className="trash-can"
                                         onClick={() =>
                                             handleDeleteUser(user.id)
                                         }
                                     >
-                                        Delete
-                                    </button>
-
+                                        <FontAwesomeIcon
+                                            className="fas fa-trash-alt"
+                                            icon={faTrashAlt}
+                                            size="sm"
+                                            style={{ color: "#6d4206" }}
+                                        />
+                                    </Button>
+                                    {<>&nbsp;&nbsp;&nbsp;&nbsp;</>}
+                                    {user.name}
                                     {<>&nbsp;</>}
                                     {labelSelected(user.id)}
-                                </li>
-                            </div>
+                                </Col>
+                                <Col
+                                    style={{
+                                        alignItems: "center",
+                                        display: "flex"
+                                    }}
+                                >
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {user.id}
+                                </Col>
+                                <Col
+                                    style={{
+                                        alignItems: "center",
+                                        display: "flex"
+                                    }}
+                                >
+                                    {showUsersWithItem(user.id, chosenItem)}
+                                </Col>
+                            </Row>
                         );
                     })}
                     <div>
                         <br></br>
                         <input
-                            className="w-100"
+                            className="user-save"
                             type="text"
-                            placeholder="Enter New User"
+                            placeholder="Enter New User Name"
                             value={newUserName}
                             onChange={(e) => setNewUserName(e.target.value)}
                             onKeyPress={(e) => {
@@ -112,7 +285,14 @@ export function UserSelect(): JSX.Element {
                                 }
                             }}
                         />
-                        <button onClick={handleAddUser}>Save</button>
+                        <br></br>
+                        <br></br>
+                        <Button variant="success" onClick={handleAddUser}>
+                            Save
+                        </Button>
+                        <br></br>
+                        <br></br>
+                        <br></br>
                     </div>
                 </div>
             );
@@ -156,8 +336,10 @@ export function UserSelect(): JSX.Element {
 
     function redirect() {
         if (
-            sessionStorage.getItem("Role") === "User" &&
-            window.location.href.endsWith("users")
+            (sessionStorage.getItem("Role") === "User" &&
+                window.location.href.endsWith("users")) ||
+            (sessionStorage.getItem("Role") === "Admin" &&
+                window.location.href.endsWith("users"))
         ) {
             location.hash = "/";
             location.reload();
