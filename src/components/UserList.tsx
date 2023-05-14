@@ -38,23 +38,67 @@ export function DisplayUserList({
     const [newName, setNewName] = useState("");
     const [newPrice, setNewPrice] = useState(0);
     const [sortBy, setSortBy] = useState("price");
+    const [sortBy2, setSortBy2] = useState("boughtWith");
 
     useEffect(() => {
         const storageCheckout: Item[] = CurrentCart(selectedUser.id);
         let sortedItems: Item[] = [];
+
         if (sortBy === "price") {
             sortedItems = storageCheckout.sort((a, b) => b.price - a.price);
+        } else if (sortBy2 === "boughtWith") {
+            sortedItems = storageCheckout.sort((a, b) => {
+                const aHasFlowers = a.boughtWith.includes("Flowers");
+                const bHasFlowers = b.boughtWith.includes("Flowers");
+
+                if (aHasFlowers && !bHasFlowers) {
+                    return -1;
+                } else if (!aHasFlowers && bHasFlowers) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
         } else {
             sortedItems = storageCheckout.sort((a, b) =>
                 a.name.localeCompare(b.name)
             );
         }
+
         setUserItems(sortedItems);
-    }, [selectedUser, sortBy]);
+    }, [selectedUser, sortBy, sortBy2]);
+
+    // useEffect(() => {
+    //     const storageCheckout: Item[] = CurrentCart(selectedUser.id);
+    //     let sortedItems: Item[] = [];
+
+    //     if (sortBy2 === "boughtWith") {
+    //         sortedItems = storageCheckout.sort((a, b) => {
+    //             const aHasFlowers = a.boughtWith.includes("Flowers");
+    //             const bHasFlowers = b.boughtWith.includes("Flowers");
+
+    //             if (aHasFlowers && !bHasFlowers) {
+    //                 return -1;
+    //             } else if (!aHasFlowers && bHasFlowers) {
+    //                 return 1;
+    //             } else {
+    //                 return 0;
+    //             }
+    //         });
+    //     } else {
+    //         sortedItems = storageCheckout.sort((a, b) =>
+    //             a.name.localeCompare(b.name)
+    //         );
+    //     }
+
+    //     setUserItems(sortedItems);
+    // }, [selectedUser, sortBy]);
 
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
+        const value2 = event.target.value;
         setSortBy(value);
+        setSortBy2(value2);
         const storageCheckout: Item[] = CurrentCart(selectedUser.id);
         let sortedItems: Item[] = [];
         if (value === "Grass") {
@@ -344,9 +388,8 @@ export function DisplayUserList({
                                 Sort By Price (highest to lowest)
                             </option>
                             <option value="name">Sort By Name (A-Z)</option>
-                            <option value="Grass">
-                                {" "}
-                                Sort By If Contains Grass{" "}
+                            <option value="boughtWith">
+                                Sort By If Contains Flowers
                             </option>
                         </select>
                     </div>
