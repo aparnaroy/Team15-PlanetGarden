@@ -21,12 +21,6 @@ export function CurrentCart(userId: number): Item[] {
     return cartToParse ? JSON.parse(cartToParse) : [];
 }
 
-export function CurrentItemdesc(itemId: number): Item[] {
-    const catalo = sessionStorage.getItem(`CART_${itemId}`);
-    const cartToParse = catalo !== null && catalo !== undefined ? catalo : "";
-    return cartToParse ? JSON.parse(cartToParse) : [];
-}
-
 export function DisplayUserList({
     items,
     setItems,
@@ -66,32 +60,6 @@ export function DisplayUserList({
         setUserItems(sortedItems);
     }, [selectedUser, sortBy, sortBy2]);
 
-    // useEffect(() => {
-    //     const storageCheckout: Item[] = CurrentCart(selectedUser.id);
-    //     let sortedItems: Item[] = [];
-
-    //     if (sortBy2 === "boughtWith") {
-    //         sortedItems = storageCheckout.sort((a, b) => {
-    //             const aHasFlowers = a.boughtWith.includes("Flowers");
-    //             const bHasFlowers = b.boughtWith.includes("Flowers");
-
-    //             if (aHasFlowers && !bHasFlowers) {
-    //                 return -1;
-    //             } else if (!aHasFlowers && bHasFlowers) {
-    //                 return 1;
-    //             } else {
-    //                 return 0;
-    //             }
-    //         });
-    //     } else {
-    //         sortedItems = storageCheckout.sort((a, b) =>
-    //             a.name.localeCompare(b.name)
-    //         );
-    //     }
-
-    //     setUserItems(sortedItems);
-    // }, [selectedUser, sortBy]);
-
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
         const value2 = event.target.value;
@@ -99,30 +67,11 @@ export function DisplayUserList({
         setSortBy2(value2);
         const storageCheckout: Item[] = CurrentCart(selectedUser.id);
         let sortedItems: Item[] = [];
-        if (value === "Grass") {
-            sortedItems = storageCheckout.sort((a, b) => {
-                const nameA = a.name;
-                const nameB = b.name;
-                if (
-                    nameA.includes("Grass") ||
-                    (nameA.includes("grass") && !nameB.includes("Grass")) ||
-                    !nameB.includes("grass")
-                ) {
-                    return -1;
-                }
-                if (
-                    nameB.includes("Grass") ||
-                    (nameB.includes("grass") && !nameA.includes("Grass"))
-                ) {
-                    return 1;
-                }
-                return 0;
-            });
-        } else {
-            sortedItems = storageCheckout.sort((a, b) =>
-                a.name.localeCompare(b.name)
-            );
-        }
+
+        sortedItems = storageCheckout.sort((a, b) =>
+            a.name.localeCompare(b.name)
+        );
+
         setUserItems(sortedItems);
     };
 
@@ -225,41 +174,6 @@ export function DisplayUserList({
         });
     }
 
-    // function handleChangePrice(id: number, price: number) {
-    //     setUserItems((userItems) => {
-    //         const itemsToUpdate = userItems.filter((item) => item.id === id);
-    //         if (itemsToUpdate.length > 0) {
-    //             const newCart = [...userItems];
-    //             itemsToUpdate.forEach((itemToUpdate) => {
-    //                 const indexToUpdate = newCart.findIndex(
-    //                     (item) => item.id === itemToUpdate.id
-    //                 );
-    //                 if (itemToUpdate.price !== price) {
-    //                     const updatedItem = { ...itemToUpdate, price };
-    //                     newCart[indexToUpdate] = updatedItem;
-    //                 }
-    //             });
-    //             sessionStorage.setItem(
-    //                 `CART_${selectedUser.id}`,
-    //                 JSON.stringify(newCart)
-    //             );
-    //             const newUser = { ...selectedUser, cart: newCart };
-    //             sessionStorage.setItem(
-    //                 "CurrentUserID",
-    //                 JSON.stringify(newUser)
-    //             );
-    //             const userIndex = allUsers.findIndex(
-    //                 (user) => newUser.id === user.id
-    //             );
-    //             if (userIndex > -1) {
-    //                 allUsers.splice(userIndex, 1, newUser);
-    //                 sessionStorage.setItem("USERS", JSON.stringify(allUsers));
-    //             }
-    //             return newCart;
-    //         }
-    //         return userItems;
-    //     });
-    // }
     function addToCart(itemID: number) {
         const addedItem = items.find((i) => itemID === i.id);
         if (addedItem) {
