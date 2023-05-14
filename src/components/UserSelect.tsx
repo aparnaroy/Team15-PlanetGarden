@@ -286,8 +286,11 @@ export function UserSelect(): JSX.Element {
                             }}
                         />
                         <br></br>
-                        <br></br>
-                        <Button variant="success" onClick={handleAddUser}>
+                        <Button
+                            className="save-button"
+                            variant="success"
+                            onClick={handleAddUser}
+                        >
                             Save
                         </Button>
                         <br></br>

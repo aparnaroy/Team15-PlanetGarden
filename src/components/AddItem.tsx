@@ -135,8 +135,7 @@ export function AddItem({ onSave }: AddItemProps) {
                     />
                 </Col>
             </Row>
-            <br></br>
-            <Button type="submit" variant="success">
+            <Button className="save-button" type="submit" variant="success">
                 Save
             </Button>
             <br></br>
