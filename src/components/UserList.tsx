@@ -21,6 +21,12 @@ export function CurrentCart(userId: number): Item[] {
     return cartToParse ? JSON.parse(cartToParse) : [];
 }
 
+export function CurrentItemdesc(itemId: number): Item[] {
+    const catalo = sessionStorage.getItem(`CART_${itemId}`);
+    const cartToParse = catalo !== null && catalo !== undefined ? catalo : "";
+    return cartToParse ? JSON.parse(cartToParse) : [];
+}
+
 export function DisplayUserList({
     items,
     setItems,
@@ -321,6 +327,7 @@ export function DisplayUserList({
                         overflow: "auto"
                     }}
                 >
+                    {" "}
                     <div
                         style={{
                             backgroundColor: "#EFE8AB",
@@ -334,12 +341,12 @@ export function DisplayUserList({
                     <div>
                         <select value={sortBy} onChange={handleSortChange}>
                             <option value="price">
-                                Sort by price (highest to lowest)
+                                Sort By Price (highest to lowest)
                             </option>
-                            <option value="name">Sort by name (A-Z)</option>
+                            <option value="name">Sort By Name (A-Z)</option>
                             <option value="Grass">
                                 {" "}
-                                Sort by if contains grass{" "}
+                                Sort By If Contains Grass{" "}
                             </option>
                         </select>
                     </div>
@@ -385,6 +392,16 @@ export function DisplayUserList({
                                             </Button>
                                         </div>
                                         {showEditForm(anItem)}
+                                        <form
+                                            onSubmit={(e) => {
+                                                e.preventDefault();
+                                                handleChangeName(
+                                                    anItem.id,
+                                                    newName,
+                                                    newPrice
+                                                );
+                                            }}
+                                        ></form>
                                     </div>
                                 </>
                             );
@@ -449,7 +466,7 @@ export function RemoveFromCart(
                 (user) => newUser.id === user.id
             );
             allUsers.splice(userIndex, 1, newUser);
-            //console.log(allUsers);
+            // console.log(allUsers);
             sessionStorage.setItem("USERS", JSON.stringify(allUsers));
             return newCart;
         });
