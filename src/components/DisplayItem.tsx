@@ -95,11 +95,11 @@ export function InventoryDisplay(): JSX.Element {
             return (
                 <div>
                     <Button
+                        className="add-item-super d-flex"
                         onClick={showItemForm}
-                        className="d-flex"
                         variant="success"
                     >
-                        Add New Item
+                        + Add New
                     </Button>
                 </div>
             );

@@ -165,7 +165,9 @@ export function SortDropDown(): JSX.Element {
     }
     return (
         <div>
-            <Form.Label className="sort-label">Sort / Filter: </Form.Label>
+            <Form.Label className="sort-label d-flex">
+                &nbsp;Sort / Filter:
+            </Form.Label>
             <Form.Select
                 className="sort-dropdown"
                 value={option}
@@ -175,8 +177,8 @@ export function SortDropDown(): JSX.Element {
                     ---Sort or Filter Items---
                 </option>
                 <option>Alphabetically</option>
-                <option>Price low to high</option>
-                <option>Price high to low</option>
+                <option>Price (low to high)</option>
+                <option>Price (high to low)</option>
                 <option>Trees</option>
                 <option>Flowers</option>
                 <option>Greenery</option>
