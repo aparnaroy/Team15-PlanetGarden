@@ -153,7 +153,7 @@ export function SortDropDown(): JSX.Element {
         return (
             <div>
                 <Form.Control
-                    className="sort-search"
+                    className="sort-search d-flex"
                     type="string"
                     placeholder="Start typing..."
                     value={input}
