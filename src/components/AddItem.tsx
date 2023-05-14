@@ -60,7 +60,7 @@ export function AddItem({ onSave }: AddItemProps) {
                     <br></br>
                     <input
                         placeholder="Price"
-                        type="text"
+                        type="number"
                         value={price}
                         onChange={(event) => setPrice(event.target.value)}
                     />
@@ -80,7 +80,7 @@ export function AddItem({ onSave }: AddItemProps) {
                     <textarea
                         placeholder="Description"
                         value={description}
-                        rows={1}
+                        rows={4}
                         onChange={(event) => setDescription(event.target.value)}
                     />
                     <br></br>
@@ -88,30 +88,22 @@ export function AddItem({ onSave }: AddItemProps) {
                     <br></br>
                     <input
                         placeholder="Quantity"
-                        type="text"
+                        type="number"
                         value={quantity}
                         onChange={(event) => setQuantity(event.target.value)}
                     />
                     <br></br>
+                </Col>
+                <Col>
                     <span className="add-item-label">
                         Maintenance Level (1-5):
                     </span>
                     <br></br>
                     <input
                         placeholder="Maintenance Level"
-                        type="text"
+                        type="number"
                         value={maintenanceLevel}
                         onChange={(event) => setMaintenance(event.target.value)}
-                    />
-                </Col>
-                <Col>
-                    <span className="add-item-label">Rating (1-5):</span>
-                    <br></br>
-                    <input
-                        placeholder="Rating"
-                        type="text"
-                        value={rating}
-                        onChange={(event) => setRating(event.target.value)}
                     />
                     <br></br>
                     <span className="add-item-label">Type:</span>

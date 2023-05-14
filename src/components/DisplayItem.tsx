@@ -45,39 +45,39 @@ import { User } from "../interfaces/User";
 
 export function InventoryDisplay(): JSX.Element {
     const [items, setItems] = useSessionStorage<Item[]>("all-items", [
-        benchStructure,
-        bushGreenery,
-        cedarTree,
-        chrysanthemumFlower,
-        gazeboStructure,
-        grassGreenery,
         irisFlower,
-        larchTree,
+        bushGreenery,
         lilyPondStructure,
+        tulipFlower,
         oakTree,
+        budhaStructure,
+        birdBathStructure,
+        forgetMeNotFlower,
         pansyFlower,
+        cherryBlossomTree,
+        gardenGnomeStructure,
+        cedarTree,
+        bridgeStructure,
+        chrysanthemumFlower,
+        grassGreenery,
+        gazeboStructure,
+        trellisStructure,
         sequoiaTree,
+        sunflowerFlower,
         simplePondStructure,
+        larchTree,
+        fountainStructure,
+        hoopTrellisStructure,
+        stonePathStructure,
+        stonePondStructure,
         archStructure,
         spruceTree,
-        stonePondStructure,
-        birdBathStructure,
-        fountainStructure,
-        sunflowerFlower,
-        tulipFlower,
-        ivyGreenery,
-        fernGreenery,
-        caladiumGreenery,
-        trellisStructure,
         lilyFlower,
-        budhaStructure,
         blueHydrangeaFlower,
-        stonePathStructure,
-        forgetMeNotFlower,
-        gardenGnomeStructure,
-        bridgeStructure,
-        hoopTrellisStructure,
-        cherryBlossomTree
+        fernGreenery,
+        benchStructure,
+        ivyGreenery,
+        caladiumGreenery
     ]);
     const [newItemForm, setShowItemForm] = useState(false);
 
@@ -127,28 +127,6 @@ export function InventoryDisplay(): JSX.Element {
     );
 }
 
-// export function Cart() {
-//     const [{ isOver }, drop] = useDrop({
-//         accept: "item",
-//         drop: (item: Item) => item, //addToCart(item.id),
-//         collect: (monitor) => ({
-//             isOver: !!monitor.isOver()
-//         })
-//     });
-//     return (
-//         <div
-//             className="flex-container-cart"
-//             ref={drop}
-//             role={"Cart"}
-//             style={{ backgroundColor: isOver ? "white" : "#f1f1f1" }}
-//         >
-//             {isOver ? "Release to drop" : "Drag a box here"}
-//         </div>
-//     );
-// }
-
-// displayAll is sorted alphabetically by default
-
 export function displayCartOrAdmin(
     items: Item[],
     setItems: (newItems: Item[]) => void,
@@ -179,9 +157,9 @@ export function chooseHeader(): string {
         sessionStorage.getItem("Role") === "Admin" ||
         sessionStorage.getItem("Role") === "Super"
     ) {
-        return "Edit";
+        return "Edit ✏️";
     } else {
-        return "Your Cart🛒";
+        return "Your Cart 🛒";
     }
 }
 
@@ -194,7 +172,7 @@ export function ShopDisplay(
     return (
         <>
             <div style={{ display: "flex" }}>
-                <header className="App-header2">Shop🪴</header>
+                <header className="App-header2">Shop 🪴</header>
                 <header className="App-header3">{chooseHeader()}</header>
             </div>
             <div className="parent-container">

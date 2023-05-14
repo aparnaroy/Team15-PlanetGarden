@@ -7,6 +7,7 @@ import { User } from "../interfaces/User";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 export interface UserViewProps {
     items: Item[];
@@ -17,12 +18,6 @@ export interface UserViewProps {
 export function CurrentCart(userId: number): Item[] {
     const cart = sessionStorage.getItem(`CART_${userId}`);
     const cartToParse = cart !== null && cart !== undefined ? cart : "";
-    return cartToParse ? JSON.parse(cartToParse) : [];
-}
-
-export function CurrentItemdesc(itemId: number): Item[] {
-    const catalo = sessionStorage.getItem(`CART_${itemId}`);
-    const cartToParse = catalo !== null && catalo !== undefined ? catalo : "";
     return cartToParse ? JSON.parse(cartToParse) : [];
 }
 
@@ -259,6 +254,58 @@ export function DisplayUserList({
         setTotal(sum);
     }, [userItems]);
 
+    const [newItemForm, setShowItemForm] = useState(false);
+
+    function showItemForm() {
+        setShowItemForm(!newItemForm);
+    }
+
+    function showEditButton() {
+        return (
+            <div>
+                <Button onClick={showItemForm} className="pencil-button">
+                    <FontAwesomeIcon
+                        icon={faPencil}
+                        size="1x"
+                        style={{ color: "#6d4206" }}
+                    />
+                </Button>
+            </div>
+        );
+    }
+
+    function showEditForm(anItem: Item) {
+        if (newItemForm) {
+            return (
+                <form
+                    className="edit-item-user"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        handleChangeName(anItem.id, newName, newPrice);
+                    }}
+                >
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        value={newName}
+                        onChange={(e) => setNewName(e.target.value)}
+                    />
+                    <input
+                        type="number"
+                        placeholder="Price"
+                        value={newPrice}
+                        onChange={(e) =>
+                            setNewPrice(parseFloat(e.target.value))
+                        }
+                    />
+                    <Button type="submit" variant="success">
+                        Update
+                    </Button>
+                </form>
+            );
+        }
+    }
+
     if (sessionStorage.getItem("Role") === "User") {
         return (
             <>
@@ -269,12 +316,11 @@ export function DisplayUserList({
                         backgroundColor: isOver ? "#85cacd" : "#6aa1a3",
                         width: 648,
                         height: 700,
-                        paddingTop: 20,
+                        paddingTop: 38,
                         padding: 30,
                         overflow: "auto"
                     }}
                 >
-                    {" "}
                     <div
                         style={{
                             backgroundColor: "#EFE8AB",
@@ -321,53 +367,24 @@ export function DisplayUserList({
                                             items={items}
                                             setItems={setItems}
                                         ></ItemView>
-                                        <br></br>
-                                        <Button
-                                            className="trash-can"
-                                            onClick={() =>
-                                                handleRemoveItem(anItem.id)
-                                            }
-                                        >
-                                            <FontAwesomeIcon
-                                                className="fas fa-trash-alt"
-                                                icon={faTrashAlt}
-                                                size="sm"
-                                                style={{ color: "#6d4206" }}
-                                            />
-                                        </Button>
-                                        <form
-                                            onSubmit={(e) => {
-                                                e.preventDefault();
-                                                handleChangeName(
-                                                    anItem.id,
-                                                    newName,
-                                                    newPrice
-                                                );
-                                            }}
-                                        >
-                                            <input
-                                                type="text"
-                                                value={newName}
-                                                onChange={(e) =>
-                                                    setNewName(e.target.value)
+                                        <div className="button-container">
+                                            {showEditButton()}
+                                            <br></br>
+                                            <Button
+                                                className="trash-can"
+                                                onClick={() =>
+                                                    handleRemoveItem(anItem.id)
                                                 }
-                                            />
-                                            <input
-                                                type="number"
-                                                value={newPrice}
-                                                onChange={(e) =>
-                                                    setNewPrice(
-                                                        parseFloat(
-                                                            e.target.value
-                                                        )
-                                                    )
-                                                }
-                                            />
-                                            <input
-                                                type="submit"
-                                                value="Change Name & Price"
-                                            />
-                                        </form>
+                                            >
+                                                <FontAwesomeIcon
+                                                    className="fas fa-trash-alt"
+                                                    icon={faTrashAlt}
+                                                    size="1x"
+                                                    style={{ color: "#6d4206" }}
+                                                />
+                                            </Button>
+                                        </div>
+                                        {showEditForm(anItem)}
                                     </div>
                                 </>
                             );
@@ -432,7 +449,7 @@ export function RemoveFromCart(
                 (user) => newUser.id === user.id
             );
             allUsers.splice(userIndex, 1, newUser);
-            console.log(allUsers);
+            //console.log(allUsers);
             sessionStorage.setItem("USERS", JSON.stringify(allUsers));
             return newCart;
         });
