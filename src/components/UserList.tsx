@@ -47,18 +47,16 @@ export function DisplayUserList({
         if (sortBy === "price") {
             sortedItems = storageCheckout.sort((a, b) => b.price - a.price);
         } else if (sortBy2 === "boughtWith") {
-            sortedItems = storageCheckout.sort((a, b) => {
-                const aHasFlowers = a.boughtWith.includes("Flowers");
-                const bHasFlowers = b.boughtWith.includes("Flowers");
-
-                if (aHasFlowers && !bHasFlowers) {
-                    return -1;
-                } else if (!aHasFlowers && bHasFlowers) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            });
+            const hasFlowers = storageCheckout.some((item) =>
+                item.boughtWith.includes("Flowers")
+            );
+            if (hasFlowers) {
+                sortedItems = storageCheckout.filter((item) =>
+                    item.boughtWith.includes("Flowers")
+                );
+            } else {
+                sortedItems = storageCheckout;
+            }
         } else {
             sortedItems = storageCheckout.sort((a, b) =>
                 a.name.localeCompare(b.name)
