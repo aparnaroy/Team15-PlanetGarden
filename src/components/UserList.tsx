@@ -36,6 +36,52 @@ export function DisplayUserList({
     );
     const [newName, setNewName] = useState("");
     const [newPrice, setNewPrice] = useState(0);
+    const [sortBy, setSortBy] = useState("price");
+
+    useEffect(() => {
+        const storageCheckout: Item[] = CurrentCart(selectedUser.id);
+        let sortedItems: Item[] = [];
+        if (sortBy === "price") {
+            sortedItems = storageCheckout.sort((a, b) => b.price - a.price);
+        } else {
+            sortedItems = storageCheckout.sort((a, b) =>
+                a.name.localeCompare(b.name)
+            );
+        }
+        setUserItems(sortedItems);
+    }, [selectedUser, sortBy]);
+
+    const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = event.target.value;
+        setSortBy(value);
+        const storageCheckout: Item[] = CurrentCart(selectedUser.id);
+        let sortedItems: Item[] = [];
+        if (value === "Grass") {
+            sortedItems = storageCheckout.sort((a, b) => {
+                const nameA = a.name;
+                const nameB = b.name;
+                if (
+                    nameA.includes("Grass") ||
+                    (nameA.includes("grass") && !nameB.includes("Grass")) ||
+                    !nameB.includes("grass")
+                ) {
+                    return -1;
+                }
+                if (
+                    nameB.includes("Grass") ||
+                    (nameB.includes("grass") && !nameA.includes("Grass"))
+                ) {
+                    return 1;
+                }
+                return 0;
+            });
+        } else {
+            sortedItems = storageCheckout.sort((a, b) =>
+                a.name.localeCompare(b.name)
+            );
+        }
+        setUserItems(sortedItems);
+    };
 
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
         { id: 1, name: "Sam", cart: [] },
@@ -239,6 +285,18 @@ export function DisplayUserList({
                         Total: ${total}
                     </div>
                     <br></br>
+                    <div>
+                        <select value={sortBy} onChange={handleSortChange}>
+                            <option value="price">
+                                Sort by price (highest to lowest)
+                            </option>
+                            <option value="name">Sort by name (A-Z)</option>
+                            <option value="Grass">
+                                {" "}
+                                Sort by if contains grass{" "}
+                            </option>
+                        </select>
+                    </div>
                     <div>
                         <Button
                             className="remove-button"
