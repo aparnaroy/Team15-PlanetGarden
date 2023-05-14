@@ -376,20 +376,24 @@ export function DisplayUserList({
                         style={{
                             backgroundColor: "#EFE8AB",
                             color: "#6d4206",
-                            fontSize: 40
+                            fontSize: 34
                         }}
                     >
                         Total: ${total}
                     </div>
-                    <br></br>
                     <div>
-                        <select value={sortBy} onChange={handleSortChange}>
-                            <option value="price">
-                                Sort By Price (highest to lowest)
+                        <select
+                            className="user-sort-dropdown"
+                            value={sortBy}
+                            onChange={handleSortChange}
+                        >
+                            <option defaultValue="default">
+                                ---Sort or Filter Items in Cart---
                             </option>
-                            <option value="name">Sort By Name (A-Z)</option>
+                            <option value="price">Price (high to low)</option>
+                            <option value="name">Name (A-Z)</option>
                             <option value="boughtWith">
-                                Sort By If Contains Flowers
+                                Frequently Bought with Flowers
                             </option>
                         </select>
                     </div>
