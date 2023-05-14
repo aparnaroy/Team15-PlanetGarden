@@ -245,14 +245,6 @@ body {
     border-radius: 10px;
 }
 
-.edit-delete-buttons {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 5px 10px;
-    border-radius: 10px;
-}
-
 .edit-item-user {
     width: 100%;
     margin-left: auto;
@@ -358,6 +350,57 @@ body {
     margin-top: 10px;
 }
 
+.add-item-super {
+    width: 105px;
+    height: 40px;
+    background-color: #47ba73;
+    border-color: rgb(40, 123, 72);
+    border-width: 2px;
+    outline-color: none;
+}
+
+.add-item-super:hover {
+    background-color: rgb(40, 123, 72);
+    border-color: #47ba73;
+    border-width: 2px;
+    width: 105px;
+    height: 40px;
+}
+
+.trash-can-super {
+    width: 85px;
+    height: 40px;
+    background-color: #fbc9c9;
+    border-color: rgb(249, 148, 148);
+    border-width: 2px;
+    outline-color: none;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.trash-can-super:hover {
+    background-color: rgb(249, 148, 148);
+    border-color: #fbc9c9;
+    border-width: 2px;
+}
+
+.pencil-button-super {
+    width: 85px;
+    height: 40px;
+    background-color: #a5e4ef;
+    border-color: rgb(97, 196, 235);
+    border-width: 2px;
+    outline-color: none;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.pencil-button-super:hover {
+    background-color: #4bbce5;
+    border-color: #a5e4ef;
+    border-width: 2px;
+}
+
 .trash-can {
     border-radius: 50%;
     width: 40px;
@@ -366,6 +409,13 @@ body {
     border-color: rgb(109, 66, 6);
     outline-color: none;
     margin-left: 10px;
+}
+
+.edit-delete-buttons {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
 }
 
 .trash-can:hover {
@@ -417,4 +467,26 @@ body {
     outline: none;
     background-color: #faf9f6;
     color: rgb(109, 66, 6);
+}
+
+.remove-item-admin {
+    width: 130px;
+    height: 35px;
+    background-color: #623a67;
+    border-color: #3f1346;
+    border-width: 2px;
+    outline-color: none;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.remove-item-admin:hover {
+    background-color: #937699;
+    border-color: #7f5e84;
+    border-width: 2px;
+    outline-color: none;
+}
+
+.save-button {
+    margin-top: 15px;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Item } from "../interfaces/Item";
 import { useDrop } from "react-dnd";
-import { Row } from "react-bootstrap";
+import { Button, Row } from "react-bootstrap";
 import "../App.css";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { EditItem } from "./EditItem";
@@ -89,13 +89,14 @@ export function DisplayAdminList({
                                             onSave={editItem}
                                         ></EditItem>
 
-                                        <button
+                                        <Button
+                                            className="remove-item-admin"
                                             onClick={() =>
                                                 handleRemoveItem(anItem)
                                             }
                                         >
                                             Remove Item
-                                        </button>
+                                        </Button>
                                         <br></br>
                                         <br></br>
                                     </div>

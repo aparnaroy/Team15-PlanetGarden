@@ -8,6 +8,9 @@ import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
 import { deleteFromAllUserCarts } from "./UserList";
 import { deleteFromAdminList } from "./AdminList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 export interface ItemViewProps {
     anItem: Item;
@@ -79,9 +82,16 @@ export function ItemView({
         ) {
             return (
                 <div>
-                    <br></br>
-                    <Button variant="info" onClick={showItemForm}>
-                        Edit Item
+                    <Button
+                        className="pencil-button-super"
+                        variant="info"
+                        onClick={showItemForm}
+                    >
+                        <FontAwesomeIcon
+                            icon={faPencil}
+                            size="1x"
+                            style={{ color: "#6d4206" }}
+                        />
                     </Button>
                 </div>
             );
@@ -104,9 +114,17 @@ export function ItemView({
         ) {
             return (
                 <div>
-                    <br></br>
-                    <Button variant="danger" onClick={() => deleteItem(anItem)}>
-                        Delete Item
+                    <Button
+                        className="trash-can-super"
+                        variant="danger"
+                        onClick={() => deleteItem(anItem)}
+                    >
+                        <FontAwesomeIcon
+                            className="fas fa-trash-alt"
+                            icon={faTrashAlt}
+                            size="sm"
+                            style={{ color: "#6d4206" }}
+                        />
                     </Button>
                 </div>
             );
@@ -120,7 +138,7 @@ export function ItemView({
         ) {
             return (
                 <ButtonToolbar className="edit-delete-buttons">
-                    &nbsp;&nbsp;&nbsp;&nbsp;{showEditButton()} &nbsp; &nbsp;
+                    {showEditButton()}
                     {showDeleteButton(anItem)}
                     {editingMode()}
                 </ButtonToolbar>
