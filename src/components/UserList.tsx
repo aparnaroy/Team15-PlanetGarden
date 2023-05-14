@@ -232,7 +232,7 @@ export function DisplayUserList({
         if (newItemForm) {
             return (
                 <form
-                    className="edit-item"
+                    className="edit-item-user"
                     onSubmit={(e) => {
                         e.preventDefault();
                         handleChangeName(anItem.id, newName, newPrice);
@@ -309,8 +309,9 @@ export function DisplayUserList({
                                             items={items}
                                             setItems={setItems}
                                         ></ItemView>
-                                        <br></br>
                                         <div className="button-container">
+                                            {showEditButton()}
+                                            <br></br>
                                             <Button
                                                 className="trash-can"
                                                 onClick={() =>
@@ -324,10 +325,8 @@ export function DisplayUserList({
                                                     style={{ color: "#6d4206" }}
                                                 />
                                             </Button>
-                                            <br></br>
-                                            {showEditButton()}
-                                            {showEditForm(anItem)}
                                         </div>
+                                        {showEditForm(anItem)}
                                     </div>
                                 </>
                             );
