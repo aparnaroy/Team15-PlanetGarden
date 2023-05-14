@@ -359,15 +359,15 @@ body {
 .add-item-super {
     width: 105px;
     height: 40px;
-    background-color: #47ba73;
+    background-color: rgb(62, 171, 103);
     border-color: rgb(40, 123, 72);
     border-width: 2px;
     outline-color: none;
 }
 
 .add-item-super:hover {
-    background-color: rgb(40, 123, 72);
-    border-color: #47ba73;
+    background-color: rgb(118, 193, 147);
+    border-color: #22974f;
     border-width: 2px;
     width: 105px;
     height: 40px;

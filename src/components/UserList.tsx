@@ -37,7 +37,7 @@ export function DisplayUserList({
     );
     const [newName, setNewName] = useState("");
     const [newPrice, setNewPrice] = useState(0);
-    const [sortBy, setSortBy] = useState("price");
+    const [sortBy, setSortBy] = useState("");
     const [sortBy2, setSortBy2] = useState("boughtWith");
 
     useEffect(() => {
