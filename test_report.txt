@@ -181,9 +181,8 @@ FAIL src/components/AddItem.test.tsx
               [36m/>[39m
             [36m</div>[39m
           [36m</div>[39m
-          [36m<br />[39m
           [36m<button[39m
-            [33mclass[39m=[32m"btn btn-success"[39m
+            [33mclass[39m=[32m"save-button btn btn-success"[39m
             [33mtype[39m=[32m"submit"[39m
           [36m>[39m
             [0mSave[0m
@@ -348,9 +347,8 @@ FAIL src/components/AddItem.test.tsx
               [36m/>[39m
             [36m</div>[39m
           [36m</div>[39m
-          [36m<br />[39m
           [36m<button[39m
-            [33mclass[39m=[32m"btn btn-success"[39m
+            [33mclass[39m=[32m"save-button btn btn-success"[39m
             [33mtype[39m=[32m"submit"[39m
           [36m>[39m
             [0mSave[0m
@@ -547,9 +545,8 @@ FAIL src/components/EditItem.test.tsx
               [33mvalue[39m=[32m"Watering Can,Soil"[39m
             [36m/>[39m
             [36m<br />[39m
-            [36m<br />[39m
             [36m<button[39m
-              [33mclass[39m=[32m"btn btn-success"[39m
+              [33mclass[39m=[32m"save-button btn btn-success"[39m
               [33mtype[39m=[32m"submit"[39m
             [36m>[39m
               [0mSave[0m
@@ -760,24 +757,24 @@ FAIL src/components/UserSelect.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |    7.93 |     3.38 |    2.97 |    8.18 |                   
+All files              |    7.81 |     3.38 |    2.94 |    8.08 |                   
  src                   |       0 |      100 |       0 |       0 |                   
   App.tsx              |       0 |      100 |       0 |       0 | 16                
   interfaces.ts        |       0 |        0 |       0 |       0 |                   
  src/assets            |       0 |      100 |     100 |       0 |                   
   instances.tsx        |       0 |      100 |     100 |       0 | 36-471            
- src/components        |    8.83 |     3.46 |    3.14 |    9.13 |                   
+ src/components        |    8.69 |     3.46 |     3.1 |       9 |                   
   AddItem.tsx          |   34.48 |      100 |      10 |   34.48 | 21-42,56-133      
-  AdminList.tsx        |       0 |        0 |       0 |       0 | 18-111            
+  AdminList.tsx        |       0 |        0 |       0 |       0 | 18-118            
   DisplayItem.tsx      |       0 |        0 |       0 |       0 | 47-182            
   EditItem.tsx         |   74.19 |      100 |      20 |   74.19 | 58-116            
   Expandable.tsx       |      50 |       50 |      50 |      50 | 40-48             
-  ItemView.tsx         |       0 |        0 |       0 |       0 | 22-147            
+  ItemView.tsx         |       0 |        0 |       0 |       0 | 26-175            
   Navbar.tsx           |       0 |        0 |       0 |       0 | 10-32             
   RoleSelect.tsx       |       0 |        0 |       0 |       0 | 6-36              
   SortItems.tsx        |       0 |        0 |       0 |       0 | 44-166            
-  UserList.tsx         |       0 |        0 |       0 |       0 | 19-528            
-  UserSelect.tsx       |       0 |        0 |       0 |       0 | 46-361            
+  UserList.tsx         |       0 |        0 |       0 |       0 | 19-532            
+  UserSelect.tsx       |       0 |        0 |       0 |       0 | 46-364            
  src/hooks             |       0 |        0 |       0 |       0 |                   
   useSessionStorage.ts |       0 |        0 |       0 |       0 | 4-19              
  src/interfaces        |       0 |        0 |       0 |       0 |                   
@@ -793,5 +790,5 @@ All files              |    7.93 |     3.38 |    2.97 |    8.18 |
 Test Suites: 12 failed, 12 total
 Tests:       4 failed, 3 passed, 7 total
 Snapshots:   0 total
-Time:        7.268 s
+Time:        7.708 s
 Ran all test suites.
