@@ -517,7 +517,9 @@ export function DisplayUserList({
                                     >
                                         {/* Form content here */}
                                     </form>
-                                    {showEditForm(anItem)}
+                                    {sortBy !== "boughtWith"
+                                        ? showEditForm(anItem)
+                                        : null}
                                 </div>
                             );
                         })}
