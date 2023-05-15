@@ -647,7 +647,7 @@ FAIL src/components/Navbar.test.tsx
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
       at Object.<anonymous> (src/components/ItemView.tsx:5:1)
-      at Object.<anonymous> (src/components/UserList.tsx:3:1)
+      at Object.<anonymous> (src/components/UserList.tsx:4:1)
       at Object.<anonymous> (src/components/UserSelect.tsx:7:1)
       at Object.<anonymous> (src/components/Navbar.tsx:6:1)
       at Object.<anonymous> (src/components/Navbar.test.tsx:3:1)
@@ -715,7 +715,7 @@ FAIL src/App.test.tsx
 
       at Runtime.createScriptFromCode (node_modules/jest-runtime/build/index.js:1728:14)
       at Object.<anonymous> (src/components/ItemView.tsx:5:1)
-      at Object.<anonymous> (src/components/UserList.tsx:3:1)
+      at Object.<anonymous> (src/components/UserList.tsx:4:1)
       at Object.<anonymous> (src/components/UserSelect.tsx:7:1)
       at Object.<anonymous> (src/components/Navbar.tsx:6:1)
       at Object.<anonymous> (src/App.tsx:4:1)
@@ -757,13 +757,13 @@ FAIL src/components/UserSelect.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |    7.53 |     3.42 |     2.8 |     7.8 |                   
+All files              |    7.58 |     3.22 |    2.89 |    7.83 |                   
  src                   |       0 |      100 |       0 |       0 |                   
   App.tsx              |       0 |      100 |       0 |       0 | 16                
   interfaces.ts        |       0 |        0 |       0 |       0 |                   
  src/assets            |       0 |      100 |     100 |       0 |                   
   instances.tsx        |       0 |      100 |     100 |       0 | 36-471            
- src/components        |    8.35 |      3.5 |    2.95 |    8.65 |                   
+ src/components        |     8.4 |     3.29 |    3.04 |    8.69 |                   
   AddItem.tsx          |   34.48 |      100 |      10 |   34.48 | 21-42,56-133      
   AdminList.tsx        |       0 |        0 |       0 |       0 | 18-118            
   DisplayItem.tsx      |       0 |        0 |       0 |       0 | 47-182            
@@ -773,7 +773,7 @@ All files              |    7.53 |     3.42 |     2.8 |     7.8 |
   Navbar.tsx           |       0 |        0 |       0 |       0 | 10-32             
   RoleSelect.tsx       |       0 |        0 |       0 |       0 | 6-36              
   SortItems.tsx        |       0 |        0 |       0 |       0 | 44-166            
-  UserList.tsx         |       0 |        0 |       0 |       0 | 20-602            
+  UserList.tsx         |       0 |        0 |       0 |       0 | 21-615            
   UserSelect.tsx       |       0 |        0 |       0 |       0 | 46-364            
  src/hooks             |       0 |        0 |       0 |       0 |                   
   useSessionStorage.ts |       0 |        0 |       0 |       0 | 4-19              
@@ -790,5 +790,5 @@ All files              |    7.53 |     3.42 |     2.8 |     7.8 |
 Test Suites: 12 failed, 12 total
 Tests:       4 failed, 3 passed, 7 total
 Snapshots:   0 total
-Time:        7.334 s
+Time:        9.235 s
 Ran all test suites.
