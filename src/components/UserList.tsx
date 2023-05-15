@@ -505,7 +505,6 @@ export function DisplayUserList({
                                             </>
                                         )}
                                     </form>
-                                    {showEditForm(anItem)}
                                     <form
                                         onSubmit={(e) => {
                                             e.preventDefault();
@@ -518,7 +517,6 @@ export function DisplayUserList({
                                     >
                                         {/* Form content here */}
                                     </form>
-                                    {showEditForm(anItem)}
                                     {showEditForm(anItem)}
                                 </div>
                             );
