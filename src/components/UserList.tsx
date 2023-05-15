@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-parens */
 import React, { useEffect, useState } from "react";
 import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
@@ -33,6 +34,7 @@ export function DisplayUserList({
     const [newPrice, setNewPrice] = useState(0);
     const [sortBy, setSortBy] = useState("price");
     const [sortBy2, setSortBy2] = useState("boughtWith");
+    const [newBought, setNewBought] = useState("");
 
     useEffect(() => {
         const storageCheckout: Item[] = CurrentCart(selectedUser.id);
@@ -180,6 +182,48 @@ export function DisplayUserList({
         const storageCheckout: Item[] = CurrentCart(selectedUser.id);
         setUserItems(storageCheckout);
     }, [selectedUser]);
+
+    function handleChangeBoughtWith(
+        id: number,
+        boughtWith: string[],
+        newWord: string
+    ) {
+        setUserItems((userItems) => {
+            const itemsToUpdate = userItems.filter((item) => item.id === id);
+            if (itemsToUpdate.length > 0) {
+                const newCart = [...userItems];
+                itemsToUpdate.forEach((itemToUpdate) => {
+                    const indexToUpdate = newCart.findIndex(
+                        (item) => item.id === itemToUpdate.id
+                    );
+                    const updatedItem = {
+                        ...itemToUpdate,
+                        boughtWith: [...boughtWith, newWord]
+                    };
+                    newCart[indexToUpdate] = updatedItem;
+                });
+                sessionStorage.setItem(
+                    `CART_${selectedUser.id}`,
+                    JSON.stringify(newCart)
+                );
+                const newUser = { ...selectedUser, cart: newCart };
+                sessionStorage.setItem(
+                    "CurrentUserID",
+                    JSON.stringify(newUser)
+                );
+                const userIndex = allUsers.findIndex(
+                    (user) => newUser.id === user.id
+                );
+                if (userIndex > -1) {
+                    allUsers.splice(userIndex, 1, newUser);
+                    sessionStorage.setItem("USERS", JSON.stringify(allUsers));
+                }
+                setNewBought("");
+                return newCart;
+            }
+            return userItems;
+        });
+    }
 
     function handleChangeName(id: number, name: string, price: number) {
         setUserItems((userItems) => {
@@ -375,7 +419,7 @@ export function DisplayUserList({
                             value={sortBy}
                             onChange={handleSortChange}
                         >
-                            <option defaultValue="default">
+                            <option value="default">
                                 ---Sort or Filter Items in Cart---
                             </option>
                             <option value="price">Price (high to low)</option>
@@ -386,32 +430,34 @@ export function DisplayUserList({
                         </select>
                     </div>
                     <div>
-                        <Button
-                            className="remove-button"
-                            onClick={handleRemoveAllItems}
-                        >
-                            Empty Cart{" "}
-                            <FontAwesomeIcon
-                                className="fas fa-trash-alt"
-                                icon={faTrashAlt}
-                                size="sm"
-                                style={{ color: "#6d4206" }}
-                            />
-                        </Button>
+                        {sortBy !== "boughtWith" && (
+                            <Button
+                                className="remove-button"
+                                onClick={handleRemoveAllItems}
+                            >
+                                Empty Cart{" "}
+                                <FontAwesomeIcon
+                                    className="fas fa-trash-alt"
+                                    icon={faTrashAlt}
+                                    size="sm"
+                                    style={{ color: "#6d4206" }}
+                                />
+                            </Button>
+                        )}
                     </div>
-                    <Row s={1} md={2}>
+                    <Row sm={1} md={2}>
                         {userItems.map((anItem) => {
                             return (
-                                <>
-                                    <div key={anItem.id}>
-                                        <ItemView
-                                            anItem={anItem}
-                                            items={items}
-                                            setItems={setItems}
-                                        ></ItemView>
+                                <div key={anItem.id}>
+                                    <ItemView
+                                        anItem={anItem}
+                                        items={items}
+                                        setItems={setItems}
+                                    />
+                                    {sortBy !== "boughtWith" && (
                                         <div className="button-container">
                                             {showEditButton()}
-                                            <br></br>
+                                            <br />
                                             <Button
                                                 className="trash-can"
                                                 onClick={() =>
@@ -426,19 +472,46 @@ export function DisplayUserList({
                                                 />
                                             </Button>
                                         </div>
-                                        {showEditForm(anItem)}
-                                        <form
-                                            onSubmit={(e) => {
-                                                e.preventDefault();
-                                                handleChangeName(
-                                                    anItem.id,
-                                                    newName,
-                                                    newPrice
-                                                );
-                                            }}
-                                        ></form>
-                                    </div>
-                                </>
+                                    )}
+                                    <form
+                                        onSubmit={(e) => {
+                                            e.preventDefault();
+                                            handleChangeBoughtWith(
+                                                anItem.id,
+                                                [],
+                                                newBought
+                                            );
+                                        }}
+                                    >
+                                        <label htmlFor="newBoughtInput">
+                                            Change frequently bought with:
+                                        </label>
+                                        <input
+                                            id="newBoughtInput"
+                                            type="text"
+                                            value={newBought}
+                                            onChange={(e) =>
+                                                setNewBought(e.target.value)
+                                            }
+                                        />
+                                        <button type="submit">Add</button>
+                                    </form>
+                                    {showEditForm(anItem)}
+                                    <form
+                                        onSubmit={(e) => {
+                                            e.preventDefault();
+                                            handleChangeName(
+                                                anItem.id,
+                                                newName,
+                                                newPrice
+                                            );
+                                        }}
+                                    >
+                                        {/* Form content here */}
+                                    </form>
+                                    {showEditForm(anItem)}
+                                    {showEditForm(anItem)}
+                                </div>
                             );
                         })}
                     </Row>
