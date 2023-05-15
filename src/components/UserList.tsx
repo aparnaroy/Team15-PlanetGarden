@@ -428,6 +428,9 @@ export function DisplayUserList({
                                 Frequently Bought with Flowers
                             </option>
                         </select>
+                        <button onClick={() => location.reload()}>
+                            Remove Unwanted Duplicates
+                        </button>
                     </div>
                     <div>
                         {sortBy !== "boughtWith" && (
