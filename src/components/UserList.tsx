@@ -483,18 +483,27 @@ export function DisplayUserList({
                                             );
                                         }}
                                     >
-                                        <label htmlFor="newBoughtInput">
-                                            Change frequently bought with:
-                                        </label>
-                                        <input
-                                            id="newBoughtInput"
-                                            type="text"
-                                            value={newBought}
-                                            onChange={(e) =>
-                                                setNewBought(e.target.value)
-                                            }
-                                        />
-                                        <button type="submit">Add</button>
+                                        {sortBy !== "boughtWith" && (
+                                            <>
+                                                <label htmlFor="newBoughtInput">
+                                                    Change frequently bought
+                                                    with:
+                                                </label>
+                                                <input
+                                                    id="newBoughtInput"
+                                                    type="text"
+                                                    value={newBought}
+                                                    onChange={(e) =>
+                                                        setNewBought(
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                />
+                                                <button type="submit">
+                                                    Add
+                                                </button>
+                                            </>
+                                        )}
                                     </form>
                                     {showEditForm(anItem)}
                                     <form
