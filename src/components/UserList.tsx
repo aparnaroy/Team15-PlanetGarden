@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable no-extra-parens */
 import React, { useEffect, useState } from "react";
 import { ItemView } from "./ItemView";
@@ -32,7 +33,7 @@ export function DisplayUserList({
     );
     const [newName, setNewName] = useState("");
     const [newPrice, setNewPrice] = useState(0);
-    const [sortBy, setSortBy] = useState("price");
+    const [sortBy, setSortBy] = useState("edit");
     const [sortBy2, setSortBy2] = useState("boughtWith");
     const [newBought, setNewBought] = useState("");
 
@@ -189,73 +190,71 @@ export function DisplayUserList({
         newWord: string
     ) {
         setUserItems((userItems) => {
-            const itemsToUpdate = userItems.filter((item) => item.id === id);
-            if (itemsToUpdate.length > 0) {
-                const newCart = [...userItems];
-                itemsToUpdate.forEach((itemToUpdate) => {
-                    const indexToUpdate = newCart.findIndex(
-                        (item) => item.id === itemToUpdate.id
-                    );
+            const updatedCart = [...userItems];
+            let updated = false;
+
+            for (let i = 0; i < updatedCart.length; i++) {
+                const item = updatedCart[i];
+                if (item.id === id && !updated) {
+                    updated = true;
                     const updatedItem = {
-                        ...itemToUpdate,
+                        ...item,
                         boughtWith: [...boughtWith, newWord]
                     };
-                    newCart[indexToUpdate] = updatedItem;
-                });
-                sessionStorage.setItem(
-                    `CART_${selectedUser.id}`,
-                    JSON.stringify(newCart)
-                );
-                const newUser = { ...selectedUser, cart: newCart };
-                sessionStorage.setItem(
-                    "CurrentUserID",
-                    JSON.stringify(newUser)
-                );
-                const userIndex = allUsers.findIndex(
-                    (user) => newUser.id === user.id
-                );
-                if (userIndex > -1) {
-                    allUsers.splice(userIndex, 1, newUser);
-                    sessionStorage.setItem("USERS", JSON.stringify(allUsers));
+                    updatedCart[i] = updatedItem;
                 }
-                setNewBought("");
-                return newCart;
             }
-            return userItems;
+
+            sessionStorage.setItem(
+                `CART_${selectedUser.id}`,
+                JSON.stringify(updatedCart)
+            );
+
+            const newUser = { ...selectedUser, cart: updatedCart };
+            sessionStorage.setItem("CurrentUserID", JSON.stringify(newUser));
+
+            const userIndex = allUsers.findIndex(
+                (user) => newUser.id === user.id
+            );
+            if (userIndex > -1) {
+                const updatedUsers = [...allUsers];
+                updatedUsers[userIndex] = newUser;
+                sessionStorage.setItem("USERS", JSON.stringify(updatedUsers));
+            }
+
+            return updatedCart;
         });
     }
-
     function handleChangeName(id: number, name: string, price: number) {
         setUserItems((userItems) => {
-            const itemsToUpdate = userItems.filter((item) => item.id === id);
-            if (itemsToUpdate.length > 0) {
-                const newCart = [...userItems];
-                itemsToUpdate.forEach((itemToUpdate) => {
-                    const indexToUpdate = newCart.findIndex(
-                        (item) => item.id === itemToUpdate.id
-                    );
-                    const updatedItem = { ...itemToUpdate, name, price };
-                    newCart[indexToUpdate] = updatedItem;
-                });
-                sessionStorage.setItem(
-                    `CART_${selectedUser.id}`,
-                    JSON.stringify(newCart)
-                );
-                const newUser = { ...selectedUser, cart: newCart };
-                sessionStorage.setItem(
-                    "CurrentUserID",
-                    JSON.stringify(newUser)
-                );
-                const userIndex = allUsers.findIndex(
-                    (user) => newUser.id === user.id
-                );
-                if (userIndex > -1) {
-                    allUsers.splice(userIndex, 1, newUser);
-                    sessionStorage.setItem("USERS", JSON.stringify(allUsers));
+            let updated = false;
+
+            const updatedCart = userItems.map((item) => {
+                if (!updated && item.id === id) {
+                    updated = true;
+                    return { ...item, name, price };
                 }
-                return newCart;
+                return item;
+            });
+
+            sessionStorage.setItem(
+                `CART_${selectedUser.id}`,
+                JSON.stringify(updatedCart)
+            );
+
+            const newUser = { ...selectedUser, cart: updatedCart };
+            sessionStorage.setItem("CurrentUserID", JSON.stringify(newUser));
+
+            const userIndex = allUsers.findIndex(
+                (user) => newUser.id === user.id
+            );
+            if (userIndex > -1) {
+                const updatedUsers = [...allUsers];
+                updatedUsers[userIndex] = newUser;
+                sessionStorage.setItem("USERS", JSON.stringify(updatedUsers));
             }
-            return userItems;
+
+            return updatedCart;
         });
     }
 
@@ -419,21 +418,21 @@ export function DisplayUserList({
                             value={sortBy}
                             onChange={handleSortChange}
                         >
+                            <option value="edit">Edit Items In Cart</option>
                             <option value="default">
-                                ---Sort or Filter Items in Cart---
+                                --Select to Edit, Sort, or Filter--
                             </option>
-                            <option value="price">Price (high to low)</option>
-                            <option value="name">Name (A-Z)</option>
+                            <option value="price">
+                                Sort By Price (High To Low)
+                            </option>
+                            <option value="name">Sort By Name (A-Z)</option>
                             <option value="boughtWith">
-                                Frequently Bought with Flowers
+                                Filter Frequently Bought with Flowers
                             </option>
                         </select>
-                        <button onClick={() => location.reload()}>
-                            Remove Unwanted Duplicates
-                        </button>
                     </div>
                     <div>
-                        {sortBy !== "boughtWith" && (
+                        {sortBy !== "boughtWith" && sortBy === "edit" && (
                             <Button
                                 className="remove-button"
                                 onClick={handleRemoveAllItems}
@@ -457,25 +456,33 @@ export function DisplayUserList({
                                         items={items}
                                         setItems={setItems}
                                     />
-                                    {sortBy !== "boughtWith" && (
-                                        <div className="button-container">
-                                            {showEditButton()}
-                                            <br />
-                                            <Button
-                                                className="trash-can"
-                                                onClick={() =>
-                                                    handleRemoveItem(anItem.id)
-                                                }
-                                            >
-                                                <FontAwesomeIcon
-                                                    className="fas fa-trash-alt"
-                                                    icon={faTrashAlt}
-                                                    size="1x"
-                                                    style={{ color: "#6d4206" }}
-                                                />
-                                            </Button>
-                                        </div>
-                                    )}
+                                    {sortBy !== "boughtWith" &&
+                                        sortBy !== "price" &&
+                                        sortBy !== "name" &&
+                                        sortBy != "default" && (
+                                            <div className="button-container">
+                                                {showEditButton()}
+                                                <br />
+                                                <Button
+                                                    className="trash-can"
+                                                    onClick={() => {
+                                                        handleRemoveItem(
+                                                            anItem.id
+                                                        );
+                                                        location.reload(); // Refresh the page
+                                                    }}
+                                                >
+                                                    <FontAwesomeIcon
+                                                        className="fas fa-trash-alt"
+                                                        icon={faTrashAlt}
+                                                        size="1x"
+                                                        style={{
+                                                            color: "#6d4206"
+                                                        }}
+                                                    />
+                                                </Button>
+                                            </div>
+                                        )}
                                     <form
                                         onSubmit={(e) => {
                                             e.preventDefault();
@@ -486,27 +493,30 @@ export function DisplayUserList({
                                             );
                                         }}
                                     >
-                                        {sortBy !== "boughtWith" && (
-                                            <>
-                                                <label htmlFor="newBoughtInput">
-                                                    Change frequently bought
-                                                    with:
-                                                </label>
-                                                <input
-                                                    id="newBoughtInput"
-                                                    type="text"
-                                                    value={newBought}
-                                                    onChange={(e) =>
-                                                        setNewBought(
-                                                            e.target.value
-                                                        )
-                                                    }
-                                                />
-                                                <button type="submit">
-                                                    Add
-                                                </button>
-                                            </>
-                                        )}
+                                        {sortBy !== "boughtWith" &&
+                                            sortBy !== "price" &&
+                                            sortBy !== "name" &&
+                                            sortBy !== "default" && (
+                                                <>
+                                                    <label htmlFor="newBoughtInput">
+                                                        Change Frequently Bought
+                                                        with:
+                                                    </label>
+                                                    <input
+                                                        id="newBoughtInput"
+                                                        type="text"
+                                                        value={newBought}
+                                                        onChange={(e) =>
+                                                            setNewBought(
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                    />
+                                                    <button type="submit">
+                                                        Add
+                                                    </button>
+                                                </>
+                                            )}
                                     </form>
                                     <form
                                         onSubmit={(e) => {
