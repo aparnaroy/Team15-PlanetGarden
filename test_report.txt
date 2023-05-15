@@ -757,13 +757,13 @@ FAIL src/components/UserSelect.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |    7.53 |     3.46 |     2.8 |     7.8 |                   
+All files              |    7.53 |     3.42 |     2.8 |     7.8 |                   
  src                   |       0 |      100 |       0 |       0 |                   
   App.tsx              |       0 |      100 |       0 |       0 | 16                
   interfaces.ts        |       0 |        0 |       0 |       0 |                   
  src/assets            |       0 |      100 |     100 |       0 |                   
   instances.tsx        |       0 |      100 |     100 |       0 | 36-471            
- src/components        |    8.35 |     3.55 |    2.95 |    8.65 |                   
+ src/components        |    8.35 |      3.5 |    2.95 |    8.65 |                   
   AddItem.tsx          |   34.48 |      100 |      10 |   34.48 | 21-42,56-133      
   AdminList.tsx        |       0 |        0 |       0 |       0 | 18-118            
   DisplayItem.tsx      |       0 |        0 |       0 |       0 | 47-182            
@@ -773,7 +773,7 @@ All files              |    7.53 |     3.46 |     2.8 |     7.8 |
   Navbar.tsx           |       0 |        0 |       0 |       0 | 10-32             
   RoleSelect.tsx       |       0 |        0 |       0 |       0 | 6-36              
   SortItems.tsx        |       0 |        0 |       0 |       0 | 44-166            
-  UserList.tsx         |       0 |        0 |       0 |       0 | 20-600            
+  UserList.tsx         |       0 |        0 |       0 |       0 | 20-602            
   UserSelect.tsx       |       0 |        0 |       0 |       0 | 46-364            
  src/hooks             |       0 |        0 |       0 |       0 |                   
   useSessionStorage.ts |       0 |        0 |       0 |       0 | 4-19              
@@ -790,5 +790,5 @@ All files              |    7.53 |     3.46 |     2.8 |     7.8 |
 Test Suites: 12 failed, 12 total
 Tests:       4 failed, 3 passed, 7 total
 Snapshots:   0 total
-Time:        8.075 s
+Time:        7.334 s
 Ran all test suites.
