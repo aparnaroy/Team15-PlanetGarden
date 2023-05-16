@@ -721,7 +721,7 @@ FAIL src/App.test.tsx
       at Object.<anonymous> (src/App.tsx:4:1)
       at Object.<anonymous> (src/App.test.tsx:3:1)
 
-FAIL src/components/UserList.test.tsx
+FAIL src/components/SortItems.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -732,7 +732,7 @@ FAIL src/components/UserList.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
-FAIL src/components/SortItems.test.tsx
+FAIL src/components/UserList.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -790,5 +790,5 @@ All files              |    7.53 |     3.19 |    2.87 |    7.78 |
 Test Suites: 12 failed, 12 total
 Tests:       4 failed, 3 passed, 7 total
 Snapshots:   0 total
-Time:        8.283 s
+Time:        7.333 s
 Ran all test suites.
