@@ -757,19 +757,19 @@ FAIL src/components/UserSelect.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |    7.53 |     3.12 |    2.87 |    7.78 |                   
+All files              |    7.42 |     3.06 |    2.84 |    7.67 |                   
  src                   |       0 |      100 |       0 |       0 |                   
   App.tsx              |       0 |      100 |       0 |       0 | 16                
   interfaces.ts        |       0 |        0 |       0 |       0 |                   
  src/assets            |       0 |      100 |     100 |       0 |                   
   instances.tsx        |       0 |      100 |     100 |       0 | 36-471            
- src/components        |    8.35 |     3.19 |    3.03 |    8.63 |                   
+ src/components        |     8.2 |     3.12 |    2.99 |     8.5 |                   
   AddItem.tsx          |   34.48 |      100 |      10 |   34.48 | 21-42,56-133      
-  AdminList.tsx        |       0 |        0 |       0 |       0 | 18-118            
+  AdminList.tsx        |       0 |        0 |       0 |       0 | 18-116            
   DisplayItem.tsx      |       0 |        0 |       0 |       0 | 47-182            
   EditItem.tsx         |   74.19 |      100 |      20 |   74.19 | 58-116            
   Expandable.tsx       |      50 |       50 |      50 |      50 | 40-48             
-  ItemView.tsx         |       0 |        0 |       0 |       0 | 26-175            
+  ItemView.tsx         |       0 |        0 |       0 |       0 | 26-191            
   Navbar.tsx           |       0 |        0 |       0 |       0 | 10-32             
   RoleSelect.tsx       |       0 |        0 |       0 |       0 | 6-36              
   SortItems.tsx        |       0 |        0 |       0 |       0 | 44-166            
@@ -790,5 +790,5 @@ All files              |    7.53 |     3.12 |    2.87 |    7.78 |
 Test Suites: 12 failed, 12 total
 Tests:       4 failed, 3 passed, 7 total
 Snapshots:   0 total
-Time:        9.499 s
+Time:        10.81 s
 Ran all test suites.
