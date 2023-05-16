@@ -416,7 +416,12 @@ export function DisplayUserList({
                         <select
                             className="user-sort-dropdown"
                             value={sortBy}
-                            onChange={handleSortChange}
+                            onChange={(e) => {
+                                handleSortChange(e);
+                                if (e.target.value === "edit") {
+                                    location.reload(); // Refresh the page
+                                }
+                            }}
                         >
                             <option value="edit">Edit Items In Cart</option>
                             <option value="default">
@@ -432,7 +437,7 @@ export function DisplayUserList({
                         </select>
                     </div>
                     <div>
-                        {sortBy !== "boughtWith" && sortBy === "edit" && (
+                        {sortBy !== "boughtWith" && sortBy === "default" && (
                             <Button
                                 className="remove-button"
                                 onClick={handleRemoveAllItems}
