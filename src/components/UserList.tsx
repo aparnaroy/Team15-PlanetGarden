@@ -437,7 +437,7 @@ export function DisplayUserList({
                         </select>
                     </div>
                     <div>
-                        {sortBy !== "boughtWith" && sortBy === "default" && (
+                        {sortBy !== "boughtWith" && sortBy === "edit" && (
                             <Button
                                 className="remove-button"
                                 onClick={handleRemoveAllItems}
