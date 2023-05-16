@@ -1,3 +1,5 @@
+/* eslint-disable indent */
+/* eslint-disable no-extra-parens */
 import React, { useEffect, useState } from "react";
 import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
@@ -31,8 +33,9 @@ export function DisplayUserList({
     );
     const [newName, setNewName] = useState("");
     const [newPrice, setNewPrice] = useState(0);
-    const [sortBy, setSortBy] = useState("");
+    const [sortBy, setSortBy] = useState("edit");
     const [sortBy2, setSortBy2] = useState("boughtWith");
+    const [newBought, setNewBought] = useState("");
 
     useEffect(() => {
         const storageCheckout: Item[] = CurrentCart(selectedUser.id);
@@ -41,16 +44,12 @@ export function DisplayUserList({
         if (sortBy === "price") {
             sortedItems = storageCheckout.sort((a, b) => b.price - a.price);
         } else if (sortBy2 === "boughtWith") {
-            const hasFlowers = storageCheckout.some((item) =>
+            const filteredItems = storageCheckout.filter((item) =>
                 item.boughtWith.includes("Flowers")
             );
-            if (hasFlowers) {
-                sortedItems = storageCheckout.filter((item) =>
-                    item.boughtWith.includes("Flowers")
-                );
-            } else {
-                sortedItems = storageCheckout;
-            }
+            sortedItems = filteredItems.sort((a, b) =>
+                a.name.localeCompare(b.name)
+            );
         } else {
             sortedItems = storageCheckout.sort((a, b) =>
                 a.name.localeCompare(b.name)
@@ -140,37 +139,77 @@ export function DisplayUserList({
         setUserItems(storageCheckout);
     }, [selectedUser]);
 
+    function handleChangeBoughtWith(
+        id: number,
+        boughtWith: string[],
+        newWord: string
+    ) {
+        setUserItems((userItems) => {
+            const updatedCart = [...userItems];
+            let updated = false;
+
+            for (let i = 0; i < updatedCart.length; i++) {
+                const item = updatedCart[i];
+                if (item.id === id && !updated) {
+                    updated = true;
+                    const updatedItem = {
+                        ...item,
+                        boughtWith: [...boughtWith, newWord]
+                    };
+                    updatedCart[i] = updatedItem;
+                }
+            }
+
+            sessionStorage.setItem(
+                `CART_${selectedUser.id}`,
+                JSON.stringify(updatedCart)
+            );
+
+            const newUser = { ...selectedUser, cart: updatedCart };
+            sessionStorage.setItem("CurrentUserID", JSON.stringify(newUser));
+
+            const userIndex = allUsers.findIndex(
+                (user) => newUser.id === user.id
+            );
+            if (userIndex > -1) {
+                const updatedUsers = [...allUsers];
+                updatedUsers[userIndex] = newUser;
+                sessionStorage.setItem("USERS", JSON.stringify(updatedUsers));
+            }
+
+            return updatedCart;
+        });
+    }
     function handleChangeName(id: number, name: string, price: number) {
         setUserItems((userItems) => {
-            const itemsToUpdate = userItems.filter((item) => item.id === id);
-            if (itemsToUpdate.length > 0) {
-                const newCart = [...userItems];
-                itemsToUpdate.forEach((itemToUpdate) => {
-                    const indexToUpdate = newCart.findIndex(
-                        (item) => item.id === itemToUpdate.id
-                    );
-                    const updatedItem = { ...itemToUpdate, name, price };
-                    newCart[indexToUpdate] = updatedItem;
-                });
-                sessionStorage.setItem(
-                    `CART_${selectedUser.id}`,
-                    JSON.stringify(newCart)
-                );
-                const newUser = { ...selectedUser, cart: newCart };
-                sessionStorage.setItem(
-                    "CurrentUserID",
-                    JSON.stringify(newUser)
-                );
-                const userIndex = allUsers.findIndex(
-                    (user) => newUser.id === user.id
-                );
-                if (userIndex > -1) {
-                    allUsers.splice(userIndex, 1, newUser);
-                    sessionStorage.setItem("USERS", JSON.stringify(allUsers));
+            let updated = false;
+
+            const updatedCart = userItems.map((item) => {
+                if (!updated && item.id === id) {
+                    updated = true;
+                    return { ...item, name, price };
                 }
-                return newCart;
+                return item;
+            });
+
+            sessionStorage.setItem(
+                `CART_${selectedUser.id}`,
+                JSON.stringify(updatedCart)
+            );
+
+            const newUser = { ...selectedUser, cart: updatedCart };
+            sessionStorage.setItem("CurrentUserID", JSON.stringify(newUser));
+
+            const userIndex = allUsers.findIndex(
+                (user) => newUser.id === user.id
+            );
+            if (userIndex > -1) {
+                const updatedUsers = [...allUsers];
+                updatedUsers[userIndex] = newUser;
+                sessionStorage.setItem("USERS", JSON.stringify(updatedUsers));
             }
-            return userItems;
+
+            return updatedCart;
         });
     }
 
@@ -297,72 +336,132 @@ export function DisplayUserList({
                         <select
                             className="user-sort-dropdown"
                             value={sortBy}
-                            onChange={handleSortChange}
+                            onChange={(e) => {
+                                handleSortChange(e);
+                                if (e.target.value === "edit") {
+                                    location.reload(); // Refresh the page
+                                }
+                            }}
                         >
-                            <option defaultValue="default">
-                                ---Sort or Filter Items in Cart---
+                            <option value="edit">Edit Items In Cart</option>
+                            <option value="default">
+                                --Select to Edit, Sort, or Filter--
                             </option>
-                            <option value="price">Price (high to low)</option>
-                            <option value="name">Name (A-Z)</option>
+                            <option value="price">
+                                Sort By Price (High To Low)
+                            </option>
+                            <option value="name">Sort By Name (A-Z)</option>
                             <option value="boughtWith">
-                                Frequently Bought with Flowers
+                                Filter Frequently Bought with Flowers
                             </option>
                         </select>
                     </div>
                     <div>
-                        <Button
-                            className="remove-button"
-                            onClick={handleRemoveAllItems}
-                        >
-                            Empty Cart{" "}
-                            <FontAwesomeIcon
-                                className="fas fa-trash-alt"
-                                icon={faTrashAlt}
-                                size="sm"
-                                style={{ color: "#6d4206" }}
-                            />
-                        </Button>
+                        {sortBy !== "boughtWith" && sortBy === "edit" && (
+                            <Button
+                                className="remove-button"
+                                onClick={handleRemoveAllItems}
+                            >
+                                Empty Cart{" "}
+                                <FontAwesomeIcon
+                                    className="fas fa-trash-alt"
+                                    icon={faTrashAlt}
+                                    size="sm"
+                                    style={{ color: "#6d4206" }}
+                                />
+                            </Button>
+                        )}
                     </div>
-                    <Row s={1} md={2}>
+                    <Row sm={1} md={2}>
                         {userItems.map((anItem) => {
                             return (
-                                <>
-                                    <div key={anItem.id}>
-                                        <ItemView
-                                            anItem={anItem}
-                                            items={items}
-                                            setItems={setItems}
-                                        ></ItemView>
-                                        <div className="button-container">
-                                            {showEditButton()}
-                                            <br></br>
-                                            <Button
-                                                className="trash-can"
-                                                onClick={() =>
-                                                    handleRemoveItem(anItem.id)
-                                                }
-                                            >
-                                                <FontAwesomeIcon
-                                                    className="fas fa-trash-alt"
-                                                    icon={faTrashAlt}
-                                                    size="1x"
-                                                    style={{ color: "#6d4206" }}
-                                                />
-                                            </Button>
-                                        </div>
-                                        {showEditForm(anItem)}
-                                        <form
-                                            onSubmit={(e) => {
-                                                e.preventDefault();
-                                                handleChangeName(
-                                                    anItem.id,
-                                                    newName,
-                                                    newPrice
-                                                );
-                                            }}
-                                        ></form>
-                                    </div>
-                                </>
+                                <div key={anItem.id}>
+                                    <ItemView
+                                        anItem={anItem}
+                                        items={items}
+                                        setItems={setItems}
+                                    />
+                                    {sortBy !== "boughtWith" &&
+                                        sortBy !== "price" &&
+                                        sortBy !== "name" &&
+                                        sortBy !== "default" && (
+                                            <div className="button-container">
+                                                {showEditButton()}
+                                                <br />
+                                                <Button
+                                                    className="trash-can"
+                                                    onClick={() => {
+                                                        handleRemoveItem(
+                                                            anItem.id
+                                                        );
+                                                        location.reload(); // Refresh the page
+                                                    }}
+                                                >
+                                                    <FontAwesomeIcon
+                                                        className="fas fa-trash-alt"
+                                                        icon={faTrashAlt}
+                                                        size="1x"
+                                                        style={{
+                                                            color: "#6d4206"
+                                                        }}
+                                                    />
+                                                </Button>
+                                            </div>
+                                        )}
+                                    <form
+                                        onSubmit={(e) => {
+                                            e.preventDefault();
+                                            handleChangeBoughtWith(
+                                                anItem.id,
+                                                [],
+                                                newBought
+                                            );
+                                        }}
+                                    >
+                                        {sortBy !== "boughtWith" &&
+                                            sortBy !== "price" &&
+                                            sortBy !== "name" &&
+                                            sortBy !== "default" && (
+                                                <>
+                                                    <label htmlFor="newBoughtInput">
+                                                        Change Frequently Bought
+                                                        with:
+                                                    </label>
+                                                    <input
+                                                        id="newBoughtInput"
+                                                        type="text"
+                                                        value={newBought}
+                                                        onChange={(e) =>
+                                                            setNewBought(
+                                                                e.target.value
+                                                            )
+                                                        }
+                                                    />
+                                                    <button type="submit">
+                                                        Add
+                                                    </button>
+                                                </>
+                                            )}
+                                    </form>
+                                    <form
+                                        onSubmit={(e) => {
+                                            e.preventDefault();
+                                            handleChangeName(
+                                                anItem.id,
+                                                newName,
+                                                newPrice
+                                            );
+                                        }}
+                                    >
+                                        {/* Form content here */}
+                                    </form>
+                                    {sortBy !== "boughtWith" &&
+                                    sortBy !== "price" &&
+                                    sortBy !== "name" &&
+                                    sortBy !== "default"
+                                        ? showEditForm(anItem)
+                                        : null}
+                                </div>
                             );
                         })}
                     </Row>

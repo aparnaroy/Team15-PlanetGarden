@@ -42,10 +42,8 @@ export function DisplayAdminList({
         }
     }
 
-    function handleRemoveItem(anItem: Item) {
-        const adminListItems = adminItems.filter(
-            (item) => item.id !== anItem.id
-        );
+    function handleRemoveItem(id: number) {
+        const adminListItems = adminItems.filter((item) => item.id !== id);
         setAdminItems(adminListItems);
         setInAdminList(!inAdminList);
         adminItemsSet = new Set(adminListItems.map((item) => item.id));
@@ -58,7 +56,7 @@ export function DisplayAdminList({
                 (item: Item): Item => (item.name === name ? editedItem : item)
             )
         );
-        handleRemoveItem(editedItem);
+        handleRemoveItem(editedItem.id);
     }
 
     function displayAdminList() {
@@ -92,7 +90,7 @@ export function DisplayAdminList({
                                         <Button
                                             className="remove-item-admin"
                                             onClick={() =>
-                                                handleRemoveItem(anItem)
+                                                handleRemoveItem(anItem.id)
                                             }
                                         >
                                             Remove Item
