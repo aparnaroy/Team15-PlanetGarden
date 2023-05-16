@@ -1,7 +1,7 @@
 import React from "react";
 import { Item } from "../interfaces/Item";
 import { useDrop } from "react-dnd";
-import { Row } from "react-bootstrap";
+import { Button, Row } from "react-bootstrap";
 import "../App.css";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { EditItem } from "./EditItem";
@@ -87,13 +87,14 @@ export function DisplayAdminList({
                                             onSave={editItem}
                                         ></EditItem>
 
-                                        <button
+                                        <Button
+                                            className="remove-item-admin"
                                             onClick={() =>
                                                 handleRemoveItem(anItem.id)
                                             }
                                         >
                                             Remove Item
-                                        </button>
+                                        </Button>
                                         <br></br>
                                         <br></br>
                                     </div>
@@ -107,4 +108,10 @@ export function DisplayAdminList({
     }
 
     return <div>{displayAdminList()}</div>;
+}
+
+export function deleteFromAdminList(itemID: number, adminItems: Item[]) {
+    const updatedAdminItems = adminItems.filter((i) => i.id !== itemID);
+
+    sessionStorage.setItem("adminItems", JSON.stringify(updatedAdminItems));
 }
