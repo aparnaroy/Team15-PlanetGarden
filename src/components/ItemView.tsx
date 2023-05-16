@@ -118,6 +118,20 @@ export function ItemView({
         }
     }
 
+    function chooseBackgroundColor(anItem: Item) {
+        const adminItemsString = sessionStorage.getItem("adminItems");
+        if (adminItemsString !== null) {
+            const allAdminItems = JSON.parse(adminItemsString);
+            const inList = allAdminItems.find(
+                (item: Item) => item.id === anItem.id
+            );
+            if (inList) {
+                return "#D3D3D3";
+            }
+        }
+        return "white";
+    }
+
     return (
         <Col key={anItem.id}>
             <br></br>
@@ -127,7 +141,9 @@ export function ItemView({
                     src={anItem.image}
                     style={{ objectFit: "cover" }}
                 />
-                <Card.Body>
+                <Card.Body
+                    style={{ backgroundColor: chooseBackgroundColor(anItem) }}
+                >
                     <Card.Title className="d-flex justify-content-between align-items-baseline">
                         <span className="fs-4">{anItem.name}</span>
                         <span className="ms-2 text-muted">${anItem.price}</span>
