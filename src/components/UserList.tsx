@@ -464,7 +464,7 @@ export function DisplayUserList({
                                     {sortBy !== "boughtWith" &&
                                         sortBy !== "price" &&
                                         sortBy !== "name" &&
-                                        sortBy != "default" && (
+                                        sortBy !== "default" && (
                                             <div className="button-container">
                                                 {showEditButton()}
                                                 <br />
@@ -535,7 +535,10 @@ export function DisplayUserList({
                                     >
                                         {/* Form content here */}
                                     </form>
-                                    {sortBy !== "boughtWith"
+                                    {sortBy !== "boughtWith" &&
+                                    sortBy !== "price" &&
+                                    sortBy !== "name" &&
+                                    sortBy !== "default"
                                         ? showEditForm(anItem)
                                         : null}
                                 </div>
