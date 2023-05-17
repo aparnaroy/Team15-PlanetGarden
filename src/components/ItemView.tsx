@@ -6,7 +6,7 @@ import { useDrag } from "react-dnd";
 import { ExpandableSection } from "./Expandable";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
-import { deleteFromAllUserCarts } from "./UserList";
+import { deleteFromAllUserCarts } from "./UserListOLD";
 import { deleteFromAdminList } from "./AdminList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
