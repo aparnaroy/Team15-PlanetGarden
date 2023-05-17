@@ -301,7 +301,7 @@ export function DisplayUserList({
                     ...userItems.map((anItem: Item) => ({
                         ...anItem
                     })),
-                    { ...addedItem, appearsInCart: addedItem.appearsInCart + 1 } // Increment appearsInCart attribute
+                    { ...addedItem }
                 ];
                 //CALL incrementAppearsInCart
                 sessionStorage.setItem(
@@ -622,4 +622,25 @@ export function deleteFromAllUserCarts(itemID: number, allUsers: User[]) {
     });
 
     sessionStorage.setItem("USERS", JSON.stringify(updatedUsers));
+}
+
+export function calculateTotalOccurrences() {
+    const x = sessionStorage.getItem("USERS");
+    if (x) {
+        const allUsers = JSON.parse(x);
+        const itemCounts = new Map();
+        allUsers.forEach((user: User) => {
+            const cart = user.cart;
+            cart.forEach((item: Item) => {
+                const itemId = item.id;
+                if (itemCounts.has(itemId)) {
+                    itemCounts.set(itemId, itemCounts.get(itemId) + 1); // Increment occurrence count
+                } else {
+                    itemCounts.set(itemId, 1); // Initialize occurrence count
+                }
+            });
+        });
+        return itemCounts;
+    }
+    return new Map<string, number>(); // Return an empty map if no users are found
 }
