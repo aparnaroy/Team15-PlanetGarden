@@ -183,7 +183,7 @@ export function SortDropDown(): JSX.Element {
                 <option>Flowers</option>
                 <option>Greenery</option>
                 <option>Structures</option>
-                <option>By keyword</option>
+                <option>By Keyword</option>
             </Form.Select>
             <br></br>
             {option === "By keyword" ? searchBar() : null}
