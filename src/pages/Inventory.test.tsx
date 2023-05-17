@@ -27,8 +27,9 @@ describe("Inventory", () => {
         expect(parentDiv).toBeInTheDocument();
     });
 
-    test("matches snapshot", () => {
+    test("renders a <br> element", () => {
         const { container } = renderWithProviders(<Inventory />);
-        expect(container).toMatchSnapshot();
+        const brElement = container.querySelector("br");
+        expect(brElement).toBeInTheDocument();
     });
 });

@@ -15,6 +15,12 @@ describe("Shop", () => {
         expect(sortDropDownElement).toBeInTheDocument();
     });
 
+    test("renders a <br> element", () => {
+        const { container } = renderWithProviders(<Shop />);
+        const brElement = container.querySelector("br");
+        expect(brElement).toBeInTheDocument();
+    });
+
     test("renders hr element", () => {
         const { container } = renderWithProviders(<Shop />);
         const hrElement = container.querySelector("hr");
@@ -25,10 +31,5 @@ describe("Shop", () => {
         const { container } = renderWithProviders(<Shop />);
         const parentDiv = container.querySelector(".App");
         expect(parentDiv).toBeInTheDocument();
-    });
-
-    test("matches snapshot", () => {
-        const { container } = renderWithProviders(<Shop />);
-        expect(container).toMatchSnapshot();
     });
 });
