@@ -160,6 +160,16 @@ export function ItemView({
         return "white";
     }
 
+    function showAppearsInCart(anItem: Item) {
+        if (sessionStorage.getItem("Role") === "Super") {
+            return (
+                <div style={{ backgroundColor: "LightBlue" }}>
+                    Added to cart {anItem.appearsInCart} times.
+                </div>
+            );
+        }
+    }
+
     return (
         <Col key={anItem.id}>
             <br></br>
@@ -195,6 +205,8 @@ export function ItemView({
                             );
                         })}
                     </span>
+                    <br></br>
+                    {showAppearsInCart(anItem)}
                     <Card.Footer>
                         <ExpandableSection>
                             <br></br>
