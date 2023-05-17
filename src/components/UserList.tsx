@@ -1,5 +1,3 @@
-/* eslint-disable indent */
-/* eslint-disable no-extra-parens */
 import React, { useEffect, useState } from "react";
 import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
@@ -33,91 +31,7 @@ export function DisplayUserList({
     );
     const [newName, setNewName] = useState("");
     const [newPrice, setNewPrice] = useState(0);
-    const [sortBy, setSortBy] = useState("edit");
-    const [sortBy2, setSortBy2] = useState("boughtWith");
     const [newBought, setNewBought] = useState("");
-
-    useEffect(() => {
-        const storageCheckout: Item[] = CurrentCart(selectedUser.id);
-        let sortedItems: Item[] = [];
-
-        if (sortBy === "price") {
-            sortedItems = storageCheckout.sort((a, b) => b.price - a.price);
-        } else if (sortBy2 === "boughtWith") {
-            const filteredItems = storageCheckout.filter((item) =>
-                item.boughtWith.includes("Flowers")
-            );
-            sortedItems = filteredItems.sort((a, b) =>
-                a.name.localeCompare(b.name)
-            );
-        } else {
-            sortedItems = storageCheckout.sort((a, b) =>
-                a.name.localeCompare(b.name)
-            );
-        }
-
-        setUserItems(sortedItems);
-    }, [selectedUser, sortBy, sortBy2]);
-
-    // useEffect(() => {
-    //     const storageCheckout: Item[] = CurrentCart(selectedUser.id);
-    //     let sortedItems: Item[] = [];
-
-    //     if (sortBy2 === "boughtWith") {
-    //         sortedItems = storageCheckout.sort((a, b) => {
-    //             const aHasFlowers = a.boughtWith.includes("Flowers");
-    //             const bHasFlowers = b.boughtWith.includes("Flowers");
-
-    //             if (aHasFlowers && !bHasFlowers) {
-    //                 return -1;
-    //             } else if (!aHasFlowers && bHasFlowers) {
-    //                 return 1;
-    //             } else {
-    //                 return 0;
-    //             }
-    //         });
-    //     } else {
-    //         sortedItems = storageCheckout.sort((a, b) =>
-    //             a.name.localeCompare(b.name)
-    //         );
-    //     }
-
-    //     setUserItems(sortedItems);
-    // }, [selectedUser, sortBy]);
-
-    const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const value = event.target.value;
-        const value2 = event.target.value;
-        setSortBy(value);
-        setSortBy2(value2);
-        const storageCheckout: Item[] = CurrentCart(selectedUser.id);
-        let sortedItems: Item[] = [];
-        if (value === "Grass") {
-            sortedItems = storageCheckout.sort((a, b) => {
-                const nameA = a.name;
-                const nameB = b.name;
-                if (
-                    nameA.includes("Grass") ||
-                    (nameA.includes("grass") && !nameB.includes("Grass")) ||
-                    !nameB.includes("grass")
-                ) {
-                    return -1;
-                }
-                if (
-                    nameB.includes("Grass") ||
-                    (nameB.includes("grass") && !nameA.includes("Grass"))
-                ) {
-                    return 1;
-                }
-                return 0;
-            });
-        } else {
-            sortedItems = storageCheckout.sort((a, b) =>
-                a.name.localeCompare(b.name)
-            );
-        }
-        setUserItems(sortedItems);
-    };
 
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
         { id: 1, name: "Sam", cart: [] },
@@ -126,6 +40,8 @@ export function DisplayUserList({
         { id: 4, name: "Bob", cart: [] }
     ]);
     setAllUsers;
+
+    const [filter, setFilter] = useState(""); // State variable for filter selection
 
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "item",
@@ -151,7 +67,7 @@ export function DisplayUserList({
 
     function handleRemoveItem(id: number) {
         setUserItems((userItems) => {
-            const index = userItems.findIndex((item) => item.id === id);
+            const index = userItems.findIndex((item) => item.cartId === id);
             if (index > -1) {
                 const newCart = [...userItems];
                 newCart.splice(index, 1);
@@ -179,6 +95,7 @@ export function DisplayUserList({
             return userItems;
         });
     }
+
     useEffect(() => {
         const storageCheckout: Item[] = CurrentCart(selectedUser.id);
         setUserItems(storageCheckout);
@@ -195,7 +112,7 @@ export function DisplayUserList({
 
             for (let i = 0; i < updatedCart.length; i++) {
                 const item = updatedCart[i];
-                if (item.id === id && !updated) {
+                if (item.cartId === id && !updated) {
                     updated = true;
                     const updatedItem = {
                         ...item,
@@ -225,12 +142,13 @@ export function DisplayUserList({
             return updatedCart;
         });
     }
-    function handleChangeName(id: number, name: string, price: number) {
+
+    function handleEditUserItem(id: number, name: string, price: number) {
         setUserItems((userItems) => {
             let updated = false;
 
             const updatedCart = userItems.map((item) => {
-                if (!updated && item.id === id) {
+                if (!updated && item.cartId === id) {
                     updated = true;
                     return { ...item, name, price };
                 }
@@ -258,44 +176,11 @@ export function DisplayUserList({
         });
     }
 
-    // function handleChangePrice(id: number, price: number) {
-    //     setUserItems((userItems) => {
-    //         const itemsToUpdate = userItems.filter((item) => item.id === id);
-    //         if (itemsToUpdate.length > 0) {
-    //             const newCart = [...userItems];
-    //             itemsToUpdate.forEach((itemToUpdate) => {
-    //                 const indexToUpdate = newCart.findIndex(
-    //                     (item) => item.id === itemToUpdate.id
-    //                 );
-    //                 if (itemToUpdate.price !== price) {
-    //                     const updatedItem = { ...itemToUpdate, price };
-    //                     newCart[indexToUpdate] = updatedItem;
-    //                 }
-    //             });
-    //             sessionStorage.setItem(
-    //                 `CART_${selectedUser.id}`,
-    //                 JSON.stringify(newCart)
-    //             );
-    //             const newUser = { ...selectedUser, cart: newCart };
-    //             sessionStorage.setItem(
-    //                 "CurrentUserID",
-    //                 JSON.stringify(newUser)
-    //             );
-    //             const userIndex = allUsers.findIndex(
-    //                 (user) => newUser.id === user.id
-    //             );
-    //             if (userIndex > -1) {
-    //                 allUsers.splice(userIndex, 1, newUser);
-    //                 sessionStorage.setItem("USERS", JSON.stringify(allUsers));
-    //             }
-    //             return newCart;
-    //         }
-    //         return userItems;
-    //     });
-    // }
     function addToCart(itemID: number) {
         const addedItem = items.find((i) => itemID === i.id);
         if (addedItem) {
+            addedItem.cartId = Date.now();
+
             setUserItems((userItems) => {
                 const newCart: Item[] = [
                     ...userItems.map((anItem: Item) => ({
@@ -324,6 +209,7 @@ export function DisplayUserList({
                 return newCart;
             });
         }
+        console.log(userItems);
     }
 
     const [total, setTotal] = useState(0);
@@ -362,7 +248,8 @@ export function DisplayUserList({
                     className="edit-item-user"
                     onSubmit={(e) => {
                         e.preventDefault();
-                        handleChangeName(anItem.id, newName, newPrice);
+                        handleEditUserItem(anItem.cartId, newName, newPrice);
+                        handleChangeBoughtWith(anItem.cartId, [], newBought);
                     }}
                 >
                     <input
@@ -379,12 +266,68 @@ export function DisplayUserList({
                             setNewPrice(parseFloat(e.target.value))
                         }
                     />
+                    <input
+                        placeholder="Frequently Bought With"
+                        type="text"
+                        value={newBought}
+                        onChange={(e) => setNewBought(e.target.value)}
+                    />
                     <Button type="submit" variant="success">
                         Update
                     </Button>
                 </form>
             );
         }
+    }
+
+    function displayCartItems() {
+        let filteredItems = userItems;
+
+        if (filter === "greaterThan100") {
+            filteredItems = filteredItems.filter((item) => item.price > 100);
+        } else if (filter === "lessThan100") {
+            filteredItems = filteredItems.filter((item) => item.price < 100);
+        } else if (filter === "boughtWithFlowers") {
+            filteredItems = filteredItems.filter((item) =>
+                item.boughtWith.includes("Flowers")
+            );
+        }
+        return (
+            <>
+                {filteredItems.map((anItem) => {
+                    return (
+                        <div key={anItem.cartId}>
+                            <ItemView
+                                anItem={anItem}
+                                items={items}
+                                setItems={setItems}
+                            />
+
+                            <div className="button-container">
+                                {showEditButton()}
+                                <br />
+                                <Button
+                                    className="trash-can"
+                                    onClick={() => {
+                                        handleRemoveItem(anItem.cartId);
+                                    }}
+                                >
+                                    <FontAwesomeIcon
+                                        className="fas fa-trash-alt"
+                                        icon={faTrashAlt}
+                                        size="1x"
+                                        style={{
+                                            color: "#6d4206"
+                                        }}
+                                    />
+                                </Button>
+                            </div>
+                            {showEditForm(anItem)}
+                        </div>
+                    );
+                })}
+            </>
+        );
     }
 
     if (sessionStorage.getItem("Role") === "User") {
@@ -412,138 +355,40 @@ export function DisplayUserList({
                     >
                         Total: ${total}
                     </div>
+                    <br></br>
+                    <div>
+                        <Button
+                            className="remove-button"
+                            onClick={handleRemoveAllItems}
+                        >
+                            Empty Cart{" "}
+                            <FontAwesomeIcon
+                                className="fas fa-trash-alt"
+                                icon={faTrashAlt}
+                                size="sm"
+                                style={{ color: "#6d4206" }}
+                            />
+                        </Button>
+                    </div>
                     <div>
                         <select
-                            className="user-sort-dropdown"
-                            value={sortBy}
-                            onChange={(e) => {
-                                handleSortChange(e);
-                                if (e.target.value === "edit") {
-                                    location.reload(); // Refresh the page
-                                }
-                            }}
+                            value={filter}
+                            onChange={(e) => setFilter(e.target.value)}
                         >
-                            <option value="edit">Edit Items In Cart</option>
-                            <option value="default">
-                                --Select to Edit, Sort, or Filter--
+                            <option value="">All</option>
+                            <option value="greaterThan100">
+                                Price greater than 100
                             </option>
-                            <option value="price">
-                                Sort By Price (High To Low)
+                            <option value="lessThan100">
+                                Price less than 100
                             </option>
-                            <option value="name">Sort By Name (A-Z)</option>
-                            <option value="boughtWith">
-                                Filter Frequently Bought with Flowers
+                            <option value="boughtWithFlowers">
+                                Bought with Flowers
                             </option>
                         </select>
                     </div>
-                    <div>
-                        {sortBy !== "boughtWith" && sortBy === "edit" && (
-                            <Button
-                                className="remove-button"
-                                onClick={handleRemoveAllItems}
-                            >
-                                Empty Cart{" "}
-                                <FontAwesomeIcon
-                                    className="fas fa-trash-alt"
-                                    icon={faTrashAlt}
-                                    size="sm"
-                                    style={{ color: "#6d4206" }}
-                                />
-                            </Button>
-                        )}
-                    </div>
                     <Row sm={1} md={2}>
-                        {userItems.map((anItem) => {
-                            return (
-                                <div key={anItem.id}>
-                                    <ItemView
-                                        anItem={anItem}
-                                        items={items}
-                                        setItems={setItems}
-                                    />
-                                    {sortBy !== "boughtWith" &&
-                                        sortBy !== "price" &&
-                                        sortBy !== "name" &&
-                                        sortBy !== "default" && (
-                                            <div className="button-container">
-                                                {showEditButton()}
-                                                <br />
-                                                <Button
-                                                    className="trash-can"
-                                                    onClick={() => {
-                                                        handleRemoveItem(
-                                                            anItem.id
-                                                        );
-                                                        location.reload(); // Refresh the page
-                                                    }}
-                                                >
-                                                    <FontAwesomeIcon
-                                                        className="fas fa-trash-alt"
-                                                        icon={faTrashAlt}
-                                                        size="1x"
-                                                        style={{
-                                                            color: "#6d4206"
-                                                        }}
-                                                    />
-                                                </Button>
-                                            </div>
-                                        )}
-                                    <form
-                                        onSubmit={(e) => {
-                                            e.preventDefault();
-                                            handleChangeBoughtWith(
-                                                anItem.id,
-                                                [],
-                                                newBought
-                                            );
-                                        }}
-                                    >
-                                        {sortBy !== "boughtWith" &&
-                                            sortBy !== "price" &&
-                                            sortBy !== "name" &&
-                                            sortBy !== "default" && (
-                                                <>
-                                                    <label htmlFor="newBoughtInput">
-                                                        Change Frequently Bought
-                                                        with:
-                                                    </label>
-                                                    <input
-                                                        id="newBoughtInput"
-                                                        type="text"
-                                                        value={newBought}
-                                                        onChange={(e) =>
-                                                            setNewBought(
-                                                                e.target.value
-                                                            )
-                                                        }
-                                                    />
-                                                    <button type="submit">
-                                                        Add
-                                                    </button>
-                                                </>
-                                            )}
-                                    </form>
-                                    <form
-                                        onSubmit={(e) => {
-                                            e.preventDefault();
-                                            handleChangeName(
-                                                anItem.id,
-                                                newName,
-                                                newPrice
-                                            );
-                                        }}
-                                    >
-                                        {/* Form content here */}
-                                    </form>
-                                    {sortBy !== "boughtWith" &&
-                                    sortBy !== "price" &&
-                                    sortBy !== "name" &&
-                                    sortBy !== "default"
-                                        ? showEditForm(anItem)
-                                        : null}
-                                </div>
-                            );
-                        })}
+                        {displayCartItems()}
                     </Row>
                 </div>
             </>
@@ -563,52 +408,6 @@ export function DisplayUserList({
         );
     }
     return <div></div>;
-}
-
-export function RemoveFromCart(
-    itemID: number,
-    { items, setItems, selectedUser }: UserViewProps
-) {
-    const [userItems, setUserItems] = useState<Item[]>(
-        CurrentCart(selectedUser.id)
-    );
-
-    const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
-        { id: 1, name: "Sam", cart: [] },
-        { id: 2, name: "John", cart: [] },
-        { id: 3, name: "Sarah", cart: [] },
-        { id: 4, name: "Bob", cart: [] }
-    ]);
-    setAllUsers;
-    setItems;
-    userItems;
-
-    const removedItem = items.find((i) => itemID === i.id);
-    if (removedItem) {
-        setUserItems((userItems) => {
-            const newCart: Item[] = [
-                ...userItems.filter((anItem: Item) => ({
-                    ...anItem
-                }))
-            ];
-            sessionStorage.setItem(
-                `CART_${selectedUser.id}`,
-                JSON.stringify(newCart)
-            );
-            const newUser = {
-                ...selectedUser,
-                cart: newCart
-            };
-            sessionStorage.setItem("CurrentUserID", JSON.stringify(newUser));
-            const userIndex: number = allUsers.findIndex(
-                (user) => newUser.id === user.id
-            );
-            allUsers.splice(userIndex, 1, newUser);
-            // console.log(allUsers);
-            sessionStorage.setItem("USERS", JSON.stringify(allUsers));
-            return newCart;
-        });
-    }
 }
 
 export function deleteFromAllUserCarts(itemID: number, allUsers: User[]) {

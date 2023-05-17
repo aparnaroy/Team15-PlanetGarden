@@ -33,7 +33,8 @@ export function EditItem({ item, onSave }: EditItemProps) {
             maintenanceLevel: maintenanceLevel,
             rating: rating,
             type: type,
-            boughtWith: boughtWith
+            boughtWith: boughtWith,
+            cartId: Date.now()
         });
         setId(id);
         setName(name);
