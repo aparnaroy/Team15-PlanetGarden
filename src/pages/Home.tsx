@@ -16,8 +16,13 @@ export function Home() {
                 Whether it be for your backyard, estate property, or even a
                 wedding venue, we have it all!
             </h4>
-            <div>
-                <img src={PlanetGarden} alt="PlanetGarden" height="500px" />
+            <div className="image-container">
+                <img
+                    src={PlanetGarden}
+                    alt="PlanetGarden"
+                    height="540px"
+                    width="960"
+                />
             </div>
             <br></br>
         </div>

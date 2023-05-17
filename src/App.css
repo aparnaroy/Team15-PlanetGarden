@@ -496,3 +496,8 @@ body {
 .save-button {
     margin-top: 15px;
 }
+
+.image-container {
+    display: flex;
+    justify-content: center;
+}

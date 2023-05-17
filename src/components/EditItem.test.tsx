@@ -13,7 +13,8 @@ describe("EditItem component", () => {
         maintenanceLevel: 2,
         rating: 4,
         type: "Tree",
-        boughtWith: ["Watering Can", "Soil"]
+        boughtWith: ["Watering Can", "Soil"],
+        appearsInCart: 0
     };
 
     it("should render properly", () => {
@@ -31,6 +32,7 @@ describe("EditItem component", () => {
         expect(getByLabelText("Rating:")).toBeInTheDocument();
         expect(getByLabelText("Type:")).toBeInTheDocument();
         expect(getByLabelText("Frequently Bought With:")).toBeInTheDocument();
+        expect(getByLabelText("Appears in cart:")).toBeInTheDocument();
         expect(getByText("Save")).toBeInTheDocument();
     });
 

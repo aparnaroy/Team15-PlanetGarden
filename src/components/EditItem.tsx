@@ -20,6 +20,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
     const [rating, setRating] = useState<number>(item.rating);
     const [type, setType] = useState<string>(item.type);
     const [boughtWith, setBoughtWith] = useState<string[]>(item.boughtWith);
+    const [appearsInCart, setAppearsInCart] = useState(0);
 
     function handleSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -33,7 +34,8 @@ export function EditItem({ item, onSave }: EditItemProps) {
             maintenanceLevel: maintenanceLevel,
             rating: rating,
             type: type,
-            boughtWith: boughtWith
+            boughtWith: boughtWith,
+            appearsInCart: appearsInCart
         });
         setId(id);
         setName(name);

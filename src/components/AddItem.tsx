@@ -16,6 +16,7 @@ export function AddItem({ onSave }: AddItemProps) {
     const [rating, setRating] = useState("");
     const [type, setType] = useState("");
     const [boughtWith, setBoughtWith] = useState<string[]>([]);
+    const [appearsInCart, setAppearsInCart] = useState(0);
 
     function handleSave(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -29,7 +30,8 @@ export function AddItem({ onSave }: AddItemProps) {
             maintenanceLevel: parseInt(maintenanceLevel),
             rating: parseInt(rating),
             type: type,
-            boughtWith: boughtWith
+            boughtWith: boughtWith,
+            appearsInCart: appearsInCart
         });
         setName("");
         setPrice("");
