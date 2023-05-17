@@ -295,6 +295,12 @@ export function DisplayUserList({
     // }
     function addToCart(itemID: number) {
         const addedItem = items.find((i) => itemID === i.id);
+        const itemIndex = items.findIndex((item) => itemID === item.id);
+        if (itemIndex !== -1) {
+            items[itemIndex].appearsInCart =
+                (items[itemIndex].appearsInCart || 0) + 1;
+        }
+
         if (addedItem) {
             setUserItems((userItems) => {
                 const newCart: Item[] = [

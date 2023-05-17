@@ -42,6 +42,7 @@ export function AddItem({ onSave }: AddItemProps) {
         setRating("");
         setType("");
         setBoughtWith([]);
+        setAppearsInCart(0);
     }
 
     return (

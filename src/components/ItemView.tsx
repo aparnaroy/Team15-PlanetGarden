@@ -11,13 +11,18 @@ import { deleteFromAdminList } from "./AdminList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
-import { CurrentCart } from "./UserList";
+import { calculateTotalOccurrences } from "./UserList";
 
 export interface ItemViewProps {
     anItem: Item;
     items: Item[];
     setItems: (newItems: Item[]) => void;
 }
+
+// export interface SuperViewProps {
+//     aSuperItem: Item;
+//     superItems: Item[];
+// }
 
 export function ItemView({
     anItem,
@@ -34,7 +39,6 @@ export function ItemView({
         })
     });
     isDragging;
-
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
         { id: 1, name: "Sam", cart: [] },
         { id: 2, name: "John", cart: [] },
@@ -161,14 +165,25 @@ export function ItemView({
         return "white";
     }
 
-    function showAppearsInCart(anItem: Item) {
+    const totalOccurrencesMap = calculateTotalOccurrences();
+    if (totalOccurrencesMap) {
+        items.map((anItem: Item) => {
+            const occurrences = totalOccurrencesMap.get(anItem.name);
+            const appearsInCart = occurrences !== undefined ? occurrences : 0;
+            return { ...anItem, appearsInCart };
+        });
+        console.log(totalOccurrencesMap);
+    }
+
+    function showAppearsInCart(item: Item) {
         if (sessionStorage.getItem("Role") === "Super") {
             return (
                 <div style={{ backgroundColor: "LightBlue" }}>
-                    Appears in {anItem.appearsInCart} customers carts.
+                    Added to carts {totalOccurrencesMap.get(item.id)} times.
                 </div>
             );
         }
+        return null; //Return nothing if the role is not super.
     }
 
     return (

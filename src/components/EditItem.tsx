@@ -47,6 +47,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
         setRating(rating);
         setType(type);
         setBoughtWith(boughtWith);
+        setAppearsInCart(appearsInCart);
     }
 
     return (
