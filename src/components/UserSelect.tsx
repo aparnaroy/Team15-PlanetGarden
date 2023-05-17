@@ -70,6 +70,7 @@ export function UserSelect(): JSX.Element {
     // This is the Control
     function updateUserSelected(e: number) {
         setSelectedUserId(e);
+        setCurrId(e);
         sessionStorage.setItem("CurrentUserID", JSON.stringify(e));
         location.reload();
     }

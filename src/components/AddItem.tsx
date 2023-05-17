@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { Item } from "../interfaces/Item";
 
-interface AddItemProps {
+export interface AddItemProps {
     onSave: (item: Item) => void;
 }
 
@@ -31,6 +31,7 @@ export function AddItem({ onSave }: AddItemProps) {
             rating: parseInt(rating),
             type: type,
             boughtWith: boughtWith,
+            cartId: Date.now(),
             appearsInCart: appearsInCart
         });
         setName("");

@@ -35,6 +35,7 @@ export function EditItem({ item, onSave }: EditItemProps) {
             rating: rating,
             type: type,
             boughtWith: boughtWith,
+            cartId: Date.now(),
             appearsInCart: appearsInCart
         });
         setId(id);

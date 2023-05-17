@@ -9,5 +9,6 @@ export interface Item {
     rating: number;
     type: string;
     boughtWith: string[];
+    cartId: number;
     appearsInCart: number;
 }
