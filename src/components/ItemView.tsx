@@ -11,6 +11,7 @@ import { deleteFromAdminList } from "./AdminList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { CurrentCart } from "./UserList";
 
 export interface ItemViewProps {
     anItem: Item;
@@ -164,7 +165,7 @@ export function ItemView({
         if (sessionStorage.getItem("Role") === "Super") {
             return (
                 <div style={{ backgroundColor: "LightBlue" }}>
-                    Added to cart {anItem.appearsInCart} times.
+                    Appears in {anItem.appearsInCart} customers carts.
                 </div>
             );
         }

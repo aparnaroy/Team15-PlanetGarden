@@ -301,8 +301,9 @@ export function DisplayUserList({
                     ...userItems.map((anItem: Item) => ({
                         ...anItem
                     })),
-                    addedItem
+                    { ...addedItem, appearsInCart: addedItem.appearsInCart + 1 } // Increment appearsInCart attribute
                 ];
+                //CALL incrementAppearsInCart
                 sessionStorage.setItem(
                     `CART_${selectedUser.id}`,
                     JSON.stringify(newCart)
