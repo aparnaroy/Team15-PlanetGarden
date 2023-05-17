@@ -33,7 +33,7 @@ import {
     bridgeStructure,
     hoopTrellisStructure,
     cherryBlossomTree
-} from "../assets/instances";
+} from "../assets/Instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { Item } from "../interfaces/Item";
 import { Form } from "react-bootstrap";

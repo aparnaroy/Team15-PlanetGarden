@@ -1,0 +1,2833 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inventory matches snapshot 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <header
+      class="App-header"
+    >
+      Inventory
+    </header>
+    <br />
+    <div
+      data-testid="inventory-display"
+    >
+      <div>
+        <div
+          class="row row-cols-lg-4 row-cols-md-3"
+          s="2"
+        >
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="iris.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Iris
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      25
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Bush.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Bush
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      15
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Lily-Pond.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Lily Pond
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      110
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Tulip.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Tulip
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      10
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="oaktree.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Oak Tree
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      40
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Budha-Statue.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Buddha Statue
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      500
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="bird-bath.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Bird Bath
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      99
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Forget-Me-Not.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Forget-Me-Not
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      10
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Pansy.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Pansy
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      10
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Cherry-Blossom.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Cherry Blossom
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      60
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Garden-Gnome.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Gnome
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      60
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="cedar-tree.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Cedar Tree
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      60
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="bridge.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Bridge
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      1000
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Chrysanthemum.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Chrysanthemum
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      20
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="grass.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Grass
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      15
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Gazebo.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Gazebo
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      80
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Trellis.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Trellis
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      1000
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Sequoia.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Sequoia Tree
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      50
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Sunflower.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Sunflower
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      25
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Simple-pond.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Pond
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      150
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="larch-tree.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Larch Tree
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      50
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="fountain.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Fountain
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      1000
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Hoop-Trellis.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Hoop Trellis
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      1000
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Stone-Path.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Stone Path
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      200
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Stone-pond.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Stone Pond
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      99
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Arch.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Garden Arch
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      300
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="spruce-tree.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Spruce Tree
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      60
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Lily.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Lily
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      10
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Blue-Hydrangea.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Blue Hydrangea
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      10
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="fern.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Fern
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      15
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Bench.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Bench
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      30
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="ivy.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Ivy
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      15
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="col"
+            >
+              <br />
+              <div
+                class="card"
+                draggable="true"
+              >
+                <img
+                  class="card-img-top"
+                  src="Caladium.png"
+                  style="object-fit: cover;"
+                />
+                <div
+                  class="card-body"
+                  style="background-color: white;"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-baseline card-title h5"
+                  >
+                    <span
+                      class="fs-4"
+                    >
+                      Caladium
+                    </span>
+                    <span
+                      class="ms-2 text-muted"
+                    >
+                      $
+                      15
+                    </span>
+                  </div>
+                  <span
+                    class="fs-8"
+                  >
+                    Rating: 
+                     
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: orange; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                    <span
+                      style="color: gray; cursor: pointer;"
+                    >
+                      ★
+                    </span>
+                  </span>
+                  <div
+                    class="card-footer"
+                  >
+                    <div>
+                      <div>
+                        Show More
+                         
+                        <span
+                          style="display: inline-block; transform: rotate(0deg); transition: transform 0.3s ease; font-size: 16px; margin-right: 4px;"
+                        >
+                          ▼
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+</div>
+`;

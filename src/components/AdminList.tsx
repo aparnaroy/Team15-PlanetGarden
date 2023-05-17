@@ -6,7 +6,7 @@ import "../App.css";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { EditItem } from "./EditItem";
 
-export interface AdminViewProps {
+interface AdminViewProps {
     items: Item[];
     setItems: (newItems: Item[]) => void;
 }

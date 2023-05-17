@@ -1,24 +1,52 @@
 import React from "react";
-
-export function test() {
-    React;
-    return 0;
-}
-
-/*import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { DisplayAdminList } from "./AdminList";
 import { Item } from "../interfaces/Item";
-import { useSessionStorage } from "../hooks/useSessionStorage";
 
 describe("AdminList", () => {
     const items: Item[] = [
-        { id: 1, name: "Item 1" },
-        { id: 2, name: "Item 2" },
-        { id: 3, name: "Item 3" }
+        {
+            id: 1,
+            name: "Item 1",
+            price: 10,
+            image: "",
+            description: "A Description",
+            quantity: 1,
+            maintenanceLevel: 5,
+            rating: NaN,
+            type: "",
+            boughtWith: [],
+            cartId: 1
+        },
+        {
+            id: 2,
+            name: "Item 2",
+            price: 20,
+            image: "",
+            description: "Another Description",
+            quantity: 1,
+            maintenanceLevel: 3,
+            rating: NaN,
+            type: "",
+            boughtWith: [],
+            cartId: 2
+        },
+        {
+            id: 3,
+            name: "Item 3",
+            price: 30,
+            image: "",
+            description: "A final Description",
+            quantity: 1,
+            maintenanceLevel: 2,
+            rating: NaN,
+            type: "",
+            boughtWith: [],
+            cartId: 3
+        }
     ];
 
-    it("should display admin list when user is a super admin or admin", () => {
+    test("should display admin list when user is a super admin or admin", () => {
         jest.spyOn(sessionStorage, "getItem").mockImplementation(() => "Admin");
 
         const setItems = jest.fn();
@@ -30,7 +58,7 @@ describe("AdminList", () => {
         expect(adminList).toBeInTheDocument();
     });
 
-    it("should not display admin list when user is not a super admin or admin", () => {
+    test("should not display admin list when user is not a super admin or admin", () => {
         jest.spyOn(sessionStorage, "getItem").mockImplementation(() => "User");
 
         const setItems = jest.fn();
@@ -57,7 +85,7 @@ describe("AdminList", () => {
         expect(addedItem).toBeInTheDocument();
     });
 
-    it("should remove item from admin list when remove button is clicked", () => {
+    test("should remove item from admin list when remove button is clicked", () => {
         jest.spyOn(sessionStorage, "getItem").mockImplementation(() => "Admin");
 
         const setItems = jest.fn();
@@ -76,4 +104,3 @@ describe("AdminList", () => {
         expect(removedItem).not.toBeInTheDocument();
     });
 });
-*/

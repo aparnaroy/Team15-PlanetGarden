@@ -179,7 +179,13 @@ export function DisplayUserList({
     function addToCart(itemID: number) {
         const addedItem = items.find((i) => itemID === i.id);
         if (addedItem) {
-            addedItem.cartId = Date.now();
+            const duplicate = userItems.find((i) => itemID === i.id);
+            if (duplicate) {
+                console.log("HIII");
+                addedItem.cartId = Date.now() + duplicate.cartId;
+            } else {
+                addedItem.cartId = Date.now();
+            }
 
             setUserItems((userItems) => {
                 const newCart: Item[] = [
@@ -376,14 +382,14 @@ export function DisplayUserList({
                             onChange={(e) => setFilter(e.target.value)}
                         >
                             <option value="">All</option>
-                            <option value="greaterThan100">
-                                Price greater than 100
-                            </option>
                             <option value="lessThan100">
-                                Price less than 100
+                                Price Less than $100
+                            </option>
+                            <option value="greaterThan100">
+                                Price Greater than $100
                             </option>
                             <option value="boughtWithFlowers">
-                                Bought with Flowers
+                                Frequently Bought with Flowers
                             </option>
                         </select>
                     </div>
