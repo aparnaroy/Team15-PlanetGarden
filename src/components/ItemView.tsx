@@ -176,14 +176,22 @@ export function ItemView({
     }
 
     function showAppearsInCart(item: Item) {
-        if (sessionStorage.getItem("Role") === "Super") {
+        if (
+            sessionStorage.getItem("Role") === "Super" &&
+            totalOccurrencesMap.get(item.id)
+        ) {
             return (
                 <div style={{ backgroundColor: "LightBlue" }}>
                     Added to carts {totalOccurrencesMap.get(item.id)} times.
                 </div>
             );
+        } else if (sessionStorage.getItem("Role") === "Super") {
+            return (
+                <div style={{ backgroundColor: "LightBlue" }}>
+                    Added to carts 0 times.
+                </div>
+            );
         }
-        return null; //Return nothing if the role is not super.
     }
 
     return (
