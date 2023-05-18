@@ -9,7 +9,6 @@ export function Inventory() {
             <div data-testid="inventory-display">
                 <InventoryDisplay></InventoryDisplay>
             </div>
-
             <hr></hr>
         </div>
     );

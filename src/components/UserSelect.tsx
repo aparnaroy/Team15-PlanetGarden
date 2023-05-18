@@ -40,7 +40,7 @@ import {
     bridgeStructure,
     hoopTrellisStructure,
     cherryBlossomTree
-} from "../assets/Instances";
+} from "../assets/instances";
 
 export function UserSelect(): JSX.Element {
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
