@@ -33,7 +33,7 @@ import {
     bridgeStructure,
     hoopTrellisStructure,
     cherryBlossomTree
-} from "../assets/Instances";
+} from "../assets/instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
