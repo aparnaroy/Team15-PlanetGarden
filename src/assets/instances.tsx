@@ -46,8 +46,7 @@ export const cedarTree: Item = {
     rating: 0,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
-    cartId: 1,
-    appearsInCart: 0
+    cartId: 1
 };
 export const larchTree: Item = {
     id: 2,
@@ -61,8 +60,7 @@ export const larchTree: Item = {
     rating: 0,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
-    cartId: 2,
-    appearsInCart: 0
+    cartId: 2
 };
 export const oakTree: Item = {
     id: 3,
@@ -76,8 +74,7 @@ export const oakTree: Item = {
     rating: 0,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
-    cartId: 3,
-    appearsInCart: 0
+    cartId: 3
 };
 export const sequoiaTree: Item = {
     id: 4,
@@ -90,8 +87,7 @@ export const sequoiaTree: Item = {
     rating: 0,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
-    cartId: 4,
-    appearsInCart: 0
+    cartId: 4
 };
 export const spruceTree: Item = {
     id: 5,
@@ -105,8 +101,7 @@ export const spruceTree: Item = {
     rating: 0,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
-    cartId: 5,
-    appearsInCart: 0
+    cartId: 5
 };
 
 export const cherryBlossomTree: Item = {
@@ -121,8 +116,7 @@ export const cherryBlossomTree: Item = {
     rating: 0,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
-    cartId: 6,
-    appearsInCart: 0
+    cartId: 6
 };
 
 // FLOWERS
@@ -138,8 +132,7 @@ export const chrysanthemumFlower: Item = {
     rating: 0,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
-    cartId: 7,
-    appearsInCart: 0
+    cartId: 7
 };
 export const irisFlower: Item = {
     id: 8,
@@ -153,8 +146,7 @@ export const irisFlower: Item = {
     rating: 0,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
-    cartId: 8,
-    appearsInCart: 0
+    cartId: 8
 };
 export const sunflowerFlower: Item = {
     id: 9,
@@ -168,8 +160,7 @@ export const sunflowerFlower: Item = {
     rating: 0,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
-    cartId: 9,
-    appearsInCart: 0
+    cartId: 9
 };
 export const tulipFlower: Item = {
     id: 10,
@@ -183,8 +174,7 @@ export const tulipFlower: Item = {
     rating: 0,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
-    cartId: 10,
-    appearsInCart: 0
+    cartId: 10
 };
 
 export const blueHydrangeaFlower: Item = {
@@ -199,8 +189,7 @@ export const blueHydrangeaFlower: Item = {
     rating: 0,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
-    cartId: 11,
-    appearsInCart: 0
+    cartId: 11
 };
 
 export const lilyFlower: Item = {
@@ -215,8 +204,7 @@ export const lilyFlower: Item = {
     rating: 0,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
-    cartId: 12,
-    appearsInCart: 0
+    cartId: 12
 };
 export const pansyFlower: Item = {
     id: 13,
@@ -230,8 +218,7 @@ export const pansyFlower: Item = {
     rating: 0,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
-    cartId: 13,
-    appearsInCart: 0
+    cartId: 13
 };
 
 export const forgetMeNotFlower: Item = {
@@ -246,8 +233,7 @@ export const forgetMeNotFlower: Item = {
     rating: 0,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
-    cartId: 14,
-    appearsInCart: 0
+    cartId: 14
 };
 
 // STRUCTURES
@@ -263,8 +249,7 @@ export const benchStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Paint", "Table"],
-    cartId: 15,
-    appearsInCart: 0
+    cartId: 15
 };
 export const gazeboStructure: Item = {
     id: 16,
@@ -278,8 +263,7 @@ export const gazeboStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Bench", "Lights", "Gravel"],
-    cartId: 16,
-    appearsInCart: 0
+    cartId: 16
 };
 export const lilyPondStructure: Item = {
     id: 17,
@@ -293,8 +277,7 @@ export const lilyPondStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Flowers", "Fish", "Tall grass"],
-    cartId: 17,
-    appearsInCart: 0
+    cartId: 17
 };
 export const simplePondStructure: Item = {
     id: 18,
@@ -307,8 +290,7 @@ export const simplePondStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Flowers", "Fish", "Tall grass"],
-    cartId: 18,
-    appearsInCart: 0
+    cartId: 18
 };
 export const stonePondStructure: Item = {
     id: 19,
@@ -322,8 +304,7 @@ export const stonePondStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Flowers", "Fish", "Moss"],
-    cartId: 19,
-    appearsInCart: 0
+    cartId: 19
 };
 
 export const birdBathStructure: Item = {
@@ -338,8 +319,7 @@ export const birdBathStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Bird seeds", "Bread crumbs"],
-    cartId: 20,
-    appearsInCart: 0
+    cartId: 20
 };
 
 export const archStructure: Item = {
@@ -354,8 +334,7 @@ export const archStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Flowers", "Ivy"],
-    cartId: 21,
-    appearsInCart: 0
+    cartId: 21
 };
 
 export const fountainStructure: Item = {
@@ -370,8 +349,7 @@ export const fountainStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Flowers", "Tiles"],
-    cartId: 22,
-    appearsInCart: 0
+    cartId: 22
 };
 
 export const bridgeStructure: Item = {
@@ -386,8 +364,7 @@ export const bridgeStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Lily Pond", "Stone Pond"],
-    cartId: 23,
-    appearsInCart: 0
+    cartId: 23
 };
 
 export const gardenGnomeStructure: Item = {
@@ -402,8 +379,7 @@ export const gardenGnomeStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Flowers", "Mushrooms"],
-    cartId: 24,
-    appearsInCart: 0
+    cartId: 24
 };
 
 export const budhaStructure: Item = {
@@ -418,8 +394,7 @@ export const budhaStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Fountain", "Lotus"],
-    cartId: 25,
-    appearsInCart: 0
+    cartId: 25
 };
 
 export const stonePathStructure: Item = {
@@ -434,8 +409,7 @@ export const stonePathStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Flowers", "Grass"],
-    cartId: 26,
-    appearsInCart: 0
+    cartId: 26
 };
 
 export const hoopTrellisStructure: Item = {
@@ -450,8 +424,7 @@ export const hoopTrellisStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Vines", "Roses"],
-    cartId: 27,
-    appearsInCart: 0
+    cartId: 27
 };
 
 export const trellisStructure: Item = {
@@ -466,8 +439,7 @@ export const trellisStructure: Item = {
     rating: 0,
     type: "Structure",
     boughtWith: ["Flowers", "Tiles"],
-    cartId: 28,
-    appearsInCart: 0
+    cartId: 28
 };
 
 // GREENERY
@@ -483,8 +455,7 @@ export const bushGreenery: Item = {
     rating: 0,
     type: "Greenery",
     boughtWith: ["Flowers", "Grass"],
-    cartId: 29,
-    appearsInCart: 0
+    cartId: 29
 };
 export const grassGreenery: Item = {
     id: 30,
@@ -497,8 +468,7 @@ export const grassGreenery: Item = {
     rating: 0,
     type: "Greenery",
     boughtWith: ["Moss", "Clovers"],
-    cartId: 30,
-    appearsInCart: 0
+    cartId: 30
 };
 
 export const ivyGreenery: Item = {
@@ -513,8 +483,7 @@ export const ivyGreenery: Item = {
     rating: 0,
     type: "Greenery",
     boughtWith: ["Garden arch", "Brick wall"],
-    cartId: 31,
-    appearsInCart: 0
+    cartId: 31
 };
 
 export const caladiumGreenery: Item = {
@@ -529,8 +498,7 @@ export const caladiumGreenery: Item = {
     rating: 0,
     type: "Greenery",
     boughtWith: ["Fern", "Ivy"],
-    cartId: 32,
-    appearsInCart: 0
+    cartId: 32
 };
 
 export const fernGreenery: Item = {
@@ -545,6 +513,5 @@ export const fernGreenery: Item = {
     rating: 0,
     type: "Greenery",
     boughtWith: ["Elephant ear", "Grass"],
-    cartId: 33,
-    appearsInCart: 0
+    cartId: 33
 };
