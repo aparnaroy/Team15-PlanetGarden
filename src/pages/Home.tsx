@@ -17,13 +17,10 @@ export function Home() {
                 wedding venue, we have it all!
             </h4>
             <div className="image-container">
-                <img
-                    src={PlanetGarden}
-                    alt="PlanetGarden"
-                    height="540px"
-                    width="960"
-                />
+                <img src={PlanetGarden} alt="PlanetGarden" height="670px" />
             </div>
+            <br></br>
+            <br></br>
             <br></br>
         </div>
     );
