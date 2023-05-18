@@ -88,6 +88,7 @@ export function DisplayAdminList({
                                         ></EditItem>
 
                                         <Button
+                                            data-testid="remove-button"
                                             className="remove-item-admin"
                                             onClick={() =>
                                                 handleRemoveItem(anItem.id)
@@ -107,7 +108,7 @@ export function DisplayAdminList({
         }
     }
 
-    return <div>{displayAdminList()}</div>;
+    return <div data-testid="admin-list">{displayAdminList()}</div>;
 }
 
 export function deleteFromAdminList(itemID: number, adminItems: Item[]) {

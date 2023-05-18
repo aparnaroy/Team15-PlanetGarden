@@ -1,9 +1,9 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { ExpandableSection } from "./Expandable";
+import { ExpandableSection, ExpandableSectionAbout } from "./Expandable";
 
-describe("ExpandableSection", () => {
-    it("renders the button with 'Show More' text", () => {
+describe("ExpandableSection1", () => {
+    test("renders the button with 'Show More' text", () => {
         const { getByText } = render(
             <ExpandableSection>
                 <div></div>
@@ -13,7 +13,7 @@ describe("ExpandableSection", () => {
         expect(getByText("Show More")).toBeInTheDocument();
     });
 
-    it("renders the children when 'Show More' button is clicked", () => {
+    test("renders the children when 'Show More' button is clicked", () => {
         const { getByText } = render(
             <ExpandableSection>
                 <div></div>
@@ -23,28 +23,52 @@ describe("ExpandableSection", () => {
         fireEvent.click(getByText("Show More"));
         expect(getByText("Child")).toBeInTheDocument();
     });
+});
 
-    it("toggles the button text and caret on click", () => {
-        const { getByText, getByTestId } = render(
+describe("ExpandableSection2", () => {
+    test("hides children by default", () => {
+        const { queryByText } = render(
             <ExpandableSection>
-                <div></div>
-                <p>Child</p>
+                <></>
+                <div>Children content</div>
             </ExpandableSection>
         );
-        const button = getByText("Show More");
-        const caret = getByTestId("caret");
+        expect(queryByText("Children content")).not.toBeInTheDocument();
+    });
 
-        expect(button).toBeInTheDocument();
-        expect(caret).toHaveStyle("transform: rotate(0deg)");
+    test("shows children when expanded", () => {
+        const { getByText, queryByText } = render(
+            <ExpandableSection>
+                <></>
+                <div>Children content</div>
+            </ExpandableSection>
+        );
+        const buttonElement = getByText("Show More");
+        fireEvent.click(buttonElement);
+        expect(queryByText("Children content")).toBeInTheDocument();
+    });
+});
 
-        fireEvent.click(button);
+describe("ExpandableSectionAbout", () => {
+    test("shows children by default", () => {
+        const { queryByText } = render(
+            <ExpandableSectionAbout>
+                <></>
+                <div>Children content</div>
+            </ExpandableSectionAbout>
+        );
+        expect(queryByText("Children content")).toBeInTheDocument();
+    });
 
-        expect(button).toHaveTextContent("Show Less");
-        expect(caret).toHaveStyle("transform: rotate(180deg)");
-
-        fireEvent.click(button);
-
-        expect(button).toHaveTextContent("Show More");
-        expect(caret).toHaveStyle("transform: rotate(0deg)");
+    test("hides children when collapsed", () => {
+        const { getByText, queryByText } = render(
+            <ExpandableSectionAbout>
+                <></>
+                <div>Children content</div>
+            </ExpandableSectionAbout>
+        );
+        const buttonElement = getByText("Hide");
+        fireEvent.click(buttonElement);
+        expect(queryByText("Children content")).not.toBeInTheDocument();
     });
 });

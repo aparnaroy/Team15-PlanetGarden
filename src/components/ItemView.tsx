@@ -163,7 +163,7 @@ export function ItemView({
     return (
         <Col key={anItem.id}>
             <br></br>
-            <Card key={anItem.id} ref={drag}>
+            <Card key={anItem.id} ref={drag} data-testid="card">
                 <Card.Img
                     variant="top"
                     src={anItem.image}
