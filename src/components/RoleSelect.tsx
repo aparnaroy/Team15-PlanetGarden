@@ -37,7 +37,7 @@ export function RoleSelect(): JSX.Element {
                         key={role}
                     >
                         <option defaultValue="default">Select Your Role</option>
-                        <option value="Super">Owner</option>
+                        <option value="Super">CEO</option>
                         <option value="Admin">Shopkeeper</option>
                         <option value="User">Customer</option>
                     </Form.Select>

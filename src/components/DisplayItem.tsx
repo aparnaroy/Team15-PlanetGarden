@@ -33,14 +33,14 @@ import {
     bridgeStructure,
     hoopTrellisStructure,
     cherryBlossomTree
-} from "../assets/instances";
+} from "../assets/Instances";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { ItemView } from "./ItemView";
 import { Item } from "../interfaces/Item";
 import { Button, Col, Row } from "react-bootstrap";
 import { AddItem } from "./AddItem";
 import { DisplayAdminList } from "./AdminList";
-import { DisplayUserList } from "./UserList";
+import { DisplayUserList } from "./UserCart";
 import { User } from "../interfaces/User";
 
 export function InventoryDisplay(): JSX.Element {

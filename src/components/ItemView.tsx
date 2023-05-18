@@ -6,23 +6,18 @@ import { useDrag } from "react-dnd";
 import { ExpandableSection } from "./Expandable";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
-import { deleteFromAllUserCarts } from "./UserList";
+import { deleteFromAllUserCarts } from "./UserCart";
 import { deleteFromAdminList } from "./AdminList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
-import { calculateTotalOccurrences } from "./UserList";
+import { calculateTotalOccurrences } from "./UserCart";
 
 export interface ItemViewProps {
     anItem: Item;
     items: Item[];
     setItems: (newItems: Item[]) => void;
 }
-
-// export interface SuperViewProps {
-//     aSuperItem: Item;
-//     superItems: Item[];
-// }
 
 export function ItemView({
     anItem,
@@ -158,7 +153,17 @@ export function ItemView({
             const inList = allAdminItems.find(
                 (item: Item) => item.id === anItem.id
             );
-            if (inList) {
+            if (
+                inList &&
+                window.location.href.endsWith("shop") &&
+                sessionStorage.getItem("Role") === "Admin"
+            ) {
+                return "#D3D3D3";
+            } else if (
+                inList &&
+                window.location.href.endsWith("shop") &&
+                sessionStorage.getItem("Role") === "Super"
+            ) {
                 return "#D3D3D3";
             }
         }
@@ -172,7 +177,7 @@ export function ItemView({
             const appearsInCart = occurrences !== undefined ? occurrences : 0;
             return { ...anItem, appearsInCart };
         });
-        console.log(totalOccurrencesMap);
+        //console.log(totalOccurrencesMap);
     }
 
     function showAppearsInCart(item: Item) {
@@ -197,7 +202,7 @@ export function ItemView({
     return (
         <Col key={anItem.id}>
             <br></br>
-            <Card key={anItem.id} ref={drag}>
+            <Card key={anItem.id} ref={drag} data-testid="card">
                 <Card.Img
                     variant="top"
                     src={anItem.image}
