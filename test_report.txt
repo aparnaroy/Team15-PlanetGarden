@@ -42,6 +42,7 @@ PASS src/components/AddItem.test.tsx
       at Object.<anonymous> (src/components/AddItem.test.tsx:12:15)
 
 PASS src/components/AdminList.test.tsx
+PASS src/components/UserCart.test.tsx
 PASS src/components/EditItem.test.tsx
   ● Console
 
@@ -81,89 +82,38 @@ PASS src/components/EditItem.test.tsx
 PASS src/components/Expandable.test.tsx
 PASS src/components/ItemView.test.tsx
 PASS src/App.test.tsx
+PASS src/components/DisplayItem.test.tsx
 PASS src/assets/Instances.test.tsx
 PASS src/pages/Home.test.tsx
-FAIL src/components/DisplayItem.test.tsx
-  ● Test suite failed to run
-
-    Your test suite must contain at least one test.
-
-      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
-      at node_modules/@jest/core/build/TestScheduler.js:316:17
-      at node_modules/emittery/index.js:260:13
-          at Array.map (<anonymous>)
-      at Emittery.emit (node_modules/emittery/index.js:258:23)
-
 PASS src/pages/About.test.tsx
+PASS src/components/RoleSelect.test.tsx
 PASS src/components/Navbar.test.tsx
 PASS src/pages/Inventory.test.tsx
+PASS src/components/SortItems.test.tsx
+PASS src/components/UserSelect.test.tsx
 PASS src/pages/Shop.test.tsx
 PASS src/pages/Users.test.tsx
-FAIL src/components/RoleSelect.test.tsx
-  ● Test suite failed to run
-
-    Your test suite must contain at least one test.
-
-      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
-      at node_modules/@jest/core/build/TestScheduler.js:316:17
-      at node_modules/emittery/index.js:260:13
-          at Array.map (<anonymous>)
-      at Emittery.emit (node_modules/emittery/index.js:258:23)
-
-FAIL src/components/SortItems.test.tsx
-  ● Test suite failed to run
-
-    Your test suite must contain at least one test.
-
-      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
-      at node_modules/@jest/core/build/TestScheduler.js:316:17
-      at node_modules/emittery/index.js:260:13
-          at Array.map (<anonymous>)
-      at Emittery.emit (node_modules/emittery/index.js:258:23)
-
-FAIL src/components/UserCart.test.tsx
-  ● Test suite failed to run
-
-    Your test suite must contain at least one test.
-
-      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
-      at node_modules/@jest/core/build/TestScheduler.js:316:17
-      at node_modules/emittery/index.js:260:13
-          at Array.map (<anonymous>)
-      at Emittery.emit (node_modules/emittery/index.js:258:23)
-
-FAIL src/components/UserSelect.test.tsx
-  ● Test suite failed to run
-
-    Your test suite must contain at least one test.
-
-      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
-      at node_modules/@jest/core/build/TestScheduler.js:316:17
-      at node_modules/emittery/index.js:260:13
-          at Array.map (<anonymous>)
-      at Emittery.emit (node_modules/emittery/index.js:258:23)
-
 -----------------------|---------|----------|---------|---------|------------------------------------------------------------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                      
 -----------------------|---------|----------|---------|---------|------------------------------------------------------------------------
-All files              |    50.4 |    44.62 |   40.35 |   51.46 |                                                                        
+All files              |   52.62 |       50 |   41.52 |   53.76 |                                                                        
  src                   |     100 |      100 |     100 |     100 |                                                                        
   App.tsx              |     100 |      100 |     100 |     100 |                                                                        
   interfaces.ts        |       0 |        0 |       0 |       0 |                                                                        
  src/assets            |     100 |      100 |     100 |     100 |                                                                        
   instances.tsx        |     100 |      100 |     100 |     100 |                                                                        
- src/components        |   45.19 |    43.95 |   37.03 |   46.27 |                                                                        
+ src/components        |   47.65 |    49.45 |   38.27 |   48.83 |                                                                        
   AddItem.tsx          |   96.55 |      100 |      90 |   96.55 | 115                                                                    
-  AdminList.tsx        |   33.33 |       25 |   33.33 |   34.61 | 28,37-59,67-94                                                         
-  DisplayItem.tsx      |    64.7 |    66.66 |   77.77 |    64.7 | 85-90,95,139,160                                                       
+  AdminList.tsx        |   36.36 |    41.66 |   33.33 |   38.46 | 28,37-59,83-94                                                         
+  DisplayItem.tsx      |   82.35 |    91.66 |   77.77 |   82.35 | 85-90                                                                  
   EditItem.tsx         |   80.64 |      100 |      40 |   80.64 | 66-104                                                                 
   Expandable.tsx       |     100 |      100 |     100 |     100 |                                                                        
   ItemView.tsx         |   54.71 |     40.9 |   36.84 |   55.76 | 52-120,139,154,161,167,188,230                                         
   Navbar.tsx           |     100 |      100 |     100 |     100 |                                                                        
-  RoleSelect.tsx       |      60 |      100 |      50 |      60 | 18-20,36                                                               
+  RoleSelect.tsx       |      60 |      100 |      50 |      60 | 16-18,33                                                               
   SortItems.tsx        |   44.89 |    54.16 |   21.42 |   44.89 | 83,107-110,112-115,117-120,122-125,127-130,132-135,137-140,144,147-153 
-  UserCart.tsx         |   21.93 |    15.21 |   16.66 |   22.44 | 48,55-95,109-217,224,232-317,339-381,402,419-427,438-442               
-  UserSelect.tsx       |   38.18 |       50 |   30.43 |   38.88 | 66-79,83-91,95-100,153-176,191-285,321,348-349,359-360                 
+  UserCart.tsx         |   26.45 |    26.08 |   20.83 |   27.21 | 48,55-95,109-217,224,232-317,339-381,402,421,424                       
+  UserSelect.tsx       |   38.18 |       50 |   30.43 |   38.88 | 66-78,82-90,94-99,152-175,190-284,320,347-348,358-359                  
  src/hooks             |      90 |       75 |     100 |   88.88 |                                                                        
   useSessionStorage.ts |      90 |       75 |     100 |   88.88 | 9                                                                      
  src/interfaces        |       0 |        0 |       0 |       0 |                                                                        
@@ -176,8 +126,9 @@ All files              |    50.4 |    44.62 |   40.35 |   51.46 |
   Shop.tsx             |     100 |      100 |     100 |     100 |                                                                        
   Users.tsx            |     100 |      100 |     100 |     100 |                                                                        
 -----------------------|---------|----------|---------|---------|------------------------------------------------------------------------
-Test Suites: 5 failed, 13 passed, 18 total
-Tests:       98 passed, 98 total
+
+Test Suites: 18 passed, 18 total
+Tests:       150 passed, 150 total
 Snapshots:   0 total
-Time:        14.671 s
+Time:        19.5 s
 Ran all test suites.
