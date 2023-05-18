@@ -1,5 +1,5 @@
 import React from "react";
-import { DisplayAdminList, deleteFromAdminList } from "./AdminList";
+import { DisplayAdminList, DeleteFromAdminList } from "./AdminList";
 import { renderWithProviders } from "../App.test";
 
 describe("DisplayAdminList", () => {
@@ -38,7 +38,7 @@ describe("DisplayAdminList", () => {
     });
 });
 
-describe("deleteFromAdminList", () => {
+describe("DeleteFromAdminList", () => {
     test("should remove the item with the specified itemID from adminItems 1", () => {
         const itemID = 2;
         const adminItems = [
@@ -85,7 +85,7 @@ describe("deleteFromAdminList", () => {
             }
         ];
 
-        deleteFromAdminList(itemID, adminItems);
+        DeleteFromAdminList(itemID, adminItems);
 
         const updatedAdminItems = JSON.parse(
             sessionStorage.getItem("adminItems") || "[]"
@@ -139,7 +139,7 @@ describe("deleteFromAdminList", () => {
             }
         ];
 
-        deleteFromAdminList(itemID, adminItems);
+        DeleteFromAdminList(itemID, adminItems);
 
         const updatedAdminItems = JSON.parse(
             sessionStorage.getItem("adminItems") || "[]"
@@ -178,7 +178,7 @@ describe("deleteFromAdminList", () => {
             }
         ];
 
-        deleteFromAdminList(itemID, adminItems);
+        DeleteFromAdminList(itemID, adminItems);
 
         const updatedAdminItems = JSON.parse(
             sessionStorage.getItem("adminItems") || "[]"

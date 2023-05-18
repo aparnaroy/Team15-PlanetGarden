@@ -127,7 +127,7 @@ export function InventoryDisplay(): JSX.Element {
     );
 }
 
-export function displayCartOrAdmin(
+export function DisplayCartOrAdmin(
     items: Item[],
     setItems: (newItems: Item[]) => void,
     userNow: User
@@ -152,7 +152,7 @@ export function displayCartOrAdmin(
     );
 }
 
-export function chooseHeader(): string {
+export function ChooseHeader(): string {
     if (
         sessionStorage.getItem("Role") === "Admin" ||
         sessionStorage.getItem("Role") === "Super"
@@ -173,7 +173,7 @@ export function ShopDisplay(
         <>
             <div style={{ display: "flex" }}>
                 <header className="App-header2">Shop 🪴</header>
-                <header className="App-header3">{chooseHeader()}</header>
+                <header className="App-header3">{ChooseHeader()}</header>
             </div>
             <div className="parent-container">
                 <div className="flex-container-shop">
@@ -191,7 +191,7 @@ export function ShopDisplay(
                         })}
                     </Row>
                 </div>
-                <div>{displayCartOrAdmin(items, setItems, userNow)}</div>
+                <div>{DisplayCartOrAdmin(items, setItems, userNow)}</div>
             </div>
         </>
     );

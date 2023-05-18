@@ -41,7 +41,7 @@ export function DisplayUserList({
     ]);
     setAllUsers;
 
-    const [filter, setFilter] = useState(""); // State variable for filter selection
+    const [filter, setFilter] = useState("");
 
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "item",
@@ -415,7 +415,7 @@ export function DisplayUserList({
     return <div></div>;
 }
 
-export function deleteFromAllUserCarts(itemID: number, allUsers: User[]) {
+export function DeleteFromAllUserCarts(itemID: number, allUsers: User[]) {
     const updatedUsers = allUsers.map((user) => ({
         ...user,
         cart: user.cart.filter((i) => i.id !== itemID)
@@ -427,7 +427,7 @@ export function deleteFromAllUserCarts(itemID: number, allUsers: User[]) {
     sessionStorage.setItem("USERS", JSON.stringify(updatedUsers));
 }
 
-export function calculateTotalOccurrences() {
+export function CalculateTotalOccurrences() {
     const x = sessionStorage.getItem("USERS");
     if (x) {
         const allUsers = JSON.parse(x);
@@ -437,13 +437,13 @@ export function calculateTotalOccurrences() {
             cart.forEach((item: Item) => {
                 const itemId = item.id;
                 if (itemCounts.has(itemId)) {
-                    itemCounts.set(itemId, itemCounts.get(itemId) + 1); // Increment occurrence count
+                    itemCounts.set(itemId, itemCounts.get(itemId) + 1);
                 } else {
-                    itemCounts.set(itemId, 1); // Initialize occurrence count
+                    itemCounts.set(itemId, 1);
                 }
             });
         });
         return itemCounts;
     }
-    return new Map<string, number>(); // Return an empty map if no users are found
+    return new Map<string, number>();
 }
