@@ -4,7 +4,7 @@ import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { CurrentCart } from "./UserList";
+import { CurrentCart } from "./UserCart";
 import { Item } from "../interfaces/Item";
 import {
     benchStructure,

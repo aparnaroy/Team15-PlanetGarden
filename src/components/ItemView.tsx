@@ -6,11 +6,12 @@ import { useDrag } from "react-dnd";
 import { ExpandableSection } from "./Expandable";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
-import { deleteFromAllUserCarts } from "./UserList";
+import { deleteFromAllUserCarts } from "./UserCart";
 import { deleteFromAdminList } from "./AdminList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { calculateTotalOccurrences } from "./UserCart";
 
 export interface ItemViewProps {
     anItem: Item;
@@ -33,7 +34,6 @@ export function ItemView({
         })
     });
     isDragging;
-
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
         { id: 1, name: "Sam", cart: [] },
         { id: 2, name: "John", cart: [] },
@@ -170,6 +170,35 @@ export function ItemView({
         return "white";
     }
 
+    const totalOccurrencesMap = calculateTotalOccurrences();
+    if (totalOccurrencesMap) {
+        items.map((anItem: Item) => {
+            const occurrences = totalOccurrencesMap.get(anItem.name);
+            const appearsInCart = occurrences !== undefined ? occurrences : 0;
+            return { ...anItem, appearsInCart };
+        });
+        //console.log(totalOccurrencesMap);
+    }
+
+    function showAppearsInCart(item: Item) {
+        if (
+            sessionStorage.getItem("Role") === "Super" &&
+            totalOccurrencesMap.get(item.id)
+        ) {
+            return (
+                <div style={{ backgroundColor: "LightBlue" }}>
+                    Added to carts {totalOccurrencesMap.get(item.id)} times.
+                </div>
+            );
+        } else if (sessionStorage.getItem("Role") === "Super") {
+            return (
+                <div style={{ backgroundColor: "LightBlue" }}>
+                    Added to carts 0 times.
+                </div>
+            );
+        }
+    }
+
     return (
         <Col key={anItem.id}>
             <br></br>
@@ -205,6 +234,8 @@ export function ItemView({
                             );
                         })}
                     </span>
+                    <br></br>
+                    {showAppearsInCart(anItem)}
                     <Card.Footer>
                         <ExpandableSection>
                             <br></br>
