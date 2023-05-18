@@ -48,6 +48,7 @@ export const cedarTree: Item = {
     boughtWith: ["Stakes", "Soil"],
     cartId: 1
 };
+
 export const larchTree: Item = {
     id: 2,
     name: "Larch Tree",
@@ -62,6 +63,7 @@ export const larchTree: Item = {
     boughtWith: ["Stakes", "Soil"],
     cartId: 2
 };
+
 export const oakTree: Item = {
     id: 3,
     name: "Oak Tree",
@@ -76,6 +78,7 @@ export const oakTree: Item = {
     boughtWith: ["Stakes", "Soil"],
     cartId: 3
 };
+
 export const sequoiaTree: Item = {
     id: 4,
     name: "Sequoia Tree",
@@ -89,6 +92,7 @@ export const sequoiaTree: Item = {
     boughtWith: ["Stakes", "Soil"],
     cartId: 4
 };
+
 export const spruceTree: Item = {
     id: 5,
     name: "Spruce Tree",
