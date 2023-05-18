@@ -153,7 +153,17 @@ export function ItemView({
             const inList = allAdminItems.find(
                 (item: Item) => item.id === anItem.id
             );
-            if (inList && sessionStorage.getItem("Role") === "Admin") {
+            if (
+                inList &&
+                window.location.href.endsWith("shop") &&
+                sessionStorage.getItem("Role") === "Admin"
+            ) {
+                return "#D3D3D3";
+            } else if (
+                inList &&
+                window.location.href.endsWith("shop") &&
+                sessionStorage.getItem("Role") === "Super"
+            ) {
                 return "#D3D3D3";
             }
         }

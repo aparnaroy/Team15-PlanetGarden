@@ -1,9 +1,7 @@
 import React from "react";
-import { fireEvent, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { ItemView, ItemViewProps } from "./ItemView";
 import { renderWithProviders } from "../App.test";
-import { Card } from "react-bootstrap";
-import { Item } from "../interfaces/Item";
 
 describe("ItemView", () => {
     const item = {
