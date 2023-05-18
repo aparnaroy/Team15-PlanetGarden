@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/Team15-PlanetGarden/static/css/main.4d2cae94.css",
-    "main.js": "/Team15-PlanetGarden/static/js/main.2caf54cd.js",
+    "main.css": "/Team15-PlanetGarden/static/css/main.98ad5df1.css",
+    "main.js": "/Team15-PlanetGarden/static/js/main.7e68fb2e.js",
     "static/js/787.4ef7427d.chunk.js": "/Team15-PlanetGarden/static/js/787.4ef7427d.chunk.js",
+    "static/media/Planet-Garden.png": "/Team15-PlanetGarden/static/media/Planet-Garden.17e44e37ce7f6d422e43.png",
     "static/media/Stone-Path.png": "/Team15-PlanetGarden/static/media/Stone-Path.24bb4cffd4256fb7c731.png",
     "static/media/Pansy.png": "/Team15-PlanetGarden/static/media/Pansy.abb43426ddaf47024b65.png",
     "static/media/oaktree.png": "/Team15-PlanetGarden/static/media/oaktree.5c3878c4c44c2a26af02.png",
@@ -13,7 +14,6 @@
     "static/media/Chrysanthemum.png": "/Team15-PlanetGarden/static/media/Chrysanthemum.24658d29234a355d57ae.png",
     "static/media/iris.png": "/Team15-PlanetGarden/static/media/iris.de9a55d1c4f3fb07d625.png",
     "static/media/Blue-Hydrangea.png": "/Team15-PlanetGarden/static/media/Blue-Hydrangea.8690605a69e224d9853f.png",
-    "static/media/Planet-Garden.png": "/Team15-PlanetGarden/static/media/Planet-Garden.85e23404c5bd6605a96d.png",
     "static/media/Stone-pond.png": "/Team15-PlanetGarden/static/media/Stone-pond.27569b8a4c3bdbd1e5b8.png",
     "static/media/Garden-Gnome.png": "/Team15-PlanetGarden/static/media/Garden-Gnome.0f708bec4c44d2413355.png",
     "static/media/grass.png": "/Team15-PlanetGarden/static/media/grass.de04102dc84ebbca9bea.png",
@@ -38,12 +38,12 @@
     "static/media/Gazebo.png": "/Team15-PlanetGarden/static/media/Gazebo.0215690540d15c15fdb3.png",
     "static/media/spruce-tree.png": "/Team15-PlanetGarden/static/media/spruce-tree.b9aea72fde26837f915d.png",
     "index.html": "/Team15-PlanetGarden/index.html",
-    "main.4d2cae94.css.map": "/Team15-PlanetGarden/static/css/main.4d2cae94.css.map",
-    "main.2caf54cd.js.map": "/Team15-PlanetGarden/static/js/main.2caf54cd.js.map",
+    "main.98ad5df1.css.map": "/Team15-PlanetGarden/static/css/main.98ad5df1.css.map",
+    "main.7e68fb2e.js.map": "/Team15-PlanetGarden/static/js/main.7e68fb2e.js.map",
     "787.4ef7427d.chunk.js.map": "/Team15-PlanetGarden/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d2cae94.css",
-    "static/js/main.2caf54cd.js"
+    "static/css/main.98ad5df1.css",
+    "static/js/main.7e68fb2e.js"
   ]
 }
