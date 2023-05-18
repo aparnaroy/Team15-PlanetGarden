@@ -41,7 +41,7 @@ PASS src/components/AddItem.test.tsx
       at render (node_modules/@testing-library/react/dist/pure.js:246:10)
       at Object.<anonymous> (src/components/AddItem.test.tsx:12:15)
 
-PASS src/components/AdminList.test.tsx
+PASS src/components/AdminList.test.tsx (5.051 s)
 PASS src/components/UserCart.test.tsx
 PASS src/components/EditItem.test.tsx
   ● Console
@@ -130,5 +130,5 @@ All files              |   52.62 |       50 |   41.52 |   53.76 |
 Test Suites: 18 passed, 18 total
 Tests:       150 passed, 150 total
 Snapshots:   0 total
-Time:        20.672 s
+Time:        23.228 s
 Ran all test suites.
