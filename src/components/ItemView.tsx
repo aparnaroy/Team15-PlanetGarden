@@ -6,12 +6,12 @@ import { useDrag } from "react-dnd";
 import { ExpandableSection } from "./Expandable";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
-import { deleteFromAllUserCarts } from "./UserCart";
-import { deleteFromAdminList } from "./AdminList";
+import { DeleteFromAllUserCarts } from "./UserCart";
+import { DeleteFromAdminList } from "./AdminList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
-import { calculateTotalOccurrences } from "./UserCart";
+import { CalculateTotalOccurrences } from "./UserCart";
 
 export interface ItemViewProps {
     anItem: Item;
@@ -60,8 +60,8 @@ export function ItemView({
         if (items && setItems) {
             const updatedItems = items.filter((i) => i.name !== item.name);
             setItems(updatedItems);
-            deleteFromAllUserCarts(item.id, allUsers);
-            deleteFromAdminList(item.id, adminItems);
+            DeleteFromAllUserCarts(item.id, allUsers);
+            DeleteFromAdminList(item.id, adminItems);
             location.reload();
         }
     }
@@ -170,7 +170,7 @@ export function ItemView({
         return "white";
     }
 
-    const totalOccurrencesMap = calculateTotalOccurrences();
+    const totalOccurrencesMap = CalculateTotalOccurrences();
     if (totalOccurrencesMap) {
         items.map((anItem: Item) => {
             const occurrences = totalOccurrencesMap.get(anItem.name);

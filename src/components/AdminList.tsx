@@ -111,7 +111,7 @@ export function DisplayAdminList({
     return <div data-testid="admin-list">{displayAdminList()}</div>;
 }
 
-export function deleteFromAdminList(itemID: number, adminItems: Item[]) {
+export function DeleteFromAdminList(itemID: number, adminItems: Item[]) {
     const updatedAdminItems = adminItems.filter((i) => i.id !== itemID);
 
     sessionStorage.setItem("adminItems", JSON.stringify(updatedAdminItems));

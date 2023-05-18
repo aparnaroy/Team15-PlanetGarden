@@ -67,7 +67,6 @@ export function UserSelect(): JSX.Element {
         }
     }, [selectedUserId]);
 
-    // This is the Control
     function updateUserSelected(e: number) {
         setSelectedUserId(e);
         setCurrId(e);

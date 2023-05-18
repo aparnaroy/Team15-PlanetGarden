@@ -17,7 +17,6 @@ describe("AddItem", () => {
     });
 
     test("should call onSave function with the correct item when form is submitted 1", () => {
-        // Arrange
         const nameInput = screen.getByPlaceholderText("Name");
         const priceInput = screen.getByPlaceholderText("Price");
         const imageInput = screen.getByPlaceholderText("Image URL");
@@ -44,7 +43,6 @@ describe("AddItem", () => {
             cartId: expect.any(Number)
         };
 
-        // Act
         fireEvent.change(nameInput, { target: { value: item.name } });
         fireEvent.change(priceInput, {
             target: { value: item.price.toString() }
@@ -59,15 +57,13 @@ describe("AddItem", () => {
         fireEvent.change(maintenanceInput, {
             target: { value: item.maintenanceLevel.toString() }
         });
-        fireEvent.change(boughtWithInput, { target: { value: "" } }); // Clear the input
+        fireEvent.change(boughtWithInput, { target: { value: "" } });
         fireEvent.click(saveButton);
 
-        // Assert
         expect(onSaveMock).toHaveBeenCalledWith(item);
     });
 
     test("should call onSave function with the correct item when form is submitted 2", () => {
-        // Arrange
         const nameInput = screen.getByPlaceholderText("Name");
         const priceInput = screen.getByPlaceholderText("Price");
         const imageInput = screen.getByPlaceholderText("Image URL");
@@ -94,7 +90,6 @@ describe("AddItem", () => {
             cartId: expect.any(Number)
         };
 
-        // Act
         fireEvent.change(nameInput, { target: { value: item.name } });
         fireEvent.change(priceInput, {
             target: { value: item.price.toString() }
@@ -109,15 +104,13 @@ describe("AddItem", () => {
         fireEvent.change(maintenanceInput, {
             target: { value: item.maintenanceLevel.toString() }
         });
-        fireEvent.change(boughtWithInput, { target: { value: "" } }); // Clear the input
+        fireEvent.change(boughtWithInput, { target: { value: "" } });
         fireEvent.click(saveButton);
 
-        // Assert
         expect(onSaveMock).toHaveBeenCalledWith(item);
     });
 
     test("should call onSave function with the correct item when form is submitted 3", () => {
-        // Arrange
         const nameInput = screen.getByPlaceholderText("Name");
         const priceInput = screen.getByPlaceholderText("Price");
         const imageInput = screen.getByPlaceholderText("Image URL");
@@ -144,7 +137,6 @@ describe("AddItem", () => {
             cartId: expect.any(Number)
         };
 
-        // Act
         fireEvent.change(nameInput, { target: { value: item.name } });
         fireEvent.change(priceInput, {
             target: { value: item.price.toString() }
@@ -159,15 +151,13 @@ describe("AddItem", () => {
         fireEvent.change(maintenanceInput, {
             target: { value: item.maintenanceLevel.toString() }
         });
-        fireEvent.change(boughtWithInput, { target: { value: "" } }); // Clear the input
+        fireEvent.change(boughtWithInput, { target: { value: "" } });
         fireEvent.click(saveButton);
 
-        // Assert
         expect(onSaveMock).toHaveBeenCalledWith(item);
     });
 
     test("should call onSave function with the correct item when form is submitted 5", () => {
-        // Arrange
         const nameInput = screen.getByPlaceholderText("Name");
         const priceInput = screen.getByPlaceholderText("Price");
         const imageInput = screen.getByPlaceholderText("Image URL");
@@ -194,7 +184,6 @@ describe("AddItem", () => {
             cartId: expect.any(Number)
         };
 
-        // Act
         fireEvent.change(nameInput, { target: { value: item.name } });
         fireEvent.change(priceInput, {
             target: { value: item.price.toString() }
@@ -209,15 +198,13 @@ describe("AddItem", () => {
         fireEvent.change(maintenanceInput, {
             target: { value: item.maintenanceLevel.toString() }
         });
-        fireEvent.change(boughtWithInput, { target: { value: "" } }); // Clear the input
+        fireEvent.change(boughtWithInput, { target: { value: "" } });
         fireEvent.click(saveButton);
 
-        // Assert
         expect(onSaveMock).toHaveBeenCalledWith(item);
     });
 
     test("should reset the form fields after save", () => {
-        // Arrange
         const nameInput = screen.getByPlaceholderText("Name");
         const priceInput = screen.getByPlaceholderText("Price");
         const imageInput = screen.getByPlaceholderText("Image URL");
@@ -228,9 +215,7 @@ describe("AddItem", () => {
         const boughtWithInput = screen.getByPlaceholderText(
             "Frequently Bought With"
         );
-        //const saveButton = screen.getByText("Save");
 
-        // Act
         fireEvent.change(nameInput, { target: { value: "Test Item 5" } });
         fireEvent.change(priceInput, { target: { value: "86" } });
         fireEvent.change(imageInput, {

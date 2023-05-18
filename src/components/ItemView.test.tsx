@@ -34,7 +34,6 @@ describe("ItemView", () => {
         setItems.mockClear();
     });
 
-    // PASSING TEST
     test("does not render edit buttons for users", () => {
         sessionStorage.setItem("Role", "User");
 
