@@ -123,12 +123,12 @@ export function SortDropDown(): JSX.Element {
             (item: Item): boolean => item.type === "Structure"
         );
         printed = ShopDisplay(displayedItems, items, setItems, userNow);
-    } else if (option === "Price low to high") {
+    } else if (option === "Price (low to high)") {
         displayedItems = items.sort(
             (item: Item, item2: Item) => item.price - item2.price
         );
         printed = ShopDisplay(displayedItems, items, setItems, userNow);
-    } else if (option === "Price high to low") {
+    } else if (option === "Price (high to low)") {
         displayedItems = items.sort(
             (item: Item, item2: Item) => item2.price - item.price
         );
@@ -143,7 +143,7 @@ export function SortDropDown(): JSX.Element {
     function searchLists(event: React.ChangeEvent<HTMLInputElement>) {
         setInput(event.target.value);
     }
-    if (option === "By keyword") {
+    if (option === "By Keyword") {
         displayedItems = items.filter((item: Item) =>
             item.name.toLowerCase().includes(input.toLowerCase())
         );
@@ -186,7 +186,7 @@ export function SortDropDown(): JSX.Element {
                 <option>By Keyword</option>
             </Form.Select>
             <br></br>
-            {option === "By keyword" ? searchBar() : null}
+            {option === "By Keyword" ? searchBar() : null}
             {printed}
         </div>
     );
