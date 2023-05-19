@@ -2,7 +2,7 @@
 
 Hello! Welcome to our CISC275 final project!
 
-Planet Garden is a website made entirely with React Typescript where you can shop for landscaping products and maintain the various products available and users of the website. There are 3 possible roles you may select (Owner, Shopkeeper, and Customer), and each one has different permissions and available features, guaranteeing a different experience overall.
+Planet Garden is a website made entirely with React Typescript where you can shop for landscaping products and maintain the various products available and users of the website. There are 3 possible roles you may select (CEO, Shopkeeper, and Customer), and each one has different permissions and available features, guaranteeing a different experience overall.
 
 ### Authors
 
