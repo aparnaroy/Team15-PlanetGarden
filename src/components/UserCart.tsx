@@ -227,15 +227,20 @@ export function DisplayUserList({
     }, [userItems]);
 
     const [newItemForm, setShowItemForm] = useState(false);
+    const [editItemId, setEditItemId] = useState(0);
 
-    function showItemForm() {
+    function toggleItemForm(itemCartId: number) {
         setShowItemForm(!newItemForm);
+        setEditItemId(itemCartId);
     }
 
-    function showEditButton() {
+    function showEditButton(itemCartId: number) {
         return (
             <div>
-                <Button onClick={showItemForm} className="pencil-button">
+                <Button
+                    onClick={() => toggleItemForm(itemCartId)}
+                    className="pencil-button"
+                >
                     <FontAwesomeIcon
                         icon={faPencil}
                         size="1x"
@@ -246,8 +251,14 @@ export function DisplayUserList({
         );
     }
 
+    function resetForm() {
+        setNewName("");
+        setNewPrice(0);
+        setNewBought("");
+    }
+
     function showEditForm(anItem: Item) {
-        if (newItemForm) {
+        if (newItemForm && editItemId === anItem.cartId) {
             return (
                 <form
                     className="edit-item-user"
@@ -255,6 +266,8 @@ export function DisplayUserList({
                         e.preventDefault();
                         handleEditUserItem(anItem.cartId, newName, newPrice);
                         handleChangeBoughtWith(anItem.cartId, [], newBought);
+                        toggleItemForm(anItem.cartId);
+                        resetForm();
                     }}
                 >
                     <input
@@ -309,7 +322,7 @@ export function DisplayUserList({
                             />
 
                             <div className="button-container">
-                                {showEditButton()}
+                                {showEditButton(anItem.cartId)}
                                 <br />
                                 <Button
                                     className="trash-can"
