@@ -58,7 +58,7 @@ export function ItemView({
 
     function deleteItem(item: Item) {
         if (items && setItems) {
-            const updatedItems = items.filter((i) => i.name !== item.name);
+            const updatedItems = items.filter((i) => i.id !== item.id);
             setItems(updatedItems);
             DeleteFromAllUserCarts(item.id, allUsers);
             DeleteFromAdminList(item.id, adminItems);
