@@ -41,7 +41,7 @@ export function DisplayUserList({
     ]);
     setAllUsers;
 
-    const [filter, setFilter] = useState(""); // State variable for filter selection
+    const [filter, setFilter] = useState("");
 
     const [{ isOver }, drop] = useDrop(() => ({
         accept: "item",
@@ -179,7 +179,12 @@ export function DisplayUserList({
     function addToCart(itemID: number) {
         const addedItem = items.find((i) => itemID === i.id);
         if (addedItem) {
-            addedItem.cartId = Date.now();
+            const duplicate = userItems.find((i) => itemID === i.id);
+            if (duplicate) {
+                addedItem.cartId = Date.now() + duplicate.cartId;
+            } else {
+                addedItem.cartId = Date.now();
+            }
 
             setUserItems((userItems) => {
                 const newCart: Item[] = [
@@ -355,7 +360,6 @@ export function DisplayUserList({
                     >
                         Total: ${total}
                     </div>
-                    <br></br>
                     <div>
                         <Button
                             className="remove-button"
@@ -372,18 +376,19 @@ export function DisplayUserList({
                     </div>
                     <div>
                         <select
+                            className="user-filter-dropdown"
                             value={filter}
                             onChange={(e) => setFilter(e.target.value)}
                         >
                             <option value="">All</option>
-                            <option value="greaterThan100">
-                                Price greater than 100
-                            </option>
                             <option value="lessThan100">
-                                Price less than 100
+                                Price Less than $100
+                            </option>
+                            <option value="greaterThan100">
+                                Price Greater than $100
                             </option>
                             <option value="boughtWithFlowers">
-                                Bought with Flowers
+                                Frequently Bought with Flowers
                             </option>
                         </select>
                     </div>
@@ -410,7 +415,7 @@ export function DisplayUserList({
     return <div></div>;
 }
 
-export function deleteFromAllUserCarts(itemID: number, allUsers: User[]) {
+export function DeleteFromAllUserCarts(itemID: number, allUsers: User[]) {
     const updatedUsers = allUsers.map((user) => ({
         ...user,
         cart: user.cart.filter((i) => i.id !== itemID)
@@ -420,4 +425,25 @@ export function deleteFromAllUserCarts(itemID: number, allUsers: User[]) {
     });
 
     sessionStorage.setItem("USERS", JSON.stringify(updatedUsers));
+}
+
+export function CalculateTotalOccurrences() {
+    const x = sessionStorage.getItem("USERS");
+    if (x) {
+        const allUsers = JSON.parse(x);
+        const itemCounts = new Map();
+        allUsers.forEach((user: User) => {
+            const cart = user.cart;
+            cart.forEach((item: Item) => {
+                const itemId = item.id;
+                if (itemCounts.has(itemId)) {
+                    itemCounts.set(itemId, itemCounts.get(itemId) + 1);
+                } else {
+                    itemCounts.set(itemId, 1);
+                }
+            });
+        });
+        return itemCounts;
+    }
+    return new Map<string, number>();
 }

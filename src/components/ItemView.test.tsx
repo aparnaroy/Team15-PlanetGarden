@@ -1,73 +1,82 @@
 import React from "react";
-
-export function test() {
-    React;
-    return 0;
-}
-
-/**
- * /import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { ItemView } from "./ItemView";
-
-const item = {
-    id: 1,
-    name: "Test Item",
-    image: "https://via.placeholder.com/150",
-    price: 9.99
-};
+import { screen } from "@testing-library/react";
+import { ItemView, ItemViewProps } from "./ItemView";
+import { renderWithProviders } from "../App.test";
 
 describe("ItemView", () => {
-    test("renders item name and price", () => {
-        render(<ItemView anItem={item} />);
-        expect(screen.getByText(item.name)).toBeInTheDocument();
-        expect(screen.getByText(`$${item.price}`)).toBeInTheDocument();
-    });
+    const item = {
+        id: 1,
+        name: "Item 1",
+        price: 10,
+        image: "item1.jpg",
+        description: "Description for Item 1",
+        quantity: 2,
+        maintenanceLevel: 3,
+        rating: 0,
+        type: "",
+        boughtWith: ["Item 2", "Item 3"],
+        cartId: 1
+    };
 
-    test("can delete an item", () => {
-        const setItems = jest.fn();
-        const items = [item];
-        render(<ItemView anItem={item} items={items} setItems={setItems} />);
-        userEvent.click(screen.getByText("Delete Item"));
-        expect(setItems).toHaveBeenCalledWith([]);
-    });
+    const items = [item];
+    const setItems = jest.fn();
 
-    test("can edit an item", () => {
-        const setItems = jest.fn();
-        const items = [item];
-        render(<ItemView anItem={item} items={items} setItems={setItems} />);
-        userEvent.click(screen.getByText("Edit Item"));
-        expect(screen.getByLabelText("Name")).toHaveValue(item.name);
-        userEvent.type(screen.getByLabelText("Name"), " Edited");
-        userEvent.click(screen.getByText("Save"));
-        expect(setItems).toHaveBeenCalledWith([
-            { ...item, name: `${item.name} Edited` }
-        ]);
-    });
-
-    test("displays edit and delete buttons for Super role in inventory page", () => {
+    beforeEach(() => {
         sessionStorage.setItem("Role", "Super");
-        Object.defineProperty(window.location, "href", {
-            writable: true,
-            value: "http://localhost/inventory"
-        });
-        render(<ItemView anItem={item} />);
-        expect(screen.getByText("Edit Item")).toBeInTheDocument();
-        expect(screen.getByText("Delete Item")).toBeInTheDocument();
+        sessionStorage.setItem("adminItems", JSON.stringify([]));
+        renderWithProviders(
+            <ItemView anItem={item} items={items} setItems={setItems} />
+        );
     });
 
-    test("displays edit button for Super and Admin roles in shop page", () => {
-        sessionStorage.setItem("Role", "Super");
-        Object.defineProperty(window.location, "href", {
-            writable: true,
-            value: "http://localhost/shop"
-        });
-        render(<ItemView anItem={item} />);
-        expect(screen.getByText("Edit Item")).toBeInTheDocument();
+    afterEach(() => {
+        sessionStorage.clear();
+        setItems.mockClear();
+    });
 
+    test("does not render edit buttons for users", () => {
+        sessionStorage.setItem("Role", "User");
+
+        const editButton = screen.queryByLabelText("Edit Item");
+
+        expect(editButton).toBeNull();
+    });
+
+    test("does not render delete buttons for users", () => {
+        sessionStorage.setItem("Role", "User");
+
+        const deleteButton = screen.queryByLabelText("Delete Item");
+
+        expect(deleteButton).toBeNull();
+    });
+
+    test("does not render edit buttons for admins", () => {
         sessionStorage.setItem("Role", "Admin");
-        render(<ItemView anItem={item} />);
-        expect(screen.getByText("Edit Item")).toBeInTheDocument();
+
+        const editButton = screen.queryByLabelText("Edit Item");
+
+        expect(editButton).toBeNull();
+    });
+
+    test("does not render delete buttons for admins", () => {
+        sessionStorage.setItem("Role", "Admin");
+
+        const deleteButton = screen.queryByLabelText("Delete Item");
+
+        expect(deleteButton).toBeNull();
+    });
+
+    const mockProps: ItemViewProps = {
+        anItem: item,
+        items: items,
+        setItems: setItems
+    };
+
+    test("displays a card", () => {
+        renderWithProviders(<ItemView {...mockProps} />);
+
+        const cardElements = screen.getAllByTestId("card");
+
+        expect(cardElements.length).toBeGreaterThan(0);
     });
 });
-**/

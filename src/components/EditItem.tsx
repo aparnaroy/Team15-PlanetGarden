@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Item } from "../interfaces/Item";
 import { Button } from "react-bootstrap";
 
-interface EditItemProps {
+export interface EditItemProps {
     item: Item;
     onSave: (name: string, editedItem: Item) => void;
 }

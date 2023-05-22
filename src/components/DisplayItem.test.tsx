@@ -1,44 +1,55 @@
 import React from "react";
-
-export function test() {
-    React;
-    return 0;
-}
-
-/*import { render, screen, fireEvent } from "@testing-library/react";
-import { displayCartOrAdmin } from "./DisplayItem";
-import { useSessionStorage } from "../hooks/useSessionStorage";
-
-jest.mock("../hooks/useSessionStorage");
+import { screen } from "@testing-library/react";
+import {
+    InventoryDisplay,
+    ChooseHeader,
+    DisplayCartOrAdmin
+} from "./DisplayItem";
+import { renderWithProviders } from "../App.test";
 
 describe("InventoryDisplay", () => {
-    beforeEach(() => {
-        useSessionStorage.mockReturnValue([[], jest.fn()]);
-    });
-
-    it("should render the add button if the user is a super admin", () => {
+    test("renders add button for Super role", () => {
         sessionStorage.setItem("Role", "Super");
-        render(<DisplayAdminList />);
-        const addButton = screen.getByRole("button", { name: "Add New Item" });
+        renderWithProviders(<InventoryDisplay />);
+        const addButton = screen.getByText("+ Add New");
         expect(addButton).toBeInTheDocument();
     });
 
-    it("should not render the add button if the user is not a super admin", () => {
-        sessionStorage.setItem("Role", "User");
-        render(<DisplayUserList />);
-        const addButton = screen.queryByRole("button", {
-            name: "Add New Item"
-        });
+    test("does not render add button for non-Super roles", () => {
+        sessionStorage.setItem("Role", "Regular");
+        renderWithProviders(<InventoryDisplay />);
+        const addButton = screen.queryByText("+ Add New");
         expect(addButton).not.toBeInTheDocument();
     });
+});
 
-    it("should show the add item form when the add button is clicked", () => {
-        sessionStorage.setItem("Role", "Super");
-        render(<DisplayAdminList />);
-        const addButton = screen.getByRole("button", { name: "Add New Item" });
-        fireEvent.click(addButton);
-        const itemNameInput = screen.getByLabelText("Item Name");
-        expect(itemNameInput).toBeInTheDocument();
+describe("DisplayCartOrAdmin", () => {
+    test("renders DisplayAdminList for Admin or Super roles", () => {
+        sessionStorage.setItem("Role", "Admin");
+        renderWithProviders(
+            DisplayCartOrAdmin(
+                [],
+                () => {
+                    [];
+                },
+                { id: 1, name: "John Doe", cart: [] }
+            )
+        );
+        const adminList = screen.getByTestId("admin-list");
+        expect(adminList).toBeInTheDocument();
     });
 });
-*/
+
+describe("ChooseHeader", () => {
+    test("returns 'Edit' for Admin or Super roles", () => {
+        sessionStorage.setItem("Role", "Admin");
+        expect(ChooseHeader()).toBe("Edit ✏️");
+        sessionStorage.setItem("Role", "Super");
+        expect(ChooseHeader()).toBe("Edit ✏️");
+    });
+
+    test("returns 'Your Cart' for User roles", () => {
+        sessionStorage.setItem("Role", "Regular");
+        expect(ChooseHeader()).toBe("Your Cart 🛒");
+    });
+});

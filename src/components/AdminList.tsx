@@ -6,7 +6,7 @@ import "../App.css";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { EditItem } from "./EditItem";
 
-export interface AdminViewProps {
+interface AdminViewProps {
     items: Item[];
     setItems: (newItems: Item[]) => void;
 }
@@ -88,6 +88,7 @@ export function DisplayAdminList({
                                         ></EditItem>
 
                                         <Button
+                                            data-testid="remove-button"
                                             className="remove-item-admin"
                                             onClick={() =>
                                                 handleRemoveItem(anItem.id)
@@ -107,10 +108,10 @@ export function DisplayAdminList({
         }
     }
 
-    return <div>{displayAdminList()}</div>;
+    return <div data-testid="admin-list">{displayAdminList()}</div>;
 }
 
-export function deleteFromAdminList(itemID: number, adminItems: Item[]) {
+export function DeleteFromAdminList(itemID: number, adminItems: Item[]) {
     const updatedAdminItems = adminItems.filter((i) => i.id !== itemID);
 
     sessionStorage.setItem("adminItems", JSON.stringify(updatedAdminItems));

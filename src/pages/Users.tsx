@@ -1,5 +1,4 @@
 import React from "react";
-//import { UserDropDownMenuSuper } from "../components/UserDropDownSuper";
 import { UserSelect } from "../components/UserSelect";
 
 export function Users() {
@@ -7,7 +6,9 @@ export function Users() {
         <div className="App">
             <header className="App-header">Edit Users</header>
             <br></br>
-            <UserSelect></UserSelect>
+            <div data-testid="user-select">
+                <UserSelect></UserSelect>
+            </div>
             <br></br>
         </div>
     );

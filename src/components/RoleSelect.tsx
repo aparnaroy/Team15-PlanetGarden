@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 
 export function RoleSelect(): JSX.Element {
-    // This is the State (Model)
     const [role, setRole] = useState<string>("");
 
     const roleSelected = sessionStorage.getItem("Role");
@@ -13,14 +12,12 @@ export function RoleSelect(): JSX.Element {
         }
     }, [roleSelected]);
 
-    // This is the Control
     function updateRole(e: string) {
         setRole(e);
         sessionStorage.setItem("Role", e);
         location.reload();
     }
 
-    // This is the View
     return (
         <div>
             <Form.Group>
@@ -37,7 +34,7 @@ export function RoleSelect(): JSX.Element {
                         key={role}
                     >
                         <option defaultValue="default">Select Your Role</option>
-                        <option value="Super">Owner</option>
+                        <option value="Super">CEO</option>
                         <option value="Admin">Shopkeeper</option>
                         <option value="User">Customer</option>
                     </Form.Select>

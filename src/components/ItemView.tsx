@@ -6,11 +6,12 @@ import { useDrag } from "react-dnd";
 import { ExpandableSection } from "./Expandable";
 import { useSessionStorage } from "../hooks/useSessionStorage";
 import { User } from "../interfaces/User";
-import { deleteFromAllUserCarts } from "./UserList";
-import { deleteFromAdminList } from "./AdminList";
+import { DeleteFromAllUserCarts } from "./UserCart";
+import { DeleteFromAdminList } from "./AdminList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { CalculateTotalOccurrences } from "./UserCart";
 
 export interface ItemViewProps {
     anItem: Item;
@@ -33,7 +34,6 @@ export function ItemView({
         })
     });
     isDragging;
-
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
         { id: 1, name: "Sam", cart: [] },
         { id: 2, name: "John", cart: [] },
@@ -60,8 +60,8 @@ export function ItemView({
         if (items && setItems) {
             const updatedItems = items.filter((i) => i.name !== item.name);
             setItems(updatedItems);
-            deleteFromAllUserCarts(item.id, allUsers);
-            deleteFromAdminList(item.id, adminItems);
+            DeleteFromAllUserCarts(item.id, allUsers);
+            DeleteFromAdminList(item.id, adminItems);
             location.reload();
         }
     }
@@ -153,17 +153,56 @@ export function ItemView({
             const inList = allAdminItems.find(
                 (item: Item) => item.id === anItem.id
             );
-            if (inList) {
+            if (
+                inList &&
+                window.location.href.endsWith("shop") &&
+                sessionStorage.getItem("Role") === "Admin"
+            ) {
+                return "#D3D3D3";
+            } else if (
+                inList &&
+                window.location.href.endsWith("shop") &&
+                sessionStorage.getItem("Role") === "Super"
+            ) {
                 return "#D3D3D3";
             }
         }
         return "white";
     }
 
+    const totalOccurrencesMap = CalculateTotalOccurrences();
+    if (totalOccurrencesMap) {
+        items.map((anItem: Item) => {
+            const occurrences = totalOccurrencesMap.get(anItem.name);
+            const appearsInCart = occurrences !== undefined ? occurrences : 0;
+            return { ...anItem, appearsInCart };
+        });
+        //console.log(totalOccurrencesMap);
+    }
+
+    function showAppearsInCart(item: Item) {
+        if (
+            sessionStorage.getItem("Role") === "Super" &&
+            totalOccurrencesMap.get(item.id)
+        ) {
+            return (
+                <div style={{ backgroundColor: "LightBlue" }}>
+                    Added to carts {totalOccurrencesMap.get(item.id)} times.
+                </div>
+            );
+        } else if (sessionStorage.getItem("Role") === "Super") {
+            return (
+                <div style={{ backgroundColor: "LightBlue" }}>
+                    Added to carts 0 times.
+                </div>
+            );
+        }
+    }
+
     return (
         <Col key={anItem.id}>
             <br></br>
-            <Card key={anItem.id} ref={drag}>
+            <Card key={anItem.id} ref={drag} data-testid="card">
                 <Card.Img
                     variant="top"
                     src={anItem.image}
@@ -195,6 +234,8 @@ export function ItemView({
                             );
                         })}
                     </span>
+                    <br></br>
+                    {showAppearsInCart(anItem)}
                     <Card.Footer>
                         <ExpandableSection>
                             <br></br>
