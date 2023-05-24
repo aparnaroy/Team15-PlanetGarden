@@ -43,7 +43,7 @@ export const cedarTree: Item = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 67.0,
-    rating: 0,
+    rating: 3,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
     cartId: 1
@@ -58,7 +58,7 @@ export const larchTree: Item = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 72.0,
-    rating: 0,
+    rating: 3,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
     cartId: 2
@@ -73,7 +73,7 @@ export const oakTree: Item = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 45.0,
-    rating: 0,
+    rating: 3,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
     cartId: 3
@@ -87,7 +87,7 @@ export const sequoiaTree: Item = {
     quantity: 1,
     maintenanceLevel: 5,
     price: 80.0,
-    rating: 0,
+    rating: 3,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
     cartId: 4
@@ -102,7 +102,7 @@ export const spruceTree: Item = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 41.0,
-    rating: 0,
+    rating: 3,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
     cartId: 5
@@ -117,7 +117,7 @@ export const cherryBlossomTree: Item = {
     quantity: 1,
     maintenanceLevel: 2,
     price: 199.0,
-    rating: 0,
+    rating: 5,
     type: "Tree",
     boughtWith: ["Stakes", "Soil"],
     cartId: 6
@@ -133,7 +133,7 @@ export const chrysanthemumFlower: Item = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 20.0,
-    rating: 0,
+    rating: 3,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
     cartId: 7
@@ -147,7 +147,7 @@ export const irisFlower: Item = {
     quantity: 1,
     maintenanceLevel: 5,
     price: 25.0,
-    rating: 0,
+    rating: 4,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
     cartId: 8
@@ -161,7 +161,7 @@ export const sunflowerFlower: Item = {
     quantity: 1,
     maintenanceLevel: 2,
     price: 31.0,
-    rating: 0,
+    rating: 4,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
     cartId: 9
@@ -175,7 +175,7 @@ export const tulipFlower: Item = {
     quantity: 1,
     maintenanceLevel: 4,
     price: 12.0,
-    rating: 0,
+    rating: 2,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
     cartId: 10
@@ -190,7 +190,7 @@ export const blueHydrangeaFlower: Item = {
     quantity: 1,
     maintenanceLevel: 2,
     price: 12.0,
-    rating: 0,
+    rating: 4,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
     cartId: 11
@@ -205,7 +205,7 @@ export const lilyFlower: Item = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 15.0,
-    rating: 0,
+    rating: 3,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
     cartId: 12
@@ -219,7 +219,7 @@ export const pansyFlower: Item = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 11.0,
-    rating: 0,
+    rating: 2,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
     cartId: 13
@@ -234,7 +234,7 @@ export const forgetMeNotFlower: Item = {
     quantity: 1,
     maintenanceLevel: 4,
     price: 14.0,
-    rating: 0,
+    rating: 2,
     type: "Flower",
     boughtWith: ["Flower pot", "Fertilizer", "Watering can", "Soil"],
     cartId: 14
@@ -250,7 +250,7 @@ export const benchStructure: Item = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 44.0,
-    rating: 0,
+    rating: 1,
     type: "Structure",
     boughtWith: ["Paint", "Table"],
     cartId: 15
@@ -264,7 +264,7 @@ export const gazeboStructure: Item = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 89.0,
-    rating: 0,
+    rating: 4,
     type: "Structure",
     boughtWith: ["Bench", "Lights", "Gravel"],
     cartId: 16
@@ -278,7 +278,7 @@ export const lilyPondStructure: Item = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 175.0,
-    rating: 0,
+    rating: 4,
     type: "Structure",
     boughtWith: ["Flowers", "Fish", "Tall grass"],
     cartId: 17
@@ -291,7 +291,7 @@ export const simplePondStructure: Item = {
     quantity: 1,
     maintenanceLevel: 2,
     price: 150.0,
-    rating: 0,
+    rating: 3,
     type: "Structure",
     boughtWith: ["Flowers", "Fish", "Tall grass"],
     cartId: 18
@@ -305,7 +305,7 @@ export const stonePondStructure: Item = {
     quantity: 1,
     maintenanceLevel: 2,
     price: 155.0,
-    rating: 0,
+    rating: 4,
     type: "Structure",
     boughtWith: ["Flowers", "Fish", "Moss"],
     cartId: 19
@@ -320,7 +320,7 @@ export const birdBathStructure: Item = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 99.0,
-    rating: 0,
+    rating: 3,
     type: "Structure",
     boughtWith: ["Bird seeds", "Bread crumbs"],
     cartId: 20
@@ -335,7 +335,7 @@ export const archStructure: Item = {
     quantity: 1,
     maintenanceLevel: 2,
     price: 320.0,
-    rating: 0,
+    rating: 5,
     type: "Structure",
     boughtWith: ["Flowers", "Ivy"],
     cartId: 21
@@ -350,7 +350,7 @@ export const fountainStructure: Item = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 1500.0,
-    rating: 0,
+    rating: 4,
     type: "Structure",
     boughtWith: ["Flowers", "Tiles"],
     cartId: 22
@@ -365,7 +365,7 @@ export const bridgeStructure: Item = {
     quantity: 1,
     maintenanceLevel: 2,
     price: 1400.0,
-    rating: 0,
+    rating: 4,
     type: "Structure",
     boughtWith: ["Lily Pond", "Stone Pond"],
     cartId: 23
@@ -380,7 +380,7 @@ export const gardenGnomeStructure: Item = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 54.0,
-    rating: 0,
+    rating: 1,
     type: "Structure",
     boughtWith: ["Flowers", "Mushrooms"],
     cartId: 24
@@ -395,7 +395,7 @@ export const budhaStructure: Item = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 575.0,
-    rating: 0,
+    rating: 4,
     type: "Structure",
     boughtWith: ["Fountain", "Lotus"],
     cartId: 25
@@ -410,7 +410,7 @@ export const stonePathStructure: Item = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 200.0,
-    rating: 0,
+    rating: 3,
     type: "Structure",
     boughtWith: ["Flowers", "Grass"],
     cartId: 26
@@ -425,7 +425,7 @@ export const hoopTrellisStructure: Item = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 1100.0,
-    rating: 0,
+    rating: 2,
     type: "Structure",
     boughtWith: ["Vines", "Roses"],
     cartId: 27
@@ -440,7 +440,7 @@ export const trellisStructure: Item = {
     quantity: 1,
     maintenanceLevel: 2,
     price: 1000.0,
-    rating: 0,
+    rating: 3,
     type: "Structure",
     boughtWith: ["Flowers", "Tiles"],
     cartId: 28
@@ -456,7 +456,7 @@ export const bushGreenery: Item = {
     quantity: 1,
     maintenanceLevel: 4,
     price: 15.0,
-    rating: 0,
+    rating: 2,
     type: "Greenery",
     boughtWith: ["Flowers", "Grass"],
     cartId: 29
@@ -469,7 +469,7 @@ export const grassGreenery: Item = {
     quantity: 1,
     maintenanceLevel: 4,
     price: 10.0,
-    rating: 0,
+    rating: 2,
     type: "Greenery",
     boughtWith: ["Moss", "Clovers"],
     cartId: 30
@@ -484,7 +484,7 @@ export const ivyGreenery: Item = {
     quantity: 1,
     maintenanceLevel: 2,
     price: 20.0,
-    rating: 0,
+    rating: 3,
     type: "Greenery",
     boughtWith: ["Garden arch", "Brick wall"],
     cartId: 31
@@ -499,7 +499,7 @@ export const caladiumGreenery: Item = {
     quantity: 1,
     maintenanceLevel: 1,
     price: 12.0,
-    rating: 0,
+    rating: 3,
     type: "Greenery",
     boughtWith: ["Fern", "Ivy"],
     cartId: 32
@@ -514,7 +514,7 @@ export const fernGreenery: Item = {
     quantity: 1,
     maintenanceLevel: 3,
     price: 14.0,
-    rating: 0,
+    rating: 2,
     type: "Greenery",
     boughtWith: ["Elephant ear", "Grass"],
     cartId: 33
