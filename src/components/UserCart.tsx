@@ -29,9 +29,6 @@ export function DisplayUserList({
     const [userItems, setUserItems] = useState<Item[]>(
         CurrentCart(selectedUser.id)
     );
-    const [newName, setNewName] = useState("");
-    const [newPrice, setNewPrice] = useState(0);
-    const [newBought, setNewBought] = useState("");
 
     const [allUsers, setAllUsers] = useSessionStorage<User[]>("USERS", [
         { id: 1, name: "Sam", cart: [] },
@@ -226,12 +223,18 @@ export function DisplayUserList({
         setTotal(sum);
     }, [userItems]);
 
-    const [newItemForm, setShowItemForm] = useState(false);
-    const [editItemId, setEditItemId] = useState(0);
+    const [editItemForms, setEditItemForms] = useState<{
+        [key: number]: boolean;
+    }>({});
+    const [editItemData, setEditItemData] = useState<{
+        [key: number]: { newName: string; newPrice: number; newBought: string };
+    }>({});
 
     function toggleItemForm(itemCartId: number) {
-        setShowItemForm(!newItemForm);
-        setEditItemId(itemCartId);
+        setEditItemForms((prevState) => ({
+            ...prevState,
+            [itemCartId]: !prevState[itemCartId]
+        }));
     }
 
     function showEditButton(itemCartId: number) {
@@ -251,14 +254,14 @@ export function DisplayUserList({
         );
     }
 
-    function resetForm() {
-        setNewName("");
-        setNewPrice(0);
-        setNewBought("");
-    }
-
     function showEditForm(anItem: Item) {
-        if (newItemForm && editItemId === anItem.cartId) {
+        if (editItemForms[anItem.cartId]) {
+            const {
+                newName = "",
+                newPrice = 0,
+                newBought = ""
+            } = editItemData[anItem.cartId] || {};
+
             return (
                 <form
                     className="edit-item-user"
@@ -267,28 +270,49 @@ export function DisplayUserList({
                         handleEditUserItem(anItem.cartId, newName, newPrice);
                         handleChangeBoughtWith(anItem.cartId, [], newBought);
                         toggleItemForm(anItem.cartId);
-                        resetForm();
                     }}
                 >
                     <input
                         type="text"
                         placeholder="Name"
                         value={newName}
-                        onChange={(e) => setNewName(e.target.value)}
+                        onChange={(e) =>
+                            setEditItemData((prevState) => ({
+                                ...prevState,
+                                [anItem.cartId]: {
+                                    ...prevState[anItem.cartId],
+                                    newName: e.target.value
+                                }
+                            }))
+                        }
                     />
                     <input
                         type="number"
                         placeholder="Price"
                         value={newPrice}
                         onChange={(e) =>
-                            setNewPrice(parseFloat(e.target.value))
+                            setEditItemData((prevState) => ({
+                                ...prevState,
+                                [anItem.cartId]: {
+                                    ...prevState[anItem.cartId],
+                                    newPrice: parseFloat(e.target.value)
+                                }
+                            }))
                         }
                     />
                     <input
                         placeholder="Frequently Bought With"
                         type="text"
                         value={newBought}
-                        onChange={(e) => setNewBought(e.target.value)}
+                        onChange={(e) =>
+                            setEditItemData((prevState) => ({
+                                ...prevState,
+                                [anItem.cartId]: {
+                                    ...prevState[anItem.cartId],
+                                    newBought: e.target.value
+                                }
+                            }))
+                        }
                     />
                     <Button type="submit" variant="success">
                         Update
