@@ -24,7 +24,8 @@ export function ItemView({
     items,
     setItems
 }: ItemViewProps): JSX.Element {
-    const [rating, setRating] = useState(4);
+    const [rating, setRating] = useState(anItem.rating);
+    //const [rating, setRating] = useState(4);
     const [newItemForm, setShowItemForm] = useState(false);
     const [{ isDragging }, drag] = useDrag({
         type: "item",
@@ -48,8 +49,19 @@ export function ItemView({
     );
     setAdminItems;
 
-    function changeRating(newRating: number) {
-        setRating(newRating);
+    function changeRating(selectedRating: number) {
+        if (
+            sessionStorage.getItem("Role") === "Super" ||
+            sessionStorage.getItem("Role") === "Admin"
+        ) {
+            setRating(selectedRating);
+            const updatedItems = items.map((item) =>
+                item.id === anItem.id
+                    ? { ...item, rating: selectedRating }
+                    : item
+            );
+            setItems(updatedItems);
+        }
     }
 
     function showItemForm() {
