@@ -112,7 +112,7 @@ export const cherryBlossomTree: Item = {
     id: 6,
     name: "Cherry Blossom",
     description:
-        "There are the prettiest kinds of trees out there! But blink and the flowers will be gone without a trace...",
+        "These are the prettiest kinds of trees out there! But blink and the flowers will be gone without a trace...",
     image: CherryBlossom,
     quantity: 1,
     maintenanceLevel: 2,
